@@ -1,0 +1,68 @@
+
+curl -XDELETE http://logging.d-201603244.ufsc.br:9200/logstash-*
+
+
+#BindingService
+docker $(./host-opts.sh 150.162.6.63:2376) service remove binding-service
+
+docker $(./host-opts.sh 150.162.6.63:2376) service create --name binding-service --hostname="{{.Service.Name}}{{.Task.Slot}}" --replicas 2 --endpoint-mode dnsrr --network cluster --with-registry-auth d-201603244.ufsc.br/binding-impl:latest 
+
+#ExecutionService
+docker $(./host-opts.sh 150.162.6.63:2376) service remove execution-service
+
+docker $(./host-opts.sh 150.162.6.63:2376) service create --name execution-service --hostname="{{.Service.Name}}{{.Task.Slot}}" --replicas 2 --endpoint-mode dnsrr --network cluster --with-registry-auth d-201603244.ufsc.br/bpel-impl:latest 
+
+
+
+#BindingService HA-Proxy
+docker $(./host-opts.sh 150.162.6.63:2376) service remove binding-service-haproxy 
+
+docker $(./host-opts.sh 150.162.6.63:2376) service create --name binding-service-haproxy --hostname="{{.Service.Name}}{{.Task.Slot}}" --replicas 1  --publish published=9000,target=80 --network cluster --with-registry-auth d-201603244.ufsc.br/bindingservice-haproxy:latest 
+
+
+#ExecutionService HA-Proxy
+docker $(./host-opts.sh 150.162.6.63:2376) service remove execution-service-haproxy 
+
+docker $(./host-opts.sh 150.162.6.63:2376) service create --name execution-service-haproxy --hostname="{{.Service.Name}}{{.Task.Slot}}" --replicas 1  --publish published=7000,target=80 --network cluster --with-registry-auth d-201603244.ufsc.br/executionservice-haproxy:latest 
+
+#Update
+docker $(./host-opts.sh 150.162.6.63:2376) service update --force execution-service
+docker $(./host-opts.sh 150.162.6.63:2376) service update --force binding-service
+
+
+
+#Stacks
+docker $(./host-opts.sh 150.162.6.63:2376) stack rm s1
+docker $(./host-opts.sh 150.162.6.63:2376) stack deploy --prune --with-registry-auth -c ../architecture/bootstrap/docker_compose/docker-compose.yml s1
+
+
+DOCKER_OPTS="-H tcp://150.162.6.131:2376" ./recreate-container.sh jms-broker
+
+curl -XDELETE http://logging.d-201603244.ufsc.br:9200/logstash-*
+
+docker $(./host-opts.sh 150.162.6.63:2376) stack rm s1 ; sleep 5
+docker $(./host-opts.sh 150.162.6.63:2376) stack deploy --prune --with-registry-auth -c ../architecture/bootstrap/docker_compose/docker-compose3.yml s1
+
+#Cleanup
+curl -XDELETE http://logging.d-201603244.ufsc.br:9200/logstash-*
+
+curl -X POST "http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query" -H 'Content-Type: application/json' -d '{"query":{"term":{"executionId.keyword":"exp2-bs2-exs2-rs2"}}}'
+
+curl -X POST "http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query" -H 'Content-Type: application/json' -d '{"query":{"term":{"executionId.keyword":"exp4-bs1-exs1-rs1"}}}'
+curl -X POST "http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query" -H 'Content-Type: application/json' -d '{"query":{"term":{"executionId.keyword":"exp4-bs1-exs1-rs2"}}}'
+curl -X POST "http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query" -H 'Content-Type: application/json' -d '{"query":{"term":{"executionId.keyword":"exp4-bs2-exs1-rs1"}}}'
+curl -X POST "http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query" -H 'Content-Type: application/json' -d '{"query":{"term":{"executionId.keyword":"exp4-bs2-exs2-rs1"}}}'
+curl -X POST "http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query" -H 'Content-Type: application/json' -d '{"query":{"term":{"executionId.keyword":"exp4-bs2-exs2-rs2"}}}'
+
+curl -X POST "http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query" -H 'Content-Type: application/json' -d '{"query":{"term":{"PROGRAM.keyword":"discovery-service"}}}'
+
+docker $(./host-opts.sh 150.162.6.131:2376) container prune -f ; docker $(./host-opts.sh 150.162.6.133:2376) container  prune -f ; docker $(./host-opts.sh 150.162.6.63:2376) container prune -f ; docker $(./host-opts.sh 150.162.6.194:2376) container  prune -f ; docker $(./host-opts.sh 150.162.6.15:2376) container  prune -f
+
+docker $(./host-opts.sh 150.162.6.131:2376) image prune -af ; docker $(./host-opts.sh 150.162.6.133:2376) image prune -af ; docker $(./host-opts.sh 150.162.6.63:2376) image prune -af ; docker $(./host-opts.sh 150.162.6.194:2376) image prune -af ; docker $(./host-opts.sh 150.162.6.15:2376) image prune -af
+
+docker $(./host-opts.sh 150.162.1.46:2376) container  prune -f ; docker $(./host-opts.sh 150.162.1.88:2376) container  prune -f ; docker $(./host-opts.sh 150.162.1.46:2376) image prune -af ; docker $(./host-opts.sh 150.162.1.88:2376) image prune -af 
+
+
+#Docker Swarm
+docker swarm join --token SWMTKN-1-64mq4mxos88cfdbtk6puzzd2zf2h4tx5qz0qx25aon5cfolua9-91j65j0z6eo7tefbn1k66cof0 150.162.6.63:2377
+

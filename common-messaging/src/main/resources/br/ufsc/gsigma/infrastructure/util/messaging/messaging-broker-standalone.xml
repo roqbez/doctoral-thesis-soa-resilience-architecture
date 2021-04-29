@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:broker="http://activemq.apache.org/schema/core" xmlns:amq="http://activemq.apache.org/schema/core"
+	xsi:schemaLocation="
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+         http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
+         ">
+
+	<context:property-placeholder system-properties-mode="OVERRIDE" />
+
+	<bean id="jmsProps" class="br.ufsc.gsigma.infrastructure.util.messaging.JmsBrokerProperties" />
+
+	<amq:broker id="jmsBroker" brokerName="jmsbroker_#{jmsProps.brokerName}" schedulerSupport="true" dataDirectory="${jms.data.dir}">
+		<amq:destinationPolicy>
+			<amq:policyMap>
+				<amq:policyEntries>
+					<amq:policyEntry topic=">" prioritizedMessages="true" producerFlowControl="false" />
+				</amq:policyEntries>
+			</amq:policyMap>
+		</amq:destinationPolicy>
+		<amq:managementContext>
+			<amq:managementContext createConnector="false" />
+		</amq:managementContext>
+		<amq:persistenceAdapter>
+			<amq:kahaDB directory="${jms.data.kahadb.dir}" checkForCorruptJournalFiles="true" />
+		</amq:persistenceAdapter>
+		<amq:plugins>
+			<amq:redeliveryPlugin />
+		</amq:plugins>
+		<amq:transportConnectors>
+			<!-- <amq:transportConnector uri="${jms.broker.url:vm://localhost}" discoveryUri="multicast://default" /> -->
+			<amq:transportConnector uri="${jms.broker.url}" allowLinkStealing="true" />
+		</amq:transportConnectors>
+	</amq:broker>
+
+</beans>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse" targetNamespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse"
+	xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse" xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse">
+			<xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+			<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2" schemaLocation="xsd/ubl/maindoc/UBL-ApplicationResponse-2.0.xsd" />
+			<xsd:element name="validateResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="inputDecision" nillable="true" type="xsd:string" />
+						<xsd:element name="inputApplicationResponse" nillable="true" type="ns1:ApplicationResponseType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="validateResponseResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="outputDecision" nillable="true" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="validateResponseAsync">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="inputDecision" nillable="true" type="xsd:string" />
+						<xsd:element name="inputApplicationResponse" nillable="true" type="ns1:ApplicationResponseType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="validateResponseAsyncCallback">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="outputDecision" nillable="true" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="validateResponseAsyncCallbackResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="alive">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="aliveResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="output" nillable="true" type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="validateResponseRequestMsg">
+		<wsdl:part element="tns:validateResponse" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="validateResponseResponseMsg">
+		<wsdl:part element="tns:validateResponseResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="validateResponseAsyncRequestMsg">
+		<wsdl:part element="tns:validateResponseAsync" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="validateResponseAsyncCallbackRequestMsg">
+		<wsdl:part element="tns:validateResponseAsyncCallback" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="validateResponseAsyncCallbackResponseMsg">
+		<wsdl:part element="tns:validateResponseAsyncCallbackResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="aliveRequestMsg">
+		<wsdl:part element="tns:alive" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="aliveResponseMsg">
+		<wsdl:part element="tns:aliveResponse" name="payload" />
+	</wsdl:message>
+	<wsdl:portType name="UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse">
+		<wsdl:operation name="validateResponse">
+			<wsdl:input message="tns:validateResponseRequestMsg" name="validateResponseRequest" />
+			<wsdl:output message="tns:validateResponseResponseMsg" name="validateResponseResponse" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="validateResponseAsync">
+			<wsdl:input message="tns:validateResponseAsyncRequestMsg" name="validateResponseAsyncRequest" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+			<wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponseServiceBinding" type="tns:UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="validateResponse">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse/validateResponse" />
+			<wsdl:input name="validateResponseRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="validateResponseResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="validateResponseAsync">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse/validateResponseAsync" />
+			<wsdl:input name="validateResponseAsyncRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse/alive" />
+			<wsdl:input name="aliveRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="aliveResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponseService">
+		<wsdl:port name="UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponseServicePort" binding="tns:UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponseServiceBinding">
+			<soap:address location="http://localhost:8082/services/ubl/billingwithcreditnote/accountingSupplier/validateResponse" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

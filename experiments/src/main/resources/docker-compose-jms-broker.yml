@@ -1,0 +1,21 @@
+version: "3.6"
+
+services:
+
+#JMS Broker
+    broker:
+        image: d-201603244.ufsc.br/jms-broker:latest
+        environment:
+            JAVA_OPTS: "-Xmx2048m"
+            JAVA_JMX: "1"
+            JMX_PORT: "61636"
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.hostname == drroque
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        ports:
+            - "61616:61616"
+            - "61636:61636"

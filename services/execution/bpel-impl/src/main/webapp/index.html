@@ -1,0 +1,37 @@
+<!doctype html>
+<html class="no-js" ng-app="odeConsole">
+  <head>
+    <meta charset="utf-8">
+    <title>Apache ODE Console</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+
+    <link rel="stylesheet" href="styles/app.css">
+
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <toast></toast>
+    <div ng-include="'components/navbar/navbar.html'"></div>
+
+    <div ng-view></div>
+
+    <script>
+        /** configure ODE console here: */
+        var ApacheOdeConsole = {
+          endpoint: '' // put ODE's root URL here, e.g. "http://myhost:myport/ode" -- defaults to host/path opened in the browser.
+        }
+    </script>
+
+    <script src="scripts/vendor.js"></script>
+
+    <script src="scripts/app.js"></script>
+
+  </body>
+</html>

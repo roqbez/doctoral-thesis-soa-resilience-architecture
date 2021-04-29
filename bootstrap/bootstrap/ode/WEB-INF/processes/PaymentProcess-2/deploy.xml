@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" 
+	xmlns:pns="http://my.ubl.oasis.services/paymentprocess"
+	xmlns:discoveryService="http://gsigma.ufsc.br/serviceDiscovery"
+	xmlns:accountingSupplier_receiveAdvice="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/receiveAdvice"
+	xmlns:accountingSupplier_notifyPayee="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee"
+	xmlns:payeeParty_receiveAdvice="http://ubl.oasis.services/payment/paymentprocess/payeeParty/receiveAdvice"
+	xmlns:accountingCustomer_notifyOfPayment="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/notifyOfPayment"
+	xmlns:accountingCustomer_authorizePayment="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment"
+>
+	
+	<process name="pns:PaymentProcess">
+		<!--<property name="PATH">PaymentProcess</property>-->
+		<!--<in-memory>true</in-memory>-->
+		<active>true</active>
+		<provide partnerLink="PaymentProcess">
+			<service name="pns:PaymentProcessService" port="PaymentProcessServicePort" />
+		</provide>
+		<invoke partnerLink="DiscoveryService_Partner">
+			<service name="discoveryService:DiscoveryService" port="DiscoveryServicePort" />
+		</invoke>
+		<invoke partnerLink="UBL_PaymentProcess_AccountingSupplier_ReceiveAdvice_Partner">
+			<service name="accountingSupplier_receiveAdvice:UBL_PaymentProcess_AccountingSupplier_ReceiveAdviceService" port="UBL_PaymentProcess_AccountingSupplier_ReceiveAdviceServicePort" />
+		</invoke>
+		<invoke partnerLink="UBL_PaymentProcess_AccountingSupplier_NotifyPayee_Partner">
+			<service name="accountingSupplier_notifyPayee:UBL_PaymentProcess_AccountingSupplier_NotifyPayeeService" port="UBL_PaymentProcess_AccountingSupplier_NotifyPayeeServicePort" />
+		</invoke>
+		<invoke partnerLink="UBL_PaymentProcess_PayeeParty_ReceiveAdvice_Partner">
+			<service name="payeeParty_receiveAdvice:UBL_PaymentProcess_PayeeParty_ReceiveAdviceService" port="UBL_PaymentProcess_PayeeParty_ReceiveAdviceServicePort" />
+		</invoke>
+		<invoke partnerLink="UBL_PaymentProcess_AccountingCustomer_NotifyOfPayment_Partner">
+			<service name="accountingCustomer_notifyOfPayment:UBL_PaymentProcess_AccountingCustomer_NotifyOfPaymentService" port="UBL_PaymentProcess_AccountingCustomer_NotifyOfPaymentServicePort" />
+		</invoke>
+		<invoke partnerLink="UBL_PaymentProcess_AccountingCustomer_AuthorizePayment_Partner">
+			<service name="accountingCustomer_authorizePayment:UBL_PaymentProcess_AccountingCustomer_AuthorizePaymentService" port="UBL_PaymentProcess_AccountingCustomer_AuthorizePaymentServicePort" />
+		</invoke>
+	</process>
+
+</deploy>

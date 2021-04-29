@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="false" 
+  realizations="false" associations="true" dependencies="false" nesting-relationships="false" router="FAN">  
+  <class id="1" language="java" 
+    name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanProcessInstanceDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanProcessInstanceDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="689" y="494"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanEventDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanEventDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="301" y="236"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" 
+    name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanBpelDAOConnectionFactory" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanBpelDAOConnectionFactory.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="603" y="133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" 
+    name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanMessageRouteDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanMessageRouteDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="398" y="395"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanFaultDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanFaultDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="540" y="597"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanIdGen" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanIdGen.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="706" y="310"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" 
+    name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanMessageExchangeDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanMessageExchangeDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1288" y="264"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanXmlDataDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanXmlDataDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1569" y="142"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanScopeDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanScopeDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1569" y="39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" 
+    name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanBpelDAOConnection" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanBpelDAOConnection.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="367" y="39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" 
+    name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanCorrelationSetDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanCorrelationSetDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1867" y="142"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" 
+    name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanActivityRecoveryDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanActivityRecoveryDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="838" y="597"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanMessageDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanMessageDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="69" width="377" x="1130" y="400"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" 
+    name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanPartnerLinkDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanPartnerLinkDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1271" y="142"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" 
+    name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanCorrelatorDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanCorrelatorDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="675" y="39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="br.ufsc.gsigma.services.execution.bpel.impl.infinispan.bpel.InfinispanProcessDAO" 
+    project="br.ufsc.gsigma.services.execution.bpel.impl" 
+    file="/br.ufsc.gsigma.services.execution.bpel.impl/src/main/java/br/ufsc/gsigma/services/execution/bpel/impl/infinispan/bpel/InfinispanProcessDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="973" y="39"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <association id="17">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="18" name="partnerLink"/>      
+      <multiplicity id="19" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="20">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="21" name="eprs"/>      
+      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="23">    
+    <bendpoint x="1471" y="354"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="24" name="responseMessage"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="27" name="correlations"/>      
+      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="30" name="INSTANCE"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="33" name="fault"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="36" name="variables"/>      
+      <multiplicity id="37" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="38">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="39" name="recoveries"/>      
+      <multiplicity id="40" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="41">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="42" name="INSTANCE"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <association id="44">    
+    <bendpoint x="1169" y="326"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="45" name="requestMessage"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="false"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="false" package="false" protected="false" private="false" static="true"/>    
+    <operations public="false" package="false" protected="false" private="false" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="false"/>
+</class-diagram>

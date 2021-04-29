@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_PaymentProcess_AccountingSupplier_NotifyPayee" targetNamespace="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee"
+   xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2"
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee" xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee">
+         <xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2" schemaLocation="xsd/ubl/maindoc/UBL-RemittanceAdvice-2.0.xsd" />
+         <xsd:element name="notifyPayee">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="input" nillable="true" type="ns1:RemittanceAdviceType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="notifyPayeeResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="ns1:RemittanceAdviceType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="notifyPayeeAsync">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="input" nillable="true" type="ns1:RemittanceAdviceType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="notifyPayeeAsyncCallback">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="output" nillable="true" type="ns1:RemittanceAdviceType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="notifyPayeeAsyncCallbackResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="alive">
+            <xsd:complexType>
+               <xsd:sequence />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aliveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="notifyPayeeRequestMsg">
+      <wsdl:part element="tns:notifyPayee" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="notifyPayeeResponseMsg">
+      <wsdl:part element="tns:notifyPayeeResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="notifyPayeeAsyncRequestMsg">
+      <wsdl:part element="tns:notifyPayeeAsync" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="notifyPayeeAsyncCallbackRequestMsg">
+      <wsdl:part element="tns:notifyPayeeAsyncCallback" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="notifyPayeeAsyncCallbackResponseMsg">
+      <wsdl:part element="tns:notifyPayeeAsyncCallbackResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="aliveRequestMsg">
+      <wsdl:part element="tns:alive" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="aliveResponseMsg">
+      <wsdl:part element="tns:aliveResponse" name="payload" />
+   </wsdl:message>
+   <wsdl:portType name="UBL_PaymentProcess_AccountingSupplier_NotifyPayee">
+      <wsdl:operation name="notifyPayee">
+         <wsdl:input message="tns:notifyPayeeRequestMsg" name="notifyPayeeRequest" />
+         <wsdl:output message="tns:notifyPayeeResponseMsg" name="notifyPayeeResponse" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="notifyPayeeAsync">
+         <wsdl:input message="tns:notifyPayeeAsyncRequestMsg" name="notifyPayeeAsyncRequest" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+         <wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="UBL_PaymentProcess_AccountingSupplier_NotifyPayeeServiceBinding" type="tns:UBL_PaymentProcess_AccountingSupplier_NotifyPayee">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="notifyPayee">
+         <soap:operation soapAction="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee/notifyPayee" />
+         <wsdl:input name="notifyPayeeRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="notifyPayeeResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="notifyPayeeAsync">
+         <soap:operation soapAction="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/notifyPayee/notifyPayeeAsync" />
+         <wsdl:input name="notifyPayeeAsyncRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <soap:operation soapAction="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee/alive" />
+         <wsdl:input name="aliveRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="aliveResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="UBL_PaymentProcess_AccountingSupplier_NotifyPayeeService">
+      <wsdl:port name="UBL_PaymentProcess_AccountingSupplier_NotifyPayeeServicePort" binding="tns:UBL_PaymentProcess_AccountingSupplier_NotifyPayeeServiceBinding">
+         <soap:address location="http://192.168.0.14:8082/services/ubl/paymentprocess/accountingSupplier/notifyPayee" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

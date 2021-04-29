@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction" targetNamespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction"
+   xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2"
+   xmlns:ns2="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction" xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction">
+         <xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2" schemaLocation="xsd/ubl/maindoc/UBL-Catalogue-2.0.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2" schemaLocation="xsd/ubl/maindoc/UBL-ApplicationResponse-2.0.xsd" />
+         <xsd:element name="decideOnAction">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="inputCatalogue" nillable="true" type="ns1:CatalogueType" />
+                  <xsd:element name="inputApplicationResponse" nillable="true" type="ns2:ApplicationResponseType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="decideOnActionResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="outputDocument" nillable="true" type="ns1:CatalogueType" />
+                  <xsd:element name="outputDecision" nillable="true" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="decideOnActionAsync">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="inputCatalogue" nillable="true" type="ns1:CatalogueType" />
+                  <xsd:element name="inputApplicationResponse" nillable="true" type="ns2:ApplicationResponseType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="decideOnActionAsyncCallback">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="outputDocument" nillable="true" type="ns1:CatalogueType" />
+                  <xsd:element name="outputDecision" nillable="true" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="decideOnActionAsyncCallbackResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="alive">
+            <xsd:complexType>
+               <xsd:sequence />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aliveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="decideOnActionRequestMsg">
+      <wsdl:part element="tns:decideOnAction" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="decideOnActionResponseMsg">
+      <wsdl:part element="tns:decideOnActionResponse" name="payload" />
+   </wsdl:message>
+      <!-- Async -->
+   <wsdl:message name="decideOnActionAsyncRequestMsg">
+      <wsdl:part element="tns:decideOnActionAsync" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="decideOnActionAsyncCallbackRequestMsg">
+      <wsdl:part element="tns:decideOnActionAsyncCallback" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="decideOnActionAsyncCallbackResponseMsg">
+      <wsdl:part element="tns:decideOnActionAsyncCallbackResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="aliveRequestMsg">
+      <wsdl:part element="tns:alive" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="aliveResponseMsg">
+      <wsdl:part element="tns:aliveResponse" name="payload" />
+   </wsdl:message>
+   <wsdl:portType name="UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction">
+      <wsdl:operation name="decideOnAction">
+         <wsdl:input message="tns:decideOnActionRequestMsg" name="decideOnActionRequest" />
+         <wsdl:output message="tns:decideOnActionResponseMsg" name="decideOnActionResponse" />
+      </wsdl:operation>
+            <!-- Async -->
+      <wsdl:operation name="decideOnActionAsync">
+         <wsdl:input message="tns:decideOnActionAsyncRequestMsg" name="decideOnActionAsyncRequest" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+         <wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="UBL_CreateCatalogueProcess_ProviderParty_DecideOnActionServiceBinding" type="tns:UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="decideOnAction">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction/decideOnAction" />
+         <wsdl:input name="decideOnActionRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="decideOnActionResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+            <!-- Async -->
+      <wsdl:operation name="decideOnActionAsync">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction/decideOnActionAsync" />
+         <wsdl:input name="decideOnActionAsyncRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction/alive" />
+         <wsdl:input name="aliveRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="aliveResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="UBL_CreateCatalogueProcess_ProviderParty_DecideOnActionService">
+      <wsdl:port name="UBL_CreateCatalogueProcess_ProviderParty_DecideOnActionServicePort" binding="tns:UBL_CreateCatalogueProcess_ProviderParty_DecideOnActionServiceBinding">
+         <soap:address location="http://localhost:8082/services/ubl/createcatalogueprocess/providerParty/decideOnAction" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

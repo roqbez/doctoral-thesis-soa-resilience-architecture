@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<save_tModel xmlns="urn:uddi-org:api_v3">
+
+	<tModel tModelKey="uddi:gsigma.ufsc.br:uddi:uddiserviceprovider">
+		<name>gsigma-ufsc-br:uddi:uddiserviceprovider</name>
+		<description>An UDDI Service Provider</description>
+	</tModel>
+
+	<tModel tModelKey="uddi:gsigma.ufsc.br:uddi:processexecutionservice">
+		<name>gsigma.ufsc.br:uddi:processexecutionservice</name>
+		<description>A Process Execution Service</description>
+	</tModel>
+
+	<tModel tModelKey="uddi:gsigma.ufsc.br:uddi:processexecutionservice-bpel">
+		<name>gsigma.ufsc.br:uddi:processexecutionservice-bpel</name>
+		<description>A BPEL Process Execution Service</description>
+	</tModel>
+
+
+</save_tModel>

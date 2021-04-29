@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions name="BillingwithCreditNoteProcess" targetNamespace="http://my.ubl.oasis.services/billingwithcreditnoteprocess"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/varprop"  
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://my.ubl.oasis.services/billingwithcreditnoteprocess" 
+	xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" 
+	xmlns:accountingSupplier_raiseCreditNote="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote"
+	xmlns:accountingCustomer_receiveInvoice="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice"
+	xmlns:accountingCustomer_reconcileCharges="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges"
+	xmlns:accountingSupplier_reconcileCharges="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges"
+	xmlns:accountingCustomer_acceptCredit="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit"
+	xmlns:accountingSupplier_raiseInvoice="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice"
+	xmlns:accountingSupplier_receiveAccountResponse="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse"
+	xmlns:accountingCustomer_receiveCreditNote="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote"
+	xmlns:accountingCustomer_acceptCharges="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges"
+	xmlns:accountingCustomer_sendAccountResponse="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse"
+	xmlns:accountingSupplier_validateResponse="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<import location="UBL_BillingWithCreditNote_AccountingSupplier_RaiseCreditNote.wsdl" namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote"/>
+	<import location="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveInvoice.wsdl" namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice"/>
+	<import location="UBL_BillingWithCreditNote_AccountingCustomer_ReconcileCharges.wsdl" namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges"/>
+	<import location="UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges.wsdl" namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges"/>
+	<import location="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit.wsdl" namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit"/>
+	<import location="UBL_BillingWithCreditNote_AccountingSupplier_RaiseInvoice.wsdl" namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice"/>
+	<import location="UBL_BillingWithCreditNote_AccountingSupplier_ReceiveAccountResponse.wsdl" namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse"/>
+	<import location="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveCreditNote.wsdl" namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote"/>
+	<import location="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCharges.wsdl" namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges"/>
+	<import location="UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse.wsdl" namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse"/>
+	<import location="UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse.wsdl" namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse"/>
+
+	<plnk:partnerLinkType name="UBL_BillingWithCreditNote_AccountingSupplier_RaiseCreditNote">
+		<plnk:role name="Reference" portType="accountingSupplier_raiseCreditNote:UBL_BillingWithCreditNote_AccountingSupplier_RaiseCreditNote" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveInvoice">
+		<plnk:role name="Reference" portType="accountingCustomer_receiveInvoice:UBL_BillingWithCreditNote_AccountingCustomer_ReceiveInvoice" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_BillingWithCreditNote_AccountingCustomer_ReconcileCharges">
+		<plnk:role name="Reference" portType="accountingCustomer_reconcileCharges:UBL_BillingWithCreditNote_AccountingCustomer_ReconcileCharges" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges">
+		<plnk:role name="Reference" portType="accountingSupplier_reconcileCharges:UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit">
+		<plnk:role name="Reference" portType="accountingCustomer_acceptCredit:UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_BillingWithCreditNote_AccountingSupplier_RaiseInvoice">
+		<plnk:role name="Reference" portType="accountingSupplier_raiseInvoice:UBL_BillingWithCreditNote_AccountingSupplier_RaiseInvoice" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_BillingWithCreditNote_AccountingSupplier_ReceiveAccountResponse">
+		<plnk:role name="Reference" portType="accountingSupplier_receiveAccountResponse:UBL_BillingWithCreditNote_AccountingSupplier_ReceiveAccountResponse" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveCreditNote">
+		<plnk:role name="Reference" portType="accountingCustomer_receiveCreditNote:UBL_BillingWithCreditNote_AccountingCustomer_ReceiveCreditNote" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCharges">
+		<plnk:role name="Reference" portType="accountingCustomer_acceptCharges:UBL_BillingWithCreditNote_AccountingCustomer_AcceptCharges" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse">
+		<plnk:role name="Reference" portType="accountingCustomer_sendAccountResponse:UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse">
+		<plnk:role name="Reference" portType="accountingSupplier_validateResponse:UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse" />
+	</plnk:partnerLinkType>
+
+	<types>
+		<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://my.ubl.oasis.services/billingwithcreditnoteprocess">
+
+			<xsd:element name="BillingwithCreditNoteProcessRequest">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="BillingwithCreditNoteProcessResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="message" type="xsd:string"/>
+						<xsd:element name="processId" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:schema>
+	</types>
+
+	<message name="BillingwithCreditNoteProcessRequestMessage">
+		<part element="tns:BillingwithCreditNoteProcessRequest" name="payload" />
+	</message>
+	<message name="BillingwithCreditNoteProcessResponseMessage">
+		<part element="tns:BillingwithCreditNoteProcessResponse" name="payload" />
+	</message>
+
+	<portType name="BillingwithCreditNoteProcess">
+		<operation name="execute">
+			<input message="tns:BillingwithCreditNoteProcessRequestMessage" />
+			<output message="tns:BillingwithCreditNoteProcessResponseMessage" />
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_acceptcharges1_callback">
+			<input message="accountingCustomer_acceptCharges:acceptChargesAsyncCallbackRequestMsg" name="output_accountingCustomer_acceptCharges1"/>
+			<output message="accountingCustomer_acceptCharges:acceptChargesAsyncCallbackResponseMsg" name="output_accountingCustomer_acceptCharges1_callback"/>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_acceptcredit1_callback">
+			<input message="accountingCustomer_acceptCredit:acceptCreditAsyncCallbackRequestMsg" name="output_accountingCustomer_acceptCredit1"/>
+			<output message="accountingCustomer_acceptCredit:acceptCreditAsyncCallbackResponseMsg" name="output_accountingCustomer_acceptCredit1_callback"/>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1_callback">
+			<input message="accountingCustomer_reconcileCharges:reconcileChargesAsyncCallbackRequestMsg" name="output_accountingCustomer_reconcileCharges1"/>
+			<output message="accountingCustomer_reconcileCharges:reconcileChargesAsyncCallbackResponseMsg" name="output_accountingCustomer_reconcileCharges1_callback"/>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1_callback">
+			<input message="accountingSupplier_reconcileCharges:reconcileChargesAsyncCallbackRequestMsg" name="output_accountingSupplier_reconcileCharges1"/>
+			<output message="accountingSupplier_reconcileCharges:reconcileChargesAsyncCallbackResponseMsg" name="output_accountingSupplier_reconcileCharges1_callback"/>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1_callback">
+			<input message="accountingSupplier_raiseCreditNote:raiseCreditNoteAsyncCallbackRequestMsg" name="output_accountingSupplier_raiseCreditNote1"/>
+			<output message="accountingSupplier_raiseCreditNote:raiseCreditNoteAsyncCallbackResponseMsg" name="output_accountingSupplier_raiseCreditNote1_callback"/>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1_callback">
+			<input message="accountingSupplier_raiseInvoice:raiseInvoiceAsyncCallbackRequestMsg" name="output_accountingSupplier_raiseInvoice1"/>
+			<output message="accountingSupplier_raiseInvoice:raiseInvoiceAsyncCallbackResponseMsg" name="output_accountingSupplier_raiseInvoice1_callback"/>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1_callback">
+			<input message="accountingSupplier_receiveAccountResponse:receiveAccountResponseAsyncCallbackRequestMsg" name="output_accountingSupplier_receiveAccountResponse1"/>
+			<output message="accountingSupplier_receiveAccountResponse:receiveAccountResponseAsyncCallbackResponseMsg" name="output_accountingSupplier_receiveAccountResponse1_callback"/>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1_callback">
+			<input message="accountingCustomer_receiveCreditNote:receiveCreditNoteAsyncCallbackRequestMsg" name="output_accountingCustomer_receiveCreditNote1"/>
+			<output message="accountingCustomer_receiveCreditNote:receiveCreditNoteAsyncCallbackResponseMsg" name="output_accountingCustomer_receiveCreditNote1_callback"/>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1_callback">
+			<input message="accountingCustomer_receiveInvoice:receiveInvoiceAsyncCallbackRequestMsg" name="output_accountingCustomer_receiveInvoice1"/>
+			<output message="accountingCustomer_receiveInvoice:receiveInvoiceAsyncCallbackResponseMsg" name="output_accountingCustomer_receiveInvoice1_callback"/>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1_callback">
+			<input message="accountingCustomer_sendAccountResponse:sendAccountResponseAsyncCallbackRequestMsg" name="output_accountingCustomer_sendAccountResponse1"/>
+			<output message="accountingCustomer_sendAccountResponse:sendAccountResponseAsyncCallbackResponseMsg" name="output_accountingCustomer_sendAccountResponse1_callback"/>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingsupplier_validateresponse1_callback">
+			<input message="accountingSupplier_validateResponse:validateResponseAsyncCallbackRequestMsg" name="output_accountingSupplier_validateResponse1"/>
+			<output message="accountingSupplier_validateResponse:validateResponseAsyncCallbackResponseMsg" name="output_accountingSupplier_validateResponse1_callback"/>
+		</operation>
+	</portType>
+
+	<plnk:partnerLinkType name="BillingwithCreditNoteProcess">
+		<plnk:role name="Interface" portType="tns:BillingwithCreditNoteProcess" />
+	</plnk:partnerLinkType>
+
+	<binding name="BillingwithCreditNoteProcessBinding" type="tns:BillingwithCreditNoteProcess">
+
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="execute">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/execute" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_acceptcharges1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_acceptcharges1" />
+			<input name="output_accountingCustomer_acceptCharges1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingCustomer_acceptCharges1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_acceptcredit1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_acceptcredit1" />
+			<input name="output_accountingCustomer_acceptCredit1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingCustomer_acceptCredit1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1" />
+			<input name="output_accountingCustomer_reconcileCharges1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingCustomer_reconcileCharges1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1" />
+			<input name="output_accountingSupplier_reconcileCharges1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingSupplier_reconcileCharges1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1" />
+			<input name="output_accountingSupplier_raiseCreditNote1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingSupplier_raiseCreditNote1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1" />
+			<input name="output_accountingSupplier_raiseInvoice1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingSupplier_raiseInvoice1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1" />
+			<input name="output_accountingSupplier_receiveAccountResponse1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingSupplier_receiveAccountResponse1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1" />
+			<input name="output_accountingCustomer_receiveCreditNote1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingCustomer_receiveCreditNote1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1" />
+			<input name="output_accountingCustomer_receiveInvoice1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingCustomer_receiveInvoice1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1" />
+			<input name="output_accountingCustomer_sendAccountResponse1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingCustomer_sendAccountResponse1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_billingwithcreditnote_accountingsupplier_validateresponse1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_validateresponse1" />
+			<input name="output_accountingSupplier_validateResponse1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingSupplier_validateResponse1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	
+
+	<service name="BillingwithCreditNoteProcessService">
+		<port binding="tns:BillingwithCreditNoteProcessBinding" name="BillingwithCreditNoteProcessServicePort">
+			<soap:address location="http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess" />
+		</port>
+	</service>
+	
+	<bpws:property name="processId" type="xsd:string" />
+	
+	<bpws:propertyAlias propertyName="tns:processId" messageType="tns:BillingwithCreditNoteProcessResponseMessage" part="payload">
+		<bpws:query><![CDATA[/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingCustomer_acceptCharges:acceptChargesAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingCustomer_acceptCredit:acceptCreditAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingCustomer_reconcileCharges:reconcileChargesAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingSupplier_reconcileCharges:reconcileChargesAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingSupplier_raiseCreditNote:raiseCreditNoteAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingSupplier_raiseInvoice:raiseInvoiceAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingSupplier_receiveAccountResponse:receiveAccountResponseAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingCustomer_receiveCreditNote:receiveCreditNoteAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingCustomer_receiveInvoice:receiveInvoiceAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingCustomer_sendAccountResponse:sendAccountResponseAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingSupplier_validateResponse:validateResponseAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+</definitions>

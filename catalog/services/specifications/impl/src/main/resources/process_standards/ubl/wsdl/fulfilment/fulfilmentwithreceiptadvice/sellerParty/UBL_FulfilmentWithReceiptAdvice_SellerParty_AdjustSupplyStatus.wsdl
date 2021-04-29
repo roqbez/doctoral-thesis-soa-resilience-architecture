@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus" targetNamespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus"
+	xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:ReceiptAdvice-2"
+	xmlns:ns2="urn:oasis:names:specification:ubl:schema:xsd:Order-2" xmlns:ns3="urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2" xmlns:ns4="urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus">
+			<xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+			<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:ReceiptAdvice-2" schemaLocation="xsd/ubl/maindoc/UBL-ReceiptAdvice-2.0.xsd" />
+			<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:Order-2" schemaLocation="xsd/ubl/maindoc/UBL-Order-2.0.xsd" />
+			<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2" schemaLocation="xsd/ubl/maindoc/UBL-OrderChange-2.0.xsd" />
+			<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2" schemaLocation="xsd/ubl/maindoc/UBL-OrderCancellation-2.0.xsd" />
+			<xsd:element name="adjustSupplyStatus">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="inputReceiptAdvice" nillable="true" type="ns1:ReceiptAdviceType" />
+						<xsd:element name="inputOrder" nillable="true" type="ns2:OrderType" />
+						<xsd:element name="inputOrderChange" nillable="true" type="ns3:OrderChangeType" />
+						<xsd:element name="inputOrderCancellation" nillable="true" type="ns4:OrderCancellationType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="adjustSupplyStatusResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="output" nillable="true" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alive">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="adjustSupplyStatusAsync">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="inputReceiptAdvice" nillable="true" type="ns1:ReceiptAdviceType" />
+						<xsd:element name="inputOrder" nillable="true" type="ns2:OrderType" />
+						<xsd:element name="inputOrderChange" nillable="true" type="ns3:OrderChangeType" />
+						<xsd:element name="inputOrderCancellation" nillable="true" type="ns4:OrderCancellationType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="adjustSupplyStatusAsyncCallback">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="output" nillable="true" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="adjustSupplyStatusAsyncCallbackResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="aliveResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="output" nillable="true" type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="adjustSupplyStatusRequestMsg">
+		<wsdl:part element="tns:adjustSupplyStatus" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="adjustSupplyStatusResponseMsg">
+		<wsdl:part element="tns:adjustSupplyStatusResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="adjustSupplyStatusAsyncRequestMsg">
+		<wsdl:part element="tns:adjustSupplyStatusAsync" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="adjustSupplyStatusAsyncCallbackRequestMsg">
+		<wsdl:part element="tns:adjustSupplyStatusAsyncCallback" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="adjustSupplyStatusAsyncCallbackResponseMsg">
+		<wsdl:part element="tns:adjustSupplyStatusAsyncCallbackResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="aliveRequestMsg">
+		<wsdl:part element="tns:alive" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="aliveResponseMsg">
+		<wsdl:part element="tns:aliveResponse" name="payload" />
+	</wsdl:message>
+	<wsdl:portType name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus">
+		<wsdl:operation name="adjustSupplyStatus">
+			<wsdl:input message="tns:adjustSupplyStatusRequestMsg" name="adjustSupplyStatusRequest" />
+			<wsdl:output message="tns:adjustSupplyStatusResponseMsg" name="adjustSupplyStatusResponse" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="adjustSupplyStatusAsync">
+			<wsdl:input message="tns:adjustSupplyStatusAsyncRequestMsg" name="adjustSupplyStatusAsyncRequest" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+			<wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatusServiceBinding" type="tns:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="adjustSupplyStatus">
+			<soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus/adjustSupplyStatus" />
+			<wsdl:input name="adjustSupplyStatusRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="adjustSupplyStatusResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="adjustSupplyStatusAsync">
+			<soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus/adjustSupplyStatusAsync" />
+			<wsdl:input name="adjustSupplyStatusAsyncRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus/alive" />
+			<wsdl:input name="aliveRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="aliveResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatusService">
+		<wsdl:port name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatusServicePort" binding="tns:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatusServiceBinding">
+			<soap:address location="http://localhost:8082/services/ubl/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

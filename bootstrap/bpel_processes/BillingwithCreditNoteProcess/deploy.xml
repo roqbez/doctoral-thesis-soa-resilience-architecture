@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" 
+	xmlns:pns="http://my.ubl.oasis.services/billingwithcreditnoteprocess"
+	xmlns:accountingSupplier_raiseCreditNote="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote"
+	xmlns:accountingCustomer_receiveInvoice="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice"
+	xmlns:accountingCustomer_reconcileCharges="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges"
+	xmlns:accountingSupplier_reconcileCharges="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges"
+	xmlns:accountingCustomer_acceptCredit="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit"
+	xmlns:accountingSupplier_raiseInvoice="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice"
+	xmlns:accountingSupplier_receiveAccountResponse="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse"
+	xmlns:accountingCustomer_receiveCreditNote="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote"
+	xmlns:accountingCustomer_acceptCharges="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges"
+	xmlns:accountingCustomer_sendAccountResponse="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse"
+	xmlns:accountingSupplier_validateResponse="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse"
+>
+	<process name="pns:BillingwithCreditNoteProcess">
+		<in-memory>false</in-memory>
+		<active>true</active>
+		<provide partnerLink="BillingwithCreditNoteProcess">
+			<service name="pns:BillingwithCreditNoteProcessService" port="BillingwithCreditNoteProcessServicePort" />
+		</provide>
+		<invoke partnerLink="UBL_BillingWithCreditNote_AccountingSupplier_RaiseCreditNote_Partner">
+			<service name="accountingSupplier_raiseCreditNote:UBL_BillingWithCreditNote_AccountingSupplier_RaiseCreditNoteService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveInvoice_Partner">
+			<service name="accountingCustomer_receiveInvoice:UBL_BillingWithCreditNote_AccountingCustomer_ReceiveInvoiceService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_ReconcileCharges_Partner">
+			<service name="accountingCustomer_reconcileCharges:UBL_BillingWithCreditNote_AccountingCustomer_ReconcileChargesService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges_Partner">
+			<service name="accountingSupplier_reconcileCharges:UBL_BillingWithCreditNote_AccountingSupplier_ReconcileChargesService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit_Partner">
+			<service name="accountingCustomer_acceptCredit:UBL_BillingWithCreditNote_AccountingCustomer_AcceptCreditService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_BillingWithCreditNote_AccountingSupplier_RaiseInvoice_Partner">
+			<service name="accountingSupplier_raiseInvoice:UBL_BillingWithCreditNote_AccountingSupplier_RaiseInvoiceService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_BillingWithCreditNote_AccountingSupplier_ReceiveAccountResponse_Partner">
+			<service name="accountingSupplier_receiveAccountResponse:UBL_BillingWithCreditNote_AccountingSupplier_ReceiveAccountResponseService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveCreditNote_Partner">
+			<service name="accountingCustomer_receiveCreditNote:UBL_BillingWithCreditNote_AccountingCustomer_ReceiveCreditNoteService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCharges_Partner">
+			<service name="accountingCustomer_acceptCharges:UBL_BillingWithCreditNote_AccountingCustomer_AcceptChargesService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse_Partner">
+			<service name="accountingCustomer_sendAccountResponse:UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponseService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse_Partner">
+			<service name="accountingSupplier_validateResponse:UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponseService" port="notused" />
+		</invoke>
+<!--
+		<cleanup on="always" >
+	            <category>all</category>
+	    </cleanup>
+-->
+	</process>
+
+</deploy>

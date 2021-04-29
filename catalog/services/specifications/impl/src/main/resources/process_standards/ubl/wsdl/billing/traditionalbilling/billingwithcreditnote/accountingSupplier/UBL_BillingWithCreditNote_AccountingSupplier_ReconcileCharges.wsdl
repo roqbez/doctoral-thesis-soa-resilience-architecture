@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges" targetNamespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges"
+	xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges" xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges">
+			<xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+			<xsd:element name="reconcileCharges">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="inputDecision" nillable="true" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="reconcileChargesResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="outputDecision" nillable="true" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="reconcileChargesAsync">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="inputDecision" nillable="true" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="reconcileChargesAsyncCallback">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="outputDecision" nillable="true" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="reconcileChargesAsyncCallbackResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="alive">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="aliveResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="output" nillable="true" type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="reconcileChargesRequestMsg">
+		<wsdl:part element="tns:reconcileCharges" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="reconcileChargesResponseMsg">
+		<wsdl:part element="tns:reconcileChargesResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="reconcileChargesAsyncRequestMsg">
+		<wsdl:part element="tns:reconcileChargesAsync" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="reconcileChargesAsyncCallbackRequestMsg">
+		<wsdl:part element="tns:reconcileChargesAsyncCallback" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="reconcileChargesAsyncCallbackResponseMsg">
+		<wsdl:part element="tns:reconcileChargesAsyncCallbackResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="aliveRequestMsg">
+		<wsdl:part element="tns:alive" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="aliveResponseMsg">
+		<wsdl:part element="tns:aliveResponse" name="payload" />
+	</wsdl:message>
+	<wsdl:portType name="UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges">
+		<wsdl:operation name="reconcileCharges">
+			<wsdl:input message="tns:reconcileChargesRequestMsg" name="reconcileChargesRequest" />
+			<wsdl:output message="tns:reconcileChargesResponseMsg" name="reconcileChargesResponse" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="reconcileChargesAsync">
+			<wsdl:input message="tns:reconcileChargesAsyncRequestMsg" name="reconcileChargesAsyncRequest" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+			<wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="UBL_BillingWithCreditNote_AccountingSupplier_ReconcileChargesService" type="tns:UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="reconcileCharges">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges/reconcileCharges" />
+			<wsdl:input name="reconcileChargesRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="reconcileChargesResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="reconcileChargesAsync">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges/reconcileChargesAsync" />
+			<wsdl:input name="reconcileChargesAsyncRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges/alive" />
+			<wsdl:input name="aliveRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="aliveResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="UBL_BillingWithCreditNote_AccountingSupplier_ReconcileChargesService">
+		<wsdl:port name="UBL_BillingWithCreditNote_AccountingSupplier_ReconcileChargesServicePort" binding="tns:UBL_BillingWithCreditNote_AccountingSupplier_ReconcileChargesService">
+			<soap:address location="http://localhost:8082/services/ubl/billingwithcreditnote/accountingSupplier/reconcileCharges" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

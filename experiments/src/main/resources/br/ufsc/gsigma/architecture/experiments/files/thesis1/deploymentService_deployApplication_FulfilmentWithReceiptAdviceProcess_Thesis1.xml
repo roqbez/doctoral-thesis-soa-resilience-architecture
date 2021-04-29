@@ -1,0 +1,2224 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Header>
+		<ectx:executionContext xmlns:ectx="http://gsigma.ufsc.br/execution">
+			<ectx:flags>
+				<entry key="DISABLE_SERVICE_DISCOVERY" value="false" />
+				<entry key="DISABLE_SERVICE_MONITORING" value="false" />
+				<entry key="DISABLE_ADHOC_SERVICE_DEPLOYMENT" value="true" />
+				<entry key="FORCE_PROTOCOL_CONVERTER" value="false" />
+			</ectx:flags>
+			<ectx:attributes>
+				<entry key="PROTOCOL_CONVERTER" value="" />
+			</ectx:attributes>
+		</ectx:executionContext>
+	</soap:Header>
+	<soap:Body>
+		<ns3:deployApplication xmlns:ectx="http://gsigma.ufsc.br/execution" xmlns:ns3="http://interfaces.deployment.services.gsigma.ufsc.br/">
+			<request>
+				<itConfiguration>
+					<servicesInformation>
+						<qoSWeights />
+						<globalQoSDelta>
+							<entry key="Performance.Throughput" value="82.0" />
+							<entry key="Cost.ExecutionCost" value="5332.717149060824" />
+							<entry key="Availability.Availability" value="0.5066104247815819" />
+							<entry key="Performance.ResponseTime" value="2352.0" />
+						</globalQoSDelta>
+						<qoSCriterions>
+							<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="7000.0" managed="false" />
+						</qoSCriterions>
+						<servicesConfig>
+							<serviceConfig classification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher76" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/buyerParty/acceptItems"
+										serviceUtility="0.5758205525490458" serviceKey="uddi:publisher76:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices-1"
+										serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAcceptItems" bindingTemplateKey="uddi:publisher76:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76" serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/fulfilmentwithreceiptadvice/buyerParty/acceptItems"
+										serviceUtility="0.5758205525490458" serviceKey="uddi:publisher76:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices2-1"
+										serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAcceptItems" bindingTemplateKey="uddi:publisher76:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76" serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/fulfilmentwithreceiptadvice/buyerParty/acceptItems"
+										serviceUtility="0.5758205525490458" serviceKey="uddi:publisher76:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices3-1"
+										serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAcceptItems" bindingTemplateKey="uddi:publisher76:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76" serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/fulfilmentwithreceiptadvice/buyerParty/acceptItems"
+										serviceUtility="0.5758205525490458" serviceKey="uddi:publisher76:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices4-1"
+										serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAcceptItems" bindingTemplateKey="uddi:publisher76:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76" serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/fulfilmentwithreceiptadvice/buyerParty/acceptItems"
+										serviceUtility="0.5758205525490458" serviceKey="uddi:publisher76:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices5-1"
+										serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAcceptItems" bindingTemplateKey="uddi:publisher76:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="540.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="540.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher76" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"
+										serviceUtility="1.1004478083293125" serviceKey="uddi:publisher76:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices-1"
+										serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAdjustOrder" bindingTemplateKey="uddi:publisher76:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76" serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"
+										serviceUtility="1.1004478083293125" serviceKey="uddi:publisher76:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices2-1"
+										serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAdjustOrder" bindingTemplateKey="uddi:publisher76:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76" serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"
+										serviceUtility="1.1004478083293125" serviceKey="uddi:publisher76:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices3-1"
+										serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAdjustOrder" bindingTemplateKey="uddi:publisher76:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76" serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"
+										serviceUtility="1.1004478083293125" serviceKey="uddi:publisher76:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices4-1"
+										serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAdjustOrder" bindingTemplateKey="uddi:publisher76:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76" serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"
+										serviceUtility="1.1004478083293125" serviceKey="uddi:publisher76:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices5-1"
+										serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAdjustOrder" bindingTemplateKey="uddi:publisher76:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher33"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" serviceUtility="1.293069470265933"
+										serviceKey="uddi:publisher33:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceSellerPartyAdjustSupplyStatus"
+										bindingTemplateKey="uddi:publisher33:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher33"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" serviceUtility="1.293069470265933"
+										serviceKey="uddi:publisher33:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices2-1" serviceName="UBLFulfilmentWithReceiptAdviceSellerPartyAdjustSupplyStatus"
+										bindingTemplateKey="uddi:publisher33:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher33"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" serviceUtility="1.293069470265933"
+										serviceKey="uddi:publisher33:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices3-1" serviceName="UBLFulfilmentWithReceiptAdviceSellerPartyAdjustSupplyStatus"
+										bindingTemplateKey="uddi:publisher33:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher33"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" serviceUtility="1.293069470265933"
+										serviceKey="uddi:publisher33:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices4-1" serviceName="UBLFulfilmentWithReceiptAdviceSellerPartyAdjustSupplyStatus"
+										bindingTemplateKey="uddi:publisher33:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher33"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" serviceUtility="1.293069470265933"
+										serviceKey="uddi:publisher33:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices5-1" serviceName="UBLFulfilmentWithReceiptAdviceSellerPartyAdjustSupplyStatus"
+										bindingTemplateKey="uddi:publisher33:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="545.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="545.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher24"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" serviceUtility="1.3700965771855949"
+										serviceKey="uddi:publisher24:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyAdviseBuyerOfStatus"
+										bindingTemplateKey="uddi:publisher24:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" serviceUtility="1.3700965771855949"
+										serviceKey="uddi:publisher24:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices2-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyAdviseBuyerOfStatus"
+										bindingTemplateKey="uddi:publisher24:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" serviceUtility="1.3700965771855949"
+										serviceKey="uddi:publisher24:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices3-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyAdviseBuyerOfStatus"
+										bindingTemplateKey="uddi:publisher24:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" serviceUtility="1.3700965771855949"
+										serviceKey="uddi:publisher24:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices4-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyAdviseBuyerOfStatus"
+										bindingTemplateKey="uddi:publisher24:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" serviceUtility="1.3700965771855949"
+										serviceKey="uddi:publisher24:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices5-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyAdviseBuyerOfStatus"
+										bindingTemplateKey="uddi:publisher24:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="547.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="547.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher68"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems" serviceUtility="1.0139687259637935"
+										serviceKey="uddi:publisher68:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyCheckStatusOfItems"
+										bindingTemplateKey="uddi:publisher68:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher68"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems" serviceUtility="1.0139687259637935"
+										serviceKey="uddi:publisher68:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices2-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyCheckStatusOfItems"
+										bindingTemplateKey="uddi:publisher68:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher68"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems" serviceUtility="1.0139687259637935"
+										serviceKey="uddi:publisher68:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices3-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyCheckStatusOfItems"
+										bindingTemplateKey="uddi:publisher68:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher68"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems" serviceUtility="1.0139687259637935"
+										serviceKey="uddi:publisher68:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices4-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyCheckStatusOfItems"
+										bindingTemplateKey="uddi:publisher68:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher68"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems" serviceUtility="1.0139687259637935"
+										serviceKey="uddi:publisher68:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices5-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyCheckStatusOfItems"
+										bindingTemplateKey="uddi:publisher68:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher76"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/buyerParty/determineAction" serviceUtility="1.257184248387889"
+										serviceKey="uddi:publisher76:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyDetermineAction"
+										bindingTemplateKey="uddi:publisher76:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/fulfilmentwithreceiptadvice/buyerParty/determineAction" serviceUtility="1.257184248387889"
+										serviceKey="uddi:publisher76:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices2-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyDetermineAction"
+										bindingTemplateKey="uddi:publisher76:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/fulfilmentwithreceiptadvice/buyerParty/determineAction" serviceUtility="1.257184248387889"
+										serviceKey="uddi:publisher76:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices3-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyDetermineAction"
+										bindingTemplateKey="uddi:publisher76:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/fulfilmentwithreceiptadvice/buyerParty/determineAction" serviceUtility="1.257184248387889"
+										serviceKey="uddi:publisher76:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices4-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyDetermineAction"
+										bindingTemplateKey="uddi:publisher76:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/fulfilmentwithreceiptadvice/buyerParty/determineAction" serviceUtility="1.257184248387889"
+										serviceKey="uddi:publisher76:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices5-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyDetermineAction"
+										bindingTemplateKey="uddi:publisher76:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher24"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems" serviceUtility="1.0539488374781638"
+										serviceKey="uddi:publisher24:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyReceiveOrderItems"
+										bindingTemplateKey="uddi:publisher24:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems" serviceUtility="1.0539488374781638"
+										serviceKey="uddi:publisher24:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices2-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyReceiveOrderItems"
+										bindingTemplateKey="uddi:publisher24:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems" serviceUtility="1.0539488374781638"
+										serviceKey="uddi:publisher24:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices3-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyReceiveOrderItems"
+										bindingTemplateKey="uddi:publisher24:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems" serviceUtility="1.0539488374781638"
+										serviceKey="uddi:publisher24:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices4-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyReceiveOrderItems"
+										bindingTemplateKey="uddi:publisher24:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems" serviceUtility="1.0539488374781638"
+										serviceKey="uddi:publisher24:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices5-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyReceiveOrderItems"
+										bindingTemplateKey="uddi:publisher24:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="543.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="543.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher76"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation" serviceUtility="1.3095865277510652"
+										serviceKey="uddi:publisher76:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartySendOrderCancellation"
+										bindingTemplateKey="uddi:publisher76:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation" serviceUtility="1.3095865277510652"
+										serviceKey="uddi:publisher76:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices2-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartySendOrderCancellation"
+										bindingTemplateKey="uddi:publisher76:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation" serviceUtility="1.3095865277510652"
+										serviceKey="uddi:publisher76:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices3-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartySendOrderCancellation"
+										bindingTemplateKey="uddi:publisher76:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation" serviceUtility="1.3095865277510652"
+										serviceKey="uddi:publisher76:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices4-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartySendOrderCancellation"
+										bindingTemplateKey="uddi:publisher76:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher76"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation" serviceUtility="1.3095865277510652"
+										serviceKey="uddi:publisher76:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices5-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartySendOrderCancellation"
+										bindingTemplateKey="uddi:publisher76:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher68"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" serviceUtility="1.2909990368550317"
+										serviceKey="uddi:publisher68:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartySendReceiptAdvice"
+										bindingTemplateKey="uddi:publisher68:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher68"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" serviceUtility="1.2909990368550317"
+										serviceKey="uddi:publisher68:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices2-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartySendReceiptAdvice"
+										bindingTemplateKey="uddi:publisher68:node2-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher68"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" serviceUtility="1.2909990368550317"
+										serviceKey="uddi:publisher68:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices3-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartySendReceiptAdvice"
+										bindingTemplateKey="uddi:publisher68:node3-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher68"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" serviceUtility="1.2909990368550317"
+										serviceKey="uddi:publisher68:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices4-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartySendReceiptAdvice"
+										bindingTemplateKey="uddi:publisher68:node4-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher68"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" serviceUtility="1.2909990368550317"
+										serviceKey="uddi:publisher68:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices5-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartySendReceiptAdvice"
+										bindingTemplateKey="uddi:publisher68:node5-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+						</servicesConfig>
+					</servicesInformation>
+					<persistentProcess>true</persistentProcess>
+				</itConfiguration>
+				<businessProcess>
+					<name>Fulfilment with Receipt Advice Process</name>
+					<inputContactPoints />
+					<outputContactPoints />
+					<participants />
+					<resources />
+					<tasks>
+						<task>
+							<id>0</id>
+							<name>Accept Items</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>1</id>
+									<name>input</name>
+									<connectableComponentName>Accept Items</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>2</id>
+									<name>outputOrder</name>
+									<connectableComponentName>Accept Items</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>CUSTOMER</id>
+										<name>Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>3</id>
+							<name>Adjust Order</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>4</id>
+									<name>input</name>
+									<connectableComponentName>Adjust Order</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>5</id>
+									<name>outputOrderChange</name>
+									<connectableComponentName>Adjust Order</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CHANGE</id>
+										<name>UBL Order Change</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+										<xmlName>OrderChangeType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>CUSTOMER</id>
+										<name>Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>6</id>
+							<name>Adjust Supply Status</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>7</id>
+									<name>inputReceiptAdvice</name>
+									<connectableComponentName>Adjust Supply Status</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_RECEIPT_ADVICE</id>
+										<name>UBL Receipt Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ReceiptAdvice-2</xmlNamespace>
+										<xmlName>ReceiptAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>8</id>
+									<name>inputOrderCancellation</name>
+									<connectableComponentName>Adjust Supply Status</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CANCELLATION</id>
+										<name>UBL Order Cancellation</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+										<xmlName>OrderCancelationType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>9</id>
+									<name>inputOrderChange</name>
+									<connectableComponentName>Adjust Supply Status</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CHANGE</id>
+										<name>UBL Order Change</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+										<xmlName>OrderChangeType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>10</id>
+									<name>inputOrder</name>
+									<connectableComponentName>Adjust Supply Status</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>11</id>
+									<name>output</name>
+									<connectableComponentName>Adjust Supply Status</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_1_-_COORDINATOR</id>
+										<name>Partner 1 - Coordinator</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>12</id>
+							<name>Advise Buyer of Status</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>13</id>
+									<name>input</name>
+									<connectableComponentName>Advise Buyer of Status</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>14</id>
+									<name>output</name>
+									<connectableComponentName>Advise Buyer of Status</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_2</id>
+										<name>Partner 2</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>15</id>
+							<name>Check Status of Items</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>16</id>
+									<name>input</name>
+									<connectableComponentName>Check Status of Items</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>17</id>
+									<name>output</name>
+									<connectableComponentName>Check Status of Items</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_3</id>
+										<name>Partner 3</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>18</id>
+							<name>Determine Action</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>19</id>
+									<name>input</name>
+									<connectableComponentName>Determine Action</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>20</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Determine Action</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>21</id>
+									<name>outputDocument</name>
+									<connectableComponentName>Determine Action</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>CUSTOMER</id>
+										<name>Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>50</id>
+							<name>Receive Order Items</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>51</id>
+									<name>Input</name>
+									<connectableComponentName>Receive Order Items</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>52</id>
+									<name>output</name>
+									<connectableComponentName>Receive Order Items</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_2</id>
+										<name>Partner 2</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>53</id>
+							<name>Send Order Cancellation</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>54</id>
+									<name>input</name>
+									<connectableComponentName>Send Order Cancellation</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>55</id>
+									<name>outputOrderCancellation</name>
+									<connectableComponentName>Send Order Cancellation</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CANCELLATION</id>
+										<name>UBL Order Cancellation</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+										<xmlName>OrderCancelationType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>CUSTOMER</id>
+										<name>Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>56</id>
+							<name>Send Receipt Advice</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>57</id>
+									<name>input</name>
+									<connectableComponentName>Send Receipt Advice</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>58</id>
+									<name>output</name>
+									<connectableComponentName>Send Receipt Advice</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_RECEIPT_ADVICE</id>
+										<name>UBL Receipt Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ReceiptAdvice-2</xmlNamespace>
+										<xmlName>ReceiptAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_3</id>
+										<name>Partner 3</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+					</tasks>
+					<startEvents>
+						<startEvent>
+							<id>59</id>
+							<name>Start Node</name>
+							<inputContactPoints />
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>60</id>
+									<name>Output</name>
+									<connectableComponentName>Start Node</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+						</startEvent>
+					</startEvents>
+					<endEvents>
+						<endEvent>
+							<id>31</id>
+							<name>End Node</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>32</id>
+									<name>Input</name>
+									<connectableComponentName>End Node</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints />
+						</endEvent>
+					</endEvents>
+					<decisions>
+						<decision>
+							<id>22</id>
+							<name>Determine Action Decision</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>23</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Determine Action Decision</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>24</id>
+									<name>input</name>
+									<connectableComponentName>Determine Action Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>25</id>
+									<name>outputAcceptedDecision</name>
+									<connectableComponentName>Determine Action Decision</connectableComponentName>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>26</id>
+									<name>outputAccepted</name>
+									<connectableComponentName>Determine Action Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>27</id>
+									<name>outputChangeOrderDecision</name>
+									<connectableComponentName>Determine Action Decision</connectableComponentName>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>28</id>
+									<name>outputChangeOrder</name>
+									<connectableComponentName>Determine Action Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>29</id>
+									<name>outputCancelOrderDecision</name>
+									<connectableComponentName>Determine Action Decision</connectableComponentName>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>30</id>
+									<name>outputCancelOrder</name>
+									<connectableComponentName>Determine Action Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch </name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>23</id>
+											<name>inputDecision</name>
+											<connectableComponentName>Determine Action Decision</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>24</id>
+											<name>input</name>
+											<connectableComponentName>Determine Action Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER</id>
+												<name>UBL Order</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+												<xmlName>OrderType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch 1</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>25</id>
+											<name>outputAcceptedDecision</name>
+											<connectableComponentName>Determine Action Decision</connectableComponentName>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>26</id>
+											<name>outputAccepted</name>
+											<connectableComponentName>Determine Action Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER</id>
+												<name>UBL Order</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+												<xmlName>OrderType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>acceptItems</condition>
+									<probabilityPercentage>33.3</probabilityPercentage>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 2</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>27</id>
+											<name>outputChangeOrderDecision</name>
+											<connectableComponentName>Determine Action Decision</connectableComponentName>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>28</id>
+											<name>outputChangeOrder</name>
+											<connectableComponentName>Determine Action Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER</id>
+												<name>UBL Order</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+												<xmlName>OrderType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>changeOrder</condition>
+									<probabilityPercentage>33.3</probabilityPercentage>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 3</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>29</id>
+											<name>outputCancelOrderDecision</name>
+											<connectableComponentName>Determine Action Decision</connectableComponentName>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>30</id>
+											<name>outputCancelOrder</name>
+											<connectableComponentName>Determine Action Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER</id>
+												<name>UBL Order</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+												<xmlName>OrderType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>cancelOrder</condition>
+									<probabilityPercentage>33.4</probabilityPercentage>
+								</outputBranch>
+							</outputBranches>
+						</decision>
+					</decisions>
+					<forks>
+						<fork>
+							<id>33</id>
+							<name>Fork</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>34</id>
+									<name>input</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>35</id>
+									<name>output1</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>36</id>
+									<name>output2</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch </name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>34</id>
+											<name>input</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER</id>
+												<name>UBL Order</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+												<xmlName>OrderType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch 1</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>35</id>
+											<name>output1</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER</id>
+												<name>UBL Order</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+												<xmlName>OrderType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 2</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>36</id>
+											<name>output2</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER</id>
+												<name>UBL Order</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+												<xmlName>OrderType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+								</outputBranch>
+							</outputBranches>
+						</fork>
+					</forks>
+					<junctions />
+					<merges>
+						<merge>
+							<id>37</id>
+							<name>Merge</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>38</id>
+									<name>inputOrderCancellation</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CANCELLATION</id>
+										<name>UBL Order Cancellation</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+										<xmlName>OrderCancelationType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>39</id>
+									<name>inputOrderChange</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CHANGE</id>
+										<name>UBL Order Change</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+										<xmlName>OrderChangeType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>40</id>
+									<name>inputOrder</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>41</id>
+									<name>inputOrderCancellation:2</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CANCELLATION</id>
+										<name>UBL Order Cancellation</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+										<xmlName>OrderCancelationType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>42</id>
+									<name>inputOrderChange:2</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CHANGE</id>
+										<name>UBL Order Change</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+										<xmlName>OrderChangeType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>43</id>
+									<name>inputOrder:2</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>44</id>
+									<name>inputOrderCancellation:3</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CANCELLATION</id>
+										<name>UBL Order Cancellation</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+										<xmlName>OrderCancelationType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>45</id>
+									<name>inputOrderChange:3</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CHANGE</id>
+										<name>UBL Order Change</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+										<xmlName>OrderChangeType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>46</id>
+									<name>inputOrder:3</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>47</id>
+									<name>outputOrderCancellation</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CANCELLATION</id>
+										<name>UBL Order Cancellation</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+										<xmlName>OrderCancelationType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>48</id>
+									<name>outputOrderChange</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER_CHANGE</id>
+										<name>UBL Order Change</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+										<xmlName>OrderChangeType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>49</id>
+									<name>outputOrder</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_ORDER</id>
+										<name>UBL Order</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+										<xmlName>OrderType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch 1</name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>38</id>
+											<name>inputOrderCancellation</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER_CANCELLATION</id>
+												<name>UBL Order Cancellation</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+												<xmlName>OrderCancelationType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>39</id>
+											<name>inputOrderChange</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER_CHANGE</id>
+												<name>UBL Order Change</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+												<xmlName>OrderChangeType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>40</id>
+											<name>inputOrder</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER</id>
+												<name>UBL Order</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+												<xmlName>OrderType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+								<inputBranch>
+									<name>Input Branch 2</name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>41</id>
+											<name>inputOrderCancellation:2</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER_CANCELLATION</id>
+												<name>UBL Order Cancellation</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+												<xmlName>OrderCancelationType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>42</id>
+											<name>inputOrderChange:2</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER_CHANGE</id>
+												<name>UBL Order Change</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+												<xmlName>OrderChangeType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>43</id>
+											<name>inputOrder:2</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER</id>
+												<name>UBL Order</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+												<xmlName>OrderType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+								<inputBranch>
+									<name>Input Branch 3</name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>44</id>
+											<name>inputOrderCancellation:3</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER_CANCELLATION</id>
+												<name>UBL Order Cancellation</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+												<xmlName>OrderCancelationType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>45</id>
+											<name>inputOrderChange:3</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER_CHANGE</id>
+												<name>UBL Order Change</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+												<xmlName>OrderChangeType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>46</id>
+											<name>inputOrder:3</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER</id>
+												<name>UBL Order</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+												<xmlName>OrderType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch </name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>47</id>
+											<name>outputOrderCancellation</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER_CANCELLATION</id>
+												<name>UBL Order Cancellation</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+												<xmlName>OrderCancelationType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>48</id>
+											<name>outputOrderChange</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER_CHANGE</id>
+												<name>UBL Order Change</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+												<xmlName>OrderChangeType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>49</id>
+											<name>outputOrder</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_ORDER</id>
+												<name>UBL Order</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+												<xmlName>OrderType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+								</outputBranch>
+							</outputBranches>
+						</merge>
+					</merges>
+					<connections>
+						<connection>
+							<id>61</id>
+							<input>
+								<id>16</id>
+								<name>input</name>
+								<connectableComponentName>Check Status of Items</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>52</id>
+								<name>output</name>
+								<connectableComponentName>Receive Order Items</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>62</id>
+							<input>
+								<id>13</id>
+								<name>input</name>
+								<connectableComponentName>Advise Buyer of Status</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>35</id>
+								<name>output1</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>63</id>
+							<input>
+								<id>57</id>
+								<name>input</name>
+								<connectableComponentName>Send Receipt Advice</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>36</id>
+								<name>output2</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>64</id>
+							<input>
+								<id>7</id>
+								<name>inputReceiptAdvice</name>
+								<connectableComponentName>Adjust Supply Status</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_RECEIPT_ADVICE</id>
+									<name>UBL Receipt Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ReceiptAdvice-2</xmlNamespace>
+									<xmlName>ReceiptAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>58</id>
+								<name>output</name>
+								<connectableComponentName>Send Receipt Advice</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_RECEIPT_ADVICE</id>
+									<name>UBL Receipt Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ReceiptAdvice-2</xmlNamespace>
+									<xmlName>ReceiptAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>65</id>
+							<input>
+								<id>39</id>
+								<name>inputOrderChange</name>
+								<connectableComponentName>Merge</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER_CHANGE</id>
+									<name>UBL Order Change</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+									<xmlName>OrderChangeType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>5</id>
+								<name>outputOrderChange</name>
+								<connectableComponentName>Adjust Order</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER_CHANGE</id>
+									<name>UBL Order Change</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+									<xmlName>OrderChangeType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>66</id>
+							<input>
+								<id>46</id>
+								<name>inputOrder:3</name>
+								<connectableComponentName>Merge</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>2</id>
+								<name>outputOrder</name>
+								<connectableComponentName>Accept Items</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>67</id>
+							<input>
+								<id>8</id>
+								<name>inputOrderCancellation</name>
+								<connectableComponentName>Adjust Supply Status</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER_CANCELLATION</id>
+									<name>UBL Order Cancellation</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+									<xmlName>OrderCancelationType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>47</id>
+								<name>outputOrderCancellation</name>
+								<connectableComponentName>Merge</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER_CANCELLATION</id>
+									<name>UBL Order Cancellation</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+									<xmlName>OrderCancelationType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>68</id>
+							<input>
+								<id>9</id>
+								<name>inputOrderChange</name>
+								<connectableComponentName>Adjust Supply Status</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER_CHANGE</id>
+									<name>UBL Order Change</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+									<xmlName>OrderChangeType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>48</id>
+								<name>outputOrderChange</name>
+								<connectableComponentName>Merge</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER_CHANGE</id>
+									<name>UBL Order Change</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</xmlNamespace>
+									<xmlName>OrderChangeType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>69</id>
+							<input>
+								<id>10</id>
+								<name>inputOrder</name>
+								<connectableComponentName>Adjust Supply Status</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>49</id>
+								<name>outputOrder</name>
+								<connectableComponentName>Merge</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>70</id>
+							<input>
+								<id>32</id>
+								<name>Input</name>
+								<connectableComponentName>End Node</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>11</id>
+								<name>output</name>
+								<connectableComponentName>Adjust Supply Status</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>71</id>
+							<input>
+								<id>51</id>
+								<name>Input</name>
+								<connectableComponentName>Receive Order Items</connectableComponentName>
+							</input>
+							<output>
+								<id>60</id>
+								<name>Output</name>
+								<connectableComponentName>Start Node</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>72</id>
+							<input>
+								<id>34</id>
+								<name>input</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>17</id>
+								<name>output</name>
+								<connectableComponentName>Check Status of Items</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>73</id>
+							<input>
+								<id>19</id>
+								<name>input</name>
+								<connectableComponentName>Determine Action</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>14</id>
+								<name>output</name>
+								<connectableComponentName>Advise Buyer of Status</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>74</id>
+							<input>
+								<id>24</id>
+								<name>input</name>
+								<connectableComponentName>Determine Action Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>21</id>
+								<name>outputDocument</name>
+								<connectableComponentName>Determine Action</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>75</id>
+							<input>
+								<id>23</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Determine Action Decision</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>20</id>
+								<name>outputDecision</name>
+								<connectableComponentName>Determine Action</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>76</id>
+							<input>
+								<id>1</id>
+								<name>input</name>
+								<connectableComponentName>Accept Items</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>26</id>
+								<name>outputAccepted</name>
+								<connectableComponentName>Determine Action Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>77</id>
+							<input>
+								<id>41</id>
+								<name>inputOrderCancellation:2</name>
+								<connectableComponentName>Merge</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER_CANCELLATION</id>
+									<name>UBL Order Cancellation</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+									<xmlName>OrderCancelationType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>55</id>
+								<name>outputOrderCancellation</name>
+								<connectableComponentName>Send Order Cancellation</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER_CANCELLATION</id>
+									<name>UBL Order Cancellation</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</xmlNamespace>
+									<xmlName>OrderCancelationType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>78</id>
+							<input>
+								<id>4</id>
+								<name>input</name>
+								<connectableComponentName>Adjust Order</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>28</id>
+								<name>outputChangeOrder</name>
+								<connectableComponentName>Determine Action Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>79</id>
+							<input>
+								<id>54</id>
+								<name>input</name>
+								<connectableComponentName>Send Order Cancellation</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>30</id>
+								<name>outputCancelOrder</name>
+								<connectableComponentName>Determine Action Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_ORDER</id>
+									<name>UBL Order</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Order-2</xmlNamespace>
+									<xmlName>OrderType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+					</connections>
+				</businessProcess>
+				<businessProcessName>Fulfilment with Receipt Advice Process</businessProcessName>
+			</request>
+		</ns3:deployApplication>
+	</soap:Body>
+</soap:Envelope>

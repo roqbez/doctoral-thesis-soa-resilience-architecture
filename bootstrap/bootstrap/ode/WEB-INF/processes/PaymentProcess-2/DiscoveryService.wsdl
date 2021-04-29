@@ -1,0 +1,952 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://gsigma.ufsc.br/serviceDiscovery" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DiscoveryService" targetNamespace="http://gsigma.ufsc.br/serviceDiscovery">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://gsigma.ufsc.br/serviceDiscovery" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://gsigma.ufsc.br/serviceDiscovery">
+  <xs:element name="discover" type="tns:discover"/>
+  <xs:element name="discoverResponse" type="tns:discoverResponse"/>
+  <xs:element name="discoverServices" type="tns:discoverServices"/>
+  <xs:element name="discoverServicesResponse" type="tns:discoverServicesResponse"/>
+  <xs:element name="discoverUniqueServiceEndpoint" type="tns:discoverUniqueServiceEndpoint"/>
+  <xs:element name="discoverUniqueServiceEndpointResponse" type="tns:discoverUniqueServiceEndpointResponse"/>
+  <xs:element name="getEnabledQoSAttributes" type="tns:getEnabledQoSAttributes"/>
+  <xs:element name="getEnabledQoSAttributesResponse" type="tns:getEnabledQoSAttributesResponse"/>
+  <xs:element name="getEnabledQoSItems" type="tns:getEnabledQoSItems"/>
+  <xs:element name="getEnabledQoSItemsResponse" type="tns:getEnabledQoSItemsResponse"/>
+  <xs:element name="getLocalQoSConstraints" type="tns:getLocalQoSConstraints"/>
+  <xs:element name="getLocalQoSConstraintsResponse" type="tns:getLocalQoSConstraintsResponse"/>
+  <xs:element name="getProcessQoSThresholds" type="tns:getProcessQoSThresholds"/>
+  <xs:element name="getProcessQoSThresholdsResponse" type="tns:getProcessQoSThresholdsResponse"/>
+  <xs:element name="getQoSAttributes" type="tns:getQoSAttributes"/>
+  <xs:element name="getQoSAttributesResponse" type="tns:getQoSAttributesResponse"/>
+  <xs:element name="getQoSItems" type="tns:getQoSItems"/>
+  <xs:element name="getQoSItemsResponse" type="tns:getQoSItemsResponse"/>
+  <xs:element name="getQoSLevels" type="tns:getQoSLevels"/>
+  <xs:element name="getQoSLevelsResponse" type="tns:getQoSLevelsResponse"/>
+  <xs:element name="getServicesQoSInformation" type="tns:getServicesQoSInformation"/>
+  <xs:element name="getServicesQoSInformationResponse" type="tns:getServicesQoSInformationResponse"/>
+  <xs:complexType name="getEnabledQoSItems">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getEnabledQoSItemsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSItem" type="tns:qoSItem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSAttributes" nillable="true" type="tns:qoSAttribute"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSAttribute">
+    <xs:sequence/>
+    <xs:attribute name="key" type="xs:string"/>
+    <xs:attribute name="qoSItemId" type="xs:int"/>
+    <xs:attribute name="qoSItem" type="xs:string"/>
+    <xs:attribute name="name" type="xs:string"/>
+    <xs:attribute name="unit" type="xs:string"/>
+    <xs:attribute name="valueUtilityDirection" type="tns:qoSValueUtilityDirection"/>
+    <xs:attribute name="sequentialAggregationType" type="tns:qoSValueAggregationType"/>
+    <xs:attribute name="loopAggregationType" type="tns:qoSValueAggregationType"/>
+    <xs:attribute name="parallelAggregationType" type="tns:qoSValueAggregationType"/>
+    <xs:attribute name="conditionalAggregationType" type="tns:qoSValueAggregationType"/>
+  </xs:complexType>
+  <xs:complexType name="discover">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:discoveryRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="discoveryRequest">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:discoveryRequestItem"/>
+      <xs:element minOccurs="0" name="process" type="tns:process"/>
+      <xs:element minOccurs="0" name="qoSInformation" type="tns:qoSInformation"/>
+      <xs:element minOccurs="0" name="maxResultsPerServiceClass" type="xs:int"/>
+      <xs:element minOccurs="0" name="totalNumberOfCompositions" type="xs:int"/>
+      <xs:element name="useOptimalSelection" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="initialNumberOfQoSLevels" type="xs:int"/>
+      <xs:element minOccurs="0" name="maxNumberOfQoSLevels" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="discoveryRequestItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="maxResults" type="xs:int"/>
+      <xs:element minOccurs="0" name="qoSInformation" type="tns:qoSInformation"/>
+      <xs:element minOccurs="0" name="serviceClassification" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSInformation">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSConstraint" type="tns:qoSConstraint"/>
+      <xs:element minOccurs="0" name="qoSWeights" type="tns:doubleMap"/>
+      <xs:element minOccurs="0" name="globalQoSDelta" type="tns:doubleMap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSConstraint">
+    <xs:sequence/>
+    <xs:attribute name="qoSKey" type="xs:string"/>
+    <xs:attribute name="qoSValue" type="xs:double"/>
+    <xs:attribute name="comparisionType" type="tns:qoSValueComparisionType"/>
+  </xs:complexType>
+  <xs:complexType name="doubleMap">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="tns:doubleEntry"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doubleEntry">
+    <xs:sequence/>
+    <xs:attribute name="key" type="xs:string"/>
+    <xs:attribute name="value" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="process">
+    <xs:complexContent>
+      <xs:extension base="tns:task">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="connections" nillable="true" type="tns:connection"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="decisions" nillable="true" type="tns:decision"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="endEvents" nillable="true" type="tns:endEvent"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="forks" nillable="true" type="tns:fork"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="junctions" nillable="true" type="tns:junction"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="merges" nillable="true" type="tns:merge"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="startEvents" nillable="true" type="tns:startEvent"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="tasks" nillable="true" type="tns:task"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="task">
+    <xs:complexContent>
+      <xs:extension base="tns:connectableComponent">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="participants" nillable="true" type="tns:taskParticipant"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSCriterions" nillable="true" type="tns:qoSCriterion"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="resources" nillable="true" type="tns:taskResource"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceAssociations" nillable="true" type="tns:serviceAssociation"/>
+          <xs:element minOccurs="0" name="taxonomyClassification" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="connectableComponent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="inputContactPoints" nillable="true" type="tns:inputContactPoint"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="outputContactPoints" nillable="true" type="tns:outputContactPoint"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="connection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="input" type="tns:inputContactPoint"/>
+      <xs:element minOccurs="0" name="output" type="tns:outputContactPoint"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="inputContactPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="associatedDocument" type="tns:document"/>
+      <xs:element minOccurs="0" name="connectableComponentName" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="document">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element name="primitive" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="processStandard" type="tns:processStandard"/>
+      <xs:element minOccurs="0" name="xmlName" type="xs:string"/>
+      <xs:element minOccurs="0" name="xmlNamespace" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processStandard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="outputContactPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="associatedDocument" type="tns:document"/>
+      <xs:element minOccurs="0" name="connectableComponentName" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="decision">
+    <xs:complexContent>
+      <xs:extension base="tns:flowControlComponent">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="flowControlComponent">
+    <xs:complexContent>
+      <xs:extension base="tns:connectableComponent">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="inputBranches" nillable="true" type="tns:inputBranch"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="outputBranches" nillable="true" type="tns:outputBranch"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="inputBranch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="inputContactPoints" nillable="true" type="tns:inputContactPoint"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="outputBranch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="condition" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="outputContactPoints" nillable="true" type="tns:outputContactPoint"/>
+      <xs:element minOccurs="0" name="probabilityPercentage" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="endEvent">
+    <xs:complexContent>
+      <xs:extension base="tns:event">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="event">
+    <xs:complexContent>
+      <xs:extension base="tns:connectableComponent">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="fork">
+    <xs:complexContent>
+      <xs:extension base="tns:flowControlComponent">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="junction">
+    <xs:complexContent>
+      <xs:extension base="tns:flowControlComponent">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="merge">
+    <xs:complexContent>
+      <xs:extension base="tns:flowControlComponent">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="startEvent">
+    <xs:complexContent>
+      <xs:extension base="tns:event">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="taskParticipant">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="participant" type="tns:participant"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="participant">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="processStandard" type="tns:processStandard"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSCriterion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="qoSItem" type="xs:string"/>
+      <xs:element minOccurs="0" name="comparisionType" type="xs:string"/>
+      <xs:element minOccurs="0" name="qoSAttribute" type="xs:string"/>
+      <xs:element minOccurs="0" name="qoSValue" type="xs:double"/>
+      <xs:element name="managed" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="taskResource">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="resource" type="tns:resource"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resource">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="processStandard" type="tns:processStandard"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceAssociation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="serviceName" type="xs:string"/>
+      <xs:element minOccurs="0" name="serviceEndpoint" type="xs:string"/>
+      <xs:element minOccurs="0" name="serviceKey" type="xs:string"/>
+      <xs:element minOccurs="0" name="bindingTemplateKey" type="xs:string"/>
+      <xs:element minOccurs="0" name="task" type="tns:task"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="discoverResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:discoveryResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="discoveryResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="numberOfMatchingServicesPerServiceClassification" type="tns:integerMap"/>
+      <xs:element minOccurs="0" name="totalNumberServicesPerServiceClassification" type="tns:integerMap"/>
+      <xs:element minOccurs="0" name="processQoSInfo" type="tns:processQoSInfo"/>
+      <xs:element minOccurs="0" name="compositions">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="composition" type="tns:servicesComposition"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="matchingService" type="tns:discoveredService"/>
+    </xs:sequence>
+    <xs:attribute name="successful" type="xs:boolean" use="required"/>
+    <xs:attribute name="numberOfMatchingServices" type="xs:int" use="required"/>
+    <xs:attribute name="totalNumberOfCompositions" type="xs:int"/>
+  </xs:complexType>
+  <xs:complexType name="integerMap">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="entry" type="tns:integerEntry"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="integerEntry">
+    <xs:sequence/>
+    <xs:attribute name="key" type="xs:string"/>
+    <xs:attribute name="value" type="xs:int"/>
+  </xs:complexType>
+  <xs:complexType name="processQoSInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="localQoSConstraints" type="tns:serviceClassificationQoSConstraintsMap"/>
+      <xs:element minOccurs="0" name="globalQoSDelta" type="tns:doubleMap"/>
+      <xs:element minOccurs="0" name="globalQoSMinValue" type="tns:doubleMap"/>
+      <xs:element minOccurs="0" name="globalQoSMaxValue" type="tns:doubleMap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceClassificationQoSConstraintsMap">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceClassification" type="tns:serviceClassificationQoSConstraintsEntry"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceClassificationQoSConstraintsEntry">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSConstraint" type="tns:qoSConstraint"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="servicesComposition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="services">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="service" type="tns:serviceInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="qoSValues" type="tns:doubleMap"/>
+    </xs:sequence>
+    <xs:attribute name="ranking" type="xs:int" use="required"/>
+    <xs:attribute name="compositionUtility" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="serviceInfo">
+    <xs:sequence/>
+    <xs:attribute name="alias" type="xs:string"/>
+    <xs:attribute name="serviceKey" type="xs:string"/>
+    <xs:attribute name="bindingTemplateKey" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="discoveredService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="serviceKey" type="xs:string"/>
+      <xs:element minOccurs="0" name="bindingTemplateKey" type="xs:string"/>
+      <xs:element minOccurs="0" name="uddiRepositoryEndpointURL" type="xs:string"/>
+      <xs:element minOccurs="0" name="serviceName" type="xs:string"/>
+      <xs:element minOccurs="0" name="serviceEndpointURL" type="xs:string"/>
+      <xs:element minOccurs="0" name="serviceClassification" type="xs:string"/>
+      <xs:element minOccurs="0" name="serviceProvider" type="tns:serviceProvider"/>
+      <xs:element minOccurs="0" name="serviceQoS">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSInformation" nillable="true" type="tns:serviceQoSInformationItem"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="utility" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceProvider">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="identification" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceQoSInformationItem">
+    <xs:sequence/>
+    <xs:attribute name="qoSItemName" type="xs:string"/>
+    <xs:attribute name="qoSAttributeName" type="xs:string"/>
+    <xs:attribute name="qoSKey" type="xs:string"/>
+    <xs:attribute name="qoSValue" type="xs:double"/>
+    <xs:attribute name="qoSItemId" type="xs:int"/>
+    <xs:attribute name="qoSUnit" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="getEnabledQoSAttributes">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getEnabledQoSAttributesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:qoSAttributeList"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSAttributeList">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSAttribute" type="tns:qoSAttribute"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getServicesQoSInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="serviceClassification" type="xs:string"/>
+      <xs:element minOccurs="0" name="qoSKey" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getServicesQoSInformationResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceEndpoint" type="tns:serviceQoSInformationItem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getQoSAttributes">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getQoSAttributesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:qoSAttributeList"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLocalQoSConstraints">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="process" type="tns:process"/>
+      <xs:element minOccurs="0" name="qoSInformation" type="tns:qoSInformation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLocalQoSConstraintsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="processQoSInfo" type="tns:processQoSInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="discoverServices">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="serviceClassification" type="xs:string"/>
+      <xs:element minOccurs="0" name="qoSInformation" type="tns:qoSInformation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="discoverServicesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="discoveryResult" type="tns:discoveryResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getQoSItems">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getQoSItemsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSItem" type="tns:qoSItem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getQoSLevels">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="tns:qoSLevelsRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSLevelsRequest">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceClassification" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSKey" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="numberOfLevels" type="xs:int"/>
+      <xs:element minOccurs="0" name="qoSWeights" type="tns:doubleMap"/>
+      <xs:element minOccurs="0" name="process" type="tns:process"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getQoSLevelsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="qoSLevelsResponse" type="tns:qoSLevelsResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSLevelsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="numberOfServicesByServiceClassification" type="tns:integerMap"/>
+      <xs:element minOccurs="0" name="maxServiceUtilityByServiceClassification" type="tns:doubleMap"/>
+      <xs:element minOccurs="0" name="maxQoSValueByServiceClassification" type="tns:qoSValuesByServiceClassificationMap"/>
+      <xs:element minOccurs="0" name="minQoSValueByServiceClassification" type="tns:qoSValuesByServiceClassificationMap"/>
+      <xs:element minOccurs="0" name="qoSLevelsByServiceClassification" type="tns:qoSLevelsByServiceClassificationMap"/>
+      <xs:element minOccurs="0" name="qoSLevelsByVirtualTask" type="tns:qoSLevelsByVirtualTaskMap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSValuesByServiceClassificationMap">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceClassification" type="tns:qoSValuesByServiceClassificationEntry"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSValuesByServiceClassificationEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="qoSAttributes" type="tns:doubleMap"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="qoSLevelsByServiceClassificationMap">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceClassification" type="tns:qoSLevelsByServiceClassificationEntry"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSLevelsByServiceClassificationEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="qoSAttributes" type="tns:qoSAttributesNumberOfLevelsMap"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="qoSAttributesNumberOfLevelsMap">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSAttribute" type="tns:qoSAttributesNumberOfLevelsEntry"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSAttributesNumberOfLevelsEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="groups" type="tns:numberOfLevelsQoSLevelsMap"/>
+    </xs:sequence>
+    <xs:attribute name="key" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="numberOfLevelsQoSLevelsMap">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSLevelGroup" type="tns:numberOfLevelsQoSLevelsEntry"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="numberOfLevelsQoSLevelsEntry">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="level" type="tns:qoSLevel"/>
+    </xs:sequence>
+    <xs:attribute name="numberOfLevels" type="xs:int"/>
+  </xs:complexType>
+  <xs:complexType name="qoSLevel">
+    <xs:sequence/>
+    <xs:attribute name="qoSKey" type="xs:string"/>
+    <xs:attribute name="totalNumberOfLevels" type="xs:int" use="required"/>
+    <xs:attribute name="number" type="xs:int" use="required"/>
+    <xs:attribute name="value" type="xs:double" use="required"/>
+    <xs:attribute name="negativeUtility" type="xs:double"/>
+    <xs:attribute name="positiveUtility" type="xs:double"/>
+    <xs:attribute name="serviceClassification" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="qoSLevelsByVirtualTaskMap">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="virtualTask" type="tns:qoSLevelsByVirtualTaskEntry"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSLevelsByVirtualTaskEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="qoSAttributes" type="tns:qoSAttributesNumberOfLevelsMap"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="discoverUniqueServiceEndpoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="serviceClassification" type="xs:string"/>
+      <xs:element minOccurs="0" name="qoSInformation" type="tns:qoSInformation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="discoverUniqueServiceEndpointResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="serviceEndpoint" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getProcessQoSThresholds">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="process" type="tns:process"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getProcessQoSThresholdsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="processQoSThresholds" type="tns:processQoSThresholds"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processQoSThresholds">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="processName" type="xs:string"/>
+      <xs:element minOccurs="0" name="qoSThresholds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSThreshold" type="tns:qoSThreshold"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="taskQoSThresholds" type="tns:taskQoSThresholdsMap"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qoSThreshold">
+    <xs:sequence/>
+    <xs:attribute name="qoSKey" type="xs:string"/>
+    <xs:attribute name="qoSMinValue" type="xs:double"/>
+    <xs:attribute name="qoSMaxValue" type="xs:double"/>
+  </xs:complexType>
+  <xs:complexType name="taskQoSThresholdsMap">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceClassification" type="tns:taskQoSThresholdsEntry"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="taskQoSThresholdsEntry">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSThreshold" type="tns:qoSThreshold"/>
+    </xs:sequence>
+    <xs:attribute name="taskName" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="ServiceDiscoveryInfo">
+    <xs:sequence>
+      <xs:element name="candidateServices" type="tns:ArrayOfCandidateService"/>
+      <xs:element minOccurs="0" name="serviceClassification" type="xs:string"/>
+      <xs:element name="qoSConstraints" type="tns:ArrayOfQoSConstraint"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCandidateService">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="candidateService" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfQoSConstraint">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="qoSConstraint" nillable="true" type="tns:qoSConstraint"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="qoSValueUtilityDirection">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="POSITIVE"/>
+      <xs:enumeration value="NEGATIVE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="qoSValueAggregationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUM"/>
+      <xs:enumeration value="PRODUCT"/>
+      <xs:enumeration value="MIN"/>
+      <xs:enumeration value="MAX"/>
+      <xs:enumeration value="VALUE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="qoSValueComparisionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LE"/>
+      <xs:enumeration value="GE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Exception" type="tns:Exception"/>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getServicesQoSInformationResponse">
+    <wsdl:part element="tns:getServicesQoSInformationResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discover">
+    <wsdl:part element="tns:discover" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnabledQoSAttributes">
+    <wsdl:part element="tns:getEnabledQoSAttributes" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServicesQoSInformation">
+    <wsdl:part element="tns:getServicesQoSInformation" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLocalQoSConstraints">
+    <wsdl:part element="tns:getLocalQoSConstraints" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="Exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQoSItems">
+    <wsdl:part element="tns:getQoSItems" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQoSLevels">
+    <wsdl:part element="tns:getQoSLevels" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnabledQoSItemsResponse">
+    <wsdl:part element="tns:getEnabledQoSItemsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLocalQoSConstraintsResponse">
+    <wsdl:part element="tns:getLocalQoSConstraintsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQoSLevelsResponse">
+    <wsdl:part element="tns:getQoSLevelsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnabledQoSAttributesResponse">
+    <wsdl:part element="tns:getEnabledQoSAttributesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQoSAttributesResponse">
+    <wsdl:part element="tns:getQoSAttributesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQoSItemsResponse">
+    <wsdl:part element="tns:getQoSItemsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEnabledQoSItems">
+    <wsdl:part element="tns:getEnabledQoSItems" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverResponse">
+    <wsdl:part element="tns:discoverResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverUniqueServiceEndpointResponse">
+    <wsdl:part element="tns:discoverUniqueServiceEndpointResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getQoSAttributes">
+    <wsdl:part element="tns:getQoSAttributes" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverServicesResponse">
+    <wsdl:part element="tns:discoverServicesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverServices">
+    <wsdl:part element="tns:discoverServices" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProcessQoSThresholdsResponse">
+    <wsdl:part element="tns:getProcessQoSThresholdsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoverUniqueServiceEndpoint">
+    <wsdl:part element="tns:discoverUniqueServiceEndpoint" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProcessQoSThresholds">
+    <wsdl:part element="tns:getProcessQoSThresholds" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DiscoveryService">
+    <wsdl:operation name="getEnabledQoSItems">
+      <wsdl:input message="tns:getEnabledQoSItems" name="getEnabledQoSItems">
+    </wsdl:input>
+      <wsdl:output message="tns:getEnabledQoSItemsResponse" name="getEnabledQoSItemsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discover">
+      <wsdl:input message="tns:discover" name="discover">
+    </wsdl:input>
+      <wsdl:output message="tns:discoverResponse" name="discoverResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnabledQoSAttributes">
+      <wsdl:input message="tns:getEnabledQoSAttributes" name="getEnabledQoSAttributes">
+    </wsdl:input>
+      <wsdl:output message="tns:getEnabledQoSAttributesResponse" name="getEnabledQoSAttributesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServicesQoSInformation">
+      <wsdl:input message="tns:getServicesQoSInformation" name="getServicesQoSInformation">
+    </wsdl:input>
+      <wsdl:output message="tns:getServicesQoSInformationResponse" name="getServicesQoSInformationResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getQoSAttributes">
+      <wsdl:input message="tns:getQoSAttributes" name="getQoSAttributes">
+    </wsdl:input>
+      <wsdl:output message="tns:getQoSAttributesResponse" name="getQoSAttributesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocalQoSConstraints">
+      <wsdl:input message="tns:getLocalQoSConstraints" name="getLocalQoSConstraints">
+    </wsdl:input>
+      <wsdl:output message="tns:getLocalQoSConstraintsResponse" name="getLocalQoSConstraintsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoverServices">
+      <wsdl:input message="tns:discoverServices" name="discoverServices">
+    </wsdl:input>
+      <wsdl:output message="tns:discoverServicesResponse" name="discoverServicesResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getQoSItems">
+      <wsdl:input message="tns:getQoSItems" name="getQoSItems">
+    </wsdl:input>
+      <wsdl:output message="tns:getQoSItemsResponse" name="getQoSItemsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQoSLevels">
+      <wsdl:input message="tns:getQoSLevels" name="getQoSLevels">
+    </wsdl:input>
+      <wsdl:output message="tns:getQoSLevelsResponse" name="getQoSLevelsResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="discoverUniqueServiceEndpoint">
+      <wsdl:input message="tns:discoverUniqueServiceEndpoint" name="discoverUniqueServiceEndpoint">
+    </wsdl:input>
+      <wsdl:output message="tns:discoverUniqueServiceEndpointResponse" name="discoverUniqueServiceEndpointResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessQoSThresholds">
+      <wsdl:input message="tns:getProcessQoSThresholds" name="getProcessQoSThresholds">
+    </wsdl:input>
+      <wsdl:output message="tns:getProcessQoSThresholdsResponse" name="getProcessQoSThresholdsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DiscoveryServiceSoapBinding" type="tns:DiscoveryService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getEnabledQoSItems">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEnabledQoSItems">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEnabledQoSItemsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discover">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="discover">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="discoverResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEnabledQoSAttributes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEnabledQoSAttributes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEnabledQoSAttributesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServicesQoSInformation">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getServicesQoSInformation">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServicesQoSInformationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getQoSAttributes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getQoSAttributes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getQoSAttributesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocalQoSConstraints">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getLocalQoSConstraints">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getLocalQoSConstraintsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoverServices">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="discoverServices">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="discoverServicesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getQoSItems">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getQoSItems">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getQoSItemsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getQoSLevels">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getQoSLevels">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getQoSLevelsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="discoverUniqueServiceEndpoint">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="discoverUniqueServiceEndpoint">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="discoverUniqueServiceEndpointResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProcessQoSThresholds">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getProcessQoSThresholds">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getProcessQoSThresholdsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DiscoveryService">
+    <wsdl:port binding="tns:DiscoveryServiceSoapBinding" name="DiscoveryServicePort">
+      <soap:address location="http://localhost:8070/services/DiscoveryService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

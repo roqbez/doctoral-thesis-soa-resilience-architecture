@@ -1,0 +1,1 @@
+wsdl2java -server -d d:/src_ubl_webservices_interfaces *.wsdl

@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:broker="http://activemq.apache.org/schema/core"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:camel="http://camel.apache.org/schema/spring"
+	xsi:schemaLocation="
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
+         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+         ">
+
+	<bean id="connectionFactory" class="br.ufsc.gsigma.infrastructure.util.messaging.JmsMessagingConnectionFactory" destroy-method="destroy">
+		<property name="targetConnectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL" value="${jms.broker.url:vm://localhost?create=false}" />
+				<property name="clientID" value="${jms.clientid}" />
+				<property name="trustAllPackages" value="true" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="activemq" class="br.ufsc.gsigma.infrastructure.util.messaging.JmsMessagingComponent">
+		<property name="connectionFactory" ref="connectionFactory" />
+	</bean>
+
+	<camel:camelContext id="camelContext">
+	</camel:camelContext>
+
+	<bean class="br.ufsc.gsigma.infrastructure.util.messaging.EventSender">
+		<property name="senderId" value="${jms.senderid}" />
+	</bean>
+
+</beans>

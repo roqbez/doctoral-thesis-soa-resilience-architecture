@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="resilience-prototype" default="collectElasticSearchData">
+
+
+	<tstamp>
+		<format property="now" pattern="yyyy-MM-dd-HHmmss" />
+	</tstamp>
+
+	<property name="elasticsearch.server" value="150.162.6.131" />
+	<property name="elasticsearch.ssh.username" value="roque" />
+	<property name="elasticsearch.ssh.keyfile" value="${user.home}/.ssh/id_rsa" />
+	<property name="elasticsearch.ssh.passphrase" value="" />
+
+	<property name="elasticsearch.query" value="processFinished:true AND processStateCode:(30 70) AND executionId:scenario8" />
+	<property name="elasticsearch.fields" value="" />
+
+	<property name="dest.dir" value="tests/${now}" />
+
+	<path id="ant.libs">
+		<fileset dir="${basedir}/libs_support/ant">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="collectElasticSearchData">
+
+		<mkdir dir="${dest.dir}" />
+
+		<sshexec host="${elasticsearch.server}" port="22" username="${elasticsearch.ssh.username}" keyfile="${elasticsearch.ssh.keyfile}" passphrase="${elasticsearch.ssh.passphrase}"
+			command="tar cvfz /tmp/logging-elk.tar.gz /opt/docker/volumes/logging-elk" trust="true" />
+
+		<scp remoteFile="${elasticsearch.ssh.username}@${elasticsearch.server}:/tmp/logging-elk.tar.gz" localTofile="${dest.dir}/logging-elk.tar.gz" port="22"
+			keyfile="${elasticsearch.ssh.keyfile}" passphrase="${elasticsearch.ssh.passphrase}" failonerror="false" trust="true" />
+
+		<sshexec host="${elasticsearch.server}" port="22" username="${elasticsearch.ssh.username}" keyfile="${elasticsearch.ssh.keyfile}" passphrase="${elasticsearch.ssh.passphrase}"
+			command="rm /tmp/logging-elk.tar.gz" trust="true" />
+
+		<sshexec host="${elasticsearch.server}" port="22" username="${elasticsearch.ssh.username}" keyfile="${elasticsearch.ssh.keyfile}" passphrase="${elasticsearch.ssh.passphrase}"
+			command="es2csv -u logging.d-201603244.ufsc.br:9200 -q '${elasticsearch.query}' -o /tmp/data.csv" trust="true" />
+
+		<scp remoteFile="${elasticsearch.ssh.username}@${elasticsearch.server}:/tmp/data.csv" localTofile="${dest.dir}/data.csv" port="22" keyfile="${elasticsearch.ssh.keyfile}"
+			passphrase="${elasticsearch.ssh.passphrase}" failonerror="false" trust="true" />
+
+		<sshexec host="${elasticsearch.server}" port="22" username="${elasticsearch.ssh.username}" keyfile="${elasticsearch.ssh.keyfile}" passphrase="${elasticsearch.ssh.passphrase}"
+			command="rm /tmp/data.csv" trust="true" />
+
+	</target>
+
+
+
+</project>

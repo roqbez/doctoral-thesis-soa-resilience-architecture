@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance" targetNamespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance"
+   xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2"
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance">
+         <xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2" schemaLocation="xsd/ubl/maindoc/UBL-ApplicationResponse-2.0.xsd" />
+         <xsd:element name="receiveAcknowledgeAcceptance">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="input" nillable="true" type="ns1:ApplicationResponseType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="receiveAcknowledgeAcceptanceResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="receiveAcknowledgeAcceptanceAsync">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="input" nillable="true" type="ns1:ApplicationResponseType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="receiveAcknowledgeAcceptanceAsyncCallback">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="output" nillable="true" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="receiveAcknowledgeAcceptanceAsyncCallbackResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="alive">
+            <xsd:complexType>
+               <xsd:sequence />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aliveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="receiveAcknowledgeAcceptanceRequestMsg">
+      <wsdl:part element="tns:receiveAcknowledgeAcceptance" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="receiveAcknowledgeAcceptanceResponseMsg">
+      <wsdl:part element="tns:receiveAcknowledgeAcceptanceResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="receiveAcknowledgeAcceptanceAsyncRequestMsg">
+      <wsdl:part element="tns:receiveAcknowledgeAcceptanceAsync" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="receiveAcknowledgeAcceptanceAsyncCallbackRequestMsg">
+      <wsdl:part element="tns:receiveAcknowledgeAcceptanceAsyncCallback" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="receiveAcknowledgeAcceptanceAsyncCallbackResponseMsg">
+      <wsdl:part element="tns:receiveAcknowledgeAcceptanceAsyncCallbackResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="aliveRequestMsg">
+      <wsdl:part element="tns:alive" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="aliveResponseMsg">
+      <wsdl:part element="tns:aliveResponse" name="payload" />
+   </wsdl:message>
+   <wsdl:portType name="UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance">
+      <wsdl:operation name="receiveAcknowledgeAcceptance">
+         <wsdl:input message="tns:receiveAcknowledgeAcceptanceRequestMsg" name="receiveAcknowledgeAcceptanceRequest" />
+         <wsdl:output message="tns:receiveAcknowledgeAcceptanceResponseMsg" name="receiveAcknowledgeAcceptanceResponse" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="receiveAcknowledgeAcceptanceAsync">
+         <wsdl:input message="tns:receiveAcknowledgeAcceptanceAsyncRequestMsg" name="receiveAcknowledgeAcceptanceAsyncRequest" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+         <wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptanceServiceBinding" type="tns:UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="receiveAcknowledgeAcceptance">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance/receiveAcknowledgeAcceptance" />
+         <wsdl:input name="receiveAcknowledgeAcceptanceRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="receiveAcknowledgeAcceptanceResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="receiveAcknowledgeAcceptanceAsync">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance/receiveAcknowledgeAcceptanceAsync" />
+         <wsdl:input name="receiveAcknowledgeAcceptanceAsyncRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance/alive" />
+         <wsdl:input name="aliveRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="aliveResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptanceService">
+      <wsdl:port name="UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptanceServicePort" binding="tns:UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptanceServiceBinding">
+         <soap:address location="http://localhost:8082/services/ubl/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

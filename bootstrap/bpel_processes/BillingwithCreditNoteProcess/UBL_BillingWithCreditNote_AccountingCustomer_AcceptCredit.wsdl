@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit" targetNamespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit"
+	xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit" xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit">
+			<xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+			<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" schemaLocation="xsd/ubl/maindoc/UBL-CreditNote-2.0.xsd" />
+			<xsd:element name="acceptCredit">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="input" nillable="true" type="ns1:CreditNoteType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="acceptCreditResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="output" nillable="true" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="acceptCreditAsync">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="input" nillable="true" type="ns1:CreditNoteType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="acceptCreditAsyncCallback">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="output" nillable="true" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="acceptCreditAsyncCallbackResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="alive">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="aliveResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="output" nillable="true" type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="acceptCreditRequestMsg">
+		<wsdl:part element="tns:acceptCredit" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="acceptCreditResponseMsg">
+		<wsdl:part element="tns:acceptCreditResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="acceptCreditAsyncRequestMsg">
+		<wsdl:part element="tns:acceptCreditAsync" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="acceptCreditAsyncCallbackRequestMsg">
+		<wsdl:part element="tns:acceptCreditAsyncCallback" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="acceptCreditAsyncCallbackResponseMsg">
+		<wsdl:part element="tns:acceptCreditAsyncCallbackResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="aliveRequestMsg">
+		<wsdl:part element="tns:alive" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="aliveResponseMsg">
+		<wsdl:part element="tns:aliveResponse" name="payload" />
+	</wsdl:message>
+	<wsdl:portType name="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit">
+		<wsdl:operation name="acceptCredit">
+			<wsdl:input message="tns:acceptCreditRequestMsg" name="acceptCreditRequest" />
+			<wsdl:output message="tns:acceptCreditResponseMsg" name="acceptCreditResponse" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="acceptCreditAsync">
+			<wsdl:input message="tns:acceptCreditAsyncRequestMsg" name="acceptCreditAsyncRequest" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+			<wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCreditServiceBinding" type="tns:UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="acceptCredit">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit/acceptCredit" />
+			<wsdl:input name="acceptCreditRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="acceptCreditResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="acceptCreditAsync">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit/acceptCreditAsync" />
+			<wsdl:input name="acceptCreditAsyncRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit/alive" />
+			<wsdl:input name="aliveRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="aliveResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCreditService">
+		<wsdl:port name="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCreditServicePort" binding="tns:UBL_BillingWithCreditNote_AccountingCustomer_AcceptCreditServiceBinding">
+			<soap:address location="http://localhost:8082/services/ubl/billingwithcreditnote/accountingCustomer/acceptCredit" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

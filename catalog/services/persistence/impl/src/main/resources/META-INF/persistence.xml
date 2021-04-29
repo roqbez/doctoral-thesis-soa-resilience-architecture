@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+   <persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
+      <class>br.ufsc.gsigma.catalog.services.model.ConnectableComponent</class>
+      <class>br.ufsc.gsigma.catalog.services.model.Connection</class>
+      <class>br.ufsc.gsigma.catalog.services.model.Decision</class>
+      <class>br.ufsc.gsigma.catalog.services.model.Document</class>
+      <class>br.ufsc.gsigma.catalog.services.model.EndEvent</class>
+      <class>br.ufsc.gsigma.catalog.services.model.Event</class>
+      <class>br.ufsc.gsigma.catalog.services.model.FlowControlComponent</class>
+      <class>br.ufsc.gsigma.catalog.services.model.Fork</class>
+      <class>br.ufsc.gsigma.catalog.services.model.InputBranch</class>
+      <class>br.ufsc.gsigma.catalog.services.model.InputContactPoint</class>
+      <class>br.ufsc.gsigma.catalog.services.model.Junction</class>
+      <class>br.ufsc.gsigma.catalog.services.model.Merge</class>
+      <class>br.ufsc.gsigma.catalog.services.model.OutputBranch</class>
+      <class>br.ufsc.gsigma.catalog.services.model.OutputContactPoint</class>
+      <class>br.ufsc.gsigma.catalog.services.model.Participant</class>
+      <class>br.ufsc.gsigma.catalog.services.model.Process</class>
+      <class>br.ufsc.gsigma.catalog.services.model.ProcessCategory</class>
+      <class>br.ufsc.gsigma.catalog.services.model.ProcessStandard</class>
+      <class>br.ufsc.gsigma.catalog.services.model.ProcessTreeDescription</class>
+      <class>br.ufsc.gsigma.catalog.services.model.QoSCriterion</class>
+      <class>br.ufsc.gsigma.catalog.services.model.Resource</class>
+      <class>br.ufsc.gsigma.catalog.services.model.ServiceAssociation</class>
+      <class>br.ufsc.gsigma.catalog.services.model.StartEvent</class>
+      <class>br.ufsc.gsigma.catalog.services.model.Task</class>
+      <class>br.ufsc.gsigma.catalog.services.model.TaskParticipant</class>
+      <class>br.ufsc.gsigma.catalog.services.model.TaskResource</class>
+      <properties>
+
+        <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+      </properties>
+   </persistence-unit>
+</persistence>

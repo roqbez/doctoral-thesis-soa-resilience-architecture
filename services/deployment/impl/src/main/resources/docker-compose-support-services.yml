@@ -1,0 +1,81 @@
+version: "3.6"
+
+services:
+
+#ExecutionService            
+    execution-service:
+        image: d-201603244.ufsc.br/bpel-impl:latest
+        deploy:
+            mode: replicated
+            replicas: 1
+            endpoint_mode: dnsrr
+            placement:
+                constraints:
+                    - node.hostname != drroque
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+    
+    execution-service-haproxy:
+        image: d-201603244.ufsc.br/executionservice-haproxy:latest 
+        command: ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy-failover.cfg"] 
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.hostname == drroque
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        ports:
+            - "7000:80"
+
+#BindingService            
+    binding-service:
+        image: d-201603244.ufsc.br/binding-impl:latest
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.hostname != drroque
+            endpoint_mode: dnsrr
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        
+    binding-service-haproxy:
+        image: d-201603244.ufsc.br/bindingservice-haproxy:latest
+        command: ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy-failover.cfg"]
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.hostname == drroque
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        ports:
+            - "9000:80"
+
+#ResilienceService
+    resilience-service:
+        image: d-201603244.ufsc.br/resilience-impl:latest
+        environment:
+            INSPECTIT_ENABLED: "0"
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.hostname != drroque
+            endpoint_mode: dnsrr
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        
+        
+    resilience-service-haproxy:
+        image: d-201603244.ufsc.br/resilienceservice-haproxy:latest
+        command: ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy-failover.cfg"]  
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.hostname == drroque
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        ports:
+            - "6500:80"

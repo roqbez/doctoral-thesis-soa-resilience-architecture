@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<save_tModel xmlns="urn:uddi-org:api_v3">
+
+	<!-- Key Generators -->
+
+	<tModel tModelKey="uddi:qos:keygenerator" xmlns="urn:uddi-org:api_v3">
+		<name>qos:keyGenerator</name>
+		<description>UBL domain key generator</description>
+		<overviewDoc>
+			<overviewURL useType="text">
+				http://uddi.org/pubs/uddi_v3.htm#keyGen
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi-org:types:keyGenerator" keyValue="keyGenerator" />
+		</categoryBag>
+	</tModel>
+
+
+	<!-- QoS -->
+
+	<tModel tModelKey="uddi:qos:serviceqoslist">
+		<name>qos:serviceqoslist</name>
+		<description>Service QoS List</description>
+		<categoryBag>
+			<keyedReference keyName="uddi-org:types:categorization" keyValue="categorization" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:unchecked" keyValue="unchecked" tModelKey="uddi:uddi.org:categorization:types" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:value:utilitydirection">
+		<name>qos:value:utilitydirection</name>
+		<description>QoS Value Utility Direction (positive or negative)</description>
+		<categoryBag>
+			<keyedReference keyName="uddi-org:types:categorization" keyValue="categorization" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:unchecked" keyValue="unchecked" tModelKey="uddi:uddi.org:categorization:types" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:value:aggregation:structure:sequential">
+		<name>qos:value:aggregation:structure:sequential</name>
+		<description>QoS Value Aggregation in Sequential Structure</description>
+		<categoryBag>
+			<keyedReference keyName="uddi-org:types:categorization" keyValue="categorization" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:unchecked" keyValue="unchecked" tModelKey="uddi:uddi.org:categorization:types" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:value:aggregation:structure:loop">
+		<name>qos:value:aggregation:structure:loop</name>
+		<description>QoS Value Aggregation in Loop Structure</description>
+		<categoryBag>
+			<keyedReference keyName="uddi-org:types:categorization" keyValue="categorization" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:unchecked" keyValue="unchecked" tModelKey="uddi:uddi.org:categorization:types" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:value:aggregation:structure:parallel">
+		<name>qos:value:aggregation:structure:parallel</name>
+		<description>QoS Value Aggregation in Parallel Structure</description>
+		<categoryBag>
+			<keyedReference keyName="uddi-org:types:categorization" keyValue="categorization" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:unchecked" keyValue="unchecked" tModelKey="uddi:uddi.org:categorization:types" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:value:aggregation:structure:conditional">
+		<name>qos:value:aggregation:structure:conditional</name>
+		<description>QoS Value Aggregation in Conditional Structure</description>
+		<categoryBag>
+			<keyedReference keyName="uddi-org:types:categorization" keyValue="categorization" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:unchecked" keyValue="unchecked" tModelKey="uddi:uddi.org:categorization:types" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:unit">
+		<name>qos:unit</name>
+		<description>QoS Metric Unit</description>
+		<categoryBag>
+			<keyedReference keyName="uddi-org:types:categorization" keyValue="categorization" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:unchecked" keyValue="unchecked" tModelKey="uddi:uddi.org:categorization:types" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:item">
+		<name>qos:item</name>
+		<description>QoS Item</description>
+		<categoryBag>
+			<keyedReference keyName="uddi-org:types:categorization" keyValue="categorization" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:unchecked" keyValue="unchecked" tModelKey="uddi:uddi.org:categorization:types" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:attribute">
+		<name>qos:item</name>
+		<description>QoS Item</description>
+		<categoryBag>
+			<keyedReference keyName="uddi-org:types:categorization" keyValue="categorization" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:unchecked" keyValue="unchecked" tModelKey="uddi:uddi.org:categorization:types" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Cost -->
+	<tModel tModelKey="uddi:qos:cost">
+		<name>qos:cost</name>
+		<description>Cost: defined as the service cost.
+		</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:cost" keyValue="Cost" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="12" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:cost:executioncost">
+		<name>qos:cost:executioncost</name>
+		<description>QoS -> Cost -> Execution Cost</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:cost" keyValue="Cost" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:cost:executioncost" keyValue="ExecutionCost" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:money" keyValue="Money" />
+			<keyedReference tModelKey="uddi:qos:value:utilitydirection" keyName="uddi:qos:value:utilitydirection:negative" keyValue="Negative" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:sequential" keyName="uddi:qos:value:aggregation:structure:sequential:sum" keyValue="Sum" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:loop" keyName="uddi:qos:value:aggregation:structure:loop:sum" keyValue="Sum" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:parallel" keyName="uddi:qos:value:aggregation:structure:parallel:sum" keyValue="Sum" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:conditional" keyName="uddi:qos:value:aggregation:structure:conditional:max" keyValue="Max" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Accuracy -->
+	<tModel tModelKey="uddi:qos:accuracy">
+		<name>qos:accuracy</name>
+		<description>Accuracy: defined as the service generated error rate.
+			* TotalGeneratedError: number of errors that a WS generate in some time space
+			(must be minimum).
+		</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:accuracy" keyValue="Accuracy" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="11" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:accuracy:generatederror">
+		<name>qos:accuracy:generatederror</name>
+		<description>QoS -> Accuracy -> Generated Error</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:accuracy" keyValue="Accuracy" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:accuracy:generatederror" keyValue="GeneratedError" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:errornumber" keyValue="ErrorNumber" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+
+	<!-- Acessibility -->
+	<tModel tModelKey="uddi:qos:acessibility">
+		<name>qos:acessibility</name>
+		<description>Acessibility: capacity that a service must have to answer the clients requests.</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:acessibility" keyValue="Acessibility" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="10" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+
+	<tModel tModelKey="uddi:qos:acessibility:acessibility">
+		<name>qos:acessibility:acessibility</name>
+		<description>QoS -> Acessibility -> Acessibility</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:acessibility" keyValue="Acessibility" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:acessibility:acessibility" keyValue="Acessibility" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:percentage" keyValue="Percentage" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Availability -->
+	<tModel tModelKey="uddi:qos:availability">
+		<name>qos:availability</name>
+		<description>Availability: the probability that a service is ready to be used.</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:availability" keyValue="Availability" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="9" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:availability:availability">
+		<name>qos:availability:availability</name>
+		<description>QoS -> Availability -> Availability</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:availability" keyValue="Availability" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:availability:availability" keyValue="Availability" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:percentage" keyValue="Percentage" />
+			<keyedReference tModelKey="uddi:qos:value:utilitydirection" keyName="uddi:qos:value:utilitydirection:positive" keyValue="Positive" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:sequential" keyName="uddi:qos:value:aggregation:structure:sequential:product" keyValue="Product" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:loop" keyName="uddi:qos:value:aggregation:structure:loop:product" keyValue="Product" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:parallel" keyName="uddi:qos:value:aggregation:structure:parallel:product" keyValue="Product" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:conditional" keyName="uddi:qos:value:aggregation:structure:conditional:min" keyValue="Min" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Capacity -->
+	<tModel tModelKey="uddi:qos:capacity">
+		<name>qos:capacity</name>
+		<description>Capacity: the limit of requests that can be answered with a guarantee of performance.</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:capacity" keyValue="Capacity" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="8" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:capacity:capacity">
+		<name>qos:capacity:capacity</name>
+		<description>QoS -> Capacity -> Capacity</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:capacity" keyValue="Capacity" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:capacity:capacity" keyValue="Capacity" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:requestnumber" keyValue="RequestNumber" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Exception Handling -->
+	<tModel tModelKey="uddi:qos:exceptionhandling">
+		<name>qos:exceptionhandling</name>
+		<description>ExceptionHandling: must have the exception handling functionality.</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:exceptionhandling" keyValue="ExceptionHandling" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="7" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:exceptionhandling:functionality">
+		<name>qos:exceptionhandling:functionality</name>
+		<description>QoS -> Exception Handling -> Functionality</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:exceptionhandling" keyValue="ExceptionHandling" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:exceptionhandling:functionality" keyValue="Functionality" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:percentage" keyValue="Percentage" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Integrity -->
+	<tModel tModelKey="uddi:qos:integrity">
+		<name>qos:integrity</name>
+		<description>Integrity: must previse autorized access to programs and data.</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:integrity" keyValue="Integrity" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="6" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:integrity:dataintegrity">
+		<name>qos:integrity:dataintegrity</name>
+		<description>QoS -> Integrity -> Data Integrity</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:integrity" keyValue="Integrity" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:integrity:dataintegrity" keyValue="DataIntegrity" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:percentage" keyValue="Percentage" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:integrity:transactionalintegrity">
+		<name>qos:integrity:transactionalintegrity</name>
+		<description>QoS -> Integrity -> Transactional Integrity</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:integrity" keyValue="Integrity" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:integrity:transactionalintegrity" keyValue="TransactionalIntegrity" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:percentage" keyValue="Percentage" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Interoperability -->
+	<tModel tModelKey="uddi:qos:interoperability">
+		<name>qos:interoperability</name>
+		<description>Interoperability: the service is interoperable.</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:interoperability" keyValue="Interoperability" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="5" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+
+	<tModel tModelKey="uddi:qos:interoperability:interoperability">
+		<name>qos:interoperability:interoperability</name>
+		<description>QoS -> Interoperability -> Interoperability</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:interoperability" keyValue="Interoperability" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:interoperability:interoperability" keyValue="Interoperability" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:percentage" keyValue="Percentage" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Performance -->
+	<tModel tModelKey="uddi:qos:performance">
+		<name>qos:performance</name>
+		<description>Represents how fast a service request can be completed.
+			It can be measured in terms of throughput, response time, latency, execution
+			time, and transaction time,
+			and so
+			on.
+		</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:performance" keyValue="Performance" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="1" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:performance:latency">
+		<name>qos:performance:latency</name>
+		<description>QoS -> Performance -> Latency</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:performance" keyValue="Performance" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:performance:latency" keyValue="Latency" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:second" keyValue="Second" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:performance:throughput">
+		<name>qos:performance:throughput</name>
+		<description>QoS -> Performance -> Throughput</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:performance" keyValue="Performance" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:performance:throughput" keyValue="Throughput" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:second" keyValue="Requests per Second" />
+			<keyedReference tModelKey="uddi:qos:value:utilitydirection" keyName="uddi:qos:value:utilitydirection:positive" keyValue="Positive" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:sequential" keyName="uddi:qos:value:aggregation:structure:sequential:min" keyValue="Min" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:loop" keyName="uddi:qos:value:aggregation:structure:loop:value" keyValue="Value" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:parallel" keyName="uddi:qos:value:aggregation:structure:parallel:min" keyValue="Min" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:conditional" keyName="uddi:qos:value:aggregation:structure:conditional:min" keyValue="Min" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:performance:executiontime">
+		<name>qos:performance:executiontime</name>
+		<description>QoS -> Performance -> Execution Time</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:performance" keyValue="Performance" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:performance:executiontime" keyValue="ExecutionTime" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:second" keyValue="Second" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:performance:transactiontime">
+		<name>qos:performance:transactiontime</name>
+		<description>QoS -> Performance -> Transaction Time</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:performance" keyValue="Performance" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:performance:transactiontime" keyValue="TransactionTime" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:second" keyValue="Second" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:performance:responsetime">
+		<name>qos:performance:responsetime</name>
+		<description>QoS -> Performance -> Response Time</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:performance" keyValue="Performance" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:performance:responsetime" keyValue="ResponseTime" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:millisecond" keyValue="Millisecond" />
+			<keyedReference tModelKey="uddi:qos:value:utilitydirection" keyName="uddi:qos:value:utilitydirection:negative" keyValue="Negative" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:sequential" keyName="uddi:qos:value:aggregation:structure:sequential:sum" keyValue="Sum" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:loop" keyName="uddi:qos:value:aggregation:structure:loop:sum" keyValue="Sum" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:parallel" keyName="uddi:qos:value:aggregation:structure:parallel:max" keyValue="Max" />
+			<keyedReference tModelKey="uddi:qos:value:aggregation:structure:conditional" keyName="uddi:qos:value:aggregation:structure:conditional:max" keyValue="Max" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Reliability -->
+	<tModel tModelKey="uddi:qos:reliability">
+		<name>qos:reliability</name>
+		<description>Represents how reliable the completion of the request is.</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:reliability" keyValue="Reliability" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="4" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:reliability:messagewarranty">
+		<name>qos:reliability:messagewarranty</name>
+		<description>QoS -> Reliability -> Message Warranty</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:reliability" keyValue="Reliability" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:reliability:messagewarranty" keyValue="MessageWarranty" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:second" keyValue="Second" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:reliability:month">
+		<name>qos:reliability:month</name>
+		<description>QoS -> Reliability -> Month</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:reliability" keyValue="Reliability" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:reliability:month" keyValue="Month" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:failurenumber" keyValue="FailureNumber" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:reliability:day">
+		<name>qos:reliability:day</name>
+		<description>QoS -> Reliability -> Day</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:reliability" keyValue="Reliability" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:reliability:day" keyValue="Day" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:failurenumber" keyValue="FailureNumber" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:reliability:year">
+		<name>qos:reliability:year</name>
+		<description>QoS -> Reliability -> Year</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:reliability" keyValue="Reliability" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:reliability:year" keyValue="Year" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:failurenumber" keyValue="FailureNumber" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Robustness -->
+	<tModel tModelKey="uddi:qos:robustness">
+		<name>qos:robustness</name>
+		<description>Robustness: the degree that a service can work rightly, even having invalid, incomplete or conflicting input.</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:robustness" keyValue="Robustness" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="3" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:robustness:robustness">
+		<name>qos:robustness:robustness</name>
+		<description>QoS -> Robustness -> Robustness</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:robustness" keyValue="Robustness" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:robustness:robustness" keyValue="Robustness" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:percentage" keyValue="Percentage" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Scalability -->
+	<tModel tModelKey="uddi:qos:scalability">
+		<name>qos:scalability</name>
+		<description>Scalability: represents the capacity of the provider computing system for growing and the hability to process a superior number of
+			requests,
+			operations or
+			transactions
+			in a certain time.
+		</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:scalability" keyValue="Scalability" />
+			<keyedReference tModelKey="uddi:qos:item:id" keyName="uddi:qos:item:id" keyValue="2" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:item" keyValue="QoSItem" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:scalability:latency">
+		<name>qos:scalability:latency</name>
+		<description>QoS -> Scalability -> Latency</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:scalability" keyValue="Scalability" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:scalability:latency" keyValue="Latency" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:second" keyValue="Second" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:scalability:transactiontime">
+		<name>qos:scalability:transactiontime</name>
+		<description>QoS -> Scalability -> Transaction Time</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:scalability" keyValue="Scalability" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:scalability:transactiontime" keyValue="TransactionTime" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:second" keyValue="Second" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:scalability:executiontime">
+		<name>qos:scalability:executiontime</name>
+		<description>QoS -> Scalability -> Execution Time</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:scalability" keyValue="Scalability" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:scalability:executiontime" keyValue="ExecutionTime" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:second" keyValue="Second" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:scalability:throughput">
+		<name>qos:scalability:throughput</name>
+		<description>QoS -> Scalability -> Throughput</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:scalability" keyValue="Scalability" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:scalability:throughput" keyValue="Throughput" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:second" keyValue="Second" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:qos:scalability:responsetime">
+		<name>qos:scalability:responsetime</name>
+		<description>QoS -> Scalability -> Response Time</description>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:qos:item" keyName="uddi:qos:scalability" keyValue="Scalability" />
+			<keyedReference tModelKey="uddi:qos:attribute" keyName="uddi:qos:scalability:responsetime" keyValue="ResponseTime" />
+			<keyedReference tModelKey="uddi:qos:unit" keyName="uddi:qos:unit:millisecond" keyValue="Millisecond" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:qos:attribute" keyValue="QoSAttribute" />
+		</categoryBag>
+	</tModel>
+
+</save_tModel>

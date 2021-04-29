@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice" targetNamespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice"
+	xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:Order-2"
+	xmlns:ns2="urn:oasis:names:specification:ubl:schema:xsd:ReceiptAdvice-2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice">
+			<xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+			<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:Order-2" schemaLocation="xsd/ubl/maindoc/UBL-Order-2.0.xsd" />
+			<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:ReceiptAdvice-2" schemaLocation="xsd/ubl/maindoc/UBL-ReceiptAdvice-2.0.xsd" />
+			<xsd:element name="sendReceiptAdvice">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="input" nillable="true" type="ns1:OrderType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="sendReceiptAdviceResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="output" nillable="true" type="ns2:ReceiptAdviceType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="sendReceiptAdviceAsync">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="input" nillable="true" type="ns1:OrderType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="sendReceiptAdviceAsyncCallback">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="output" nillable="true" type="ns2:ReceiptAdviceType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="sendReceiptAdviceAsyncCallbackResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="alive">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="aliveResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="output" nillable="true" type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="sendReceiptAdviceRequestMsg">
+		<wsdl:part element="tns:sendReceiptAdvice" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="sendReceiptAdviceResponseMsg">
+		<wsdl:part element="tns:sendReceiptAdviceResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="sendReceiptAdviceAsyncRequestMsg">
+		<wsdl:part element="tns:sendReceiptAdviceAsync" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="sendReceiptAdviceAsyncCallbackRequestMsg">
+		<wsdl:part element="tns:sendReceiptAdviceAsyncCallback" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="sendReceiptAdviceAsyncCallbackResponseMsg">
+		<wsdl:part element="tns:sendReceiptAdviceAsyncCallbackResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="aliveRequestMsg">
+		<wsdl:part element="tns:alive" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="aliveResponseMsg">
+		<wsdl:part element="tns:aliveResponse" name="payload" />
+	</wsdl:message>
+	<wsdl:portType name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice">
+		<wsdl:operation name="sendReceiptAdvice">
+			<wsdl:input message="tns:sendReceiptAdviceRequestMsg" name="sendReceiptAdviceRequest" />
+			<wsdl:output message="tns:sendReceiptAdviceResponseMsg" name="sendReceiptAdviceResponse" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="sendReceiptAdviceAsync">
+			<wsdl:input message="tns:sendReceiptAdviceAsyncRequestMsg" name="sendReceiptAdviceAsyncRequest" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+			<wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdviceServiceBinding" type="tns:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="sendReceiptAdvice">
+			<soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice/sendReceiptAdvice" />
+			<wsdl:input name="sendReceiptAdviceRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="sendReceiptAdviceResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="sendReceiptAdviceAsync">
+			<soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice/sendReceiptAdviceAsync" />
+			<wsdl:input name="sendReceiptAdviceAsyncRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice/alive" />
+			<wsdl:input name="aliveRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="aliveResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdviceService">
+		<wsdl:port name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdviceServicePort" binding="tns:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdviceServiceBinding">
+			<soap:address location="http://localhost:8082/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

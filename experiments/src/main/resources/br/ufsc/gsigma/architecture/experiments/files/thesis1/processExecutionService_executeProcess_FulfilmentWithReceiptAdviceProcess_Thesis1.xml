@@ -1,0 +1,19 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://interfaces.execution.services.gsigma.ufsc.br/">
+	<soapenv:Header>
+		<ectx:executionContext xmlns:ectx="http://gsigma.ufsc.br/execution" xmlns="http://gsigma.ufsc.br/execution">
+			<ectx:executionId>exp</ectx:executionId>
+			<ectx:attributes>
+				<entry key="BINDING_WAIT_FOR_NEW_BINDING_CONFIGURATION_TIMEOUT" value="60000" />
+				<entry key="SERVICES_DECISIONS" value="{&quot;UBLFulfilmentWithReceiptAdviceBuyerPartyDetermineActionImpl&quot;:[&quot;changeOrder&quot;, &quot;acceptItems&quot;]}" />
+			</ectx:attributes>
+			<ectx:flags>
+				<entry key="RANDOM_SERVICE_PROTOCOL_CONVERTER" value="true" />
+			</ectx:flags>
+		</ectx:executionContext>
+	</soapenv:Header>
+	<soapenv:Body>
+		<int:executeProcess>
+			<processName>FulfilmentwithReceiptAdviceProcess</processName>
+		</int:executeProcess>
+	</soapenv:Body>
+</soapenv:Envelope>

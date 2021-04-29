@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" 
+	xmlns:pns="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess"
+	xmlns:deliveryParty_receiveOrderItems="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems"
+	xmlns:buyerParty_acceptItems="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems"
+	xmlns:buyerParty_sendOrderCancellation="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation"
+	xmlns:deliveryParty_adviseBuyerOfStatus="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus"
+	xmlns:deliveryParty_sendReceiptAdvice="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice"
+	xmlns:buyerParty_adjustOrder="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"
+	xmlns:buyerParty_adjustSupplyStatus="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus"
+	xmlns:deliveryParty_checkStatusOfItems="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems"
+	xmlns:buyerParty_determineAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction"
+>
+	<process name="pns:FulfilmentwithReceiptAdviceProcess">
+		<in-memory>false</in-memory>
+		<active>true</active>
+		<provide partnerLink="FulfilmentwithReceiptAdviceProcess">
+			<service name="pns:FulfilmentwithReceiptAdviceProcessService" port="FulfilmentwithReceiptAdviceProcessServicePort" />
+		</provide>
+		<invoke partnerLink="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_ReceiveOrderItems_Partner">
+			<service name="deliveryParty_receiveOrderItems:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_ReceiveOrderItemsService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems_Partner">
+			<service name="buyerParty_acceptItems:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItemsService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_FulfilmentWithReceiptAdvice_BuyerParty_SendOrderCancellation_Partner">
+			<service name="buyerParty_sendOrderCancellation:UBL_FulfilmentWithReceiptAdvice_BuyerParty_SendOrderCancellationService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus_Partner">
+			<service name="deliveryParty_adviseBuyerOfStatus:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatusService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice_Partner">
+			<service name="deliveryParty_sendReceiptAdvice:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdviceService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_FulfilmentWithOrderChange_BuyerParty_AdjustOrder_Partner">
+			<service name="buyerParty_adjustOrder:UBL_FulfilmentWithOrderChange_BuyerParty_AdjustOrderService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus_Partner">
+			<service name="buyerParty_adjustSupplyStatus:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatusService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_CheckStatusOfItems_Partner">
+			<service name="deliveryParty_checkStatusOfItems:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_CheckStatusOfItemsService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction_Partner">
+			<service name="buyerParty_determineAction:UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineActionService" port="notused" />
+		</invoke>
+	</process>
+
+</deploy>

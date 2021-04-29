@@ -1,0 +1,15 @@
+curl -XPOST 'http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query' -H 'Content-Type: application/json' -d '{"query" : { "match" : {  "executionId" : "exp2-bs1-exs1-rs1" }}}'
+
+
+curl -XPOST 'http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query' -H 'Content-Type: application/json' -d '{"query" : { "match" : {  "executionId" : "exp2-bs2-exs2-rs2" }}}'
+
+
+curl -XPOST 'http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query' -H 'Content-Type: application/json' -d '{"query" : { "match" : {  "executionId" : "exp3-bs1-exs1-rs1" }}}'
+
+curl -XPOST 'http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query' -H 'Content-Type: application/json' -d '{"query" : { "match" : {  "executionId" : "exp4-bs1-exs1-rs1" }}}'
+
+
+
+curl -XPOST 'http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query' -H 'Content-Type: application/json' -d '{"query" : { "match" : {  "processName" : "FulfilmentwithReceiptAdviceProcess" }}}'
+
+curl -XPOST 'http://logging.d-201603244.ufsc.br:9200/logstash-*/_delete_by_query' -H 'Content-Type: application/json' -d '{"query" : { "bool" : {"must": [ {"match" : { "executionId" : "exp2-bs1-exs1-rs1" } }, {"match" : { "processName" : "FulfilmentwithReceiptAdviceProcess" } } ] } } }'

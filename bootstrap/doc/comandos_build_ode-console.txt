@@ -1,0 +1,6 @@
+sudo apt-get install nodejs-legacy
+sudo npm install bower -g
+bower --allow-root install
+
+#https://github.com/apache/ode-console
+

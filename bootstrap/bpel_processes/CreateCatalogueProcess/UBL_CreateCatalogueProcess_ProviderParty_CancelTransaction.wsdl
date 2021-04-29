@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction" targetNamespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction"
+   xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2"
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction" xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction">
+         <xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2" schemaLocation="xsd/ubl/maindoc/UBL-Catalogue-2.0.xsd" />
+         <xsd:element name="cancelTransaction">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="input" nillable="true" type="ns1:CatalogueType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="cancelTransactionResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="cancelTransactionAsync">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="input" nillable="true" type="ns1:CatalogueType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="cancelTransactionAsyncCallback">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="output" nillable="true" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="cancelTransactionAsyncCallbackResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="alive">
+            <xsd:complexType>
+               <xsd:sequence />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aliveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="cancelTransactionRequestMsg">
+      <wsdl:part element="tns:cancelTransaction" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="cancelTransactionResponseMsg">
+      <wsdl:part element="tns:cancelTransactionResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="cancelTransactionAsyncRequestMsg">
+      <wsdl:part element="tns:cancelTransactionAsync" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="cancelTransactionAsyncCallbackRequestMsg">
+      <wsdl:part element="tns:cancelTransactionAsyncCallback" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="cancelTransactionAsyncCallbackResponseMsg">
+      <wsdl:part element="tns:cancelTransactionAsyncCallbackResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="aliveRequestMsg">
+      <wsdl:part element="tns:alive" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="aliveResponseMsg">
+      <wsdl:part element="tns:aliveResponse" name="payload" />
+   </wsdl:message>
+   <wsdl:portType name="UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction">
+      <wsdl:operation name="cancelTransaction">
+         <wsdl:input message="tns:cancelTransactionRequestMsg" name="cancelTransactionRequest" />
+         <wsdl:output message="tns:cancelTransactionResponseMsg" name="cancelTransactionResponse" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="cancelTransactionAsync">
+         <wsdl:input message="tns:cancelTransactionAsyncRequestMsg" name="cancelTransactionAsyncRequest" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+         <wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="UBL_CreateCatalogueProcess_ProviderParty_CancelTransactionServiceBinding" type="tns:UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="cancelTransaction">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction/cancelTransaction" />
+         <wsdl:input name="cancelTransactionRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="cancelTransactionResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="cancelTransactionAsync">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction/cancelTransactionAsync" />
+         <wsdl:input name="cancelTransactionAsyncRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction/alive" />
+         <wsdl:input name="aliveRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="aliveResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="UBL_CreateCatalogueProcess_ProviderParty_CancelTransactionService">
+      <wsdl:port name="UBL_CreateCatalogueProcess_ProviderParty_CancelTransactionServicePort" binding="tns:UBL_CreateCatalogueProcess_ProviderParty_CancelTransactionServiceBinding">
+         <soap:address location="http://localhost:8082/services/ubl/createcatalogueprocess/providerParty/cancelTransaction" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

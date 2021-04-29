@@ -1,0 +1,5 @@
+#Criar par de chaves
+ssh-keygen
+
+#Instala no servidor
+ssh-copy-id username@remote_host

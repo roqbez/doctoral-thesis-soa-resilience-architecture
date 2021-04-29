@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<save_tModel xmlns="urn:uddi-org:api_v3">
+
+   <tModel tModelKey="uddi:uddifederation:uddiserviceprovider">
+      <name>uddifederation:uddiserviceprovider</name>
+      <description>An UDDI Service Provider</description>
+   </tModel>
+
+</save_tModel>

@@ -1,0 +1,2793 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Header>
+		<ectx:executionContext xmlns:ectx="http://gsigma.ufsc.br/execution">
+			<ectx:flags>
+				<entry key="DISABLE_SERVICE_DISCOVERY" value="false" />
+				<entry key="DISABLE_SERVICE_MONITORING" value="false" />
+				<entry key="DISABLE_ADHOC_SERVICE_DEPLOYMENT" value="true" />
+				<entry key="FORCE_PROTOCOL_CONVERTER" value="false" />
+			</ectx:flags>
+			<ectx:attributes>
+				<entry key="PROTOCOL_CONVERTER" value="" />
+			</ectx:attributes>
+		</ectx:executionContext>
+	</soap:Header>
+	<soap:Body>
+		<ns3:deployApplication xmlns:ectx="http://gsigma.ufsc.br/execution" xmlns:ns3="http://interfaces.deployment.services.gsigma.ufsc.br/">
+			<request>
+				<itConfiguration>
+					<servicesInformation>
+						<qoSWeights />
+						<globalQoSDelta>
+							<entry key="Performance.Throughput" value="82.0" />
+							<entry key="Cost.ExecutionCost" value="21547.18040982159" />
+							<entry key="Availability.Availability" value="0.8979556580259962" />
+							<entry key="Performance.ResponseTime" value="8640.0" />
+						</globalQoSDelta>
+						<qoSCriterions>
+							<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="10000.0" managed="false" />
+						</qoSCriterions>
+						<servicesConfig>
+							<serviceConfig classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/billingwithcreditnote/accountingCustomer/acceptCharges" serviceUtility="1.0689984352525264"
+										serviceKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcharges-ublservices-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerAcceptCharges"
+										bindingTemplateKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcharges-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/billingwithcreditnote/accountingCustomer/acceptCharges" serviceUtility="1.0689984352525264"
+										serviceKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcharges-ublservices2-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerAcceptCharges"
+										bindingTemplateKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcharges-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/billingwithcreditnote/accountingCustomer/acceptCharges" serviceUtility="1.0689984352525264"
+										serviceKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcharges-ublservices3-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerAcceptCharges"
+										bindingTemplateKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcharges-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/billingwithcreditnote/accountingCustomer/acceptCharges" serviceUtility="1.0689984352525264"
+										serviceKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcharges-ublservices4-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerAcceptCharges"
+										bindingTemplateKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcharges-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/billingwithcreditnote/accountingCustomer/acceptCharges" serviceUtility="1.0689984352525264"
+										serviceKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcharges-ublservices5-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerAcceptCharges"
+										bindingTemplateKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcharges-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="535.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="535.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/billingwithcreditnote/accountingCustomer/acceptCredit" serviceUtility="0.48652695423989367"
+										serviceKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcredit-ublservices-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerAcceptCredit"
+										bindingTemplateKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcredit-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/billingwithcreditnote/accountingCustomer/acceptCredit" serviceUtility="0.48652695423989367"
+										serviceKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcredit-ublservices2-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerAcceptCredit"
+										bindingTemplateKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcredit-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/billingwithcreditnote/accountingCustomer/acceptCredit" serviceUtility="0.48652695423989367"
+										serviceKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcredit-ublservices3-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerAcceptCredit"
+										bindingTemplateKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcredit-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/billingwithcreditnote/accountingCustomer/acceptCredit" serviceUtility="0.48652695423989367"
+										serviceKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcredit-ublservices4-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerAcceptCredit"
+										bindingTemplateKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcredit-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/billingwithcreditnote/accountingCustomer/acceptCredit" serviceUtility="0.48652695423989367"
+										serviceKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcredit-ublservices5-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerAcceptCredit"
+										bindingTemplateKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_acceptcredit-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="541.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="541.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/billingwithcreditnote/accountingCustomer/reconcileCharges" serviceUtility="1.0264147600991842"
+										serviceKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_reconcilecharges-ublservices-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReconcileCharges"
+										bindingTemplateKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_reconcilecharges-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/billingwithcreditnote/accountingCustomer/reconcileCharges" serviceUtility="1.0264147600991842"
+										serviceKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_reconcilecharges-ublservices2-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReconcileCharges"
+										bindingTemplateKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_reconcilecharges-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/billingwithcreditnote/accountingCustomer/reconcileCharges" serviceUtility="1.0264147600991842"
+										serviceKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_reconcilecharges-ublservices3-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReconcileCharges"
+										bindingTemplateKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_reconcilecharges-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/billingwithcreditnote/accountingCustomer/reconcileCharges" serviceUtility="1.0264147600991842"
+										serviceKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_reconcilecharges-ublservices4-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReconcileCharges"
+										bindingTemplateKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_reconcilecharges-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/billingwithcreditnote/accountingCustomer/reconcileCharges" serviceUtility="1.0264147600991842"
+										serviceKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_reconcilecharges-ublservices5-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReconcileCharges"
+										bindingTemplateKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_reconcilecharges-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="532.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="532.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher61"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/billingwithcreditnote/accountingSupplier/reconcileCharges" serviceUtility="0.71455973797307"
+										serviceKey="uddi:publisher61:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_reconcilecharges-ublservices-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierReconcileCharges"
+										bindingTemplateKey="uddi:publisher61:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_reconcilecharges-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher61"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/billingwithcreditnote/accountingSupplier/reconcileCharges" serviceUtility="0.71455973797307"
+										serviceKey="uddi:publisher61:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_reconcilecharges-ublservices2-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierReconcileCharges"
+										bindingTemplateKey="uddi:publisher61:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_reconcilecharges-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher61"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/billingwithcreditnote/accountingSupplier/reconcileCharges" serviceUtility="0.71455973797307"
+										serviceKey="uddi:publisher61:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_reconcilecharges-ublservices3-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierReconcileCharges"
+										bindingTemplateKey="uddi:publisher61:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_reconcilecharges-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher61"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/billingwithcreditnote/accountingSupplier/reconcileCharges" serviceUtility="0.71455973797307"
+										serviceKey="uddi:publisher61:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_reconcilecharges-ublservices4-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierReconcileCharges"
+										bindingTemplateKey="uddi:publisher61:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_reconcilecharges-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher61"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/billingwithcreditnote/accountingSupplier/reconcileCharges" serviceUtility="0.71455973797307"
+										serviceKey="uddi:publisher61:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_reconcilecharges-ublservices5-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierReconcileCharges"
+										bindingTemplateKey="uddi:publisher61:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_reconcilecharges-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher35"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/billingwithcreditnote/accountingSupplier/raiseCreditNote" serviceUtility="1.1545703388013264"
+										serviceKey="uddi:publisher35:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raisecreditnote-ublservices-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierRaiseCreditNote"
+										bindingTemplateKey="uddi:publisher35:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raisecreditnote-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher35"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/billingwithcreditnote/accountingSupplier/raiseCreditNote" serviceUtility="1.1545703388013264"
+										serviceKey="uddi:publisher35:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raisecreditnote-ublservices2-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierRaiseCreditNote"
+										bindingTemplateKey="uddi:publisher35:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raisecreditnote-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher35"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/billingwithcreditnote/accountingSupplier/raiseCreditNote" serviceUtility="1.1545703388013264"
+										serviceKey="uddi:publisher35:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raisecreditnote-ublservices3-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierRaiseCreditNote"
+										bindingTemplateKey="uddi:publisher35:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raisecreditnote-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher35"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/billingwithcreditnote/accountingSupplier/raiseCreditNote" serviceUtility="1.1545703388013264"
+										serviceKey="uddi:publisher35:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raisecreditnote-ublservices4-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierRaiseCreditNote"
+										bindingTemplateKey="uddi:publisher35:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raisecreditnote-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher35"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/billingwithcreditnote/accountingSupplier/raiseCreditNote" serviceUtility="1.1545703388013264"
+										serviceKey="uddi:publisher35:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raisecreditnote-ublservices5-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierRaiseCreditNote"
+										bindingTemplateKey="uddi:publisher35:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raisecreditnote-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="547.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="547.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher20"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/billingwithcreditnote/accountingSupplier/raiseInvoice" serviceUtility="1.0840435335734462"
+										serviceKey="uddi:publisher20:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raiseinvoice-ublservices-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierRaiseInvoice"
+										bindingTemplateKey="uddi:publisher20:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raiseinvoice-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher20"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/billingwithcreditnote/accountingSupplier/raiseInvoice" serviceUtility="1.0840435335734462"
+										serviceKey="uddi:publisher20:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raiseinvoice-ublservices2-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierRaiseInvoice"
+										bindingTemplateKey="uddi:publisher20:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raiseinvoice-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher20"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/billingwithcreditnote/accountingSupplier/raiseInvoice" serviceUtility="1.0840435335734462"
+										serviceKey="uddi:publisher20:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raiseinvoice-ublservices3-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierRaiseInvoice"
+										bindingTemplateKey="uddi:publisher20:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raiseinvoice-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher20"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/billingwithcreditnote/accountingSupplier/raiseInvoice" serviceUtility="1.0840435335734462"
+										serviceKey="uddi:publisher20:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raiseinvoice-ublservices4-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierRaiseInvoice"
+										bindingTemplateKey="uddi:publisher20:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raiseinvoice-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher20"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/billingwithcreditnote/accountingSupplier/raiseInvoice" serviceUtility="1.0840435335734462"
+										serviceKey="uddi:publisher20:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raiseinvoice-ublservices5-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierRaiseInvoice"
+										bindingTemplateKey="uddi:publisher20:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_raiseinvoice-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="290.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="290.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher61"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/billingwithcreditnote/accountingSupplier/receiveAccountResponse" serviceUtility="1.1294286154370254"
+										serviceKey="uddi:publisher61:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_receiveaccountresponse-ublservices-1"
+										serviceName="UBLBillingWithCreditNoteAccountingSupplierReceiveAccountResponse" bindingTemplateKey="uddi:publisher61:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_receiveaccountresponse-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher61"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/billingwithcreditnote/accountingSupplier/receiveAccountResponse" serviceUtility="1.1294286154370254"
+										serviceKey="uddi:publisher61:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_receiveaccountresponse-ublservices2-1"
+										serviceName="UBLBillingWithCreditNoteAccountingSupplierReceiveAccountResponse" bindingTemplateKey="uddi:publisher61:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_receiveaccountresponse-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher61"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/billingwithcreditnote/accountingSupplier/receiveAccountResponse" serviceUtility="1.1294286154370254"
+										serviceKey="uddi:publisher61:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_receiveaccountresponse-ublservices3-1"
+										serviceName="UBLBillingWithCreditNoteAccountingSupplierReceiveAccountResponse" bindingTemplateKey="uddi:publisher61:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_receiveaccountresponse-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher61"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/billingwithcreditnote/accountingSupplier/receiveAccountResponse" serviceUtility="1.1294286154370254"
+										serviceKey="uddi:publisher61:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_receiveaccountresponse-ublservices4-1"
+										serviceName="UBLBillingWithCreditNoteAccountingSupplierReceiveAccountResponse" bindingTemplateKey="uddi:publisher61:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_receiveaccountresponse-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher61"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/billingwithcreditnote/accountingSupplier/receiveAccountResponse" serviceUtility="1.1294286154370254"
+										serviceKey="uddi:publisher61:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_receiveaccountresponse-ublservices5-1"
+										serviceName="UBLBillingWithCreditNoteAccountingSupplierReceiveAccountResponse" bindingTemplateKey="uddi:publisher61:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_receiveaccountresponse-ublservices5-1-binding" />
+
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/billingwithcreditnote/accountingCustomer/receiveCreditNote" serviceUtility="0.5708189196819129"
+										serviceKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receivecreditnote-ublservices-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReceiveCreditNote"
+										bindingTemplateKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receivecreditnote-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/billingwithcreditnote/accountingCustomer/receiveCreditNote" serviceUtility="0.5708189196819129"
+										serviceKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receivecreditnote-ublservices2-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReceiveCreditNote"
+										bindingTemplateKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receivecreditnote-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/billingwithcreditnote/accountingCustomer/receiveCreditNote" serviceUtility="0.5708189196819129"
+										serviceKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receivecreditnote-ublservices3-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReceiveCreditNote"
+										bindingTemplateKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receivecreditnote-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/billingwithcreditnote/accountingCustomer/receiveCreditNote" serviceUtility="0.5708189196819129"
+										serviceKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receivecreditnote-ublservices4-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReceiveCreditNote"
+										bindingTemplateKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receivecreditnote-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/billingwithcreditnote/accountingCustomer/receiveCreditNote" serviceUtility="0.5708189196819129"
+										serviceKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receivecreditnote-ublservices5-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReceiveCreditNote"
+										bindingTemplateKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receivecreditnote-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="539.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="539.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/billingwithcreditnote/accountingCustomer/receiveInvoice" serviceUtility="0.9452405651663041"
+										serviceKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receiveinvoice-ublservices-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReceiveInvoice"
+										bindingTemplateKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receiveinvoice-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/billingwithcreditnote/accountingCustomer/receiveInvoice" serviceUtility="0.9452405651663041"
+										serviceKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receiveinvoice-ublservices2-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReceiveInvoice"
+										bindingTemplateKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receiveinvoice-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/billingwithcreditnote/accountingCustomer/receiveInvoice" serviceUtility="0.9452405651663041"
+										serviceKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receiveinvoice-ublservices3-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReceiveInvoice"
+										bindingTemplateKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receiveinvoice-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/billingwithcreditnote/accountingCustomer/receiveInvoice" serviceUtility="0.9452405651663041"
+										serviceKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receiveinvoice-ublservices4-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReceiveInvoice"
+										bindingTemplateKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receiveinvoice-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/billingwithcreditnote/accountingCustomer/receiveInvoice" serviceUtility="0.9452405651663041"
+										serviceKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receiveinvoice-ublservices5-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerReceiveInvoice"
+										bindingTemplateKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_receiveinvoice-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="290.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="290.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/billingwithcreditnote/accountingCustomer/sendAccountResponse" serviceUtility="1.060756277328023"
+										serviceKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_sendaccountresponse-ublservices-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerSendAccountResponse"
+										bindingTemplateKey="uddi:publisher5:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_sendaccountresponse-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/billingwithcreditnote/accountingCustomer/sendAccountResponse" serviceUtility="1.060756277328023"
+										serviceKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_sendaccountresponse-ublservices2-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerSendAccountResponse"
+										bindingTemplateKey="uddi:publisher5:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_sendaccountresponse-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/billingwithcreditnote/accountingCustomer/sendAccountResponse" serviceUtility="1.060756277328023"
+										serviceKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_sendaccountresponse-ublservices3-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerSendAccountResponse"
+										bindingTemplateKey="uddi:publisher5:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_sendaccountresponse-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/billingwithcreditnote/accountingCustomer/sendAccountResponse" serviceUtility="1.060756277328023"
+										serviceKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_sendaccountresponse-ublservices4-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerSendAccountResponse"
+										bindingTemplateKey="uddi:publisher5:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_sendaccountresponse-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher5"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/billingwithcreditnote/accountingCustomer/sendAccountResponse" serviceUtility="1.060756277328023"
+										serviceKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_sendaccountresponse-ublservices5-1" serviceName="UBLBillingWithCreditNoteAccountingCustomerSendAccountResponse"
+										bindingTemplateKey="uddi:publisher5:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingcustomer_sendaccountresponse-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="305.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="305.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher20"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/billingwithcreditnote/accountingSupplier/validateResponse" serviceUtility="1.060756277328023"
+										serviceKey="uddi:publisher20:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_validateresponse-ublservices-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierValidateResponse"
+										bindingTemplateKey="uddi:publisher20:node1-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_validateresponse-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher20"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/billingwithcreditnote/accountingSupplier/validateResponse" serviceUtility="1.060756277328023"
+										serviceKey="uddi:publisher20:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_validateresponse-ublservices2-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierValidateResponse"
+										bindingTemplateKey="uddi:publisher20:node2-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_validateresponse-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher20"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/billingwithcreditnote/accountingSupplier/validateResponse" serviceUtility="1.060756277328023"
+										serviceKey="uddi:publisher20:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_validateresponse-ublservices3-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierValidateResponse"
+										bindingTemplateKey="uddi:publisher20:node3-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_validateresponse-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher20"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/billingwithcreditnote/accountingSupplier/validateResponse" serviceUtility="1.060756277328023"
+										serviceKey="uddi:publisher20:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_validateresponse-ublservices4-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierValidateResponse"
+										bindingTemplateKey="uddi:publisher20:node4-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_validateresponse-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher20"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/billingwithcreditnote/accountingSupplier/validateResponse" serviceUtility="1.060756277328023"
+										serviceKey="uddi:publisher20:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_validateresponse-ublservices5-1" serviceName="UBLBillingWithCreditNoteAccountingSupplierValidateResponse"
+										bindingTemplateKey="uddi:publisher20:node5-uddi-ubl-services-billing_traditionalbilling_billingwithcreditnote_accountingsupplier_validateresponse-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+						</servicesConfig>
+					</servicesInformation>
+					<persistentProcess>true</persistentProcess>
+				</itConfiguration>
+				<businessProcess>
+					<name>Billing with Credit Note Process</name>
+					<inputContactPoints />
+					<outputContactPoints />
+					<participants />
+					<resources />
+					<tasks>
+						<task>
+							<id>0</id>
+							<name>Accept Charges</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>1</id>
+									<name>input</name>
+									<connectableComponentName>Accept Charges</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>2</id>
+									<name>Output</name>
+									<connectableComponentName>Accept Charges</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>CUSTOMER</id>
+										<name>Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>3</id>
+							<name>Accept Credit</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>4</id>
+									<name>input</name>
+									<connectableComponentName>Accept Credit</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>5</id>
+									<name>Output</name>
+									<connectableComponentName>Accept Credit</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>CUSTOMER</id>
+										<name>Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>6</id>
+							<name>Accounting Customer Reconcile Charges</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>7</id>
+									<name>inputInvoice</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>8</id>
+									<name>inputCreditNote</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>9</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>10</id>
+									<name>outputInvoice</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>11</id>
+									<name>outputCreditNote</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>CUSTOMER</id>
+										<name>Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>22</id>
+							<name>Accounting Supplier Reconcile Charges</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>23</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Accounting Supplier Reconcile Charges</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>24</id>
+									<name>inputStart</name>
+									<connectableComponentName>Accounting Supplier Reconcile Charges</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>25</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Accounting Supplier Reconcile Charges</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_1_-_COORDINATOR</id>
+										<name>Partner 1 - Coordinator</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>49</id>
+							<name>Raise Credit Note</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>50</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Raise Credit Note</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>51</id>
+									<name>output</name>
+									<connectableComponentName>Raise Credit Note</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_3</id>
+										<name>Partner 3</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>52</id>
+							<name>Raise Invoice</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>53</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Raise Invoice</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>54</id>
+									<name>output</name>
+									<connectableComponentName>Raise Invoice</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_2</id>
+										<name>Partner 2</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>55</id>
+							<name>Receive Account Response</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>56</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Receive Account Response</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>57</id>
+									<name>inputApplicationResponse</name>
+									<connectableComponentName>Receive Account Response</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>58</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Receive Account Response</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>59</id>
+									<name>outputApplicationResponse</name>
+									<connectableComponentName>Receive Account Response</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_1_-_COORDINATOR</id>
+										<name>Partner 1 - Coordinator</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>60</id>
+							<name>Receive Credit Note</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>61</id>
+									<name>input</name>
+									<connectableComponentName>Receive Credit Note</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>62</id>
+									<name>outputCreditNote</name>
+									<connectableComponentName>Receive Credit Note</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>CUSTOMER</id>
+										<name>Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>63</id>
+							<name>Receive Invoice</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>64</id>
+									<name>input</name>
+									<connectableComponentName>Receive Invoice</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>65</id>
+									<name>outputInvoice</name>
+									<connectableComponentName>Receive Invoice</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>CUSTOMER</id>
+										<name>Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>70</id>
+							<name>Send Account Response</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>71</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Send Account Response</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>72</id>
+									<name>inputInvoice</name>
+									<connectableComponentName>Send Account Response</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>73</id>
+									<name>inputCreditNote</name>
+									<connectableComponentName>Send Account Response</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>74</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Send Account Response</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>75</id>
+									<name>outputApplicationResponse</name>
+									<connectableComponentName>Send Account Response</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>CUSTOMER</id>
+										<name>Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>78</id>
+							<name>Validate Response</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>79</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Validate Response</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>80</id>
+									<name>inputApplicationResponse</name>
+									<connectableComponentName>Validate Response</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>81</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Validate Response</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_2</id>
+										<name>Partner 2</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+					</tasks>
+					<startEvents>
+						<startEvent>
+							<id>76</id>
+							<name>Start Node</name>
+							<inputContactPoints />
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>77</id>
+									<name>Output</name>
+									<connectableComponentName>Start Node</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+						</startEvent>
+					</startEvents>
+					<endEvents>
+						<endEvent>
+							<id>26</id>
+							<name>End Node</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>27</id>
+									<name>Input</name>
+									<connectableComponentName>End Node</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints />
+						</endEvent>
+						<endEvent>
+							<id>28</id>
+							<name>End Node:2</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>29</id>
+									<name>Input</name>
+									<connectableComponentName>End Node:2</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints />
+						</endEvent>
+						<endEvent>
+							<id>30</id>
+							<name>End Node:3</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>31</id>
+									<name>Input</name>
+									<connectableComponentName>End Node:3</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints />
+						</endEvent>
+					</endEvents>
+					<decisions>
+						<decision>
+							<id>12</id>
+							<name>Accounting Customer Reconcile Charges Decision</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>13</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>14</id>
+									<name>inputInvoice</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>15</id>
+									<name>Input</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>16</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>17</id>
+									<name>outputInvoice</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>18</id>
+									<name>outputCreditNote</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>19</id>
+									<name>outputDecision:2</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>20</id>
+									<name>outputInvoice:2</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>21</id>
+									<name>outputCreditNote:2</name>
+									<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch </name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>13</id>
+											<name>inputDecision</name>
+											<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>14</id>
+											<name>inputInvoice</name>
+											<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_INVOICE</id>
+												<name>UBL Invoice</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+												<xmlName>InvoiceType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>15</id>
+											<name>Input</name>
+											<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CREDIT_NOTE</id>
+												<name>UBL Credit Note</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+												<xmlName>CreditNoteType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch 1</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>16</id>
+											<name>outputDecision</name>
+											<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>17</id>
+											<name>outputInvoice</name>
+											<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>18</id>
+											<name>outputCreditNote</name>
+											<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CREDIT_NOTE</id>
+												<name>UBL Credit Note</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+												<xmlName>CreditNoteType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>acceptCredit</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 2</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>19</id>
+											<name>outputDecision:2</name>
+											<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>20</id>
+											<name>outputInvoice:2</name>
+											<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_INVOICE</id>
+												<name>UBL Invoice</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+												<xmlName>InvoiceType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>21</id>
+											<name>outputCreditNote:2</name>
+											<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>acceptCharges</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+							</outputBranches>
+						</decision>
+						<decision>
+							<id>66</id>
+							<name>Reconcile Charges Decision</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>67</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Reconcile Charges Decision</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>68</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Reconcile Charges Decision</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>69</id>
+									<name>outputDecision:2</name>
+									<connectableComponentName>Reconcile Charges Decision</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch </name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>67</id>
+											<name>inputDecision</name>
+											<connectableComponentName>Reconcile Charges Decision</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch 1</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>68</id>
+											<name>outputDecision</name>
+											<connectableComponentName>Reconcile Charges Decision</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>initialOrUnderCharged</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 2</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>69</id>
+											<name>outputDecision:2</name>
+											<connectableComponentName>Reconcile Charges Decision</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>overCharged</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+							</outputBranches>
+						</decision>
+						<decision>
+							<id>82</id>
+							<name>Validate Response Decision</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>83</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Validate Response Decision</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>84</id>
+									<name>output</name>
+									<connectableComponentName>Validate Response Decision</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>85</id>
+									<name>output:2</name>
+									<connectableComponentName>Validate Response Decision</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch </name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>83</id>
+											<name>inputDecision</name>
+											<connectableComponentName>Validate Response Decision</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch 1</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>84</id>
+											<name>output</name>
+											<connectableComponentName>Validate Response Decision</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>incorrectCharges</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 2</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>85</id>
+											<name>output:2</name>
+											<connectableComponentName>Validate Response Decision</connectableComponentName>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>acceptCharges</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+							</outputBranches>
+						</decision>
+					</decisions>
+					<forks>
+						<fork>
+							<id>32</id>
+							<name>Fork</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>33</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>34</id>
+									<name>inputInvoice</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>35</id>
+									<name>inputCreditNote</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>36</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>37</id>
+									<name>outputInvoice</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>38</id>
+									<name>outputCreditNote</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>39</id>
+									<name>outputDecision:2</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>40</id>
+									<name>outputInvoice:2</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>41</id>
+									<name>outputCreditNote:2</name>
+									<connectableComponentName>Fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch </name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>33</id>
+											<name>inputDecision</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>34</id>
+											<name>inputInvoice</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_INVOICE</id>
+												<name>UBL Invoice</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+												<xmlName>InvoiceType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>35</id>
+											<name>inputCreditNote</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CREDIT_NOTE</id>
+												<name>UBL Credit Note</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+												<xmlName>CreditNoteType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch 1</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>36</id>
+											<name>outputDecision</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>37</id>
+											<name>outputInvoice</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_INVOICE</id>
+												<name>UBL Invoice</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+												<xmlName>InvoiceType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>38</id>
+											<name>outputCreditNote</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CREDIT_NOTE</id>
+												<name>UBL Credit Note</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+												<xmlName>CreditNoteType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 2</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>39</id>
+											<name>outputDecision:2</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>40</id>
+											<name>outputInvoice:2</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_INVOICE</id>
+												<name>UBL Invoice</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+												<xmlName>InvoiceType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>41</id>
+											<name>outputCreditNote:2</name>
+											<connectableComponentName>Fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CREDIT_NOTE</id>
+												<name>UBL Credit Note</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+												<xmlName>CreditNoteType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+								</outputBranch>
+							</outputBranches>
+						</fork>
+					</forks>
+					<junctions />
+					<merges>
+						<merge>
+							<id>42</id>
+							<name>Merge</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>43</id>
+									<name>inputInvoice</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>44</id>
+									<name>inputCreditNote</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>45</id>
+									<name>inputInvoice:2</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>46</id>
+									<name>inputCreditNote:2</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>47</id>
+									<name>outputInvoice</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_INVOICE</id>
+										<name>UBL Invoice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+										<xmlName>InvoiceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>48</id>
+									<name>outputCreditNote</name>
+									<connectableComponentName>Merge</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CREDIT_NOTE</id>
+										<name>UBL Credit Note</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+										<xmlName>CreditNoteType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch 1</name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>43</id>
+											<name>inputInvoice</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_INVOICE</id>
+												<name>UBL Invoice</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+												<xmlName>InvoiceType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>44</id>
+											<name>inputCreditNote</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CREDIT_NOTE</id>
+												<name>UBL Credit Note</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+												<xmlName>CreditNoteType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+								<inputBranch>
+									<name>Input Branch 2</name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>45</id>
+											<name>inputInvoice:2</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_INVOICE</id>
+												<name>UBL Invoice</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+												<xmlName>InvoiceType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>46</id>
+											<name>inputCreditNote:2</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CREDIT_NOTE</id>
+												<name>UBL Credit Note</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+												<xmlName>CreditNoteType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch </name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>47</id>
+											<name>outputInvoice</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_INVOICE</id>
+												<name>UBL Invoice</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+												<xmlName>InvoiceType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>48</id>
+											<name>outputCreditNote</name>
+											<connectableComponentName>Merge</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CREDIT_NOTE</id>
+												<name>UBL Credit Note</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+												<xmlName>CreditNoteType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+								</outputBranch>
+							</outputBranches>
+						</merge>
+					</merges>
+					<connections>
+						<connection>
+							<id>86</id>
+							<input>
+								<id>23</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Accounting Supplier Reconcile Charges</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>84</id>
+								<name>output</name>
+								<connectableComponentName>Validate Response Decision</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>87</id>
+							<input>
+								<id>33</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>9</id>
+								<name>outputDecision</name>
+								<connectableComponentName>Accounting Customer Reconcile Charges</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>88</id>
+							<input>
+								<id>1</id>
+								<name>input</name>
+								<connectableComponentName>Accept Charges</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>20</id>
+								<name>outputInvoice:2</name>
+								<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>89</id>
+							<input>
+								<id>15</id>
+								<name>Input</name>
+								<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>38</id>
+								<name>outputCreditNote</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>90</id>
+							<input>
+								<id>13</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>36</id>
+								<name>outputDecision</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>91</id>
+							<input>
+								<id>56</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Receive Account Response</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>74</id>
+								<name>outputDecision</name>
+								<connectableComponentName>Send Account Response</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>92</id>
+							<input>
+								<id>79</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Validate Response</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>58</id>
+								<name>outputDecision</name>
+								<connectableComponentName>Receive Account Response</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>93</id>
+							<input>
+								<id>24</id>
+								<name>inputStart</name>
+								<connectableComponentName>Accounting Supplier Reconcile Charges</connectableComponentName>
+							</input>
+							<output>
+								<id>77</id>
+								<name>Output</name>
+								<connectableComponentName>Start Node</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>94</id>
+							<input>
+								<id>83</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Validate Response Decision</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>81</id>
+								<name>outputDecision</name>
+								<connectableComponentName>Validate Response</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>95</id>
+							<input>
+								<id>27</id>
+								<name>Input</name>
+								<connectableComponentName>End Node</connectableComponentName>
+							</input>
+							<output>
+								<id>85</id>
+								<name>output:2</name>
+								<connectableComponentName>Validate Response Decision</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>96</id>
+							<input>
+								<id>67</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Reconcile Charges Decision</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>25</id>
+								<name>outputDecision</name>
+								<connectableComponentName>Accounting Supplier Reconcile Charges</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>97</id>
+							<input>
+								<id>8</id>
+								<name>inputCreditNote</name>
+								<connectableComponentName>Accounting Customer Reconcile Charges</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>48</id>
+								<name>outputCreditNote</name>
+								<connectableComponentName>Merge</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>98</id>
+							<input>
+								<id>71</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Send Account Response</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>39</id>
+								<name>outputDecision:2</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>99</id>
+							<input>
+								<id>29</id>
+								<name>Input</name>
+								<connectableComponentName>End Node:2</connectableComponentName>
+							</input>
+							<output>
+								<id>5</id>
+								<name>Output</name>
+								<connectableComponentName>Accept Credit</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>100</id>
+							<input>
+								<id>31</id>
+								<name>Input</name>
+								<connectableComponentName>End Node:3</connectableComponentName>
+							</input>
+							<output>
+								<id>2</id>
+								<name>Output</name>
+								<connectableComponentName>Accept Charges</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>101</id>
+							<input>
+								<id>34</id>
+								<name>inputInvoice</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>10</id>
+								<name>outputInvoice</name>
+								<connectableComponentName>Accounting Customer Reconcile Charges</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>102</id>
+							<input>
+								<id>72</id>
+								<name>inputInvoice</name>
+								<connectableComponentName>Send Account Response</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>40</id>
+								<name>outputInvoice:2</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>103</id>
+							<input>
+								<id>35</id>
+								<name>inputCreditNote</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>11</id>
+								<name>outputCreditNote</name>
+								<connectableComponentName>Accounting Customer Reconcile Charges</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>104</id>
+							<input>
+								<id>73</id>
+								<name>inputCreditNote</name>
+								<connectableComponentName>Send Account Response</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>41</id>
+								<name>outputCreditNote:2</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>105</id>
+							<input>
+								<id>57</id>
+								<name>inputApplicationResponse</name>
+								<connectableComponentName>Receive Account Response</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>75</id>
+								<name>outputApplicationResponse</name>
+								<connectableComponentName>Send Account Response</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>106</id>
+							<input>
+								<id>14</id>
+								<name>inputInvoice</name>
+								<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>37</id>
+								<name>outputInvoice</name>
+								<connectableComponentName>Fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>107</id>
+							<input>
+								<id>64</id>
+								<name>input</name>
+								<connectableComponentName>Receive Invoice</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>54</id>
+								<name>output</name>
+								<connectableComponentName>Raise Invoice</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>108</id>
+							<input>
+								<id>80</id>
+								<name>inputApplicationResponse</name>
+								<connectableComponentName>Validate Response</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>59</id>
+								<name>outputApplicationResponse</name>
+								<connectableComponentName>Receive Account Response</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>109</id>
+							<input>
+								<id>4</id>
+								<name>input</name>
+								<connectableComponentName>Accept Credit</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>18</id>
+								<name>outputCreditNote</name>
+								<connectableComponentName>Accounting Customer Reconcile Charges Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>110</id>
+							<input>
+								<id>61</id>
+								<name>input</name>
+								<connectableComponentName>Receive Credit Note</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>51</id>
+								<name>output</name>
+								<connectableComponentName>Raise Credit Note</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>111</id>
+							<input>
+								<id>43</id>
+								<name>inputInvoice</name>
+								<connectableComponentName>Merge</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>65</id>
+								<name>outputInvoice</name>
+								<connectableComponentName>Receive Invoice</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>112</id>
+							<input>
+								<id>46</id>
+								<name>inputCreditNote:2</name>
+								<connectableComponentName>Merge</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>62</id>
+								<name>outputCreditNote</name>
+								<connectableComponentName>Receive Credit Note</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CREDIT_NOTE</id>
+									<name>UBL Credit Note</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</xmlNamespace>
+									<xmlName>CreditNoteType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>113</id>
+							<input>
+								<id>7</id>
+								<name>inputInvoice</name>
+								<connectableComponentName>Accounting Customer Reconcile Charges</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>47</id>
+								<name>outputInvoice</name>
+								<connectableComponentName>Merge</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_INVOICE</id>
+									<name>UBL Invoice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</xmlNamespace>
+									<xmlName>InvoiceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>114</id>
+							<input>
+								<id>53</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Raise Invoice</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>68</id>
+								<name>outputDecision</name>
+								<connectableComponentName>Reconcile Charges Decision</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>115</id>
+							<input>
+								<id>50</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Raise Credit Note</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>69</id>
+								<name>outputDecision:2</name>
+								<connectableComponentName>Reconcile Charges Decision</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+					</connections>
+				</businessProcess>
+				<businessProcessName>Billing with Credit Note Process</businessProcessName>
+			</request>
+		</ns3:deployApplication>
+	</soap:Body>
+</soap:Envelope>

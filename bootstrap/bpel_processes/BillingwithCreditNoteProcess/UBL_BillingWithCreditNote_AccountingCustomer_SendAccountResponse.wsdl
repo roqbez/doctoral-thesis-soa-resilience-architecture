@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse" targetNamespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse"
+	xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+	xmlns:ns2="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" xmlns:ns3="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse" xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse">
+			<xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+			<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" schemaLocation="xsd/ubl/maindoc/UBL-Invoice-2.0.xsd" />
+			<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" schemaLocation="xsd/ubl/maindoc/UBL-CreditNote-2.0.xsd" />
+			<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2" schemaLocation="xsd/ubl/maindoc/UBL-ApplicationResponse-2.0.xsd" />
+			<xsd:element name="sendAccountResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="inputDecision" nillable="true" type="xsd:string" />
+						<xsd:element name="inputInvoice" nillable="true" type="ns1:InvoiceType" />
+						<xsd:element name="inputCreditNote" nillable="true" type="ns2:CreditNoteType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="sendAccountResponseResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="outputDecision" nillable="true" type="xsd:string" />
+						<xsd:element name="outputApplicationResponse" nillable="true" type="ns3:ApplicationResponseType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="sendAccountResponseAsync">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="inputDecision" nillable="true" type="xsd:string" />
+						<xsd:element name="inputInvoice" nillable="true" type="ns1:InvoiceType" />
+						<xsd:element name="inputCreditNote" nillable="true" type="ns2:CreditNoteType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="sendAccountResponseAsyncCallback">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+						<xsd:element name="outputDecision" nillable="true" type="xsd:string" />
+						<xsd:element name="outputApplicationResponse" nillable="true" type="ns3:ApplicationResponseType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="sendAccountResponseAsyncCallbackResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="alive">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="aliveResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="output" nillable="true" type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="sendAccountResponseRequestMsg">
+		<wsdl:part element="tns:sendAccountResponse" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="sendAccountResponseResponseMsg">
+		<wsdl:part element="tns:sendAccountResponseResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="sendAccountResponseAsyncRequestMsg">
+		<wsdl:part element="tns:sendAccountResponseAsync" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="sendAccountResponseAsyncCallbackRequestMsg">
+		<wsdl:part element="tns:sendAccountResponseAsyncCallback" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="sendAccountResponseAsyncCallbackResponseMsg">
+		<wsdl:part element="tns:sendAccountResponseAsyncCallbackResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="aliveRequestMsg">
+		<wsdl:part element="tns:alive" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="aliveResponseMsg">
+		<wsdl:part element="tns:aliveResponse" name="payload" />
+	</wsdl:message>
+	<wsdl:portType name="UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse">
+		<wsdl:operation name="sendAccountResponse">
+			<wsdl:input message="tns:sendAccountResponseRequestMsg" name="sendAccountResponseRequest" />
+			<wsdl:output message="tns:sendAccountResponseResponseMsg" name="sendAccountResponseResponse" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="sendAccountResponseAsync">
+			<wsdl:input message="tns:sendAccountResponseAsyncRequestMsg" name="sendAccountResponseAsyncRequest" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+			<wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponseServiceBinding" type="tns:UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="sendAccountResponse">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse/sendAccountResponse" />
+			<wsdl:input name="sendAccountResponseRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="sendAccountResponseResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="sendAccountResponseAsync">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse/sendAccountResponseAsync" />
+			<wsdl:input name="sendAccountResponseAsyncRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<soap:operation soapAction="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse/alive" />
+			<wsdl:input name="aliveRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="aliveResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponseService">
+		<wsdl:port name="UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponseServicePort" binding="tns:UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponseServiceBinding">
+			<soap:address location="http://localhost:8082/services/ubl/billingwithcreditnote/accountingCustomer/sendAccountResponse" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

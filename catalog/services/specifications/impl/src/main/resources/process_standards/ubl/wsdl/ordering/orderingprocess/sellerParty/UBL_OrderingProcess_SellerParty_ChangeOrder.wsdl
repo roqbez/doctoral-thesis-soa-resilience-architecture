@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_OrderingProcess_SellerParty_ChangeOrder" targetNamespace="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/changeOrder"
+   xmlns:tns="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/changeOrder" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2" xmlns:ns2="urn:oasis:names:specification:ubl:schema:xsd:Order-2"
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/changeOrder" xmlns:tns="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/changeOrder">
+         <xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2" schemaLocation="xsd/ubl/maindoc/UBL-OrderChange-2.0.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:Order-2" schemaLocation="xsd/ubl/maindoc/UBL-Order-2.0.xsd" />
+         <xsd:element name="changeOrder">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="input" nillable="true" type="ns1:OrderChangeType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="changeOrderResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="ns2:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="changeOrderAsync">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="input" nillable="true" type="ns1:OrderChangeType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="changeOrderAsyncCallback">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="output" nillable="true" type="ns2:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="changeOrderAsyncCallbackResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="alive">
+            <xsd:complexType>
+               <xsd:sequence />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aliveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="changeOrderRequestMsg">
+      <wsdl:part element="tns:changeOrder" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="changeOrderResponseMsg">
+      <wsdl:part element="tns:changeOrderResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="changeOrderAsyncRequestMsg">
+      <wsdl:part element="tns:changeOrderAsync" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="changeOrderAsyncCallbackRequestMsg">
+      <wsdl:part element="tns:changeOrderAsyncCallback" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="changeOrderAsyncCallbackResponseMsg">
+      <wsdl:part element="tns:changeOrderAsyncCallbackResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="aliveRequestMsg">
+      <wsdl:part element="tns:alive" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="aliveResponseMsg">
+      <wsdl:part element="tns:aliveResponse" name="payload" />
+   </wsdl:message>
+   <wsdl:portType name="UBL_OrderingProcess_SellerParty_ChangeOrder">
+      <wsdl:operation name="changeOrder">
+         <wsdl:input message="tns:changeOrderRequestMsg" name="changeOrderRequest" />
+         <wsdl:output message="tns:changeOrderResponseMsg" name="changeOrderResponse" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="changeOrderAsync">
+         <wsdl:input message="tns:changeOrderAsyncRequestMsg" name="changeOrderAsyncRequest" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+         <wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="UBL_OrderingProcess_SellerParty_ChangeOrderServiceBinding" type="tns:UBL_OrderingProcess_SellerParty_ChangeOrder">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="changeOrder">
+         <soap:operation soapAction="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/changeOrder/changeOrder" />
+         <wsdl:input name="changeOrderRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="changeOrderResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="changeOrderAsync">
+         <soap:operation soapAction="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/changeOrder/changeOrderAsync" />
+         <wsdl:input name="changeOrderAsyncRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <soap:operation soapAction="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/changeOrder/alive" />
+         <wsdl:input name="aliveRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="aliveResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="UBL_OrderingProcess_SellerParty_ChangeOrderService">
+      <wsdl:port name="UBL_OrderingProcess_SellerParty_ChangeOrderServicePort" binding="tns:UBL_OrderingProcess_SellerParty_ChangeOrderServiceBinding">
+         <soap:address location="http://localhost:8082/services/ubl/orderingprocess/sellerParty/changeOrder" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

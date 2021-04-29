@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<servicesInformation xmlns:ectx="http://gsigma.ufsc.br/execution">
+    <qoSWeights/>
+    <globalQoSDelta/>
+    <qoSCriterions/>
+    <servicesConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges" classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges" partnerLinkName="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCharges_Partner" maxNumberOfServices="5">
+            <qoSCriterions/>
+            <managedQoSCriterions/>
+            <serviceAssociations/>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit" classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit" partnerLinkName="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit_Partner" maxNumberOfServices="5">
+            <qoSCriterions/>
+            <managedQoSCriterions/>
+            <serviceAssociations/>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges" classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges" partnerLinkName="UBL_BillingWithCreditNote_AccountingCustomer_ReconcileCharges_Partner" maxNumberOfServices="5">
+            <qoSCriterions/>
+            <managedQoSCriterions/>
+            <serviceAssociations/>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges" classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges" partnerLinkName="UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges_Partner" maxNumberOfServices="5">
+            <qoSCriterions/>
+            <managedQoSCriterions/>
+            <serviceAssociations/>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote" classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote" partnerLinkName="UBL_BillingWithCreditNote_AccountingSupplier_RaiseCreditNote_Partner" maxNumberOfServices="5">
+            <qoSCriterions/>
+            <managedQoSCriterions/>
+            <serviceAssociations/>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice" classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice" partnerLinkName="UBL_BillingWithCreditNote_AccountingSupplier_RaiseInvoice_Partner" maxNumberOfServices="5">
+            <qoSCriterions/>
+            <managedQoSCriterions/>
+            <serviceAssociations/>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse" classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse" partnerLinkName="UBL_BillingWithCreditNote_AccountingSupplier_ReceiveAccountResponse_Partner" maxNumberOfServices="5">
+            <qoSCriterions/>
+            <managedQoSCriterions/>
+            <serviceAssociations/>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote" classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote" partnerLinkName="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveCreditNote_Partner" maxNumberOfServices="5">
+            <qoSCriterions/>
+            <managedQoSCriterions/>
+            <serviceAssociations/>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice" classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice" partnerLinkName="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveInvoice_Partner" maxNumberOfServices="5">
+            <qoSCriterions/>
+            <managedQoSCriterions/>
+            <serviceAssociations/>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse" classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse" partnerLinkName="UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse_Partner" maxNumberOfServices="5">
+            <qoSCriterions/>
+            <managedQoSCriterions/>
+            <serviceAssociations/>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse" classification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse" partnerLinkName="UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse_Partner" maxNumberOfServices="5">
+            <qoSCriterions/>
+            <managedQoSCriterions/>
+            <serviceAssociations/>
+        </serviceConfig>
+    </servicesConfig>
+</servicesInformation>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions name="PaymentProcess" targetNamespace="http://my.ubl.oasis.services/paymentprocess"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/varprop"  
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://my.ubl.oasis.services/paymentprocess" 
+	xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" 
+	xmlns:discoveryService="http://gsigma.ufsc.br/serviceDiscovery"
+	xmlns:accountingSupplier_receiveAdvice="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/receiveAdvice"
+	xmlns:accountingSupplier_notifyPayee="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee"
+	xmlns:payeeParty_receiveAdvice="http://ubl.oasis.services/payment/paymentprocess/payeeParty/receiveAdvice"
+	xmlns:accountingCustomer_notifyOfPayment="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/notifyOfPayment"
+	xmlns:accountingCustomer_authorizePayment="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<import location="UBL_PaymentProcess_AccountingSupplier_ReceiveAdvice.wsdl" namespace="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/receiveAdvice"/>
+	<import location="UBL_PaymentProcess_AccountingSupplier_NotifyPayee.wsdl" namespace="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee"/>
+	<import location="UBL_PaymentProcess_PayeeParty_ReceiveAdvice.wsdl" namespace="http://ubl.oasis.services/payment/paymentprocess/payeeParty/receiveAdvice"/>
+	<import location="UBL_PaymentProcess_AccountingCustomer_NotifyOfPayment.wsdl" namespace="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/notifyOfPayment"/>
+	<import location="UBL_PaymentProcess_AccountingCustomer_AuthorizePayment.wsdl" namespace="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment"/>
+	<import location="DiscoveryService.wsdl" namespace="http://gsigma.ufsc.br/serviceDiscovery"/>
+
+	<plnk:partnerLinkType name="DiscoveryService">
+		<plnk:role name="Reference" portType="discoveryService:DiscoveryService" />
+	</plnk:partnerLinkType>
+
+	<plnk:partnerLinkType name="UBL_PaymentProcess_AccountingSupplier_ReceiveAdvice">
+		<plnk:role name="Reference" portType="accountingSupplier_receiveAdvice:UBL_PaymentProcess_AccountingSupplier_ReceiveAdvice" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_PaymentProcess_AccountingSupplier_NotifyPayee">
+		<plnk:role name="Reference" portType="accountingSupplier_notifyPayee:UBL_PaymentProcess_AccountingSupplier_NotifyPayee" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_PaymentProcess_PayeeParty_ReceiveAdvice">
+		<plnk:role name="Reference" portType="payeeParty_receiveAdvice:UBL_PaymentProcess_PayeeParty_ReceiveAdvice" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_PaymentProcess_AccountingCustomer_NotifyOfPayment">
+		<plnk:role name="Reference" portType="accountingCustomer_notifyOfPayment:UBL_PaymentProcess_AccountingCustomer_NotifyOfPayment" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_PaymentProcess_AccountingCustomer_AuthorizePayment">
+		<plnk:role name="Reference" portType="accountingCustomer_authorizePayment:UBL_PaymentProcess_AccountingCustomer_AuthorizePayment" />
+	</plnk:partnerLinkType>
+
+	<types>
+		<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://my.ubl.oasis.services/paymentprocess">
+
+			<xsd:element name="PaymentProcessRequest">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="PaymentProcessResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="message" type="xsd:string"/>
+						<xsd:element name="processId" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:schema>
+	</types>
+
+	<message name="PaymentProcessRequestMessage">
+		<part element="tns:PaymentProcessRequest" name="payload" />
+	</message>
+	<message name="PaymentProcessResponseMessage">
+		<part element="tns:PaymentProcessResponse" name="payload" />
+	</message>
+
+	<portType name="PaymentProcess">
+		<operation name="execute">
+			<input message="tns:PaymentProcessRequestMessage" />
+			<output message="tns:PaymentProcessResponseMessage" />
+		</operation>
+		<operation name="ubl_paymentprocess_accountingcustomer_authorizepayment1_callback">
+			<input message="accountingCustomer_authorizePayment:authorizePaymentAsyncCallbackRequestMsg" name="output_accountingCustomer_authorizePayment1"/>
+			<output message="accountingCustomer_authorizePayment:authorizePaymentAsyncCallbackResponseMsg" name="output_accountingCustomer_authorizePayment1_callback"/>
+		</operation>
+		<operation name="ubl_paymentprocess_accountingcustomer_notifyofpayment1_callback">
+			<input message="accountingCustomer_notifyOfPayment:notifyOfPaymentAsyncCallbackRequestMsg" name="output_accountingCustomer_notifyOfPayment1"/>
+			<output message="accountingCustomer_notifyOfPayment:notifyOfPaymentAsyncCallbackResponseMsg" name="output_accountingCustomer_notifyOfPayment1_callback"/>
+		</operation>
+		<operation name="ubl_paymentprocess_accountingsupplier_notifypayee1_callback">
+			<input message="accountingSupplier_notifyPayee:notifyPayeeAsyncCallbackRequestMsg" name="output_accountingSupplier_notifyPayee1"/>
+			<output message="accountingSupplier_notifyPayee:notifyPayeeAsyncCallbackResponseMsg" name="output_accountingSupplier_notifyPayee1_callback"/>
+		</operation>
+		<operation name="ubl_paymentprocess_accountingsupplier_receiveadvice1_callback">
+			<input message="accountingSupplier_receiveAdvice:receiveAdviceAsyncCallbackRequestMsg" name="output_accountingSupplier_receiveAdvice1"/>
+			<output message="accountingSupplier_receiveAdvice:receiveAdviceAsyncCallbackResponseMsg" name="output_accountingSupplier_receiveAdvice1_callback"/>
+		</operation>
+		<operation name="ubl_paymentprocess_payeeparty_receiveadvice1_callback">
+			<input message="payeeParty_receiveAdvice:receiveAdviceAsyncCallbackRequestMsg" name="output_payeeParty_receiveAdvice1"/>
+			<output message="payeeParty_receiveAdvice:receiveAdviceAsyncCallbackResponseMsg" name="output_payeeParty_receiveAdvice1_callback"/>
+		</operation>
+	</portType>
+
+	<plnk:partnerLinkType name="PaymentProcess">
+		<plnk:role name="Interface" portType="tns:PaymentProcess" />
+	</plnk:partnerLinkType>
+
+	<binding name="PaymentProcessBinding" type="tns:PaymentProcess">
+
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="execute">
+			<soap:operation soapAction="http://my.ubl.oasis.services/paymentprocess/execute" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_paymentprocess_accountingcustomer_authorizepayment1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingcustomer_authorizepayment1" />
+			<input name="output_accountingCustomer_authorizePayment1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingCustomer_authorizePayment1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_paymentprocess_accountingcustomer_notifyofpayment1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingcustomer_notifyofpayment1" />
+			<input name="output_accountingCustomer_notifyOfPayment1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingCustomer_notifyOfPayment1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_paymentprocess_accountingsupplier_notifypayee1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingsupplier_notifypayee1" />
+			<input name="output_accountingSupplier_notifyPayee1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingSupplier_notifyPayee1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_paymentprocess_accountingsupplier_receiveadvice1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingsupplier_receiveadvice1" />
+			<input name="output_accountingSupplier_receiveAdvice1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_accountingSupplier_receiveAdvice1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_paymentprocess_payeeparty_receiveadvice1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_payeeparty_receiveadvice1" />
+			<input name="output_payeeParty_receiveAdvice1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_payeeParty_receiveAdvice1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	
+
+	<service name="PaymentProcessService">
+		<port binding="tns:PaymentProcessBinding" name="PaymentProcessServicePort">
+			<soap:address location="http://localhost:7000/ode/processes/PaymentProcess" />
+		</port>
+	</service>
+	
+	<bpws:property name="processId" type="xsd:string" />
+	
+	<bpws:propertyAlias propertyName="tns:processId" messageType="tns:PaymentProcessResponseMessage" part="payload">
+		<bpws:query><![CDATA[/processId]]></bpws:query>
+	</bpws:propertyAlias>
+
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingCustomer_authorizePayment:authorizePaymentAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingCustomer_notifyOfPayment:notifyOfPaymentAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingSupplier_notifyPayee:notifyPayeeAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="accountingSupplier_receiveAdvice:receiveAdviceAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="payeeParty_receiveAdvice:receiveAdviceAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+</definitions>

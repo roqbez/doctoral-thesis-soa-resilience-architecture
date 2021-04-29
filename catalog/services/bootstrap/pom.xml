@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.ufsc.gsigma.catalog.services</groupId>
+		<artifactId>services</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>catalog-bootstrap</artifactId>
+	<dependencies>
+		<dependency>
+			<groupId>br.ufsc.gsigma.catalog.services</groupId>
+			<artifactId>catalog-impl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.ufsc.gsigma.catalog.services</groupId>
+			<artifactId>persistence-impl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.ufsc.gsigma.catalog.services</groupId>
+			<artifactId>specifications-impl</artifactId>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<configuration>
+					<images>
+						<image>
+							<name>d-201603244.ufsc.br/catalogservice</name>
+							<build>
+								<cleanup>try</cleanup>
+								<dockerFileDir>${project.basedir}/src/main/docker</dockerFileDir>
+								<tags>
+									<tag>latest</tag>
+								</tags>
+								<assembly>
+									<name>java</name>
+									<descriptorRef>artifact-with-dependencies</descriptorRef>
+								</assembly>
+							</build>
+						</image>
+					</images>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>

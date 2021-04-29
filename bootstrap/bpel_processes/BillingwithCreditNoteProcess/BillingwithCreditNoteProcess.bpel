@@ -1,0 +1,1017 @@
+<bpel:process name="BillingwithCreditNoteProcess" targetNamespace="http://my.ubl.oasis.services/billingwithcreditnoteprocess" suppressJoinFailure="yes"
+	xmlns:tns="http://my.ubl.oasis.services/billingwithcreditnoteprocess" 
+	xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:accountingSupplier_raiseCreditNote="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote"
+	xmlns:accountingCustomer_receiveInvoice="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice"
+	xmlns:accountingCustomer_reconcileCharges="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges"
+	xmlns:accountingSupplier_reconcileCharges="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges"
+	xmlns:accountingCustomer_acceptCredit="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit"
+	xmlns:accountingSupplier_raiseInvoice="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice"
+	xmlns:accountingSupplier_receiveAccountResponse="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse"
+	xmlns:accountingCustomer_receiveCreditNote="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote"
+	xmlns:accountingCustomer_acceptCharges="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges"
+	xmlns:accountingCustomer_sendAccountResponse="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse"
+	xmlns:accountingSupplier_validateResponse="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse"
+	queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"
+	expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+
+	<bpel:import location="BillingwithCreditNoteProcessArtifacts.wsdl" namespace="http://my.ubl.oasis.services/billingwithcreditnoteprocess" importType="http://schemas.xmlsoap.org/wsdl/" />
+
+	<bpel:partnerLinks>
+		<bpel:partnerLink name="BillingwithCreditNoteProcess" partnerLinkType="tns:BillingwithCreditNoteProcess" myRole="Interface" />
+		<bpel:partnerLink name="UBL_BillingWithCreditNote_AccountingSupplier_RaiseCreditNote_Partner" partnerLinkType="tns:UBL_BillingWithCreditNote_AccountingSupplier_RaiseCreditNote" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveInvoice_Partner" partnerLinkType="tns:UBL_BillingWithCreditNote_AccountingCustomer_ReceiveInvoice" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_BillingWithCreditNote_AccountingCustomer_ReconcileCharges_Partner" partnerLinkType="tns:UBL_BillingWithCreditNote_AccountingCustomer_ReconcileCharges" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges_Partner" partnerLinkType="tns:UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit_Partner" partnerLinkType="tns:UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_BillingWithCreditNote_AccountingSupplier_RaiseInvoice_Partner" partnerLinkType="tns:UBL_BillingWithCreditNote_AccountingSupplier_RaiseInvoice" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_BillingWithCreditNote_AccountingSupplier_ReceiveAccountResponse_Partner" partnerLinkType="tns:UBL_BillingWithCreditNote_AccountingSupplier_ReceiveAccountResponse" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveCreditNote_Partner" partnerLinkType="tns:UBL_BillingWithCreditNote_AccountingCustomer_ReceiveCreditNote" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCharges_Partner" partnerLinkType="tns:UBL_BillingWithCreditNote_AccountingCustomer_AcceptCharges" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse_Partner" partnerLinkType="tns:UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse_Partner" partnerLinkType="tns:UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse" partnerRole="Reference" initializePartnerRole="no"/>
+	</bpel:partnerLinks>
+
+	<bpel:variables>
+		<bpel:variable name="process_input" messageType="tns:BillingwithCreditNoteProcessRequestMessage"/>
+		<bpel:variable name="process_output" messageType="tns:BillingwithCreditNoteProcessResponseMessage"/>
+		<bpel:variable name="abort_process" type="xsd:boolean"/>
+	</bpel:variables>
+	
+
+    <bpel:correlationSets>
+        <bpel:correlationSet name="ProcessId" properties="tns:processId"/>
+    </bpel:correlationSets>
+
+
+	<bpel:sequence name="BillingwithCreditNoteProcess">
+		
+		<bpel:receive name="receiveInput" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="execute" variable="process_input"
+			createInstance="yes" />
+
+		<bpel:assign validate="no" name="assign_abort_process">
+			<bpel:copy>
+					<bpel:from>false()</bpel:from>
+					<bpel:to variable="abort_process" />
+			</bpel:copy>
+		</bpel:assign>
+
+		<bpel:assign validate="no" name="assign_result">
+			<bpel:copy>
+				<bpel:from>
+					<bpel:literal xml:space="preserve">
+						<tns:BillingwithCreditNoteProcessResponse>
+							<message>Process initiated</message>
+							<processId></processId>
+						</tns:BillingwithCreditNoteProcessResponse>
+					</bpel:literal>
+				</bpel:from>
+				<bpel:to part="payload" variable="process_output"/>
+			</bpel:copy>
+			<bpel:copy>
+				<bpel:from>$ode:pid</bpel:from>
+				<bpel:to part="payload" variable="process_output">
+					<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+				</bpel:to>
+			</bpel:copy>
+		</bpel:assign>
+		
+		<bpel:reply name="replyOutput" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="execute" variable="process_output">
+		    <bpel:correlations>
+                <bpel:correlation initiate="yes" set="ProcessId"/>
+            </bpel:correlations>			
+		</bpel:reply>
+		
+		<bpel:wait name="waitAfterReply">
+			<bpel:for>'PT0.1S'</bpel:for>
+		</bpel:wait>
+
+        <bpel:scope name="process_scope">
+            <bpel:variables>
+                <bpel:variable name="input_accountingCustomer_acceptCharges1" messageType="accountingCustomer_acceptCharges:acceptChargesAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_acceptCharges1" messageType="accountingCustomer_acceptCharges:acceptChargesAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_acceptCharges1_callback" messageType="accountingCustomer_acceptCharges:acceptChargesAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingCustomer_acceptCredit1" messageType="accountingCustomer_acceptCredit:acceptCreditAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_acceptCredit1" messageType="accountingCustomer_acceptCredit:acceptCreditAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_acceptCredit1_callback" messageType="accountingCustomer_acceptCredit:acceptCreditAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingCustomer_reconcileCharges1" messageType="accountingCustomer_reconcileCharges:reconcileChargesAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_reconcileCharges1" messageType="accountingCustomer_reconcileCharges:reconcileChargesAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_reconcileCharges1_callback" messageType="accountingCustomer_reconcileCharges:reconcileChargesAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingSupplier_reconcileCharges1" messageType="accountingSupplier_reconcileCharges:reconcileChargesAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_reconcileCharges1" messageType="accountingSupplier_reconcileCharges:reconcileChargesAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_reconcileCharges1_callback" messageType="accountingSupplier_reconcileCharges:reconcileChargesAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingSupplier_raiseCreditNote1" messageType="accountingSupplier_raiseCreditNote:raiseCreditNoteAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_raiseCreditNote1" messageType="accountingSupplier_raiseCreditNote:raiseCreditNoteAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_raiseCreditNote1_callback" messageType="accountingSupplier_raiseCreditNote:raiseCreditNoteAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingSupplier_raiseInvoice1" messageType="accountingSupplier_raiseInvoice:raiseInvoiceAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_raiseInvoice1" messageType="accountingSupplier_raiseInvoice:raiseInvoiceAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_raiseInvoice1_callback" messageType="accountingSupplier_raiseInvoice:raiseInvoiceAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingSupplier_receiveAccountResponse1" messageType="accountingSupplier_receiveAccountResponse:receiveAccountResponseAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_receiveAccountResponse1" messageType="accountingSupplier_receiveAccountResponse:receiveAccountResponseAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_receiveAccountResponse1_callback" messageType="accountingSupplier_receiveAccountResponse:receiveAccountResponseAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingCustomer_receiveCreditNote1" messageType="accountingCustomer_receiveCreditNote:receiveCreditNoteAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_receiveCreditNote1" messageType="accountingCustomer_receiveCreditNote:receiveCreditNoteAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_receiveCreditNote1_callback" messageType="accountingCustomer_receiveCreditNote:receiveCreditNoteAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingCustomer_receiveInvoice1" messageType="accountingCustomer_receiveInvoice:receiveInvoiceAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_receiveInvoice1" messageType="accountingCustomer_receiveInvoice:receiveInvoiceAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_receiveInvoice1_callback" messageType="accountingCustomer_receiveInvoice:receiveInvoiceAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingCustomer_sendAccountResponse1" messageType="accountingCustomer_sendAccountResponse:sendAccountResponseAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_sendAccountResponse1" messageType="accountingCustomer_sendAccountResponse:sendAccountResponseAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_sendAccountResponse1_callback" messageType="accountingCustomer_sendAccountResponse:sendAccountResponseAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingSupplier_validateResponse1" messageType="accountingSupplier_validateResponse:validateResponseAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_validateResponse1" messageType="accountingSupplier_validateResponse:validateResponseAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_validateResponse1_callback" messageType="accountingSupplier_validateResponse:validateResponseAsyncCallbackResponseMsg"/>
+            </bpel:variables>
+            <bpel:flow name="main_flow">
+                <bpel:assign validate="no" name="initialize_variables">
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptChargesAsync xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_acceptcharges1</callbackSOAPAction></processContext><input /></tns:acceptChargesAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingCustomer_acceptCharges1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptChargesAsyncCallback xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_acceptcharges1</callbackSOAPAction></processContext><output /></tns:acceptChargesAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_acceptCharges1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptChargesAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_acceptcharges1</callbackSOAPAction></processContext></tns:acceptChargesAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_acceptCharges1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingCustomer_acceptCharges1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingCustomer_acceptCharges1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptCreditAsync xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_acceptcredit1</callbackSOAPAction></processContext><input /></tns:acceptCreditAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingCustomer_acceptCredit1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptCreditAsyncCallback xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_acceptcredit1</callbackSOAPAction></processContext><output /></tns:acceptCreditAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_acceptCredit1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptCreditAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_acceptcredit1</callbackSOAPAction></processContext></tns:acceptCreditAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_acceptCredit1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingCustomer_acceptCredit1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingCustomer_acceptCredit1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reconcileChargesAsync xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1</callbackSOAPAction></processContext><inputInvoice /><inputCreditNote /></tns:reconcileChargesAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingCustomer_reconcileCharges1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reconcileChargesAsyncCallback xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1</callbackSOAPAction></processContext><outputDecision /><outputInvoice /><outputCreditNote /></tns:reconcileChargesAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_reconcileCharges1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reconcileChargesAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1</callbackSOAPAction></processContext></tns:reconcileChargesAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_reconcileCharges1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingCustomer_reconcileCharges1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingCustomer_reconcileCharges1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reconcileChargesAsync xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1</callbackSOAPAction></processContext><inputDecision /></tns:reconcileChargesAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingSupplier_reconcileCharges1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reconcileChargesAsyncCallback xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1</callbackSOAPAction></processContext><outputDecision /></tns:reconcileChargesAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_reconcileCharges1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reconcileChargesAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1</callbackSOAPAction></processContext></tns:reconcileChargesAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_reconcileCharges1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingSupplier_reconcileCharges1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingSupplier_reconcileCharges1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:raiseCreditNoteAsync xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1</callbackSOAPAction></processContext><inputDecision /></tns:raiseCreditNoteAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingSupplier_raiseCreditNote1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:raiseCreditNoteAsyncCallback xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1</callbackSOAPAction></processContext><output /></tns:raiseCreditNoteAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_raiseCreditNote1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:raiseCreditNoteAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1</callbackSOAPAction></processContext></tns:raiseCreditNoteAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_raiseCreditNote1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingSupplier_raiseCreditNote1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingSupplier_raiseCreditNote1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:raiseInvoiceAsync xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1</callbackSOAPAction></processContext><inputDecision /></tns:raiseInvoiceAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingSupplier_raiseInvoice1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:raiseInvoiceAsyncCallback xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1</callbackSOAPAction></processContext><output /></tns:raiseInvoiceAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_raiseInvoice1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:raiseInvoiceAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1</callbackSOAPAction></processContext></tns:raiseInvoiceAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_raiseInvoice1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingSupplier_raiseInvoice1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingSupplier_raiseInvoice1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAccountResponseAsync xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1</callbackSOAPAction></processContext><inputDecision /><inputApplicationResponse /></tns:receiveAccountResponseAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingSupplier_receiveAccountResponse1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAccountResponseAsyncCallback xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1</callbackSOAPAction></processContext><outputDecision /><outputApplicationResponse /></tns:receiveAccountResponseAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_receiveAccountResponse1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAccountResponseAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1</callbackSOAPAction></processContext></tns:receiveAccountResponseAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_receiveAccountResponse1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingSupplier_receiveAccountResponse1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingSupplier_receiveAccountResponse1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveCreditNoteAsync xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1</callbackSOAPAction></processContext><input /></tns:receiveCreditNoteAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingCustomer_receiveCreditNote1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveCreditNoteAsyncCallback xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1</callbackSOAPAction></processContext><output /></tns:receiveCreditNoteAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_receiveCreditNote1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveCreditNoteAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1</callbackSOAPAction></processContext></tns:receiveCreditNoteAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_receiveCreditNote1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingCustomer_receiveCreditNote1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingCustomer_receiveCreditNote1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveInvoiceAsync xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1</callbackSOAPAction></processContext><input /></tns:receiveInvoiceAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingCustomer_receiveInvoice1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveInvoiceAsyncCallback xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1</callbackSOAPAction></processContext><output /></tns:receiveInvoiceAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_receiveInvoice1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveInvoiceAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1</callbackSOAPAction></processContext></tns:receiveInvoiceAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_receiveInvoice1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingCustomer_receiveInvoice1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingCustomer_receiveInvoice1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendAccountResponseAsync xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1</callbackSOAPAction></processContext><inputDecision /><inputInvoice /><inputCreditNote /></tns:sendAccountResponseAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingCustomer_sendAccountResponse1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendAccountResponseAsyncCallback xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1</callbackSOAPAction></processContext><outputDecision /><outputApplicationResponse /></tns:sendAccountResponseAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_sendAccountResponse1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendAccountResponseAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1</callbackSOAPAction></processContext></tns:sendAccountResponseAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_sendAccountResponse1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingCustomer_sendAccountResponse1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingCustomer_sendAccountResponse1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:validateResponseAsync xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_validateresponse1</callbackSOAPAction></processContext><inputDecision /><inputApplicationResponse /></tns:validateResponseAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingSupplier_validateResponse1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:validateResponseAsyncCallback xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_validateresponse1</callbackSOAPAction></processContext><outputDecision /></tns:validateResponseAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_validateResponse1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:validateResponseAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/BillingwithCreditNoteProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/billingwithcreditnoteprocess/callbacks/ubl_billingwithcreditnote_accountingsupplier_validateresponse1</callbackSOAPAction></processContext></tns:validateResponseAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_validateResponse1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingSupplier_validateResponse1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingSupplier_validateResponse1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+ 	                <bpel:sources>
+	                    <bpel:source linkName="link14">
+	                    </bpel:source>
+	                </bpel:sources>                   
+            	</bpel:assign>
+            	
+            	
+				<bpel:while name="loop_while">
+					<bpel:condition>$abort_process = false() and (string-length($output_accountingSupplier_validateResponse1.payload/outputDecision) = 0 or $output_accountingSupplier_validateResponse1.payload/outputDecision = 'incorrectCharges')</bpel:condition>
+            <bpel:flow name="loop_while_flow">
+            	
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingcustomer_acceptcredit1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingCustomer_reconcileCharges1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputCreditNote
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingCustomer_acceptCredit1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                Input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link39"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link40">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingSupplier_reconcileCharges1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                ouputDecision
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingSupplier_raiseCreditNote1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputDecision
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link50"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link51">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingSupplier_raiseCreditNote1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingCustomer_receiveCreditNote1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link41"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link42">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingCustomer_sendAccountResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDecision
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingSupplier_receiveAccountResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputDecision
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingCustomer_sendAccountResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputApplicationResponse
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingSupplier_receiveAccountResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputApplicationResponse
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link10"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link32">
+	                    </bpel:source>
+	                    <bpel:source linkName="link11">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingSupplier_validateResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDecision
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingSupplier_reconcileCharges1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputDecision
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link2"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingsupplier_validateresponse1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingSupplier_receiveAccountResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDecision
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingSupplier_validateResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputDecision
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingSupplier_receiveAccountResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputApplicationResponse
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingSupplier_validateResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputApplicationResponse
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link12"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link37">
+	                    </bpel:source>
+	                    <bpel:source linkName="link13">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingCustomer_reconcileCharges1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDecision
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingCustomer_sendAccountResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputDecision
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingCustomer_reconcileCharges1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputInvoice
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingCustomer_sendAccountResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputInvoice
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingCustomer_reconcileCharges1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputCreditNote
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingCustomer_sendAccountResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputCreditNote
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link23"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link30">
+	                    </bpel:source>
+	                    <bpel:source linkName="link27">
+	                    </bpel:source>
+	                    <bpel:source linkName="link24">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingcustomer_acceptcharges1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingCustomer_reconcileCharges1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputInvoice
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingCustomer_acceptCharges1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                Input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link6"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link7">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1_2">
+	                <bpel:targets>
+	                    <bpel:target linkName="link21"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link22">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1_1">
+	                <bpel:targets>
+	                    <bpel:target linkName="link19"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link20">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingSupplier_reconcileCharges1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                ouputDecision
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingSupplier_raiseInvoice1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputDecision
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link47"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link48">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingSupplier_raiseInvoice1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingCustomer_receiveInvoice1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link34"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link35">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+            	
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1" suppressJoinFailure="yes" partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveCreditNote_Partner" operation="receiveCreditNoteAsync" portType="accountingCustomer_receiveCreditNote:UBL_BillingWithCreditNote_AccountingCustomer_ReceiveCreditNote1" inputVariable="input_accountingCustomer_receiveCreditNote1"/>
+					<bpel:receive name="receive_service_ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1_callback" variable="output_accountingCustomer_receiveCreditNote1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_receivecreditnote1_callback" variable="output_accountingCustomer_receiveCreditNote1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link42"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link19">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_billingwithcreditnote_accountingcustomer_acceptcharges1" suppressJoinFailure="yes" partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCharges_Partner" operation="acceptChargesAsync" portType="accountingCustomer_acceptCharges:UBL_BillingWithCreditNote_AccountingCustomer_AcceptCharges1" inputVariable="input_accountingCustomer_acceptCharges1"/>
+					<bpel:receive name="receive_service_ubl_billingwithcreditnote_accountingcustomer_acceptcharges1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_acceptcharges1_callback" variable="output_accountingCustomer_acceptCharges1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_billingwithcreditnote_accountingcustomer_acceptcharges1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_acceptcharges1_callback" variable="output_accountingCustomer_acceptCharges1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link7"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>
+		               	<bpel:assign validate="no" name="assign_abort_process_invoke_service_ubl_billingwithcreditnote_accountingcustomer_acceptcharges1">
+							<bpel:copy>
+								<bpel:from>true()</bpel:from>
+								<bpel:to variable="abort_process" />
+							</bpel:copy>
+						</bpel:assign>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1" suppressJoinFailure="yes" partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_ReceiveInvoice_Partner" operation="receiveInvoiceAsync" portType="accountingCustomer_receiveInvoice:UBL_BillingWithCreditNote_AccountingCustomer_ReceiveInvoice1" inputVariable="input_accountingCustomer_receiveInvoice1"/>
+					<bpel:receive name="receive_service_ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1_callback" variable="output_accountingCustomer_receiveInvoice1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_receiveinvoice1_callback" variable="output_accountingCustomer_receiveInvoice1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link35"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link21">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_billingwithcreditnote_accountingcustomer_acceptcredit1" suppressJoinFailure="yes" partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit_Partner" operation="acceptCreditAsync" portType="accountingCustomer_acceptCredit:UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit1" inputVariable="input_accountingCustomer_acceptCredit1"/>
+					<bpel:receive name="receive_service_ubl_billingwithcreditnote_accountingcustomer_acceptcredit1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_acceptcredit1_callback" variable="output_accountingCustomer_acceptCredit1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_billingwithcreditnote_accountingcustomer_acceptcredit1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_acceptcredit1_callback" variable="output_accountingCustomer_acceptCredit1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link40"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>
+		               	<bpel:assign validate="no" name="assign_abort_process_invoke_service_ubl_billingwithcreditnote_accountingcustomer_acceptcredit1">
+							<bpel:copy>
+								<bpel:from>true()</bpel:from>
+								<bpel:to variable="abort_process" />
+							</bpel:copy>
+						</bpel:assign>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1" suppressJoinFailure="yes" partnerLink="UBL_BillingWithCreditNote_AccountingSupplier_ReceiveAccountResponse_Partner" operation="receiveAccountResponseAsync" portType="accountingSupplier_receiveAccountResponse:UBL_BillingWithCreditNote_AccountingSupplier_ReceiveAccountResponse1" inputVariable="input_accountingSupplier_receiveAccountResponse1"/>
+					<bpel:receive name="receive_service_ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1_callback" variable="output_accountingSupplier_receiveAccountResponse1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingsupplier_receiveaccountresponse1_callback" variable="output_accountingSupplier_receiveAccountResponse1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link32"/>
+	                    <bpel:target linkName="link11"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link12">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1" suppressJoinFailure="yes" partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_ReconcileCharges_Partner" operation="reconcileChargesAsync" portType="accountingCustomer_reconcileCharges:UBL_BillingWithCreditNote_AccountingCustomer_ReconcileCharges1" inputVariable="input_accountingCustomer_reconcileCharges1"/>
+					<bpel:receive name="receive_service_ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1_callback" variable="output_accountingCustomer_reconcileCharges1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_reconcilecharges1_callback" variable="output_accountingCustomer_reconcileCharges1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link20"/>
+	                    <bpel:target linkName="link22"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link6">
+	                    	<bpel:transitionCondition>$output_accountingCustomer_reconcileCharges1.payload/outputDecision = 'acceptCharges'</bpel:transitionCondition>
+	                    </bpel:source>
+	                    <bpel:source linkName="link39">
+	                    	<bpel:transitionCondition>$output_accountingCustomer_reconcileCharges1.payload/outputDecision = 'acceptCredit'</bpel:transitionCondition>
+	                    </bpel:source>
+	                    <bpel:source linkName="link23">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1" suppressJoinFailure="yes" partnerLink="UBL_BillingWithCreditNote_AccountingSupplier_RaiseInvoice_Partner" operation="raiseInvoiceAsync" portType="accountingSupplier_raiseInvoice:UBL_BillingWithCreditNote_AccountingSupplier_RaiseInvoice1" inputVariable="input_accountingSupplier_raiseInvoice1"/>
+					<bpel:receive name="receive_service_ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1_callback" variable="output_accountingSupplier_raiseInvoice1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingsupplier_raiseinvoice1_callback" variable="output_accountingSupplier_raiseInvoice1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link48"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link34">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_billingwithcreditnote_accountingsupplier_validateresponse1" suppressJoinFailure="yes" partnerLink="UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse_Partner" operation="validateResponseAsync" portType="accountingSupplier_validateResponse:UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse1" inputVariable="input_accountingSupplier_validateResponse1"/>
+					<bpel:receive name="receive_service_ubl_billingwithcreditnote_accountingsupplier_validateresponse1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingsupplier_validateresponse1_callback" variable="output_accountingSupplier_validateResponse1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_billingwithcreditnote_accountingsupplier_validateresponse1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingsupplier_validateresponse1_callback" variable="output_accountingSupplier_validateResponse1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link37"/>
+	                    <bpel:target linkName="link13"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link2">
+	                    	<bpel:transitionCondition>$output_accountingSupplier_validateResponse1.payload/outputDecision = 'incorrectCharges'</bpel:transitionCondition>
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1" suppressJoinFailure="yes" partnerLink="UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges_Partner" operation="reconcileChargesAsync" portType="accountingSupplier_reconcileCharges:UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges1" inputVariable="input_accountingSupplier_reconcileCharges1"/>
+					<bpel:receive name="receive_service_ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1_callback" variable="output_accountingSupplier_reconcileCharges1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingsupplier_reconcilecharges1_callback" variable="output_accountingSupplier_reconcileCharges1_callback"/>
+	                <bpel:targets>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link50">
+	                    	<bpel:transitionCondition>$output_accountingSupplier_reconcileCharges1.payload/outputDecision = 'overCharged'</bpel:transitionCondition>
+	                    </bpel:source>
+	                    <bpel:source linkName="link47">
+	                    	<bpel:transitionCondition>$output_accountingSupplier_reconcileCharges1.payload/outputDecision = 'initialOrUnderCharged'</bpel:transitionCondition>
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1" suppressJoinFailure="yes" partnerLink="UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse_Partner" operation="sendAccountResponseAsync" portType="accountingCustomer_sendAccountResponse:UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse1" inputVariable="input_accountingCustomer_sendAccountResponse1"/>
+					<bpel:receive name="receive_service_ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1_callback" variable="output_accountingCustomer_sendAccountResponse1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingcustomer_sendaccountresponse1_callback" variable="output_accountingCustomer_sendAccountResponse1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link30"/>
+	                    <bpel:target linkName="link27"/>
+	                    <bpel:target linkName="link24"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link10">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1" suppressJoinFailure="yes" partnerLink="UBL_BillingWithCreditNote_AccountingSupplier_RaiseCreditNote_Partner" operation="raiseCreditNoteAsync" portType="accountingSupplier_raiseCreditNote:UBL_BillingWithCreditNote_AccountingSupplier_RaiseCreditNote1" inputVariable="input_accountingSupplier_raiseCreditNote1"/>
+					<bpel:receive name="receive_service_ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1_callback" variable="output_accountingSupplier_raiseCreditNote1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1" partnerLink="BillingwithCreditNoteProcess" portType="tns:BillingwithCreditNoteProcess" operation="ubl_billingwithcreditnote_accountingsupplier_raisecreditnote1_callback" variable="output_accountingSupplier_raiseCreditNote1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link51"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link41">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+                <bpel:links>
+                	<bpel:link name="link19"/>
+                	<bpel:link name="link41"/>
+                	<bpel:link name="link42"/>
+                	<bpel:link name="link20"/>
+                	<bpel:link name="link40"/>
+                	<bpel:link name="link27"/>
+                	<bpel:link name="link47"/>
+                	<bpel:link name="link48"/>
+                	<bpel:link name="link23"/>
+                	<bpel:link name="link24"/>
+                	<bpel:link name="link21"/>
+                	<bpel:link name="link22"/>
+                	<bpel:link name="link30"/>
+                	<bpel:link name="link50"/>
+                	<bpel:link name="link51"/>
+                	<bpel:link name="link2"/>
+                	<bpel:link name="link6"/>
+                	<bpel:link name="link39"/>
+                	<bpel:link name="link37"/>
+                	<bpel:link name="link12"/>
+                	<bpel:link name="link34"/>
+                	<bpel:link name="link13"/>
+                	<bpel:link name="link35"/>
+                	<bpel:link name="link10"/>
+                	<bpel:link name="link32"/>
+                	<bpel:link name="link7"/>
+                	<bpel:link name="link11"/>
+            	</bpel:links>
+			</bpel:flow>
+	                <bpel:targets>
+	                    <bpel:target linkName="link14"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>				
+				</bpel:while>
+                <bpel:links>
+                	<bpel:link name="link14"/>
+            	</bpel:links>
+			</bpel:flow>
+		</bpel:scope>
+	
+	</bpel:sequence>
+</bpel:process>
+

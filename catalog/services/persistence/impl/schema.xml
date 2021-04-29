@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="br.ufsc.gsigma.catalog.services.persistence-schema" default="schemaexport">
+
+	<property name="lib.support.dir" location="${basedir}/libs_support" />
+
+	<path id="hibernate.schemaexport.classpath">
+		<path>
+			<fileset dir="${lib.support.dir}">
+				<include name="**/*.jar" />
+			</fileset >
+		</path>
+		<path>
+			<fileset dir="../../model/target">
+				<include name="**/*.jar" />
+			</fileset >
+		</path>
+	</path>
+
+	<target name="schemaexport">
+
+		<taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="hibernate.schemaexport.classpath" />
+
+		<hibernatetool destdir="bd/schemas">
+			<classpath>
+				<path location="${project_classpath}" />
+				<path location="target/classes" />
+			</classpath>
+
+			<jpaconfiguration persistenceunit="default" propertyfile="buildjpa.properties" />
+
+			<!-- Write all CREATE statements to a file. -->
+			<hbm2ddl drop="false" create="true" export="false" outputfilename="schema-create.ddl" delimiter="" format="true" />
+
+			<!-- Write all DROP statements to a different file. -->
+			<hbm2ddl drop="true" create="false" export="false" outputfilename="schema-drop.ddl" delimiter="" format="true" />
+
+		</hibernatetool>
+
+	</target>
+
+
+</project>

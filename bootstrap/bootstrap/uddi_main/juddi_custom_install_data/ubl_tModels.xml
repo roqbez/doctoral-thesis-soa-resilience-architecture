@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<save_tModel xmlns="urn:uddi-org:api_v3">
+
+	<!-- Key Generators -->
+
+	<tModel tModelKey="uddi:ubl:keygenerator" xmlns="urn:uddi-org:api_v3">
+		<name>ubl:keyGenerator</name>
+		<description>UBL domain key generator</description>
+		<overviewDoc>
+			<overviewURL useType="text">
+				http://uddi.org/pubs/uddi_v3.htm#keyGen
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi-org:types:keyGenerator" keyValue="keyGenerator" />
+		</categoryBag>
+	</tModel>
+
+	<!-- Process Classification -->
+
+	<tModel tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification">
+		<name>gsigma-ufsc-br:processes:serviceclassification</name>
+		<description>The Process Classification which the service belongs to</description>
+		<categoryBag>
+			<keyedReference keyName="uddi-org:types:categorization" keyValue="categorization" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:unchecked" keyValue="unchecked" tModelKey="uddi:uddi.org:categorization:types" />
+		</categoryBag>
+	</tModel>
+
+
+	<!-- UBL -->
+
+	<!-- Create Catalogue Process -->
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Receiver Party -> Request Catalogue</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Provider Party -> Respond to Request</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Provider Party -> Process Catalogue Request</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Provider Party -> Send Rejection</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection" keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Receiver Party -> Receive Rejection</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Provider Party -> Send Acceptance Response</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Provider Party -> Prepare Catalogue Information</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Provider Party -> Produce Catalogue</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Provider Party -> Distribute Catalogue</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Receiver Party -> Receive Catalogue</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Receiver Party -> Review Catalogue Content</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Receiver Party -> Review Catalogue Content</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Receiver Party -> Accept Catalogue</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Provider Party -> Receive Acknowledge Acceptance</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Receiver Party -> Query Catalogue Content</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Provider Party -> Decide On Action</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction" keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Provider Party -> Revise Content</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent" keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction">
+		<name>ubl:services:sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction</name>
+		<description>Sourcing -> Catalogue Provision -> Create Catalogue Process -> Provider Party -> Cancel Transaction</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction"
+				keyValue="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction" tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+
+	<!-- Ordering Process -->
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_buyerparty_placeorder">
+		<name>ubl:services:ordering_orderingprocess_buyerparty_placeorder</name>
+		<description>Ordering -> Ordering Process -> Buyer Party -> Place Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/buyerParty/placeOrder?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_buyerparty_placeorder" keyValue="ubl/ordering/orderingprocess/buyerParty/placeOrder"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_sellerparty_receiveorder">
+		<name>ubl:services:ordering_orderingprocess_sellerparty_receiveorder</name>
+		<description>Ordering -> Ordering Process -> Seller Party -> Receive Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/sellerParty/receiveOrder?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_sellerparty_receiveorder" keyValue="ubl/ordering/orderingprocess/sellerParty/receiveOrder"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_sellerparty_processorder">
+		<name>ubl:services:ordering_orderingprocess_sellerparty_processorder</name>
+		<description>Ordering -> Ordering Process -> Seller Party -> Process Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/sellerParty/processOrder?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_sellerparty_processorder" keyValue="ubl/ordering/orderingprocess/sellerParty/processOrder"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_sellerparty_acceptorder">
+		<name>ubl:services:ordering_orderingprocess_sellerparty_acceptorder</name>
+		<description>Ordering -> Ordering Process -> Seller Party -> Accept Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/sellerParty/acceptOrder?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_sellerparty_acceptorder" keyValue="ubl/ordering/orderingprocess/sellerParty/acceptOrder"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_sellerparty_rejectorder">
+		<name>ubl:services:ordering_orderingprocess_sellerparty_rejectorder</name>
+		<description>Ordering -> Ordering Process -> Seller Party -> Accept Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/sellerParty/rejectOrder?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_sellerparty_rejectorder" keyValue="ubl/ordering/orderingprocess/sellerParty/rejectOrder"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_sellerparty_adddetail">
+		<name>ubl:services:ordering_orderingprocess_sellerparty_adddetail</name>
+		<description>Ordering -> Ordering Process -> Seller Party -> Add Detail</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/sellerParty/addDetail?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_sellerparty_adddetail" keyValue="ubl/ordering/orderingprocess/sellerParty/addDetail"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_buyerparty_receiveresponse">
+		<name>ubl:services:ordering_orderingprocess_buyerparty_receiveresponse</name>
+		<description>Ordering -> Ordering Process -> Buyer Party -> Receive Response</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/buyerParty/receiveResponse?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_buyerparty_receiveresponse" keyValue="ubl/ordering/orderingprocess/buyerParty/receiveResponse"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_buyerparty_acceptorder">
+		<name>ubl:services:ordering_orderingprocess_buyerparty_acceptorder</name>
+		<description>Ordering -> Ordering Process -> Buyer Party -> Accept Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/buyerParty/acceptOrder?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_buyerparty_acceptorder" keyValue="ubl/ordering/orderingprocess/buyerParty/acceptOrder"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_buyerparty_rejectorder">
+		<name>ubl:services:ordering_orderingprocess_buyerparty_rejectorder</name>
+		<description>Ordering -> Ordering Process -> Buyer Party -> Reject Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/buyerParty/rejectOrder?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_buyerparty_rejectorder" keyValue="ubl/ordering/orderingprocess/buyerParty/rejectOrder"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_buyerparty_changeorder">
+		<name>ubl:services:ordering_orderingprocess_buyerparty_changeorder</name>
+		<description>Ordering -> Ordering Process -> Buyer Party -> Change Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/buyerParty/changeOrder?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_buyerparty_changeorder" keyValue="ubl/ordering/orderingprocess/buyerParty/changeOrder"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_buyerparty_cancelorder">
+		<name>ubl:services:ordering_orderingprocess_buyerparty_cancelorder</name>
+		<description>Ordering -> Ordering Process -> Buyer Party -> Cancel Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/buyerParty/cancelOrder?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_buyerparty_cancelorder" keyValue="ubl/ordering/orderingprocess/buyerParty/cancelOrder"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_sellerparty_cancelorder">
+		<name>ubl:services:ordering_orderingprocess_sellerparty_cancelorder</name>
+		<description>Ordering -> Ordering Process -> Seller Party -> Cancel Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/sellerParty/cancelOrder?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_sellerparty_cancelorder" keyValue="ubl/ordering/orderingprocess/sellerParty/cancelOrder"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_sellerparty_changeorder">
+		<name>ubl:services:ordering_orderingprocess_sellerparty_changeorder</name>
+		<description>Ordering -> Ordering Process -> Seller Party -> Cancel Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/sellerParty/changeOrder?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_sellerparty_changeorder" keyValue="ubl/ordering/orderingprocess/sellerParty/changeOrder"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:ordering_orderingprocess_sellerparty_processorderchange">
+		<name>ubl:services:ordering_orderingprocess_sellerparty_processorderchange</name>
+		<description>Ordering -> Ordering Process -> Seller Party -> Cancel Order</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/ordering/orderingprocess/sellerParty/processOrderChange?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_ordering_orderingprocess_sellerparty_processorderchange" keyValue="ubl/ordering/orderingprocess/sellerParty/processOrderChange"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+
+	<!-- Payment Process -->
+
+	<tModel tModelKey="uddi:ubl:services:payment_paymentprocess_accountingcustomer_authorizepayment">
+		<name>ubl:services:payment_paymentprocess_accountingcustomer_authorizepayment</name>
+		<description>Payment -> Payment Process -> Accounting Customer -> Authorize Payment</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/payment/paymentprocess/accountingCustomer/authorizePayment?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_payment_paymentprocess_accountingcustomer_authorizepayment" keyValue="ubl/payment/paymentprocess/accountingCustomer/authorizePayment"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:payment_paymentprocess_accountingcustomer_notifyofpayment">
+		<name>ubl:services:payment_paymentprocess_accountingcustomer_notifyofpayment</name>
+		<description>Payment -> Payment Process -> Accounting Customer -> Notify of Payment</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/payment/paymentprocess/accountingCustomer/notifyOfPayment?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_payment_paymentprocess_accountingcustomer_notifyofpayment" keyValue="ubl/payment/paymentprocess/accountingCustomer/notifyOfPayment"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:payment_paymentprocess_accountingsupplier_notifypayee">
+		<name>ubl:services:payment_paymentprocess_accountingsupplier_notifypayee</name>
+		<description>Payment -> Payment Process -> Accounting Supplier -> Notify Payee</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/payment/paymentprocess/accountingSupplier/notifyPayee?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_payment_paymentprocess_accountingsupplier_notifypayee" keyValue="ubl/payment/paymentprocess/accountingSupplier/notifyPayee"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:payment_paymentprocess_accountingsupplier_receiveadvice">
+		<name>ubl:services:payment_paymentprocess_accountingsupplier_receiveadvice</name>
+		<description>Payment -> Payment Process -> Accounting Supplier -> Receive Advice</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/payment/paymentprocess/accountingSupplier/receiveAdvice?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_payment_paymentprocess_accountingsupplier_receiveAdvice" keyValue="ubl/payment/paymentprocess/accountingSupplier/receiveAdvice"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+	<tModel tModelKey="uddi:ubl:services:payment_paymentprocess_payeeparty_receiveadvice">
+		<name>ubl:services:payment_paymentprocess_payeeparty_receiveadvice</name>
+		<description>Payment -> Payment Process -> Payee Party -> Receive Advice</description>
+		<overviewDoc>
+			<overviewURL useType="wsdlInterface">
+				http://localhost:8181/catalog/specifications/ubl/ubl/payment/paymentprocess/payeeParty/receiveAdvice?wsdl
+			</overviewURL>
+		</overviewDoc>
+		<categoryBag>
+			<keyedReference keyName="ubl:services:ubl_payment_paymentprocess_accountingsupplier_receiveAdvice" keyValue="ubl/payment/paymentprocess/payeeParty/receiveAdvice"
+				tModelKey="uddi:gsigma.ufsc.br:processes:serviceclassification" />
+			<keyedReference keyName="uddi-org:types:wsdl" keyValue="wsdlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:soap" keyValue="soapSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:xml" keyValue="xmlSpec" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference keyName="uddi-org:types:specification" keyValue="specification" tModelKey="uddi:uddi.org:categorization:types" />
+			<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi:gsigma.ufsc.br:processes:serviceclassification" keyValue="ServiceClassification" />
+		</categoryBag>
+	</tModel>
+
+</save_tModel>

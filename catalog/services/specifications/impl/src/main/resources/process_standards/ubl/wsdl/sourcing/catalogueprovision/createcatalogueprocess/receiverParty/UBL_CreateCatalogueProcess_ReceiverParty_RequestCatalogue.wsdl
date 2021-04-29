@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue" targetNamespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue"
+   xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2"
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue" xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue">
+         <xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2" schemaLocation="xsd/ubl/maindoc/UBL-CatalogueRequest-2.0.xsd" />
+         <xsd:element name="requestCatalogue">
+            <xsd:complexType>
+               <xsd:sequence>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="requestCatalogueResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="ns1:CatalogueRequestType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="requestCatalogueAsync">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="requestCatalogueAsyncCallback">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="output" nillable="true" type="ns1:CatalogueRequestType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="requestCatalogueAsyncCallbackResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="alive">
+            <xsd:complexType>
+               <xsd:sequence />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aliveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="requestCatalogueRequestMsg">
+      <wsdl:part element="tns:requestCatalogue" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="requestCatalogueResponseMsg">
+      <wsdl:part element="tns:requestCatalogueResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="requestCatalogueAsyncRequestMsg">
+      <wsdl:part element="tns:requestCatalogueAsync" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="requestCatalogueAsyncCallbackRequestMsg">
+      <wsdl:part element="tns:requestCatalogueAsyncCallback" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="requestCatalogueAsyncCallbackResponseMsg">
+      <wsdl:part element="tns:requestCatalogueAsyncCallbackResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="aliveRequestMsg">
+      <wsdl:part element="tns:alive" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="aliveResponseMsg">
+      <wsdl:part element="tns:aliveResponse" name="payload" />
+   </wsdl:message>
+   <wsdl:portType name="UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue">
+      <wsdl:operation name="requestCatalogue">
+         <wsdl:input message="tns:requestCatalogueRequestMsg" name="requestCatalogueRequest" />
+         <wsdl:output message="tns:requestCatalogueResponseMsg" name="requestCatalogueResponse" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="requestCatalogueAsync">
+         <wsdl:input message="tns:requestCatalogueAsyncRequestMsg" name="requestCatalogueAsyncRequest" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+         <wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogueService" type="tns:UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="requestCatalogue">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue/requestCatalogue" />
+         <wsdl:input name="requestCatalogueRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="requestCatalogueResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="requestCatalogueAsync">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue/requestCatalogueAsync" />
+         <wsdl:input name="requestCatalogueAsyncRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <soap:operation soapAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue/alive" />
+         <wsdl:input name="aliveRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="aliveResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogueService">
+      <wsdl:port name="UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogueServicePort" binding="tns:UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogueService">
+         <soap:address location="http://localhost:8082/services/ubl/createcatalogueprocess/receiverParty/requestCatalogue" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

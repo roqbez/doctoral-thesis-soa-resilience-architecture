@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.ufsc.gsigma.services.binding</groupId>
+		<artifactId>binding</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>binding-interfaces</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.ufsc.gsigma</groupId>
+			<artifactId>common-ws</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.ufsc.gsigma</groupId>
+			<artifactId>common-messaging</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>br.ufsc.gsigma.catalog.services</groupId>
+			<artifactId>catalog-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.ufsc.gsigma.services.model</groupId>
+			<artifactId>services-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.ufsc.gsigma.services.resilience</groupId>
+			<artifactId>resilience-interfaces</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

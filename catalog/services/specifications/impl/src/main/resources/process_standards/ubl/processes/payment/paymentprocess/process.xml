@@ -1,0 +1,204 @@
+<process refId="0" id="42" name="Payment Process">
+   <inputContactPoints refId="1"/>
+   <outputContactPoints refId="2"/>
+   <participants refId="3"/>
+   <resources refId="4"/>
+   <tasks refId="5">
+      <connectableComponent refId="6" id="46" name="Authorize Payment" taxonomyClassification="ubl/payment/paymentprocess/accountingCustomer/authorizePayment">
+         <inputContactPoints refId="7">
+            <inputContactPoint refId="8" id="99" name="input">
+               <connectableComponent reference="6"/>
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="9">
+            <outputContactPoint refId="10" id="139" name="output"/>
+         </outputContactPoints>
+         <participants refId="11">
+            <taskParticipant refId="12" id="18" name="Role">
+               <participant refId="13" id="UBL_ACCOUNTING_CUSTOMER" name="UBL Accounting Customer">
+                  <processStandard refId="14" id="UBL" name="UBL - Universal Business Language"/>
+               </participant>
+            </taskParticipant>
+         </participants>
+         <resources refId="15"/>
+      </connectableComponent>
+      <connectableComponent refId="16" id="47" name="Notify of Payment" taxonomyClassification="ubl/payment/paymentprocess/accountingCustomer/notifyOfPayment">
+         <inputContactPoints refId="17">
+            <inputContactPoint refId="18" id="100" name="input">
+               <connectableComponent reference="16"/>
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="19">
+            <outputContactPoint refId="20" id="140" name="output">
+               <associatedDocument refId="21" id="UBL_REMITTANCE_ADVICE" name="UBL Remittance Advice" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2" xmlName="RemittanceAdviceType" primitive="false">
+                  <processStandard reference="14"/>
+               </associatedDocument>
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="22">
+            <taskParticipant refId="23" id="19" name="Role">
+               <participant reference="13"/>
+            </taskParticipant>
+         </participants>
+         <resources refId="24"/>
+      </connectableComponent>
+      <connectableComponent refId="25" id="48" name="Notify Payee" taxonomyClassification="ubl/payment/paymentprocess/accountingSupplier/notifyPayee">
+         <inputContactPoints refId="26">
+            <inputContactPoint refId="27" id="101" name="input">
+               <connectableComponent reference="25"/>
+               <associatedDocument reference="21"/>
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="28">
+            <outputContactPoint refId="29" id="141" name="output">
+               <associatedDocument reference="21"/>
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="30">
+            <taskParticipant refId="31" id="20" name="Role">
+               <participant refId="32" id="UBL_ACCOUNTING_SUPPLIER" name="UBL Accounting Supplier">
+                  <processStandard reference="14"/>
+               </participant>
+            </taskParticipant>
+         </participants>
+         <resources refId="33"/>
+      </connectableComponent>
+      <connectableComponent refId="34" id="49" name="Receive Advice from Accounting Customer" taxonomyClassification="ubl/payment/paymentprocess/accountingSupplier/receiveAdvice">
+         <inputContactPoints refId="35">
+            <inputContactPoint refId="36" id="102" name="input">
+               <connectableComponent reference="34"/>
+               <associatedDocument reference="21"/>
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="37">
+            <outputContactPoint refId="38" id="142" name="output">
+               <associatedDocument reference="21"/>
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="39">
+            <taskParticipant refId="40" id="21" name="Role">
+               <participant reference="32"/>
+            </taskParticipant>
+         </participants>
+         <resources refId="41"/>
+      </connectableComponent>
+      <connectableComponent refId="42" id="50" name="Receive Advice from Accounting Customer1" taxonomyClassification="ubl/payment/paymentprocess/payeeParty/receiveAdvice">
+         <inputContactPoints refId="43">
+            <inputContactPoint refId="44" id="103" name="inputFromAccountingSupplier">
+               <connectableComponent reference="42"/>
+               <associatedDocument reference="21"/>
+            </inputContactPoint>
+            <inputContactPoint refId="45" id="104" name="inputFromAccountingCustomer">
+               <connectableComponent reference="42"/>
+               <associatedDocument reference="21"/>
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="46">
+            <outputContactPoint refId="47" id="143" name="output"/>
+         </outputContactPoints>
+         <participants refId="48">
+            <taskParticipant refId="49" id="22" name="Role">
+               <participant refId="50" id="UBL_PAYEE_PARTY" name="UBL Payee Party">
+                  <processStandard reference="14"/>
+               </participant>
+            </taskParticipant>
+         </participants>
+         <resources refId="51"/>
+      </connectableComponent>
+   </tasks>
+   <startEvents refId="52">
+      <connectableComponent refId="53" id="45" name="Start">
+         <inputContactPoints refId="54"/>
+         <outputContactPoints refId="55">
+            <outputContactPoint refId="56" id="138" name="Output"/>
+         </outputContactPoints>
+      </connectableComponent>
+   </startEvents>
+   <endEvents refId="57">
+      <connectableComponent refId="58" id="43" name="End">
+         <inputContactPoints refId="59">
+            <inputContactPoint refId="60" id="97" name="Input">
+               <connectableComponent reference="58"/>
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="61"/>
+      </connectableComponent>
+   </endEvents>
+   <decisions refId="62"/>
+   <forks refId="63">
+      <flowControlComponent refId="64" id="44" name="fork">
+         <inputContactPoints refId="65">
+            <inputContactPoint refId="66" id="98" name="input">
+               <connectableComponent reference="64"/>
+               <associatedDocument reference="21"/>
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="67">
+            <outputContactPoint refId="68" id="136" name="outpu1">
+               <associatedDocument reference="21"/>
+            </outputContactPoint>
+            <outputContactPoint refId="69" id="137" name="output2">
+               <associatedDocument reference="21"/>
+            </outputContactPoint>
+         </outputContactPoints>
+         <inputBranches refId="70">
+            <inputBranch refId="71" id="15" name="Input Branch ">
+               <flowControlComponent reference="64"/>
+               <inputContactPoints refId="72">
+                  <inputContactPoint reference="66"/>
+               </inputContactPoints>
+            </inputBranch>
+         </inputBranches>
+         <outputBranches refId="73">
+            <outputBranch refId="74" id="34" name="Output Branch 1">
+               <flowControlComponent reference="64"/>
+               <outputContactPoints refId="75">
+                  <outputContactPoint reference="68"/>
+               </outputContactPoints>
+            </outputBranch>
+            <outputBranch refId="76" id="35" name="Output Branch 2">
+               <flowControlComponent reference="64"/>
+               <outputContactPoints refId="77">
+                  <outputContactPoint reference="69"/>
+               </outputContactPoints>
+            </outputBranch>
+         </outputBranches>
+      </flowControlComponent>
+   </forks>
+   <junctions refId="78"/>
+   <merges refId="79"/>
+   <connections refId="80">
+      <connection refId="81" id="110">
+         <input reference="66"/>
+         <output reference="20"/>
+      </connection>
+      <connection refId="82" id="111">
+         <input reference="36"/>
+         <output reference="68"/>
+      </connection>
+      <connection refId="83" id="112">
+         <input reference="45"/>
+         <output reference="69"/>
+      </connection>
+      <connection refId="84" id="113">
+         <input reference="8"/>
+         <output reference="56"/>
+      </connection>
+      <connection refId="85" id="114">
+         <input reference="18"/>
+         <output reference="10"/>
+      </connection>
+      <connection refId="86" id="115">
+         <input reference="27"/>
+         <output reference="38"/>
+      </connection>
+      <connection refId="87" id="116">
+         <input reference="44"/>
+         <output reference="29"/>
+      </connection>
+      <connection refId="88" id="117">
+         <input reference="60"/>
+         <output reference="47"/>
+      </connection>
+   </connections>
+</process>

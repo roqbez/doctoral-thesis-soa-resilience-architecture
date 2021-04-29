@@ -1,0 +1,425 @@
+<bpel:process name="PaymentProcess" targetNamespace="http://my.ubl.oasis.services/paymentprocess" suppressJoinFailure="yes"
+	xmlns:tns="http://my.ubl.oasis.services/paymentprocess" 
+	xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" 
+	xmlns:serviceDiscovery="http://gsigma.ufsc.br/serviceDiscovery"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:accountingSupplier_receiveAdvice="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/receiveAdvice"
+	xmlns:accountingSupplier_notifyPayee="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee"
+	xmlns:payeeParty_receiveAdvice="http://ubl.oasis.services/payment/paymentprocess/payeeParty/receiveAdvice"
+	xmlns:accountingCustomer_notifyOfPayment="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/notifyOfPayment"
+	xmlns:accountingCustomer_authorizePayment="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment"
+	queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"
+	expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+
+	<bpel:import location="PaymentProcessArtifacts.wsdl" namespace="http://my.ubl.oasis.services/paymentprocess" importType="http://schemas.xmlsoap.org/wsdl/" />
+
+	<bpel:partnerLinks>
+		<bpel:partnerLink name="PaymentProcess" partnerLinkType="tns:PaymentProcess" myRole="Interface" />
+		<bpel:partnerLink name="DiscoveryService_Partner" partnerLinkType="tns:DiscoveryService" partnerRole="Reference"/>
+		<bpel:partnerLink name="UBL_PaymentProcess_AccountingSupplier_ReceiveAdvice_Partner" partnerLinkType="tns:UBL_PaymentProcess_AccountingSupplier_ReceiveAdvice" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_PaymentProcess_AccountingSupplier_NotifyPayee_Partner" partnerLinkType="tns:UBL_PaymentProcess_AccountingSupplier_NotifyPayee" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_PaymentProcess_PayeeParty_ReceiveAdvice_Partner" partnerLinkType="tns:UBL_PaymentProcess_PayeeParty_ReceiveAdvice" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_PaymentProcess_AccountingCustomer_NotifyOfPayment_Partner" partnerLinkType="tns:UBL_PaymentProcess_AccountingCustomer_NotifyOfPayment" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_PaymentProcess_AccountingCustomer_AuthorizePayment_Partner" partnerLinkType="tns:UBL_PaymentProcess_AccountingCustomer_AuthorizePayment" partnerRole="Reference" initializePartnerRole="no"/>
+	</bpel:partnerLinks>
+
+	<bpel:variables>
+		<bpel:variable name="process_input" messageType="tns:PaymentProcessRequestMessage"/>
+		<bpel:variable name="process_output" messageType="tns:PaymentProcessResponseMessage"/>
+	</bpel:variables>
+
+    <bpel:correlationSets>
+        <bpel:correlationSet name="ProcessId" properties="tns:processId"/>
+    </bpel:correlationSets>
+
+
+	<bpel:sequence name="PaymentProcess">
+
+		<bpel:receive name="receiveInput" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="execute" variable="process_input"
+			createInstance="yes" />
+
+		<bpel:assign validate="no" name="assign_result">
+			<bpel:copy>
+				<bpel:from>
+					<bpel:literal xml:space="preserve">
+						<tns:PaymentProcessResponse>
+							<message>Process initiated</message>
+							<processId></processId>
+						</tns:PaymentProcessResponse>
+					</bpel:literal>
+				</bpel:from>
+				<bpel:to part="payload" variable="process_output"/>
+			</bpel:copy>
+			<bpel:copy>
+				<bpel:from>$ode:pid</bpel:from>
+				<bpel:to part="payload" variable="process_output">
+					<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+				</bpel:to>
+			</bpel:copy>
+		</bpel:assign>
+		
+		<bpel:reply name="replyOutput" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="execute" variable="process_output">
+		    <bpel:correlations>
+                <bpel:correlation initiate="yes" set="ProcessId"/>
+            </bpel:correlations>			
+		</bpel:reply>
+		
+        <bpel:scope name="process_scope">
+            <bpel:variables>
+                <bpel:variable name="input_accountingCustomer_authorizePayment1" messageType="accountingCustomer_authorizePayment:authorizePaymentAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_authorizePayment1" messageType="accountingCustomer_authorizePayment:authorizePaymentAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_authorizePayment1_callback" messageType="accountingCustomer_authorizePayment:authorizePaymentAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingCustomer_notifyOfPayment1" messageType="accountingCustomer_notifyOfPayment:notifyOfPaymentAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_notifyOfPayment1" messageType="accountingCustomer_notifyOfPayment:notifyOfPaymentAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingCustomer_notifyOfPayment1_callback" messageType="accountingCustomer_notifyOfPayment:notifyOfPaymentAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingSupplier_notifyPayee1" messageType="accountingSupplier_notifyPayee:notifyPayeeAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_notifyPayee1" messageType="accountingSupplier_notifyPayee:notifyPayeeAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_notifyPayee1_callback" messageType="accountingSupplier_notifyPayee:notifyPayeeAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_accountingSupplier_receiveAdvice1" messageType="accountingSupplier_receiveAdvice:receiveAdviceAsyncRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_receiveAdvice1" messageType="accountingSupplier_receiveAdvice:receiveAdviceAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_accountingSupplier_receiveAdvice1_callback" messageType="accountingSupplier_receiveAdvice:receiveAdviceAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_payeeParty_receiveAdvice1" messageType="payeeParty_receiveAdvice:receiveAdviceAsyncRequestMsg"/>
+                <bpel:variable name="output_payeeParty_receiveAdvice1" messageType="payeeParty_receiveAdvice:receiveAdviceAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_payeeParty_receiveAdvice1_callback" messageType="payeeParty_receiveAdvice:receiveAdviceAsyncCallbackResponseMsg"/>
+            </bpel:variables>
+            <bpel:flow name="main_flow">
+                <bpel:assign validate="no" name="initialize_variables">
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:authorizePaymentAsync xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingcustomer_authorizepayment1</callbackSOAPAction></processContext></tns:authorizePaymentAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingCustomer_authorizePayment1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:authorizePaymentAsyncCallback xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingcustomer_authorizepayment1</callbackSOAPAction></processContext></tns:authorizePaymentAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_authorizePayment1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:authorizePaymentAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingcustomer_authorizepayment1</callbackSOAPAction></processContext></tns:authorizePaymentAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_authorizePayment1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingCustomer_authorizePayment1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingCustomer_authorizePayment1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:notifyOfPaymentAsync xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/notifyOfPayment"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingcustomer_notifyofpayment1</callbackSOAPAction></processContext></tns:notifyOfPaymentAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingCustomer_notifyOfPayment1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:notifyOfPaymentAsyncCallback xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/notifyOfPayment"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingcustomer_notifyofpayment1</callbackSOAPAction></processContext><output /></tns:notifyOfPaymentAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_notifyOfPayment1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:notifyOfPaymentAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/notifyOfPayment"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingcustomer_notifyofpayment1</callbackSOAPAction></processContext></tns:notifyOfPaymentAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingCustomer_notifyOfPayment1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingCustomer_notifyOfPayment1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingCustomer_notifyOfPayment1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:notifyPayeeAsync xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingsupplier_notifypayee1</callbackSOAPAction></processContext><input /></tns:notifyPayeeAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingSupplier_notifyPayee1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:notifyPayeeAsyncCallback xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingsupplier_notifypayee1</callbackSOAPAction></processContext><output /></tns:notifyPayeeAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_notifyPayee1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:notifyPayeeAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/notifyPayee"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingsupplier_notifypayee1</callbackSOAPAction></processContext></tns:notifyPayeeAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_notifyPayee1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingSupplier_notifyPayee1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingSupplier_notifyPayee1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAdviceAsync xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/receiveAdvice"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingsupplier_receiveadvice1</callbackSOAPAction></processContext><input /></tns:receiveAdviceAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_accountingSupplier_receiveAdvice1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAdviceAsyncCallback xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/receiveAdvice"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingsupplier_receiveadvice1</callbackSOAPAction></processContext><output /></tns:receiveAdviceAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_receiveAdvice1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAdviceAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingSupplier/receiveAdvice"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_accountingsupplier_receiveadvice1</callbackSOAPAction></processContext></tns:receiveAdviceAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_accountingSupplier_receiveAdvice1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_accountingSupplier_receiveAdvice1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_accountingSupplier_receiveAdvice1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAdviceAsync xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/payeeParty/receiveAdvice"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_payeeparty_receiveadvice1</callbackSOAPAction></processContext><inputFromAccountingCustomer /><inputFromAccountingSupplier /></tns:receiveAdviceAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_payeeParty_receiveAdvice1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAdviceAsyncCallback xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/payeeParty/receiveAdvice"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_payeeparty_receiveadvice1</callbackSOAPAction></processContext></tns:receiveAdviceAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_payeeParty_receiveAdvice1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAdviceAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/payeeParty/receiveAdvice"><processContext><processId /><callbackEndpoint>http://192.168.0.14:7000/ode/processes/PaymentProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/paymentprocess/callbacks/ubl_paymentprocess_payeeparty_receiveadvice1</callbackSOAPAction></processContext></tns:receiveAdviceAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_payeeParty_receiveAdvice1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_payeeParty_receiveAdvice1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_payeeParty_receiveAdvice1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+ 	                <bpel:sources>
+	                    <bpel:source linkName="link6">
+	                    </bpel:source>
+	                </bpel:sources>                   
+            	</bpel:assign>
+            	
+				<bpel:assign name="assign_input_invoke_service_ubl_paymentprocess_payeeparty_receiveadvice1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingCustomer_notifyOfPayment1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_payeeParty_receiveAdvice1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputFromAccountingCustomer
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingSupplier_notifyPayee1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_payeeParty_receiveAdvice1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputFromAccountingSupplier
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link4"/>
+	                    <bpel:target linkName="link10"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link5">
+	                    </bpel:source>
+	                    <bpel:source linkName="link11">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_paymentprocess_accountingsupplier_notifypayee1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingSupplier_receiveAdvice1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingSupplier_notifyPayee1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link8"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link9">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_paymentprocess_accountingsupplier_receiveadvice1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_accountingCustomer_notifyOfPayment1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_accountingSupplier_receiveAdvice1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link2"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link3">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+            	
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_paymentprocess_accountingcustomer_authorizepayment1" suppressJoinFailure="yes" partnerLink="UBL_PaymentProcess_AccountingCustomer_AuthorizePayment_Partner" operation="authorizePaymentAsync" portType="accountingCustomer_authorizePayment:UBL_PaymentProcess_AccountingCustomer_AuthorizePayment1" inputVariable="input_accountingCustomer_authorizePayment1"/>
+					<bpel:receive name="receive_service_ubl_paymentprocess_accountingcustomer_authorizepayment1" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="ubl_paymentprocess_accountingcustomer_authorizepayment1_callback" variable="output_accountingCustomer_authorizePayment1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_paymentprocess_accountingcustomer_authorizepayment1" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="ubl_paymentprocess_accountingcustomer_authorizepayment1_callback" variable="output_accountingCustomer_authorizePayment1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link6"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link7">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_paymentprocess_payeeparty_receiveadvice1" suppressJoinFailure="yes" partnerLink="UBL_PaymentProcess_PayeeParty_ReceiveAdvice_Partner" operation="receiveAdviceAsync" portType="payeeParty_receiveAdvice:UBL_PaymentProcess_PayeeParty_ReceiveAdvice1" inputVariable="input_payeeParty_receiveAdvice1"/>
+					<bpel:receive name="receive_service_ubl_paymentprocess_payeeparty_receiveadvice1" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="ubl_paymentprocess_payeeparty_receiveadvice1_callback" variable="output_payeeParty_receiveAdvice1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_paymentprocess_payeeparty_receiveadvice1" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="ubl_paymentprocess_payeeparty_receiveadvice1_callback" variable="output_payeeParty_receiveAdvice1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link5"/>
+	                    <bpel:target linkName="link11"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_paymentprocess_accountingsupplier_receiveadvice1" suppressJoinFailure="yes" partnerLink="UBL_PaymentProcess_AccountingSupplier_ReceiveAdvice_Partner" operation="receiveAdviceAsync" portType="accountingSupplier_receiveAdvice:UBL_PaymentProcess_AccountingSupplier_ReceiveAdvice1" inputVariable="input_accountingSupplier_receiveAdvice1"/>
+					<bpel:receive name="receive_service_ubl_paymentprocess_accountingsupplier_receiveadvice1" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="ubl_paymentprocess_accountingsupplier_receiveadvice1_callback" variable="output_accountingSupplier_receiveAdvice1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_paymentprocess_accountingsupplier_receiveadvice1" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="ubl_paymentprocess_accountingsupplier_receiveadvice1_callback" variable="output_accountingSupplier_receiveAdvice1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link3"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link8">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_paymentprocess_accountingcustomer_notifyofpayment1" suppressJoinFailure="yes" partnerLink="UBL_PaymentProcess_AccountingCustomer_NotifyOfPayment_Partner" operation="notifyOfPaymentAsync" portType="accountingCustomer_notifyOfPayment:UBL_PaymentProcess_AccountingCustomer_NotifyOfPayment1" inputVariable="input_accountingCustomer_notifyOfPayment1"/>
+					<bpel:receive name="receive_service_ubl_paymentprocess_accountingcustomer_notifyofpayment1" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="ubl_paymentprocess_accountingcustomer_notifyofpayment1_callback" variable="output_accountingCustomer_notifyOfPayment1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_paymentprocess_accountingcustomer_notifyofpayment1" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="ubl_paymentprocess_accountingcustomer_notifyofpayment1_callback" variable="output_accountingCustomer_notifyOfPayment1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link7"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link2">
+	                    </bpel:source>
+	                    <bpel:source linkName="link4">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_paymentprocess_accountingsupplier_notifypayee1" suppressJoinFailure="yes" partnerLink="UBL_PaymentProcess_AccountingSupplier_NotifyPayee_Partner" operation="notifyPayeeAsync" portType="accountingSupplier_notifyPayee:UBL_PaymentProcess_AccountingSupplier_NotifyPayee1" inputVariable="input_accountingSupplier_notifyPayee1"/>
+					<bpel:receive name="receive_service_ubl_paymentprocess_accountingsupplier_notifypayee1" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="ubl_paymentprocess_accountingsupplier_notifypayee1_callback" variable="output_accountingSupplier_notifyPayee1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_paymentprocess_accountingsupplier_notifypayee1" partnerLink="PaymentProcess" portType="tns:PaymentProcess" operation="ubl_paymentprocess_accountingsupplier_notifypayee1_callback" variable="output_accountingSupplier_notifyPayee1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link9"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link10">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+                <bpel:links>
+                	<bpel:link name="link2"/>
+                	<bpel:link name="link6"/>
+                	<bpel:link name="link5"/>
+                	<bpel:link name="link4"/>
+                	<bpel:link name="link3"/>
+                	<bpel:link name="link9"/>
+                	<bpel:link name="link8"/>
+                	<bpel:link name="link10"/>
+                	<bpel:link name="link7"/>
+                	<bpel:link name="link11"/>
+            	</bpel:links>
+			</bpel:flow>
+		</bpel:scope>
+	
+	</bpel:sequence>
+</bpel:process>
+

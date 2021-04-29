@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="com.ibm.btools.ui.attributesViewContentPageFactory">
+      <factory
+            siteId="Process Editor"
+            factoryClassName="br.ufsc.gsigma.catalog.plugin.attributes.CatalogContentPageFactory">
+      </factory>
+   </extension>
+   
+   <extension
+         id="ProcessImportPage"
+         name="Import Process Catalog Page Contributer"
+         point="com.ibm.btools.blm.ui.importWizardPageContributor">
+
+      <pageSet
+            importOperationId="br.ufsc.gsigma.catalog.plugin.modules.imprt.ImportOperation"
+            importTypeName="%processCatalogImportType">
+         <sourceTargetSelectionPage class="br.ufsc.gsigma.catalog.plugin.modules.imprt.ImportWizardContributorPage"/>
+      </pageSet>
+   </extension>
+   
+   <extension
+         point="com.ibm.btools.blm.ie.importOperations">
+      <operation
+            class="br.ufsc.gsigma.catalog.plugin.modules.imprt.ImportOperation"
+            id="br.ufsc.gsigma.catalog.plugin.modules.imprt.ImportOperation"
+            name="Import Process Operation"/>
+   </extension>
+
+
+   <extension
+         id="ProcessExportPage"
+         name="Export Process Catalog Page Contributer"
+         point="com.ibm.btools.blm.ui.exportWizardPageContributor">
+
+      <pageSet
+            exportOperationId="br.ufsc.gsigma.catalog.plugin.modules.exprt.ExportOperation"
+            exportTypeName="%processCatalogExportType">
+         <sourceTargetSelectionPage class="br.ufsc.gsigma.catalog.plugin.modules.exprt.ExportWizardContributorPage"/>
+      </pageSet>
+   </extension>
+   
+   <extension
+         point="com.ibm.btools.blm.ie.exportOperations">
+      <operation
+            class="br.ufsc.gsigma.catalog.plugin.modules.exprt.ExportOperation"
+            id="br.ufsc.gsigma.catalog.plugin.modules.exprt.ExportOperation"
+            name="Export Process Operation"/>
+   </extension>
+
+   <extension
+         id="ProcessExportPage"
+         name="Export Process Catalog Page Contributer"
+         point="com.ibm.btools.blm.ui.exportWizardPageContributor">
+
+      <pageSet
+            exportOperationId="br.ufsc.gsigma.catalog.plugin.modules.bpelexprt.BPELExportOperation"
+            exportTypeName="%processCatalogBPELExportType">
+         <sourceTargetSelectionPage class="br.ufsc.gsigma.catalog.plugin.modules.bpelexprt.BPELExportWizardContributorPage"/>
+      </pageSet>
+   </extension>
+
+   <extension
+         point="com.ibm.btools.blm.ie.exportOperations">
+      <operation
+            class="br.ufsc.gsigma.catalog.plugin.modules.bpelexprt.BPELExportOperation"
+            id="br.ufsc.gsigma.catalog.plugin.modules.bpelexprt.BPELExportOperation"
+            name="Export Process Operation"/>
+   </extension>
+   
+</plugin>

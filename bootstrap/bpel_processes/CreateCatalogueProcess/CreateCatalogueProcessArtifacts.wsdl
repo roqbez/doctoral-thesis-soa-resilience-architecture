@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions name="CreateCatalogueProcess" targetNamespace="http://my.ubl.oasis.services/createcatalogueprocess"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/varprop"  
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://my.ubl.oasis.services/createcatalogueprocess" 
+	xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" 
+	xmlns:providerParty_cancelTransaction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction"
+	xmlns:providerParty_decideOnAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction"
+	xmlns:receiverParty_receiveCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue"
+	xmlns:providerParty_distributeCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue"
+	xmlns:receiverParty_acceptCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue"
+	xmlns:receiverParty_acknowledgeAcceptance="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance"
+	xmlns:providerParty_produceCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue"
+	xmlns:receiverParty_requestCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue"
+	xmlns:receiverParty_queryCatalogueContent="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent"
+	xmlns:receiverParty_reviewCatalogueContent="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent"
+	xmlns:providerParty_reviseContent="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent"
+	xmlns:providerParty_prepareCatalogueInformation="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation"
+	xmlns:providerParty_processCatalogueRequest="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest"
+	xmlns:providerParty_respondToRequest="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest"
+	xmlns:providerParty_sendRejection="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection"
+	xmlns:receiverParty_receiveRejection="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection"
+	xmlns:providerParty_receiveAcknowledgeAcceptance="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance"
+	xmlns:providerParty_sendAcceptanceResponse="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<import location="UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction"/>
+	<import location="UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction"/>
+	<import location="UBL_CreateCatalogueProcess_ReceiverParty_ReceiveCatalogue.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue"/>
+	<import location="UBL_CreateCatalogueProcess_ProviderParty_DistributeCatalogue.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue"/>
+	<import location="UBL_CreateCatalogueProcess_ReceiverParty_AcceptCatalogue.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue"/>
+	<import location="UBL_CreateCatalogueProcess_ReceiverParty_AcknowledgeAcceptance.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance"/>
+	<import location="UBL_CreateCatalogueProcess_ProviderParty_ProduceCatalogue.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue"/>
+	<import location="UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue"/>
+	<import location="UBL_CreateCatalogueProcess_ReceiverParty_QueryCatalogueContent.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent"/>
+	<import location="UBL_CreateCatalogueProcess_ReceiverParty_ReviewCatalogueContent.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent"/>
+	<import location="UBL_CreateCatalogueProcess_ProviderParty_ReviseContent.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent"/>
+	<import location="UBL_CreateCatalogueProcess_ProviderParty_PrepareCatalogueInformation.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation"/>
+	<import location="UBL_CreateCatalogueProcess_ProviderParty_ProcessCatalogueRequest.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest"/>
+	<import location="UBL_CreateCatalogueProcess_ProviderParty_RespondToRequest.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest"/>
+	<import location="UBL_CreateCatalogueProcess_ProviderParty_SendRejection.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection"/>
+	<import location="UBL_CreateCatalogueProcess_ReceiverParty_ReceiveRejection.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection"/>
+	<import location="UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance"/>
+	<import location="UBL_CreateCatalogueProcess_ProviderParty_SendAcceptanceResponse.wsdl" namespace="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse"/>
+
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction">
+		<plnk:role name="Reference" portType="providerParty_cancelTransaction:UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction">
+		<plnk:role name="Reference" portType="providerParty_decideOnAction:UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ReceiverParty_ReceiveCatalogue">
+		<plnk:role name="Reference" portType="receiverParty_receiveCatalogue:UBL_CreateCatalogueProcess_ReceiverParty_ReceiveCatalogue" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ProviderParty_DistributeCatalogue">
+		<plnk:role name="Reference" portType="providerParty_distributeCatalogue:UBL_CreateCatalogueProcess_ProviderParty_DistributeCatalogue" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ReceiverParty_AcceptCatalogue">
+		<plnk:role name="Reference" portType="receiverParty_acceptCatalogue:UBL_CreateCatalogueProcess_ReceiverParty_AcceptCatalogue" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ReceiverParty_AcknowledgeAcceptance">
+		<plnk:role name="Reference" portType="receiverParty_acknowledgeAcceptance:UBL_CreateCatalogueProcess_ReceiverParty_AcknowledgeAcceptance" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ProviderParty_ProduceCatalogue">
+		<plnk:role name="Reference" portType="providerParty_produceCatalogue:UBL_CreateCatalogueProcess_ProviderParty_ProduceCatalogue" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue">
+		<plnk:role name="Reference" portType="receiverParty_requestCatalogue:UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ReceiverParty_QueryCatalogueContent">
+		<plnk:role name="Reference" portType="receiverParty_queryCatalogueContent:UBL_CreateCatalogueProcess_ReceiverParty_QueryCatalogueContent" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ReceiverParty_ReviewCatalogueContent">
+		<plnk:role name="Reference" portType="receiverParty_reviewCatalogueContent:UBL_CreateCatalogueProcess_ReceiverParty_ReviewCatalogueContent" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ProviderParty_ReviseContent">
+		<plnk:role name="Reference" portType="providerParty_reviseContent:UBL_CreateCatalogueProcess_ProviderParty_ReviseContent" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ProviderParty_PrepareCatalogueInformation">
+		<plnk:role name="Reference" portType="providerParty_prepareCatalogueInformation:UBL_CreateCatalogueProcess_ProviderParty_PrepareCatalogueInformation" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ProviderParty_ProcessCatalogueRequest">
+		<plnk:role name="Reference" portType="providerParty_processCatalogueRequest:UBL_CreateCatalogueProcess_ProviderParty_ProcessCatalogueRequest" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ProviderParty_RespondToRequest">
+		<plnk:role name="Reference" portType="providerParty_respondToRequest:UBL_CreateCatalogueProcess_ProviderParty_RespondToRequest" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ProviderParty_SendRejection">
+		<plnk:role name="Reference" portType="providerParty_sendRejection:UBL_CreateCatalogueProcess_ProviderParty_SendRejection" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ReceiverParty_ReceiveRejection">
+		<plnk:role name="Reference" portType="receiverParty_receiveRejection:UBL_CreateCatalogueProcess_ReceiverParty_ReceiveRejection" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance">
+		<plnk:role name="Reference" portType="providerParty_receiveAcknowledgeAcceptance:UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_CreateCatalogueProcess_ProviderParty_SendAcceptanceResponse">
+		<plnk:role name="Reference" portType="providerParty_sendAcceptanceResponse:UBL_CreateCatalogueProcess_ProviderParty_SendAcceptanceResponse" />
+	</plnk:partnerLinkType>
+
+	<types>
+		<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://my.ubl.oasis.services/createcatalogueprocess">
+
+			<xsd:element name="CreateCatalogueProcessRequest">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="CreateCatalogueProcessResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="message" type="xsd:string"/>
+						<xsd:element name="processId" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:schema>
+	</types>
+
+	<message name="CreateCatalogueProcessRequestMessage">
+		<part element="tns:CreateCatalogueProcessRequest" name="payload" />
+	</message>
+	<message name="CreateCatalogueProcessResponseMessage">
+		<part element="tns:CreateCatalogueProcessResponse" name="payload" />
+	</message>
+
+	<portType name="CreateCatalogueProcess">
+		<operation name="execute">
+			<input message="tns:CreateCatalogueProcessRequestMessage" />
+			<output message="tns:CreateCatalogueProcessResponseMessage" />
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_acceptcatalogue1_callback">
+			<input message="receiverParty_acceptCatalogue:acceptCatalogueAsyncCallbackRequestMsg" name="output_receiverParty_acceptCatalogue1"/>
+			<output message="receiverParty_acceptCatalogue:acceptCatalogueAsyncCallbackResponseMsg" name="output_receiverParty_acceptCatalogue1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1_callback">
+			<input message="receiverParty_acknowledgeAcceptance:acknowledgeAcceptanceAsyncCallbackRequestMsg" name="output_receiverParty_acknowledgeAcceptance1"/>
+			<output message="receiverParty_acknowledgeAcceptance:acknowledgeAcceptanceAsyncCallbackResponseMsg" name="output_receiverParty_acknowledgeAcceptance1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_canceltransaction1_callback">
+			<input message="providerParty_cancelTransaction:cancelTransactionAsyncCallbackRequestMsg" name="output_providerParty_cancelTransaction1"/>
+			<output message="providerParty_cancelTransaction:cancelTransactionAsyncCallbackResponseMsg" name="output_providerParty_cancelTransaction1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_decideonaction1_callback">
+			<input message="providerParty_decideOnAction:decideOnActionAsyncCallbackRequestMsg" name="output_providerParty_decideOnAction1"/>
+			<output message="providerParty_decideOnAction:decideOnActionAsyncCallbackResponseMsg" name="output_providerParty_decideOnAction1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_distributecatalogue1_callback">
+			<input message="providerParty_distributeCatalogue:distributeCatalogueAsyncCallbackRequestMsg" name="output_providerParty_distributeCatalogue1"/>
+			<output message="providerParty_distributeCatalogue:distributeCatalogueAsyncCallbackResponseMsg" name="output_providerParty_distributeCatalogue1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1_callback">
+			<input message="providerParty_prepareCatalogueInformation:prepareCatalogueInformationAsyncCallbackRequestMsg" name="output_providerParty_prepareCatalogueInformation1"/>
+			<output message="providerParty_prepareCatalogueInformation:prepareCatalogueInformationAsyncCallbackResponseMsg" name="output_providerParty_prepareCatalogueInformation1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_processcataloguerequest1_callback">
+			<input message="providerParty_processCatalogueRequest:processCatalogueRequestAsyncCallbackRequestMsg" name="output_providerParty_processCatalogueRequest1"/>
+			<output message="providerParty_processCatalogueRequest:processCatalogueRequestAsyncCallbackResponseMsg" name="output_providerParty_processCatalogueRequest1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_producecatalogue1_callback">
+			<input message="providerParty_produceCatalogue:produceCatalogueAsyncCallbackRequestMsg" name="output_providerParty_produceCatalogue1"/>
+			<output message="providerParty_produceCatalogue:produceCatalogueAsyncCallbackResponseMsg" name="output_providerParty_produceCatalogue1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_querycataloguecontent1_callback">
+			<input message="receiverParty_queryCatalogueContent:queryCatalogueContentAsyncCallbackRequestMsg" name="output_receiverParty_queryCatalogueContent1"/>
+			<output message="receiverParty_queryCatalogueContent:queryCatalogueContentAsyncCallbackResponseMsg" name="output_receiverParty_queryCatalogueContent1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1_callback">
+			<input message="providerParty_receiveAcknowledgeAcceptance:receiveAcknowledgeAcceptanceAsyncCallbackRequestMsg" name="output_providerParty_receiveAcknowledgeAcceptance1"/>
+			<output message="providerParty_receiveAcknowledgeAcceptance:receiveAcknowledgeAcceptanceAsyncCallbackResponseMsg" name="output_providerParty_receiveAcknowledgeAcceptance1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_receivecatalogue1_callback">
+			<input message="receiverParty_receiveCatalogue:receiveCatalogueAsyncCallbackRequestMsg" name="output_receiverParty_receiveCatalogue1"/>
+			<output message="receiverParty_receiveCatalogue:receiveCatalogueAsyncCallbackResponseMsg" name="output_receiverParty_receiveCatalogue1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_receiverejection1_callback">
+			<input message="receiverParty_receiveRejection:receiveRejectionAsyncCallbackRequestMsg" name="output_receiverParty_receiveRejection1"/>
+			<output message="receiverParty_receiveRejection:receiveRejectionAsyncCallbackResponseMsg" name="output_receiverParty_receiveRejection1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_requestcatalogue1_callback">
+			<input message="receiverParty_requestCatalogue:requestCatalogueAsyncCallbackRequestMsg" name="output_receiverParty_requestCatalogue1"/>
+			<output message="receiverParty_requestCatalogue:requestCatalogueAsyncCallbackResponseMsg" name="output_receiverParty_requestCatalogue1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_respondtorequest1_callback">
+			<input message="providerParty_respondToRequest:respondToRequestAsyncCallbackRequestMsg" name="output_providerParty_respondToRequest1"/>
+			<output message="providerParty_respondToRequest:respondToRequestAsyncCallbackResponseMsg" name="output_providerParty_respondToRequest1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1_callback">
+			<input message="receiverParty_reviewCatalogueContent:reviewCatalogueContentAsyncCallbackRequestMsg" name="output_receiverParty_reviewCatalogueContent1"/>
+			<output message="receiverParty_reviewCatalogueContent:reviewCatalogueContentAsyncCallbackResponseMsg" name="output_receiverParty_reviewCatalogueContent1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_revisecontent1_callback">
+			<input message="providerParty_reviseContent:reviseContentAsyncCallbackRequestMsg" name="output_providerParty_reviseContent1"/>
+			<output message="providerParty_reviseContent:reviseContentAsyncCallbackResponseMsg" name="output_providerParty_reviseContent1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1_callback">
+			<input message="providerParty_sendAcceptanceResponse:sendAcceptanceResponseAsyncCallbackRequestMsg" name="output_providerParty_sendAcceptanceResponse1"/>
+			<output message="providerParty_sendAcceptanceResponse:sendAcceptanceResponseAsyncCallbackResponseMsg" name="output_providerParty_sendAcceptanceResponse1_callback"/>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_sendrejection1_callback">
+			<input message="providerParty_sendRejection:sendRejectionAsyncCallbackRequestMsg" name="output_providerParty_sendRejection1"/>
+			<output message="providerParty_sendRejection:sendRejectionAsyncCallbackResponseMsg" name="output_providerParty_sendRejection1_callback"/>
+		</operation>
+	</portType>
+
+	<plnk:partnerLinkType name="CreateCatalogueProcess">
+		<plnk:role name="Interface" portType="tns:CreateCatalogueProcess" />
+	</plnk:partnerLinkType>
+
+	<binding name="CreateCatalogueProcessBinding" type="tns:CreateCatalogueProcess">
+
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="execute">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/execute" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_acceptcatalogue1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_acceptcatalogue1" />
+			<input name="output_receiverParty_acceptCatalogue1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_receiverParty_acceptCatalogue1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1" />
+			<input name="output_receiverParty_acknowledgeAcceptance1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_receiverParty_acknowledgeAcceptance1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_canceltransaction1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_canceltransaction1" />
+			<input name="output_providerParty_cancelTransaction1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_providerParty_cancelTransaction1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_decideonaction1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_decideonaction1" />
+			<input name="output_providerParty_decideOnAction1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_providerParty_decideOnAction1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_distributecatalogue1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_distributecatalogue1" />
+			<input name="output_providerParty_distributeCatalogue1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_providerParty_distributeCatalogue1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1" />
+			<input name="output_providerParty_prepareCatalogueInformation1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_providerParty_prepareCatalogueInformation1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_processcataloguerequest1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_processcataloguerequest1" />
+			<input name="output_providerParty_processCatalogueRequest1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_providerParty_processCatalogueRequest1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_producecatalogue1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_producecatalogue1" />
+			<input name="output_providerParty_produceCatalogue1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_providerParty_produceCatalogue1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_querycataloguecontent1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_querycataloguecontent1" />
+			<input name="output_receiverParty_queryCatalogueContent1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_receiverParty_queryCatalogueContent1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1" />
+			<input name="output_providerParty_receiveAcknowledgeAcceptance1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_providerParty_receiveAcknowledgeAcceptance1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_receivecatalogue1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_receivecatalogue1" />
+			<input name="output_receiverParty_receiveCatalogue1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_receiverParty_receiveCatalogue1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_receiverejection1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_receiverejection1" />
+			<input name="output_receiverParty_receiveRejection1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_receiverParty_receiveRejection1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_requestcatalogue1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_requestcatalogue1" />
+			<input name="output_receiverParty_requestCatalogue1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_receiverParty_requestCatalogue1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_respondtorequest1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_respondtorequest1" />
+			<input name="output_providerParty_respondToRequest1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_providerParty_respondToRequest1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1" />
+			<input name="output_receiverParty_reviewCatalogueContent1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_receiverParty_reviewCatalogueContent1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_revisecontent1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_revisecontent1" />
+			<input name="output_providerParty_reviseContent1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_providerParty_reviseContent1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1" />
+			<input name="output_providerParty_sendAcceptanceResponse1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_providerParty_sendAcceptanceResponse1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_createcatalogueprocess_providerparty_sendrejection1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_sendrejection1" />
+			<input name="output_providerParty_sendRejection1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_providerParty_sendRejection1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	
+
+	<service name="CreateCatalogueProcessService">
+		<port binding="tns:CreateCatalogueProcessBinding" name="CreateCatalogueProcessServicePort">
+			<soap:address location="http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess" />
+		</port>
+	</service>
+	
+	<bpws:property name="processId" type="xsd:string" />
+	
+	<bpws:propertyAlias propertyName="tns:processId" messageType="tns:CreateCatalogueProcessResponseMessage" part="payload">
+		<bpws:query><![CDATA[/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	
+	<bpws:propertyAlias propertyName="tns:processId" messageType="receiverParty_acceptCatalogue:acceptCatalogueAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="receiverParty_acknowledgeAcceptance:acknowledgeAcceptanceAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="providerParty_cancelTransaction:cancelTransactionAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="providerParty_decideOnAction:decideOnActionAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="providerParty_distributeCatalogue:distributeCatalogueAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="providerParty_prepareCatalogueInformation:prepareCatalogueInformationAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="providerParty_processCatalogueRequest:processCatalogueRequestAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="providerParty_produceCatalogue:produceCatalogueAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="receiverParty_queryCatalogueContent:queryCatalogueContentAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="providerParty_receiveAcknowledgeAcceptance:receiveAcknowledgeAcceptanceAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="receiverParty_receiveCatalogue:receiveCatalogueAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="receiverParty_receiveRejection:receiveRejectionAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="receiverParty_requestCatalogue:requestCatalogueAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="providerParty_respondToRequest:respondToRequestAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="receiverParty_reviewCatalogueContent:reviewCatalogueContentAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="providerParty_reviseContent:reviseContentAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="providerParty_sendAcceptanceResponse:sendAcceptanceResponseAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="providerParty_sendRejection:sendRejectionAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+</definitions>

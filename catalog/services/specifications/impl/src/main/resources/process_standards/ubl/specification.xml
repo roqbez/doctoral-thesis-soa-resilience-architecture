@@ -1,0 +1,429 @@
+<processStandardSpecification refId="0" name="UBL - Universal Business Language">
+   <processTaxonomy refId="1" name="UBL Process Taxonomy" taxonomyClassification="ubl" taxonomyName="UBL">
+      <childs refId="2">
+         <processTaxonomy refId="3" name="Sourcing" taxonomyClassification="ubl/sourcing">
+            <childs refId="4">
+               <processTaxonomy refId="5" name="Catalogue Provision" taxonomyClassification="ubl/sourcing/catalogueprovision">
+                  <childs refId="6">
+                     <processTaxonomy refId="7" name="Create Catalogue Process" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess">
+                        <childs refId="8"/>
+                        <tasks refId="9">
+                           <processTaskTaxonomy refId="10" name="Request Catalogue" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue" participantName="Receiver Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="11" name="Respond to Request" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest" participantName="Provider Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="12" name="Process Catalogue Request" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest" participantName="Provider Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="13" name="Send Rejection" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection" participantName="Provider Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="14" name="Receive Rejection" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection" participantName="Receiver Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="15" name="Send Acceptance Response" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse" participantName="Provider Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="16" name="Prepare Catalogue Information" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation" participantName="Provider Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="17" name="Produce Catalogue" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue" participantName="Provider Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="18" name="Distribute Catalogue" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue" participantName="Provider Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="19" name="Receive Catalogue" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue" participantName="Receiver Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="20" name="Review Catalogue Content" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent" participantName="Receiver Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="21" name="Acknowledge Acceptance" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance" participantName="Receiver Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="22" name="Accept Catalogue" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue" participantName="Receiver Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="23" name="Receive Acknowledge Acceptance" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" participantName="Provider Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="24" name="Query Catalogue Content" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent" participantName="Receiver Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="25" name="Decide On Action" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction" participantName="Provider Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="26" name="Revise Content" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent" participantName="Provider Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="27" name="Cancel Transaction" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction" participantName="Provider Party">
+                              <parent reference="7"/>
+                           </processTaskTaxonomy>
+                        </tasks>
+                        <parent reference="5"/>
+                     </processTaxonomy>
+                     <processTaxonomy refId="28" name="Update Item Specification" taxonomyClassification="ubl/sourcing/catalogueprovision/updateitemspecification">
+                        <childs refId="29"/>
+                        <tasks refId="30"/>
+                        <parent reference="5"/>
+                     </processTaxonomy>
+                     <processTaxonomy refId="31" name="Update Catalogue Pricing" taxonomyClassification="ubl/sourcing/catalogueprovision/updatecataloguepricing">
+                        <childs refId="32"/>
+                        <tasks refId="33"/>
+                        <parent reference="5"/>
+                     </processTaxonomy>
+                     <processTaxonomy refId="34" name="Delete Catalogue" taxonomyClassification="ubl/sourcing/catalogueprovision/deletecatalogue">
+                        <childs refId="35"/>
+                        <tasks refId="36"/>
+                        <parent reference="5"/>
+                     </processTaxonomy>
+                  </childs>
+                  <tasks refId="37"/>
+                  <parent reference="3"/>
+               </processTaxonomy>
+               <processTaxonomy refId="38" name="Customer initiated sourcing" taxonomyClassification="ubl/sourcing/customerinitiatedsourcing">
+                  <childs refId="39"/>
+                  <tasks refId="40"/>
+                  <parent reference="3"/>
+               </processTaxonomy>
+               <processTaxonomy refId="41" name="Punchout" taxonomyClassification="ubl/sourcing/punchout">
+                  <childs refId="42"/>
+                  <tasks refId="43"/>
+                  <parent reference="3"/>
+               </processTaxonomy>
+            </childs>
+            <tasks refId="44"/>
+            <parent reference="1"/>
+         </processTaxonomy>
+         <processTaxonomy refId="45" name="Ordering" taxonomyClassification="ubl/ordering">
+            <childs refId="46">
+               <processTaxonomy refId="47" name="Ordering Process" taxonomyClassification="ubl/ordering/orderingprocess">
+                  <childs refId="48"/>
+                  <tasks refId="49">
+                     <processTaskTaxonomy refId="50" name="Place Order" taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/placeOrder" participantName="Buyer Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="51" name="Receive Order" taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/receiveOrder" participantName="Seller Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="52" name="Process Order" taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/processOrder" participantName="Seller Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="53" name="Accept Order" taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/acceptOrder" participantName="Seller Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="54" name="Reject Order" taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/rejectOrder" participantName="Seller Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="55" name="Add Detail" taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/addDetail" participantName="Seller Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="56" name="Receive Response" taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/receiveResponse" participantName="Buyer Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="57" name="Change Order" taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/changeOrder" participantName="Buyer Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="58" name="Cancel Order" taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/cancelOrder" participantName="Buyer Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="59" name="Accept Order" taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/acceptOrder" participantName="Buyer Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="60" name="Reject Order" taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/rejectOrder" participantName="Buyer Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="61" name="Change Order" taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/changeOrder" participantName="Seller Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="62" name="Cancel Order" taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/cancelOrder" participantName="Seller Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="63" name="Process Order Change" taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/processOrderChange" participantName="Seller Party">
+                        <parent reference="47"/>
+                     </processTaskTaxonomy>
+                  </tasks>
+                  <parent reference="45"/>
+               </processTaxonomy>
+            </childs>
+            <tasks refId="64"/>
+            <parent reference="1"/>
+         </processTaxonomy>
+         <processTaxonomy refId="65" name="Fulfilment" taxonomyClassification="ubl/fulfilment">
+            <childs refId="66">
+               <processTaxonomy refId="67" name="Fulfilment with Despatch Advice" taxonomyClassification="ubl/fulfilment/fulfilmentwithdespatchadvice">
+                  <childs refId="68"/>
+                  <tasks refId="69"/>
+                  <parent reference="65"/>
+               </processTaxonomy>
+               <processTaxonomy refId="70" name="Fulfilment with Receipt Advice" taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice">
+                  <childs refId="71"/>
+                  <tasks refId="72">
+                     <processTaskTaxonomy refId="73" name="Receive Order Items" taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems" participantName="Delivery Party">
+                        <parent reference="70"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="74" name="Check Status of Items" taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems" participantName="Delivery Party">
+                        <parent reference="70"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="75" name="Advise Buyer of Status" taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" participantName="Delivery Party">
+                        <parent reference="70"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="76" name="Send Receipt Advice" taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" participantName="Delivery Party">
+                        <parent reference="70"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="77" name="Determine Action" taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction" participantName="Buyer Party">
+                        <parent reference="70"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="78" name="Accept Items" taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems" participantName="Buyer Party">
+                        <parent reference="70"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="79" name="Adjust Order" taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder" participantName="Buyer Party">
+                        <parent reference="70"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="80" name="Send Order Cancellation" taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation" participantName="Buyer Party">
+                        <parent reference="70"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="81" name="Adjust Supply Status" taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" participantName="Seller Party">
+                        <parent reference="70"/>
+                     </processTaskTaxonomy>
+                  </tasks>
+                  <parent reference="65"/>
+               </processTaxonomy>
+            </childs>
+            <tasks refId="82"/>
+            <parent reference="1"/>
+         </processTaxonomy>
+         <processTaxonomy refId="83" name="Billing" taxonomyClassification="ubl/billing">
+            <childs refId="84">
+               <processTaxonomy refId="85" name="Traditional Billing" taxonomyClassification="ubl/billing/traditionalbilling">
+                  <childs refId="86">
+                     <processTaxonomy refId="87" name="Billing with Credit Note" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote">
+                        <childs refId="88"/>
+                        <tasks refId="89">
+                           <processTaskTaxonomy refId="90" name="Accounting Supplier Reconcile Charges" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges" participantName="Accounting Supplier">
+                              <parent reference="87"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="91" name="Raise Invoice" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice" participantName="Accounting Supplier">
+                              <parent reference="87"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="92" name="Raise Credit Note" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote" participantName="Accounting Supplier">
+                              <parent reference="87"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="93" name="Receive Account Response" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse" participantName="Accounting Supplier">
+                              <parent reference="87"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="94" name="Validate Response" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse" participantName="Accounting Supplier">
+                              <parent reference="87"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="95" name="Receive Invoice" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice" participantName="Accounting Customer">
+                              <parent reference="87"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="96" name="Receive Credit Note" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote" participantName="Accounting Customer">
+                              <parent reference="87"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="97" name="Accounting Customer Reconcile Charges" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges" participantName="Accounting Customer">
+                              <parent reference="87"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="98" name="Accept Credit" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit" participantName="Accounting Customer">
+                              <parent reference="87"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="99" name="Accept Charges" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges" participantName="Accounting Customer">
+                              <parent reference="87"/>
+                           </processTaskTaxonomy>
+                           <processTaskTaxonomy refId="100" name="Send Account Response" taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse" participantName="Accounting Customer">
+                              <parent reference="87"/>
+                           </processTaskTaxonomy>
+                        </tasks>
+                        <parent reference="85"/>
+                     </processTaxonomy>
+                     <processTaxonomy refId="101" name="Billing with Debit Note" taxonomyClassification="ubl/billing/traditionalbilling/billingwithdebitnote">
+                        <childs refId="102"/>
+                        <tasks refId="103"/>
+                        <parent reference="85"/>
+                     </processTaxonomy>
+                  </childs>
+                  <tasks refId="104"/>
+                  <parent reference="83"/>
+               </processTaxonomy>
+               <processTaxonomy refId="105" name="Self Billing" taxonomyClassification="ubl/billing/selfbilling">
+                  <childs refId="106">
+                     <processTaxonomy refId="107" name="Self Billing with Credit Note" taxonomyClassification="ubl/billing/selfbilling/selfbillingwithcreditnote">
+                        <childs refId="108"/>
+                        <tasks refId="109"/>
+                        <parent reference="105"/>
+                     </processTaxonomy>
+                     <processTaxonomy refId="110" name="Self Billing with Self Billed Credit Note" taxonomyClassification="ubl/billing/selfbilling/selfbillingwithselfbilledcreditnote">
+                        <childs refId="111"/>
+                        <tasks refId="112"/>
+                        <parent reference="105"/>
+                     </processTaxonomy>
+                  </childs>
+                  <tasks refId="113"/>
+                  <parent reference="83"/>
+               </processTaxonomy>
+               <processTaxonomy refId="114" name="Freight Billing" taxonomyClassification="ubl/billing/freightbilling">
+                  <childs refId="115"/>
+                  <tasks refId="116"/>
+                  <parent reference="83"/>
+               </processTaxonomy>
+               <processTaxonomy refId="117" name="Reminder for Payment" taxonomyClassification="ubl/billing/reminderforpayment">
+                  <childs refId="118"/>
+                  <tasks refId="119"/>
+                  <parent reference="83"/>
+               </processTaxonomy>
+            </childs>
+            <tasks refId="120"/>
+            <parent reference="1"/>
+         </processTaxonomy>
+         <processTaxonomy refId="121" name="Payment" taxonomyClassification="ubl/payment">
+            <childs refId="122">
+               <processTaxonomy refId="123" name="Payment Process" taxonomyClassification="ubl/payment/paymentprocess">
+                  <childs refId="124"/>
+                  <tasks refId="125">
+                     <processTaskTaxonomy refId="126" name="Authorize Payment" taxonomyClassification="ubl/payment/paymentprocess/accountingCustomer/authorizePayment" participantName="Accounting Customer">
+                        <parent reference="123"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="127" name="Notify of Payment" taxonomyClassification="ubl/payment/paymentprocess/accountingCustomer/notifyOfPayment" participantName="Accounting Customer">
+                        <parent reference="123"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="128" name="Receive Advice" taxonomyClassification="ubl/payment/paymentprocess/accountingSupplier/receiveAdvice" participantName="Accounting Supplier">
+                        <parent reference="123"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="129" name="Notify Payee" taxonomyClassification="ubl/payment/paymentprocess/accountingSupplier/notifyPayee" participantName="Accounting Supplier">
+                        <parent reference="123"/>
+                     </processTaskTaxonomy>
+                     <processTaskTaxonomy refId="130" name="Receive Advice" taxonomyClassification="ubl/payment/paymentprocess/payeeParty/receiveAdvice" participantName="Payee Party">
+                        <parent reference="123"/>
+                     </processTaskTaxonomy>
+                  </tasks>
+                  <parent reference="121"/>
+               </processTaxonomy>
+               <processTaxonomy refId="131" name="Report State Account" taxonomyClassification="ubl/payment/reportstateaccount">
+                  <childs refId="132"/>
+                  <tasks refId="133"/>
+                  <parent reference="121"/>
+               </processTaxonomy>
+            </childs>
+            <tasks refId="134"/>
+            <parent reference="1"/>
+         </processTaxonomy>
+         <processTaxonomy refId="135" name="Initiate Transport Service" taxonomyClassification="ubl/initiatetransportservice">
+            <childs refId="136"/>
+            <tasks refId="137"/>
+            <parent reference="1"/>
+         </processTaxonomy>
+         <processTaxonomy refId="138" name="Certification of Origin of Goods" taxonomyClassification="ubl/certificationoforiginofgoods">
+            <childs refId="139"/>
+            <tasks refId="140"/>
+            <parent reference="1"/>
+         </processTaxonomy>
+         <processTaxonomy refId="141" name="Report Status of Goods" taxonomyClassification="ubl/reportstatusofgoods">
+            <childs refId="142"/>
+            <tasks refId="143"/>
+            <parent reference="1"/>
+         </processTaxonomy>
+      </childs>
+      <tasks refId="144"/>
+   </processTaxonomy>
+   <documents refId="145">
+      <document refId="146" id="UBL_REMITTANCE_ADVICE" name="UBL Remittance Advice" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2" xmlName="RemittanceAdviceType">
+         <processStandard refId="147" id="UBL" name="UBL - Universal Business Language"/>
+      </document>
+      <document refId="148" id="UBL_ORDER" name="UBL Order" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:Order-2" xmlName="OrderType">
+         <processStandard reference="147"/>
+      </document>
+      <document refId="149" id="UBL_ORDER_RESPONSE" name="UBL Order Response" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2" xmlName="OrderResponseType">
+         <processStandard reference="147"/>
+      </document>
+      <document refId="150" id="UBL_ORDER_RESPONSE_SIMPLE" name="UBL Order Response Simple" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:OrderResponseSimple-2" xmlName="OrderResponseSimpleType">
+         <processStandard reference="147"/>
+      </document>
+      <document refId="151" id="UBL_ORDER_CANCELLATION" name="UBL Order Cancellation" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2" xmlName="OrderCancellationType">
+         <processStandard reference="147"/>
+      </document>
+      <document refId="152" id="UBL_ORDER_CHANGE" name="UBL Order Change" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2" xmlName="OrderChangeType">
+         <processStandard reference="147"/>
+      </document>
+      <document refId="153" id="UBL_CATALOGUE_REQUEST" name="UBL Catalogue Request" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2" xmlName="CatalogueRequestType">
+         <processStandard reference="147"/>
+      </document>
+      <document refId="154" id="UBL_APPLICATION_RESPONSE" name="UBL Application Response" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2" xmlName="ApplicationResponseType">
+         <processStandard reference="147"/>
+      </document>
+      <document refId="155" id="UBL_CATALOGUE" name="UBL Catalogue" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2" xmlName="CatalogueType">
+         <processStandard reference="147"/>
+      </document>
+      <document refId="156" id="UBL_RECEIPT_ADVICE" name="UBL Receipt Advice" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:ReceiptAdvice-2" xmlName="ReceiptAdviceType">
+         <processStandard reference="147"/>
+      </document>
+      <document refId="157" id="UBL_INVOICE" name="UBL Invoice" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlName="InvoiceType">
+         <processStandard reference="147"/>
+      </document>
+      <document refId="158" id="UBL_CREDIT_NOTE" name="UBL Credit Note" primitive="false" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" xmlName="CreditNoteType">
+         <processStandard reference="147"/>
+      </document>
+   </documents>
+   <participants refId="159"/>
+   <wsdlLocations refId="160">
+      <wsdlLocation taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCharges" refId="161">billing/traditionalbilling/billingwithcreditnote/accountingCustomer/UBL_BillingWithCreditNote_AccountingCustomer_AcceptCharges.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/acceptCredit" refId="162">billing/traditionalbilling/billingwithcreditnote/accountingCustomer/UBL_BillingWithCreditNote_AccountingCustomer_AcceptCredit.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveCreditNote" refId="163">billing/traditionalbilling/billingwithcreditnote/accountingCustomer/UBL_BillingWithCreditNote_AccountingCustomer_ReceiveCreditNote.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/receiveInvoice" refId="164">billing/traditionalbilling/billingwithcreditnote/accountingCustomer/UBL_BillingWithCreditNote_AccountingCustomer_ReceiveInvoice.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/reconcileCharges" refId="165">billing/traditionalbilling/billingwithcreditnote/accountingCustomer/UBL_BillingWithCreditNote_AccountingCustomer_ReconcileCharges.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingCustomer/sendAccountResponse" refId="166">billing/traditionalbilling/billingwithcreditnote/accountingCustomer/UBL_BillingWithCreditNote_AccountingCustomer_SendAccountResponse.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseCreditNote" refId="167">billing/traditionalbilling/billingwithcreditnote/accountingSupplier/UBL_BillingWithCreditNote_AccountingSupplier_RaiseCreditNote.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/raiseInvoice" refId="168">billing/traditionalbilling/billingwithcreditnote/accountingSupplier/UBL_BillingWithCreditNote_AccountingSupplier_RaiseInvoice.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/receiveAccountResponse" refId="169">billing/traditionalbilling/billingwithcreditnote/accountingSupplier/UBL_BillingWithCreditNote_AccountingSupplier_ReceiveAccountResponse.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/reconcileCharges" refId="170">billing/traditionalbilling/billingwithcreditnote/accountingSupplier/UBL_BillingWithCreditNote_AccountingSupplier_ReconcileCharges.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/billing/traditionalbilling/billingwithcreditnote/accountingSupplier/validateResponse" refId="171">billing/traditionalbilling/billingwithcreditnote/accountingSupplier/UBL_BillingWithCreditNote_AccountingSupplier_ValidateResponse.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems" refId="172">fulfilment/fulfilmentwithreceiptadvice/buyerParty/UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder" refId="173">fulfilment/fulfilmentwithreceiptadvice/buyerParty/UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction" refId="174">fulfilment/fulfilmentwithreceiptadvice/buyerParty/UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation" refId="175">fulfilment/fulfilmentwithreceiptadvice/buyerParty/UBL_FulfilmentWithReceiptAdvice_BuyerParty_SendOrderCancellation.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" refId="176">fulfilment/fulfilmentwithreceiptadvice/deliveryParty/UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems" refId="177">fulfilment/fulfilmentwithreceiptadvice/deliveryParty/UBL_FulfilmentWithReceiptAdvice_DeliveryParty_CheckStatusOfItems.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems" refId="178">fulfilment/fulfilmentwithreceiptadvice/deliveryParty/UBL_FulfilmentWithReceiptAdvice_DeliveryParty_ReceiveOrderItems.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" refId="179">fulfilment/fulfilmentwithreceiptadvice/deliveryParty/UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" refId="180">fulfilment/fulfilmentwithreceiptadvice/sellerParty/UBL_FulfilmentWithReceiptAdvice_SellerParty_AdjustSupplyStatus.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/acceptOrder" refId="181">ordering/orderingprocess/buyerParty/UBL_OrderingProcess_BuyerParty_AcceptOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/cancelOrder" refId="182">ordering/orderingprocess/buyerParty/UBL_OrderingProcess_BuyerParty_CancelOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/changeOrder" refId="183">ordering/orderingprocess/buyerParty/UBL_OrderingProcess_BuyerParty_ChangeOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/placeOrder" refId="184">ordering/orderingprocess/buyerParty/UBL_OrderingProcess_BuyerParty_PlaceOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/receiveResponse" refId="185">ordering/orderingprocess/buyerParty/UBL_OrderingProcess_BuyerParty_ReceiveResponse.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/buyerParty/rejectOrder" refId="186">ordering/orderingprocess/buyerParty/UBL_OrderingProcess_BuyerParty_RejectOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/acceptOrder" refId="187">ordering/orderingprocess/sellerParty/UBL_OrderingProcess_SellerParty_AcceptOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/addDetail" refId="188">ordering/orderingprocess/sellerParty/UBL_OrderingProcess_SellerParty_AddDetail.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/cancelOrder" refId="189">ordering/orderingprocess/sellerParty/UBL_OrderingProcess_SellerParty_CancelOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/changeOrder" refId="190">ordering/orderingprocess/sellerParty/UBL_OrderingProcess_SellerParty_ChangeOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/processOrder" refId="191">ordering/orderingprocess/sellerParty/UBL_OrderingProcess_SellerParty_ProcessOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/processOrderChange" refId="192">ordering/orderingprocess/sellerParty/UBL_OrderingProcess_SellerParty_ProcessOrderChange.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/receiveOrder" refId="193">ordering/orderingprocess/sellerParty/UBL_OrderingProcess_SellerParty_ReceiveOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/ordering/orderingprocess/sellerParty/rejectOrder" refId="194">ordering/orderingprocess/sellerParty/UBL_OrderingProcess_SellerParty_RejectOrder.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/payment/paymentprocess/accountingCustomer/authorizePayment" refId="195">payment/paymentprocess/accountingCustomer/UBL_PaymentProcess_AccountingCustomer_AuthorizePayment.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/payment/paymentprocess/accountingCustomer/notifyOfPayment" refId="196">payment/paymentprocess/accountingCustomer/UBL_PaymentProcess_AccountingCustomer_NotifyOfPayment.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/payment/paymentprocess/accountingSupplier/notifyPayee" refId="197">payment/paymentprocess/accountingSupplier/UBL_PaymentProcess_AccountingSupplier_NotifyPayee.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/payment/paymentprocess/accountingSupplier/receiveAdvice" refId="198">payment/paymentprocess/accountingSupplier/UBL_PaymentProcess_AccountingSupplier_ReceiveAdvice.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/payment/paymentprocess/payeeParty/receiveAdvice" refId="199">payment/paymentprocess/payeeParty/UBL_PaymentProcess_PayeeParty_ReceiveAdvice.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction" refId="200">sourcing/catalogueprovision/createcatalogueprocess/providerParty/UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction" refId="201">sourcing/catalogueprovision/createcatalogueprocess/providerParty/UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue" refId="202">sourcing/catalogueprovision/createcatalogueprocess/providerParty/UBL_CreateCatalogueProcess_ProviderParty_DistributeCatalogue.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation" refId="203">sourcing/catalogueprovision/createcatalogueprocess/providerParty/UBL_CreateCatalogueProcess_ProviderParty_PrepareCatalogueInformation.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest" refId="204">sourcing/catalogueprovision/createcatalogueprocess/providerParty/UBL_CreateCatalogueProcess_ProviderParty_ProcessCatalogueRequest.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue" refId="205">sourcing/catalogueprovision/createcatalogueprocess/providerParty/UBL_CreateCatalogueProcess_ProviderParty_ProduceCatalogue.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" refId="206">sourcing/catalogueprovision/createcatalogueprocess/providerParty/UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest" refId="207">sourcing/catalogueprovision/createcatalogueprocess/providerParty/UBL_CreateCatalogueProcess_ProviderParty_RespondToRequest.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent" refId="208">sourcing/catalogueprovision/createcatalogueprocess/providerParty/UBL_CreateCatalogueProcess_ProviderParty_ReviseContent.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse" refId="209">sourcing/catalogueprovision/createcatalogueprocess/providerParty/UBL_CreateCatalogueProcess_ProviderParty_SendAcceptanceResponse.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection" refId="210">sourcing/catalogueprovision/createcatalogueprocess/providerParty/UBL_CreateCatalogueProcess_ProviderParty_SendRejection.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue" refId="211">sourcing/catalogueprovision/createcatalogueprocess/receiverParty/UBL_CreateCatalogueProcess_ReceiverParty_AcceptCatalogue.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance" refId="212">sourcing/catalogueprovision/createcatalogueprocess/receiverParty/UBL_CreateCatalogueProcess_ReceiverParty_AcknowledgeAcceptance.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent" refId="213">sourcing/catalogueprovision/createcatalogueprocess/receiverParty/UBL_CreateCatalogueProcess_ReceiverParty_QueryCatalogueContent.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue" refId="214">sourcing/catalogueprovision/createcatalogueprocess/receiverParty/UBL_CreateCatalogueProcess_ReceiverParty_ReceiveCatalogue.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection" refId="215">sourcing/catalogueprovision/createcatalogueprocess/receiverParty/UBL_CreateCatalogueProcess_ReceiverParty_ReceiveRejection.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue" refId="216">sourcing/catalogueprovision/createcatalogueprocess/receiverParty/UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue.wsdl</wsdlLocation>
+      <wsdlLocation taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent" refId="217">sourcing/catalogueprovision/createcatalogueprocess/receiverParty/UBL_CreateCatalogueProcess_ReceiverParty_ReviewCatalogueContent.wsdl</wsdlLocation>
+   </wsdlLocations>
+</processStandardSpecification>

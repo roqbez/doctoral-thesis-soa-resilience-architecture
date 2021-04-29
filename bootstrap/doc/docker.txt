@@ -1,0 +1,33 @@
+#http://woshub.com/port-forwarding-in-windows/
+netsh interface portproxy reset
+netsh interface portproxy add v4tov4 listenport=2375 listenaddress=192.168.0.14 connectport=2375 connectaddress=127.0.0.1
+
+#liberar no firewall do windows!
+
+
+docker -H tcp://150.162.9.15:2375 exec -t -i ubl-services /bin/bash
+
+###########################################################################################################################################
+#https://forums.docker.com/t/how-can-i-ssh-into-the-betas-mobylinuxvm/10991/14
+
+#get a privileged container with access to Docker daemon
+docker run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker alpine sh
+
+#run a container with full root access to MobyLinuxVM and no seccomp profile (so you can mount stuff)
+docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
+
+#switch to host FS
+chroot /host
+############################################################################################################################################
+
+#Clear unused volumes
+docker volume ls -qf dangling=true | xargs -r docker volume rm
+
+#docker-logs-clean.sh
+#https://github.com/docker/compose/issues/1083
+rm $(docker inspect $1 | grep -G '"LogPath": "*"' | sed -e 's/.*"LogPath": "//g' | sed -e 's/",//g');
+
+docker -H tcp://150.162.9.15:2375 run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker alpine sh -c "docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh -c \"chroot /host\""
+
+
+find /var/lib/docker/containers -type f -name "*.log" -exec rm -f {} \;

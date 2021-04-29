@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions name="FulfilmentwithReceiptAdviceProcess" targetNamespace="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/varprop"  
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess" 
+	xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" 
+	xmlns:deliveryParty_receiveOrderItems="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems"
+	xmlns:buyerParty_acceptItems="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems"
+	xmlns:buyerParty_sendOrderCancellation="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation"
+	xmlns:deliveryParty_adviseBuyerOfStatus="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus"
+	xmlns:deliveryParty_sendReceiptAdvice="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice"
+	xmlns:buyerParty_adjustOrder="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"
+	xmlns:buyerParty_adjustSupplyStatus="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus"
+	xmlns:deliveryParty_checkStatusOfItems="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems"
+	xmlns:buyerParty_determineAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<import location="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_ReceiveOrderItems.wsdl" namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems"/>
+	<import location="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems.wsdl" namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems"/>
+	<import location="UBL_FulfilmentWithReceiptAdvice_BuyerParty_SendOrderCancellation.wsdl" namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation"/>
+	<import location="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus.wsdl" namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus"/>
+	<import location="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice.wsdl" namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice"/>
+	<import location="UBL_FulfilmentWithOrderChange_BuyerParty_AdjustOrder.wsdl" namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"/>
+	<import location="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus.wsdl" namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus"/>
+	<import location="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_CheckStatusOfItems.wsdl" namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems"/>
+	<import location="UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction.wsdl" namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction"/>
+
+	<plnk:partnerLinkType name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_ReceiveOrderItems">
+		<plnk:role name="Reference" portType="deliveryParty_receiveOrderItems:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_ReceiveOrderItems" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems">
+		<plnk:role name="Reference" portType="buyerParty_acceptItems:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_SendOrderCancellation">
+		<plnk:role name="Reference" portType="buyerParty_sendOrderCancellation:UBL_FulfilmentWithReceiptAdvice_BuyerParty_SendOrderCancellation" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus">
+		<plnk:role name="Reference" portType="deliveryParty_adviseBuyerOfStatus:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice">
+		<plnk:role name="Reference" portType="deliveryParty_sendReceiptAdvice:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_FulfilmentWithOrderChange_BuyerParty_AdjustOrder">
+		<plnk:role name="Reference" portType="buyerParty_adjustOrder:UBL_FulfilmentWithOrderChange_BuyerParty_AdjustOrder" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus">
+		<plnk:role name="Reference" portType="buyerParty_adjustSupplyStatus:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_CheckStatusOfItems">
+		<plnk:role name="Reference" portType="deliveryParty_checkStatusOfItems:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_CheckStatusOfItems" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction">
+		<plnk:role name="Reference" portType="buyerParty_determineAction:UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction" />
+	</plnk:partnerLinkType>
+
+	<types>
+		<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess">
+
+			<xsd:element name="FulfilmentwithReceiptAdviceProcessRequest">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="FulfilmentwithReceiptAdviceProcessResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="message" type="xsd:string"/>
+						<xsd:element name="processId" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:schema>
+	</types>
+
+	<message name="FulfilmentwithReceiptAdviceProcessRequestMessage">
+		<part element="tns:FulfilmentwithReceiptAdviceProcessRequest" name="payload" />
+	</message>
+	<message name="FulfilmentwithReceiptAdviceProcessResponseMessage">
+		<part element="tns:FulfilmentwithReceiptAdviceProcessResponse" name="payload" />
+	</message>
+
+	<portType name="FulfilmentwithReceiptAdviceProcess">
+		<operation name="execute">
+			<input message="tns:FulfilmentwithReceiptAdviceProcessRequestMessage" />
+			<output message="tns:FulfilmentwithReceiptAdviceProcessResponseMessage" />
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1_callback">
+			<input message="buyerParty_acceptItems:acceptItemsAsyncCallbackRequestMsg" name="output_buyerParty_acceptItems1"/>
+			<output message="buyerParty_acceptItems:acceptItemsAsyncCallbackResponseMsg" name="output_buyerParty_acceptItems1_callback"/>
+		</operation>
+		<operation name="ubl_fulfilmentwithorderchange_buyerparty_adjustorder1_callback">
+			<input message="buyerParty_adjustOrder:adjustOrderAsyncCallbackRequestMsg" name="output_buyerParty_adjustOrder1"/>
+			<output message="buyerParty_adjustOrder:adjustOrderAsyncCallbackResponseMsg" name="output_buyerParty_adjustOrder1_callback"/>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1_callback">
+			<input message="buyerParty_adjustSupplyStatus:adjustSupplyStatusAsyncCallbackRequestMsg" name="output_buyerParty_adjustSupplyStatus1"/>
+			<output message="buyerParty_adjustSupplyStatus:adjustSupplyStatusAsyncCallbackResponseMsg" name="output_buyerParty_adjustSupplyStatus1_callback"/>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1_callback">
+			<input message="deliveryParty_adviseBuyerOfStatus:adviseBuyerOfStatusAsyncCallbackRequestMsg" name="output_deliveryParty_adviseBuyerOfStatus1"/>
+			<output message="deliveryParty_adviseBuyerOfStatus:adviseBuyerOfStatusAsyncCallbackResponseMsg" name="output_deliveryParty_adviseBuyerOfStatus1_callback"/>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1_callback">
+			<input message="deliveryParty_checkStatusOfItems:checkStatusOfItemsAsyncCallbackRequestMsg" name="output_deliveryParty_checkStatusOfItems1"/>
+			<output message="deliveryParty_checkStatusOfItems:checkStatusOfItemsAsyncCallbackResponseMsg" name="output_deliveryParty_checkStatusOfItems1_callback"/>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1_callback">
+			<input message="buyerParty_determineAction:determineActionAsyncCallbackRequestMsg" name="output_buyerParty_determineAction1"/>
+			<output message="buyerParty_determineAction:determineActionAsyncCallbackResponseMsg" name="output_buyerParty_determineAction1_callback"/>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems1_callback">
+			<input message="deliveryParty_receiveOrderItems:receiveOrderItemsAsyncCallbackRequestMsg" name="output_deliveryParty_receiveOrderItems1"/>
+			<output message="deliveryParty_receiveOrderItems:receiveOrderItemsAsyncCallbackResponseMsg" name="output_deliveryParty_receiveOrderItems1_callback"/>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1_callback">
+			<input message="buyerParty_sendOrderCancellation:sendOrderCancellationAsyncCallbackRequestMsg" name="output_buyerParty_sendOrderCancellation1"/>
+			<output message="buyerParty_sendOrderCancellation:sendOrderCancellationAsyncCallbackResponseMsg" name="output_buyerParty_sendOrderCancellation1_callback"/>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1_callback">
+			<input message="deliveryParty_sendReceiptAdvice:sendReceiptAdviceAsyncCallbackRequestMsg" name="output_deliveryParty_sendReceiptAdvice1"/>
+			<output message="deliveryParty_sendReceiptAdvice:sendReceiptAdviceAsyncCallbackResponseMsg" name="output_deliveryParty_sendReceiptAdvice1_callback"/>
+		</operation>
+	</portType>
+
+	<plnk:partnerLinkType name="FulfilmentwithReceiptAdviceProcess">
+		<plnk:role name="Interface" portType="tns:FulfilmentwithReceiptAdviceProcess" />
+	</plnk:partnerLinkType>
+
+	<binding name="FulfilmentwithReceiptAdviceProcessBinding" type="tns:FulfilmentwithReceiptAdviceProcess">
+
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="execute">
+			<soap:operation soapAction="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/execute" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1" />
+			<input name="output_buyerParty_acceptItems1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_buyerParty_acceptItems1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_fulfilmentwithorderchange_buyerparty_adjustorder1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithorderchange_buyerparty_adjustorder1" />
+			<input name="output_buyerParty_adjustOrder1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_buyerParty_adjustOrder1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1" />
+			<input name="output_buyerParty_adjustSupplyStatus1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_buyerParty_adjustSupplyStatus1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1" />
+			<input name="output_deliveryParty_adviseBuyerOfStatus1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_deliveryParty_adviseBuyerOfStatus1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1" />
+			<input name="output_deliveryParty_checkStatusOfItems1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_deliveryParty_checkStatusOfItems1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1" />
+			<input name="output_buyerParty_determineAction1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_buyerParty_determineAction1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems1" />
+			<input name="output_deliveryParty_receiveOrderItems1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_deliveryParty_receiveOrderItems1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1" />
+			<input name="output_buyerParty_sendOrderCancellation1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_buyerParty_sendOrderCancellation1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+		<operation name="ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1_callback">
+			<soap:operation soapAction="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1" />
+			<input name="output_deliveryParty_sendReceiptAdvice1">
+				<soap:body use="literal" />
+			</input>
+			<output name="output_deliveryParty_sendReceiptAdvice1_callback">
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	
+
+	<service name="FulfilmentwithReceiptAdviceProcessService">
+		<port binding="tns:FulfilmentwithReceiptAdviceProcessBinding" name="FulfilmentwithReceiptAdviceProcessServicePort">
+			<soap:address location="http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess" />
+		</port>
+	</service>
+	
+	<bpws:property name="processId" type="xsd:string" />
+	
+	<bpws:propertyAlias propertyName="tns:processId" messageType="tns:FulfilmentwithReceiptAdviceProcessResponseMessage" part="payload">
+		<bpws:query><![CDATA[/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	
+	<bpws:propertyAlias propertyName="tns:processId" messageType="buyerParty_acceptItems:acceptItemsAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="buyerParty_adjustOrder:adjustOrderAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="buyerParty_adjustSupplyStatus:adjustSupplyStatusAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="deliveryParty_adviseBuyerOfStatus:adviseBuyerOfStatusAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="deliveryParty_checkStatusOfItems:checkStatusOfItemsAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="buyerParty_determineAction:determineActionAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="deliveryParty_receiveOrderItems:receiveOrderItemsAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="buyerParty_sendOrderCancellation:sendOrderCancellationAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+	<bpws:propertyAlias propertyName="tns:processId" messageType="deliveryParty_sendReceiptAdvice:sendReceiptAdviceAsyncCallbackRequestMsg" part="payload">
+		<bpws:query><![CDATA[/processContext/processId]]></bpws:query>
+	</bpws:propertyAlias>
+</definitions>

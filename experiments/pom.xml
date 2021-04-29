@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.ufsc.gsigma</groupId>
+		<artifactId>architecture</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>experiments</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.ufsc.gsigma</groupId>
+			<artifactId>common</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>br.ufsc.gsigma.services.resilience</groupId>
+			<artifactId>resilience-impl</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>br.ufsc.gsigma.services</groupId>
+			<artifactId>ubl-interfaces</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>br.ufsc.gsigma.services.deployment</groupId>
+			<artifactId>deployment-interfaces</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-csv</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>br.ufsc.gsigma.architecture.experiments.ThesisExperimentsBootstrap</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

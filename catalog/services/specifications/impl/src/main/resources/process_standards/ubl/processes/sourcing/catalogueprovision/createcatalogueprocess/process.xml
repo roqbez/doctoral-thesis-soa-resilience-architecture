@@ -1,0 +1,764 @@
+<process refId="0" id="386" name="Create Catalogue Process">
+   <inputContactPoints refId="1" />
+   <outputContactPoints refId="2" />
+   <participants refId="3" />
+   <resources refId="4" />
+   <tasks refId="5">
+      <connectableComponent refId="6" id="396" name="Accept Catalogue" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue">
+         <inputContactPoints refId="7">
+            <inputContactPoint refId="8" id="938" name="input">
+               <connectableComponent reference="6" />
+               <associatedDocument refId="9" id="UBL_CATALOGUE" name="UBL Catalogue" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2" primitive="false"
+                  xmlName="CatalogueType">
+                  <processStandard refId="10" id="UBL" name="UBL - Universal Business Language" />
+               </associatedDocument>
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="11">
+            <outputContactPoint refId="12" id="1176" name="output" />
+         </outputContactPoints>
+         <participants refId="13">
+            <taskParticipant refId="14" id="366" name="Role">
+               <participant refId="15" id="UBL_RECEIVER_PARTY" name="UBL Receiver Party">
+                  <processStandard reference="10" />
+               </participant>
+            </taskParticipant>
+         </participants>
+         <resources refId="16" />
+      </connectableComponent>
+      <connectableComponent refId="17" id="397" name="Acknowledge Acceptance" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance">
+         <inputContactPoints refId="18">
+            <inputContactPoint refId="19" id="939" name="input">
+               <connectableComponent reference="17" />
+               <associatedDocument reference="9" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="20">
+            <outputContactPoint refId="21" id="1177" name="outputCatalogue">
+               <associatedDocument reference="9" />
+            </outputContactPoint>
+            <outputContactPoint refId="22" id="1178" name="outputApplicationResponse">
+               <associatedDocument refId="23" id="UBL_APPLICATION_RESPONSE" name="UBL Application Response" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2" primitive="false"
+                  xmlName="ApplicationResponseType">
+                  <processStandard reference="10" />
+               </associatedDocument>
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="24">
+            <taskParticipant refId="25" id="367" name="Role">
+               <participant reference="15" />
+            </taskParticipant>
+         </participants>
+         <resources refId="26" />
+      </connectableComponent>
+      <connectableComponent refId="27" id="398" name="Cancel Transaction" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction">
+         <inputContactPoints refId="28">
+            <inputContactPoint refId="29" id="940" name="input">
+               <connectableComponent reference="27" />
+               <associatedDocument reference="9" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="30">
+            <outputContactPoint refId="31" id="1179" name="output" />
+         </outputContactPoints>
+         <participants refId="32">
+            <taskParticipant refId="33" id="368" name="Role">
+               <participant refId="34" id="UBL_PROVIDER_PARTY" name="UBL Provider Party">
+                  <processStandard reference="10" />
+               </participant>
+            </taskParticipant>
+         </participants>
+         <resources refId="35" />
+      </connectableComponent>
+      <connectableComponent refId="36" id="399" name="Decide on Action" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction">
+         <inputContactPoints refId="37">
+            <inputContactPoint refId="38" id="941" name="inputApplicationResponse">
+               <connectableComponent reference="36" />
+               <associatedDocument reference="23" />
+            </inputContactPoint>
+            <inputContactPoint refId="39" id="942" name="inputCatalogue">
+               <connectableComponent reference="36" />
+               <associatedDocument reference="9" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="40">
+            <outputContactPoint refId="41" id="1180" name="outputDocument">
+               <associatedDocument reference="9" />
+            </outputContactPoint>
+            <outputContactPoint refId="42" id="1181" name="outputDecision">
+               <associatedDocument refId="43" id="STRING" name="String" primitive="true"/>
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="44">
+            <taskParticipant refId="45" id="369" name="Role">
+               <participant reference="34" />
+            </taskParticipant>
+         </participants>
+         <resources refId="46" />
+      </connectableComponent>
+      <connectableComponent refId="47" id="400" name="Distribute Catalogue" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue">
+         <inputContactPoints refId="48">
+            <inputContactPoint refId="49" id="943" name="input">
+               <connectableComponent reference="47" />
+               <associatedDocument reference="9" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="50">
+            <outputContactPoint refId="51" id="1182" name="output">
+               <associatedDocument reference="9" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="52">
+            <taskParticipant refId="53" id="370" name="Role">
+               <participant reference="34" />
+            </taskParticipant>
+         </participants>
+         <resources refId="54" />
+      </connectableComponent>
+      <connectableComponent refId="55" id="401" name="Prepare Catalogue Information" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation">
+         <inputContactPoints refId="56">
+            <inputContactPoint refId="57" id="944" name="input">
+               <connectableComponent reference="55" />
+               <associatedDocument refId="58" id="UBL_CATALOGUE_REQUEST" name="UBL Catalogue Request" xmlNamespace="urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2"
+                  xmlName="CatalogueRequestType" primitive="false">
+                  <processStandard reference="10" />
+               </associatedDocument>
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="59">
+            <outputContactPoint refId="60" id="1183" name="output">
+               <associatedDocument reference="58" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="61">
+            <taskParticipant refId="62" id="371" name="Role">
+               <participant reference="34" />
+            </taskParticipant>
+         </participants>
+         <resources refId="63" />
+      </connectableComponent>
+      <connectableComponent refId="64" id="402" name="Process Catalogue Request" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest">
+         <inputContactPoints refId="65">
+            <inputContactPoint refId="66" id="945" name="input">
+               <connectableComponent reference="64" />
+               <associatedDocument reference="58" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="67">
+            <outputContactPoint refId="68" id="1184" name="outputDecision">
+               <associatedDocument reference="43" />
+            </outputContactPoint>
+            <outputContactPoint refId="69" id="1185" name="outputDocument">
+               <associatedDocument reference="58" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="70">
+            <taskParticipant refId="71" id="372" name="Role">
+               <participant reference="34" />
+            </taskParticipant>
+         </participants>
+         <resources refId="72" />
+      </connectableComponent>
+      <connectableComponent refId="73" id="403" name="Produce Catalogue" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue">
+         <inputContactPoints refId="74">
+            <inputContactPoint refId="75" id="946" name="input">
+               <connectableComponent reference="73" />
+               <associatedDocument reference="58" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="76">
+            <outputContactPoint refId="77" id="1186" name="output">
+               <associatedDocument reference="9" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="78">
+            <taskParticipant refId="79" id="373" name="Role">
+               <participant reference="34" />
+            </taskParticipant>
+         </participants>
+         <resources refId="80" />
+      </connectableComponent>
+      <connectableComponent refId="81" id="404" name="Query Catalogue Content" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent">
+         <inputContactPoints refId="82">
+            <inputContactPoint refId="83" id="947" name="input">
+               <connectableComponent reference="81" />
+               <associatedDocument reference="9" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="84">
+            <outputContactPoint refId="85" id="1187" name="outputApplicationResponse">
+               <associatedDocument reference="23" />
+            </outputContactPoint>
+            <outputContactPoint refId="86" id="1188" name="outputCatalogue">
+               <associatedDocument reference="9" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="87">
+            <taskParticipant refId="88" id="374" name="Role">
+               <participant reference="15" />
+            </taskParticipant>
+         </participants>
+         <resources refId="89" />
+      </connectableComponent>
+      <connectableComponent refId="90" id="405" name="Receive Acknowledge Acceptance" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance">
+         <inputContactPoints refId="91">
+            <inputContactPoint refId="92" id="948" name="input">
+               <connectableComponent reference="90" />
+               <associatedDocument reference="23" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="93">
+            <outputContactPoint refId="94" id="1189" name="output" />
+         </outputContactPoints>
+         <participants refId="95">
+            <taskParticipant refId="96" id="375" name="Role">
+               <participant reference="34" />
+            </taskParticipant>
+         </participants>
+         <resources refId="97" />
+      </connectableComponent>
+      <connectableComponent refId="98" id="406" name="Receive Catalogue" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue">
+         <inputContactPoints refId="99">
+            <inputContactPoint refId="100" id="949" name="inputApplicationResponse">
+               <connectableComponent reference="98" />
+               <associatedDocument reference="23" />
+            </inputContactPoint>
+            <inputContactPoint refId="101" id="950" name="inputCatalogue">
+               <connectableComponent reference="98" />
+               <associatedDocument reference="9" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="102">
+            <outputContactPoint refId="103" id="1190" name="output">
+               <associatedDocument reference="9" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="104">
+            <taskParticipant refId="105" id="376" name="Role">
+               <participant reference="15" />
+            </taskParticipant>
+         </participants>
+         <resources refId="106" />
+      </connectableComponent>
+      <connectableComponent refId="107" id="407" name="Receive Rejection" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection">
+         <inputContactPoints refId="108">
+            <inputContactPoint refId="109" id="951" name="input">
+               <connectableComponent reference="107" />
+               <associatedDocument reference="23" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="110" />
+         <participants refId="111">
+            <taskParticipant refId="112" id="377" name="Role">
+               <participant reference="15" />
+            </taskParticipant>
+         </participants>
+         <resources refId="113" />
+      </connectableComponent>
+      <connectableComponent refId="114" id="408" name="Request Catalogue" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue">
+         <inputContactPoints refId="115">
+            <inputContactPoint refId="116" id="952" name="input">
+               <connectableComponent reference="114" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="117">
+            <outputContactPoint refId="118" id="1191" name="output">
+               <associatedDocument reference="58" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="119">
+            <taskParticipant refId="120" id="378" name="Role">
+               <participant reference="15" />
+            </taskParticipant>
+         </participants>
+         <resources refId="121" />
+      </connectableComponent>
+      <connectableComponent refId="122" id="409" name="Respond to Request" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest">
+         <inputContactPoints refId="123">
+            <inputContactPoint refId="124" id="953" name="input">
+               <connectableComponent reference="122" />
+               <associatedDocument reference="58" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="125">
+            <outputContactPoint refId="126" id="1192" name="output">
+               <associatedDocument reference="58" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="127">
+            <taskParticipant refId="128" id="379" name="Role">
+               <participant reference="34" />
+            </taskParticipant>
+         </participants>
+         <resources refId="129" />
+      </connectableComponent>
+      <connectableComponent refId="130" id="410" name="Review Catalog Content" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent">
+         <inputContactPoints refId="131">
+            <inputContactPoint refId="132" id="954" name="input">
+               <connectableComponent reference="130" />
+               <associatedDocument reference="9" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="133">
+            <outputContactPoint refId="134" id="1193" name="outputDocument">
+               <associatedDocument reference="9" />
+            </outputContactPoint>
+            <outputContactPoint refId="135" id="1194" name="outputDecision">
+               <associatedDocument reference="43" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="136">
+            <taskParticipant refId="137" id="380" name="Role">
+               <participant reference="15" />
+            </taskParticipant>
+         </participants>
+         <resources refId="138" />
+      </connectableComponent>
+      <connectableComponent refId="139" id="411" name="Revise Content" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent">
+         <inputContactPoints refId="140">
+            <inputContactPoint refId="141" id="955" name="input">
+               <connectableComponent reference="139" />
+               <associatedDocument reference="9" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="142">
+            <outputContactPoint refId="143" id="1195" name="output">
+               <associatedDocument reference="58" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="144">
+            <taskParticipant refId="145" id="381" name="Role">
+               <participant reference="34" />
+            </taskParticipant>
+         </participants>
+         <resources refId="146" />
+      </connectableComponent>
+      <connectableComponent refId="147" id="412" name="Send Acceptance Response" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse">
+         <inputContactPoints refId="148">
+            <inputContactPoint refId="149" id="956" name="input">
+               <connectableComponent reference="147" />
+               <associatedDocument reference="58" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="150">
+            <outputContactPoint refId="151" id="1196" name="output">
+               <associatedDocument reference="23" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="152">
+            <taskParticipant refId="153" id="382" name="Role">
+               <participant reference="34" />
+            </taskParticipant>
+         </participants>
+         <resources refId="154" />
+      </connectableComponent>
+      <connectableComponent refId="155" id="413" name="Send Rejection" taxonomyClassification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection">
+         <inputContactPoints refId="156">
+            <inputContactPoint refId="157" id="957" name="input">
+               <connectableComponent reference="155" />
+               <associatedDocument reference="58" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="158">
+            <outputContactPoint refId="159" id="1197" name="output">
+               <associatedDocument reference="23" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <participants refId="160">
+            <taskParticipant refId="161" id="383" name="Role">
+               <participant reference="34" />
+            </taskParticipant>
+         </participants>
+         <resources refId="162" />
+      </connectableComponent>
+   </tasks>
+   <startEvents refId="163">
+      <connectableComponent refId="164" id="395" name="start">
+         <inputContactPoints refId="165" />
+         <outputContactPoints refId="166">
+            <outputContactPoint refId="167" id="1175" name="Output" />
+         </outputContactPoints>
+      </connectableComponent>
+   </startEvents>
+   <endEvents refId="168">
+      <connectableComponent refId="169" id="390" name="end1">
+         <inputContactPoints refId="170">
+            <inputContactPoint refId="171" id="932" name="Input">
+               <connectableComponent reference="169" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="172" />
+      </connectableComponent>
+      <connectableComponent refId="173" id="391" name="end2">
+         <inputContactPoints refId="174">
+            <inputContactPoint refId="175" id="933" name="Input">
+               <connectableComponent reference="173" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="176" />
+      </connectableComponent>
+      <connectableComponent refId="177" id="392" name="end3">
+         <inputContactPoints refId="178">
+            <inputContactPoint refId="179" id="934" name="Input">
+               <connectableComponent reference="177" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="180" />
+      </connectableComponent>
+   </endEvents>
+   <decisions refId="181">
+      <flowControlComponent refId="182" id="387" name="Decide on Action Decision">
+         <inputContactPoints refId="183">
+            <inputContactPoint refId="184" id="926" name="input">
+               <connectableComponent reference="182" />
+               <associatedDocument reference="9" />
+            </inputContactPoint>
+            <inputContactPoint refId="185" id="927" name="inputDecision">
+               <connectableComponent reference="182" />
+               <associatedDocument reference="43" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="186">
+            <outputContactPoint refId="187" id="1160" name="outputReviseContent">
+               <associatedDocument reference="9" />
+            </outputContactPoint>
+            <outputContactPoint refId="188" id="1161" name="outputReviseContentDecision" />
+            <outputContactPoint refId="189" id="1162" name="outputCancelTransaction">
+               <associatedDocument reference="9" />
+            </outputContactPoint>
+            <outputContactPoint refId="190" id="1163" name="outputCancelTransactionDecision" />
+         </outputContactPoints>
+         <inputBranches refId="191">
+            <inputBranch refId="192" id="184" name="Input Branch ">
+               <flowControlComponent reference="182" />
+               <inputContactPoints refId="193">
+                  <inputContactPoint reference="184" />
+                  <inputContactPoint reference="185" />
+               </inputContactPoints>
+            </inputBranch>
+         </inputBranches>
+         <outputBranches refId="194">
+            <outputBranch refId="195" id="271" name="Output Branch 1" condition="reviseContent" probabilityPercentage="50.0">
+               <flowControlComponent reference="182" />
+               <outputContactPoints refId="196">
+                  <outputContactPoint reference="187" />
+                  <outputContactPoint reference="188" />
+               </outputContactPoints>
+            </outputBranch>
+            <outputBranch refId="197" id="272" name="Output Branch 2" condition="cancelTransaction" probabilityPercentage="50.0">
+               <flowControlComponent reference="182" />
+               <outputContactPoints refId="198">
+                  <outputContactPoint reference="189" />
+                  <outputContactPoint reference="190" />
+               </outputContactPoints>
+            </outputBranch>
+         </outputBranches>
+      </flowControlComponent>
+      <flowControlComponent refId="199" id="388" name="Process Catalogue Request Decision">
+         <inputContactPoints refId="200">
+            <inputContactPoint refId="201" id="928" name="inputDecision">
+               <connectableComponent reference="199" />
+               <associatedDocument reference="43" />
+            </inputContactPoint>
+            <inputContactPoint refId="202" id="929" name="input">
+               <connectableComponent reference="199" />
+               <associatedDocument reference="58" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="203">
+            <outputContactPoint refId="204" id="1164" name="outputAcceptedDecision" />
+            <outputContactPoint refId="205" id="1165" name="outputAccepted">
+               <associatedDocument reference="58" />
+            </outputContactPoint>
+            <outputContactPoint refId="206" id="1166" name="outputRejectedDecision" />
+            <outputContactPoint refId="207" id="1167" name="outputRejected">
+               <associatedDocument reference="58" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <inputBranches refId="208">
+            <inputBranch refId="209" id="185" name="Input Branch ">
+               <flowControlComponent reference="199" />
+               <inputContactPoints refId="210">
+                  <inputContactPoint reference="201" />
+                  <inputContactPoint reference="202" />
+               </inputContactPoints>
+            </inputBranch>
+         </inputBranches>
+         <outputBranches refId="211">
+            <outputBranch refId="212" id="273" name="Output Branch 1" condition="accepted" probabilityPercentage="50.0">
+               <flowControlComponent reference="199" />
+               <outputContactPoints refId="213">
+                  <outputContactPoint reference="204" />
+                  <outputContactPoint reference="205" />
+               </outputContactPoints>
+            </outputBranch>
+            <outputBranch refId="214" id="274" name="Output Branch 2" condition="rejected" probabilityPercentage="50.0">
+               <flowControlComponent reference="199" />
+               <outputContactPoints refId="215">
+                  <outputContactPoint reference="206" />
+                  <outputContactPoint reference="207" />
+               </outputContactPoints>
+            </outputBranch>
+         </outputBranches>
+      </flowControlComponent>
+      <flowControlComponent refId="216" id="389" name="Review Catalgo Content Decision">
+         <inputContactPoints refId="217">
+            <inputContactPoint refId="218" id="930" name="input">
+               <connectableComponent reference="216" />
+               <associatedDocument reference="9" />
+            </inputContactPoint>
+            <inputContactPoint refId="219" id="931" name="inputDecision">
+               <connectableComponent reference="216" />
+               <associatedDocument reference="43" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="220">
+            <outputContactPoint refId="221" id="1168" name="outputAcceptContent">
+               <associatedDocument reference="9" />
+            </outputContactPoint>
+            <outputContactPoint refId="222" id="1169" name="outputAcceptContentDecision" />
+            <outputContactPoint refId="223" id="1170" name="outputQueryCatalogueContent">
+               <associatedDocument reference="9" />
+            </outputContactPoint>
+            <outputContactPoint refId="224" id="1171" name="outputQueryCatalogueContentDecision" />
+         </outputContactPoints>
+         <inputBranches refId="225">
+            <inputBranch refId="226" id="186" name="Input Branch ">
+               <flowControlComponent reference="216" />
+               <inputContactPoints refId="227">
+                  <inputContactPoint reference="218" />
+                  <inputContactPoint reference="219" />
+               </inputContactPoints>
+            </inputBranch>
+         </inputBranches>
+         <outputBranches refId="228">
+            <outputBranch refId="229" id="275" name="Output Branch 1" condition="acceptContent" probabilityPercentage="50.0">
+               <flowControlComponent reference="216" />
+               <outputContactPoints refId="230">
+                  <outputContactPoint reference="221" />
+                  <outputContactPoint reference="222" />
+               </outputContactPoints>
+            </outputBranch>
+            <outputBranch refId="231" id="276" name="Output Branch 2" condition="queryCatalogueContent" probabilityPercentage="50.0">
+               <flowControlComponent reference="216" />
+               <outputContactPoints refId="232">
+                  <outputContactPoint reference="223" />
+                  <outputContactPoint reference="224" />
+               </outputContactPoints>
+            </outputBranch>
+         </outputBranches>
+      </flowControlComponent>
+   </decisions>
+   <forks refId="233">
+      <flowControlComponent refId="234" id="393" name="ForkAcceptRequest">
+         <inputContactPoints refId="235">
+            <inputContactPoint refId="236" id="935" name="input">
+               <connectableComponent reference="234" />
+               <associatedDocument reference="58" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="237">
+            <outputContactPoint refId="238" id="1172" name="output1">
+               <associatedDocument reference="58" />
+            </outputContactPoint>
+            <outputContactPoint refId="239" id="1173" name="output2">
+               <associatedDocument reference="58" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <inputBranches refId="240">
+            <inputBranch refId="241" id="187" name="Input Branch ">
+               <flowControlComponent reference="234" />
+               <inputContactPoints refId="242">
+                  <inputContactPoint reference="236" />
+               </inputContactPoints>
+            </inputBranch>
+         </inputBranches>
+         <outputBranches refId="243">
+            <outputBranch refId="244" id="277" name="Output Branch 1">
+               <flowControlComponent reference="234" />
+               <outputContactPoints refId="245">
+                  <outputContactPoint reference="238" />
+               </outputContactPoints>
+            </outputBranch>
+            <outputBranch refId="246" id="278" name="Output Branch 2">
+               <flowControlComponent reference="234" />
+               <outputContactPoints refId="247">
+                  <outputContactPoint reference="239" />
+               </outputContactPoints>
+            </outputBranch>
+         </outputBranches>
+      </flowControlComponent>
+   </forks>
+   <junctions refId="248" />
+   <merges refId="249">
+      <flowControlComponent refId="250" id="394" name="MergeCatalogRequest">
+         <inputContactPoints refId="251">
+            <inputContactPoint refId="252" id="936" name="input1">
+               <connectableComponent reference="250" />
+               <associatedDocument reference="58" />
+            </inputContactPoint>
+            <inputContactPoint refId="253" id="937" name="input2">
+               <connectableComponent reference="250" />
+               <associatedDocument reference="58" />
+            </inputContactPoint>
+         </inputContactPoints>
+         <outputContactPoints refId="254">
+            <outputContactPoint refId="255" id="1174" name="output">
+               <associatedDocument reference="58" />
+            </outputContactPoint>
+         </outputContactPoints>
+         <inputBranches refId="256">
+            <inputBranch refId="257" id="188" name="Input Branch 1">
+               <flowControlComponent reference="250" />
+               <inputContactPoints refId="258">
+                  <inputContactPoint reference="252" />
+               </inputContactPoints>
+            </inputBranch>
+            <inputBranch refId="259" id="189" name="Input Branch 2">
+               <flowControlComponent reference="250" />
+               <inputContactPoints refId="260">
+                  <inputContactPoint reference="253" />
+               </inputContactPoints>
+            </inputBranch>
+         </inputBranches>
+         <outputBranches refId="261">
+            <outputBranch refId="262" id="279" name="Output Branch ">
+               <flowControlComponent reference="250" />
+               <outputContactPoints refId="263">
+                  <outputContactPoint reference="255" />
+               </outputContactPoints>
+            </outputBranch>
+         </outputBranches>
+      </flowControlComponent>
+   </merges>
+   <connections refId="264">
+      <connection refId="265" id="967">
+         <input reference="83" />
+         <output reference="223" />
+      </connection>
+      <connection refId="266" id="968">
+         <input reference="171" />
+         <output reference="12" />
+      </connection>
+      <connection refId="267" id="969">
+         <input reference="175" />
+         <output reference="94" />
+      </connection>
+      <connection refId="268" id="970">
+         <input reference="179" />
+         <output reference="31" />
+      </connection>
+      <connection refId="269" id="971">
+         <input reference="38" />
+         <output reference="85" />
+      </connection>
+      <connection refId="270" id="972">
+         <input reference="39" />
+         <output reference="86" />
+      </connection>
+      <connection refId="271" id="973">
+         <input reference="184" />
+         <output reference="41" />
+      </connection>
+      <connection refId="272" id="974">
+         <input reference="185" />
+         <output reference="42" />
+      </connection>
+      <connection refId="273" id="975">
+         <input reference="29" />
+         <output reference="189" />
+      </connection>
+      <connection refId="274" id="976">
+         <input reference="141" />
+         <output reference="187" />
+      </connection>
+      <connection refId="275" id="977">
+         <input reference="66" />
+         <output reference="255" />
+      </connection>
+      <connection refId="276" id="978">
+         <input reference="252" />
+         <output reference="143" />
+      </connection>
+      <connection refId="277" id="979">
+         <input reference="8" />
+         <output reference="21" />
+      </connection>
+      <connection refId="278" id="980">
+         <input reference="92" />
+         <output reference="22" />
+      </connection>
+      <connection refId="279" id="981">
+         <input reference="201" />
+         <output reference="68" />
+      </connection>
+      <connection refId="280" id="982">
+         <input reference="202" />
+         <output reference="69" />
+      </connection>
+      <connection refId="281" id="983">
+         <input reference="218" />
+         <output reference="134" />
+      </connection>
+      <connection refId="282" id="984">
+         <input reference="219" />
+         <output reference="135" />
+      </connection>
+      <connection refId="283" id="985">
+         <input reference="149" />
+         <output reference="239" />
+      </connection>
+      <connection refId="284" id="986">
+         <input reference="157" />
+         <output reference="207" />
+      </connection>
+      <connection refId="285" id="987">
+         <input reference="109" />
+         <output reference="159" />
+      </connection>
+      <connection refId="286" id="988">
+         <input reference="116" />
+         <output reference="167" />
+      </connection>
+      <connection refId="287" id="989">
+         <input reference="236" />
+         <output reference="205" />
+      </connection>
+      <connection refId="288" id="990">
+         <input reference="75" />
+         <output reference="60" />
+      </connection>
+      <connection refId="289" id="991">
+         <input reference="49" />
+         <output reference="77" />
+      </connection>
+      <connection refId="290" id="992">
+         <input reference="101" />
+         <output reference="51" />
+      </connection>
+      <connection refId="291" id="993">
+         <input reference="19" />
+         <output reference="221" />
+      </connection>
+      <connection refId="292" id="994">
+         <input reference="132" />
+         <output reference="103" />
+      </connection>
+      <connection refId="293" id="995">
+         <input reference="57" />
+         <output reference="238" />
+      </connection>
+      <connection refId="294" id="996">
+         <input reference="100" />
+         <output reference="151" />
+      </connection>
+      <connection refId="295" id="997">
+         <input reference="124" />
+         <output reference="118" />
+      </connection>
+      <connection refId="296" id="998">
+         <input reference="253" />
+         <output reference="126" />
+      </connection>
+   </connections>
+</process>

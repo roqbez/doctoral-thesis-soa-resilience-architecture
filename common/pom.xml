@@ -1,0 +1,157 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.ufsc.gsigma</groupId>
+		<artifactId>architecture</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>common</artifactId>
+	<dependencies>
+		<dependency>
+			<groupId>br.ufsc.services</groupId>
+			<artifactId>ufsc-services-log</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.ufsc.services</groupId>
+			<artifactId>ufsc-services-core-util-json</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.ufsc.gsigma</groupId>
+			<artifactId>common-ws</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.ufsc.gsigma</groupId>
+			<artifactId>common-hash</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.ufsc.gsigma</groupId>
+			<artifactId>common-thread</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>br.ufsc.gsigma</groupId>
+			<artifactId>common-serialization</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.datumbox</groupId>
+			<artifactId>lpsolve</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.darwinsys</groupId>
+			<artifactId>hirondelle-date4j</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-project</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-toolchain</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.wagon</groupId>
+			<artifactId>wagon-file</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.wagon</groupId>
+			<artifactId>wagon-http</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+		</dependency>
+
+		<!-- Docker -->
+		<dependency>
+			<groupId>com.github.docker-java</groupId>
+			<artifactId>docker-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Docker Stack Plugin -->
+		<dependency>
+			<groupId>de.gesellix</groupId>
+			<artifactId>docker-client</artifactId>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>de.gesellix</groupId> -->
+		<!-- <artifactId>docker-compose-v3</artifactId> -->
+		<!-- <version>1.0.0</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.jetbrains.kotlin</groupId> -->
+		<!-- <artifactId>kotlin-stdlib</artifactId> -->
+		<!-- <version>1.2.50</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>io.github.microutils</groupId> -->
+		<!-- <artifactId>kotlin-logging</artifactId> -->
+		<!-- <version>1.5.4</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.squareup.moshi</groupId> -->
+		<!-- <artifactId>moshi-kotlin</artifactId> -->
+		<!-- <version>1.6.0</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.google.re2j</groupId> -->
+		<!-- <artifactId>re2j</artifactId> -->
+		<!-- <version>1.2</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.yaml</groupId> -->
+		<!-- <artifactId>snakeyaml</artifactId> -->
+		<!-- <version>1.21</version> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jgroups</groupId>
+			<artifactId>jgroups</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+</project>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus" targetNamespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus"
+   xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:Order-2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus">
+         <xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:Order-2" schemaLocation="xsd/ubl/maindoc/UBL-Order-2.0.xsd" />
+         <xsd:element name="adviseBuyerOfStatus">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="input" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="adviseBuyerOfStatusResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="adviseBuyerOfStatusAsync">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="input" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="adviseBuyerOfStatusAsyncCallback">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="output" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="adviseBuyerOfStatusAsyncCallbackResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="alive">
+            <xsd:complexType>
+               <xsd:sequence />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aliveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="adviseBuyerOfStatusRequestMsg">
+      <wsdl:part element="tns:adviseBuyerOfStatus" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="adviseBuyerOfStatusResponseMsg">
+      <wsdl:part element="tns:adviseBuyerOfStatusResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="adviseBuyerOfStatusAsyncRequestMsg">
+      <wsdl:part element="tns:adviseBuyerOfStatusAsync" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="adviseBuyerOfStatusAsyncCallbackRequestMsg">
+      <wsdl:part element="tns:adviseBuyerOfStatusAsyncCallback" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="adviseBuyerOfStatusAsyncCallbackResponseMsg">
+      <wsdl:part element="tns:adviseBuyerOfStatusAsyncCallbackResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="aliveRequestMsg">
+      <wsdl:part element="tns:alive" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="aliveResponseMsg">
+      <wsdl:part element="tns:aliveResponse" name="payload" />
+   </wsdl:message>
+   <wsdl:portType name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus">
+      <wsdl:operation name="adviseBuyerOfStatus">
+         <wsdl:input message="tns:adviseBuyerOfStatusRequestMsg" name="adviseBuyerOfStatusRequest" />
+         <wsdl:output message="tns:adviseBuyerOfStatusResponseMsg" name="adviseBuyerOfStatusResponse" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="adviseBuyerOfStatusAsync">
+         <wsdl:input message="tns:adviseBuyerOfStatusAsyncRequestMsg" name="adviseBuyerOfStatusAsyncRequest" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+         <wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatusServiceBinding" type="tns:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="adviseBuyerOfStatus">
+         <soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus/adviseBuyerOfStatus" />
+         <wsdl:input name="adviseBuyerOfStatusRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="adviseBuyerOfStatusResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="adviseBuyerOfStatusAsync">
+         <soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus/adviseBuyerOfStatusAsync" />
+         <wsdl:input name="adviseBuyerOfStatusAsyncRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus/alive" />
+         <wsdl:input name="aliveRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="aliveResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatusService">
+      <wsdl:port name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatusServicePort" binding="tns:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatusServiceBinding">
+         <soap:address location="http://localhost:8082/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

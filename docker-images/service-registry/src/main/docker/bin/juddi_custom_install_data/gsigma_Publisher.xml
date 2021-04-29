@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<publisher xmlns="urn:juddi-apache-org:api_v3" authorizedName="gsigma">
+   <publisherName>GSIGMA Publisher</publisherName>
+   <isAdmin>true</isAdmin>
+</publisher>
+

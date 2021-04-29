@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" 
+	xmlns:pns="http://my.ubl.oasis.services/createcatalogueprocess"
+	xmlns:providerParty_cancelTransaction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction"
+	xmlns:providerParty_decideOnAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction"
+	xmlns:receiverParty_receiveCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue"
+	xmlns:providerParty_distributeCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue"
+	xmlns:receiverParty_acceptCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue"
+	xmlns:receiverParty_acknowledgeAcceptance="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance"
+	xmlns:providerParty_produceCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue"
+	xmlns:receiverParty_requestCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue"
+	xmlns:receiverParty_queryCatalogueContent="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent"
+	xmlns:receiverParty_reviewCatalogueContent="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent"
+	xmlns:providerParty_reviseContent="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent"
+	xmlns:providerParty_prepareCatalogueInformation="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation"
+	xmlns:providerParty_processCatalogueRequest="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest"
+	xmlns:providerParty_respondToRequest="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest"
+	xmlns:providerParty_sendRejection="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection"
+	xmlns:receiverParty_receiveRejection="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection"
+	xmlns:providerParty_receiveAcknowledgeAcceptance="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance"
+	xmlns:providerParty_sendAcceptanceResponse="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse"
+>
+	<process name="pns:CreateCatalogueProcess">
+		<in-memory>false</in-memory>
+		<active>true</active>
+		<provide partnerLink="CreateCatalogueProcess">
+			<service name="pns:CreateCatalogueProcessService" port="CreateCatalogueProcessServicePort" />
+		</provide>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction_Partner">
+			<service name="providerParty_cancelTransaction:UBL_CreateCatalogueProcess_ProviderParty_CancelTransactionService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction_Partner">
+			<service name="providerParty_decideOnAction:UBL_CreateCatalogueProcess_ProviderParty_DecideOnActionService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_ReceiveCatalogue_Partner">
+			<service name="receiverParty_receiveCatalogue:UBL_CreateCatalogueProcess_ReceiverParty_ReceiveCatalogueService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ProviderParty_DistributeCatalogue_Partner">
+			<service name="providerParty_distributeCatalogue:UBL_CreateCatalogueProcess_ProviderParty_DistributeCatalogueService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_AcceptCatalogue_Partner">
+			<service name="receiverParty_acceptCatalogue:UBL_CreateCatalogueProcess_ReceiverParty_AcceptCatalogueService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_AcknowledgeAcceptance_Partner">
+			<service name="receiverParty_acknowledgeAcceptance:UBL_CreateCatalogueProcess_ReceiverParty_AcknowledgeAcceptanceService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ProviderParty_ProduceCatalogue_Partner">
+			<service name="providerParty_produceCatalogue:UBL_CreateCatalogueProcess_ProviderParty_ProduceCatalogueService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue_Partner">
+			<service name="receiverParty_requestCatalogue:UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogueService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_QueryCatalogueContent_Partner">
+			<service name="receiverParty_queryCatalogueContent:UBL_CreateCatalogueProcess_ReceiverParty_QueryCatalogueContentService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_ReviewCatalogueContent_Partner">
+			<service name="receiverParty_reviewCatalogueContent:UBL_CreateCatalogueProcess_ReceiverParty_ReviewCatalogueContentService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ProviderParty_ReviseContent_Partner">
+			<service name="providerParty_reviseContent:UBL_CreateCatalogueProcess_ProviderParty_ReviseContentService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ProviderParty_PrepareCatalogueInformation_Partner">
+			<service name="providerParty_prepareCatalogueInformation:UBL_CreateCatalogueProcess_ProviderParty_PrepareCatalogueInformationService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ProviderParty_ProcessCatalogueRequest_Partner">
+			<service name="providerParty_processCatalogueRequest:UBL_CreateCatalogueProcess_ProviderParty_ProcessCatalogueRequestService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ProviderParty_RespondToRequest_Partner">
+			<service name="providerParty_respondToRequest:UBL_CreateCatalogueProcess_ProviderParty_RespondToRequestService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ProviderParty_SendRejection_Partner">
+			<service name="providerParty_sendRejection:UBL_CreateCatalogueProcess_ProviderParty_SendRejectionService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_ReceiveRejection_Partner">
+			<service name="receiverParty_receiveRejection:UBL_CreateCatalogueProcess_ReceiverParty_ReceiveRejectionService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance_Partner">
+			<service name="providerParty_receiveAcknowledgeAcceptance:UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptanceService" port="notused" />
+		</invoke>
+		<invoke partnerLink="UBL_CreateCatalogueProcess_ProviderParty_SendAcceptanceResponse_Partner">
+			<service name="providerParty_sendAcceptanceResponse:UBL_CreateCatalogueProcess_ProviderParty_SendAcceptanceResponseService" port="notused" />
+		</invoke>
+<!--
+		<cleanup on="always" >
+	            <category>all</category>
+	    </cleanup>
+-->
+	</process>
+
+</deploy>

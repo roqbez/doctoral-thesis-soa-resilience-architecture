@@ -1,0 +1,107 @@
+version: "3.6"
+
+services:
+
+#ExecutionService            
+    execution-service:
+        image: d-201603244.ufsc.br/bpel-impl:latest
+        deploy:
+            mode: replicated
+            replicas: 1
+            endpoint_mode: dnsrr
+            placement:
+                constraints:
+                    - node.labels.execution-service == 1
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+#        ports:
+#            - target: 18000
+#              published: 47000
+#              mode: host
+#            - target: 37000
+#              published: 37000
+#              mode: host
+#        environment:
+#            JAVA_DEBUG: 1
+#            JAVA_JMX: 1
+#            JMX_PORT: 37000
+    
+    execution-service-haproxy:
+        image: d-201603244.ufsc.br/executionservice-haproxy:latest
+        command: ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy-failover.cfg"]
+        depends_on:
+            - "execution-service"
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.labels.execution-service == 1
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        ports:
+            - "7000:80"
+
+#BindingService            
+    binding-service:
+        image: d-201603244.ufsc.br/binding-impl:latest
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.labels.binding-service == 1
+            endpoint_mode: dnsrr
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        
+    binding-service-haproxy:
+        image: d-201603244.ufsc.br/bindingservice-haproxy:latest
+        command: ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy-failover.cfg"]
+        depends_on:
+            - "binding-service"
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.labels.binding-service == 1
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        ports:
+            - "9000:80"
+
+#ResilienceService
+    resilience-service:
+        image: d-201603244.ufsc.br/resilience-impl:latest
+        environment:
+            INSPECTIT_ENABLED: "0"
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.labels.resilience-service == 1
+            endpoint_mode: dnsrr
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+#        ports:
+#            - target: 18000
+#              mode: host
+#           - target: 36500
+#              published: 36500
+#              mode: host
+#        environment:
+#            JAVA_DEBUG: 1
+#            JAVA_JMX: 1
+#            JMX_PORT: 36500
+              
+    resilience-service-haproxy:
+        image: d-201603244.ufsc.br/resilienceservice-haproxy:latest
+        command: ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy-failover.cfg"]
+        depends_on:
+            - "resilience-service"
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.labels.resilience-service == 1
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        ports:
+            - "6500:80"

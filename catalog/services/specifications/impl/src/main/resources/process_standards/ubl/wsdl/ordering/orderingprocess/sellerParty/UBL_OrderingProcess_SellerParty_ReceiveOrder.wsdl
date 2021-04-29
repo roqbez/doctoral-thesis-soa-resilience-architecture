@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_OrderingProcess_SellerParty_ReceiveOrder" targetNamespace="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/receiveOrder"
+   xmlns:tns="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/receiveOrder" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:Order-2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/receiveOrder" xmlns:tns="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/receiveOrder">
+         <xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:Order-2" schemaLocation="xsd/ubl/maindoc/UBL-Order-2.0.xsd" />
+         <xsd:element name="receiveOrder">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="input" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="receiveOrderResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="receiveOrderAsync">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="input" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="receiveOrderAsyncCallback">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="output" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="receiveOrderAsyncCallbackResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="alive">
+            <xsd:complexType>
+               <xsd:sequence />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aliveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="receiveOrderRequestMsg">
+      <wsdl:part element="tns:receiveOrder" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="receiveOrderResponseMsg">
+      <wsdl:part element="tns:receiveOrderResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="receiveOrderAsyncRequestMsg">
+      <wsdl:part element="tns:receiveOrderAsync" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="receiveOrderAsyncCallbackRequestMsg">
+      <wsdl:part element="tns:receiveOrderAsyncCallback" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="receiveOrderAsyncCallbackResponseMsg">
+      <wsdl:part element="tns:receiveOrderAsyncCallbackResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="aliveRequestMsg">
+      <wsdl:part element="tns:alive" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="aliveResponseMsg">
+      <wsdl:part element="tns:aliveResponse" name="payload" />
+   </wsdl:message>
+   <wsdl:portType name="UBL_OrderingProcess_SellerParty_ReceiveOrder">
+      <wsdl:operation name="receiveOrder">
+         <wsdl:input message="tns:receiveOrderRequestMsg" name="receiveOrderRequest" />
+         <wsdl:output message="tns:receiveOrderResponseMsg" name="receiveOrderResponse" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="receiveOrderAsync">
+         <wsdl:input message="tns:receiveOrderAsyncRequestMsg" name="receiveOrderAsyncRequest" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+         <wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="UBL_OrderingProcess_SellerParty_ReceiveOrderServiceBinding" type="tns:UBL_OrderingProcess_SellerParty_ReceiveOrder">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="receiveOrder">
+         <soap:operation soapAction="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/receiveOrder/receiveOrder" />
+         <wsdl:input name="receiveOrderRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="receiveOrderResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="receiveOrderAsync">
+         <soap:operation soapAction="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/receiveOrder/receiveOrderAsync" />
+         <wsdl:input name="receiveOrderAsyncRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <soap:operation soapAction="http://ubl.oasis.services/ordering/orderingprocess/sellerParty/receiveOrder/alive" />
+         <wsdl:input name="aliveRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="aliveResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="UBL_OrderingProcess_SellerParty_ReceiveOrderService">
+      <wsdl:port name="UBL_OrderingProcess_SellerParty_ReceiveOrderServicePort" binding="tns:UBL_OrderingProcess_SellerParty_ReceiveOrderServiceBinding">
+         <soap:address location="http://localhost:8082/services/ubl/orderingprocess/sellerParty/receiveOrder" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

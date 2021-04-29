@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<uddi>
+	<reloadDelay>5000</reloadDelay>
+	<client name="client">
+		<nodes>
+			<node>
+				<name>default</name>
+				<properties>
+					<property name="serverName" value="serviceregistry.d-201603244.ufsc.br" />
+					<property name="serverPort" value="8000" />
+				</properties>
+				<description>Main jUDDI node</description>
+				<!-- JAX-WS Transport -->
+				<proxyTransport>org.apache.juddi.v3.client.transport.JAXWSTransport</proxyTransport>
+				<custodyTransferUrl>http://${serverName}:${serverPort}/services/custody-transfer?wsdl</custodyTransferUrl>
+				<inquiryUrl>http://${serverName}:${serverPort}/services/inquiry?wsdl</inquiryUrl>
+				<publishUrl>http://${serverName}:${serverPort}/services/publish?wsdl</publishUrl>
+				<securityUrl>http://${serverName}:${serverPort}/services/security?wsdl</securityUrl>
+				<subscriptionUrl>http://${serverName}:${serverPort}/services/subscription?wsdl</subscriptionUrl>
+				<subscriptionListenerUrl>http://${serverName}:${serverPort}/services/subscription-listener?wsdl</subscriptionListenerUrl>
+				<juddiApiUrl>http://${serverName}:${serverPort}/services/juddi-api?wsdl</juddiApiUrl>
+			</node>
+		</nodes>
+	</client>
+</uddi>

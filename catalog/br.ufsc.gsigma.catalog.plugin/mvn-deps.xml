@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="br.ufsc.gsigma.catalog.plugin-deps" default="mvn-baixa-libs" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+	<property name="lib.dir" location="${basedir}/lib" />
+
+	<!-- Gerenciar Dependências -->
+	<path id="ant.libs">
+		<fileset dir="${basedir}/libs_support/ant">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="mvn-init" unless="mvn-init.called">
+		<typedef resource="org/apache/maven/artifact/ant/antlib.xml" uri="antlib:org.apache.maven.artifact.ant" classpathref="ant.libs" />
+		<property name="mvn-init.called" value="true" />
+	</target>
+
+	<target name="mvn-baixa-libs">
+		<delete includeemptydirs="true">
+			<fileset dir="${lib.dir}" includes="**/*" />
+		</delete>
+		<antcall target="mvn-resolve" />
+	</target>
+
+	<!-- Maven Ant Task configuration -->
+	<target name="mvn-resolve" depends="mvn-init">
+		<artifact:pom id="mypom" file="pom.xml" />
+		<artifact:dependencies pathId="mvn.compile.classpath" pomRefId="mypom" useScope="compile" />
+		<artifact:dependencies pathId="mvn.test.classpath" pomRefId="mypom" useScope="test" />
+		<artifact:dependencies filesetId="runtime.fileset" pomRefId="mypom" useScope="runtime" />
+		<copy todir="${lib.dir}">
+			<fileset refid="runtime.fileset" />
+			<mapper type="flatten" />
+		</copy>
+	</target>
+
+</project>

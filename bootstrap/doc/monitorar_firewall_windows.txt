@@ -1,0 +1,11 @@
+auditpol /set /subcategory:"Descarte de Pacote de Plataforma de Filtragem" /success:disable
+auditpol /set /subcategory:"Descarte de Pacote de Plataforma de Filtragem" /failure:enable
+auditpol /set /subcategory:"Conexão de Plataforma de Filtragem" /success:disable
+auditpol /set /subcategory:"Conexão de Plataforma de Filtragem" /failure:enable
+
+
+auditpol /set /subcategory:"Descarte de Pacote de Plataforma de Filtragem" /success:disable
+auditpol /set /subcategory:"Descarte de Pacote de Plataforma de Filtragem" /failure:disable
+auditpol /set /subcategory:"Conexão de Plataforma de Filtragem" /success:disable
+auditpol /set /subcategory:"Conexão de Plataforma de Filtragem" /failure:disable
+

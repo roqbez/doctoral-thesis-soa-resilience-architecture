@@ -1,0 +1,1533 @@
+<bpel:process name="CreateCatalogueProcess" targetNamespace="http://my.ubl.oasis.services/createcatalogueprocess" suppressJoinFailure="yes"
+	xmlns:tns="http://my.ubl.oasis.services/createcatalogueprocess" 
+	xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:providerParty_cancelTransaction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction"
+	xmlns:providerParty_decideOnAction="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction"
+	xmlns:receiverParty_receiveCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue"
+	xmlns:providerParty_distributeCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue"
+	xmlns:receiverParty_acceptCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue"
+	xmlns:receiverParty_acknowledgeAcceptance="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance"
+	xmlns:providerParty_produceCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue"
+	xmlns:receiverParty_requestCatalogue="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue"
+	xmlns:receiverParty_queryCatalogueContent="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent"
+	xmlns:receiverParty_reviewCatalogueContent="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent"
+	xmlns:providerParty_reviseContent="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent"
+	xmlns:providerParty_prepareCatalogueInformation="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation"
+	xmlns:providerParty_processCatalogueRequest="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest"
+	xmlns:providerParty_respondToRequest="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest"
+	xmlns:providerParty_sendRejection="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection"
+	xmlns:receiverParty_receiveRejection="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection"
+	xmlns:providerParty_receiveAcknowledgeAcceptance="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance"
+	xmlns:providerParty_sendAcceptanceResponse="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse"
+	queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"
+	expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+
+	<bpel:import location="CreateCatalogueProcessArtifacts.wsdl" namespace="http://my.ubl.oasis.services/createcatalogueprocess" importType="http://schemas.xmlsoap.org/wsdl/" />
+
+	<bpel:partnerLinks>
+		<bpel:partnerLink name="CreateCatalogueProcess" partnerLinkType="tns:CreateCatalogueProcess" myRole="Interface" />
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ReceiverParty_ReceiveCatalogue_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ReceiverParty_ReceiveCatalogue" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ProviderParty_DistributeCatalogue_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ProviderParty_DistributeCatalogue" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ReceiverParty_AcceptCatalogue_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ReceiverParty_AcceptCatalogue" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ReceiverParty_AcknowledgeAcceptance_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ReceiverParty_AcknowledgeAcceptance" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ProviderParty_ProduceCatalogue_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ProviderParty_ProduceCatalogue" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ReceiverParty_QueryCatalogueContent_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ReceiverParty_QueryCatalogueContent" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ReceiverParty_ReviewCatalogueContent_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ReceiverParty_ReviewCatalogueContent" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ProviderParty_ReviseContent_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ProviderParty_ReviseContent" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ProviderParty_PrepareCatalogueInformation_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ProviderParty_PrepareCatalogueInformation" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ProviderParty_ProcessCatalogueRequest_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ProviderParty_ProcessCatalogueRequest" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ProviderParty_RespondToRequest_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ProviderParty_RespondToRequest" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ProviderParty_SendRejection_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ProviderParty_SendRejection" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ReceiverParty_ReceiveRejection_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ReceiverParty_ReceiveRejection" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_CreateCatalogueProcess_ProviderParty_SendAcceptanceResponse_Partner" partnerLinkType="tns:UBL_CreateCatalogueProcess_ProviderParty_SendAcceptanceResponse" partnerRole="Reference" initializePartnerRole="no"/>
+	</bpel:partnerLinks>
+
+	<bpel:variables>
+		<bpel:variable name="process_input" messageType="tns:CreateCatalogueProcessRequestMessage"/>
+		<bpel:variable name="process_output" messageType="tns:CreateCatalogueProcessResponseMessage"/>
+		<bpel:variable name="abort_process" type="xsd:boolean"/>
+	</bpel:variables>
+	
+
+    <bpel:correlationSets>
+        <bpel:correlationSet name="ProcessId" properties="tns:processId"/>
+    </bpel:correlationSets>
+
+
+	<bpel:sequence name="CreateCatalogueProcess">
+		
+		<bpel:receive name="receiveInput" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="execute" variable="process_input"
+			createInstance="yes" />
+
+		<bpel:assign validate="no" name="assign_abort_process">
+			<bpel:copy>
+					<bpel:from>false()</bpel:from>
+					<bpel:to variable="abort_process" />
+			</bpel:copy>
+		</bpel:assign>
+
+		<bpel:assign validate="no" name="assign_result">
+			<bpel:copy>
+				<bpel:from>
+					<bpel:literal xml:space="preserve">
+						<tns:CreateCatalogueProcessResponse>
+							<message>Process initiated</message>
+							<processId></processId>
+						</tns:CreateCatalogueProcessResponse>
+					</bpel:literal>
+				</bpel:from>
+				<bpel:to part="payload" variable="process_output"/>
+			</bpel:copy>
+			<bpel:copy>
+				<bpel:from>$ode:pid</bpel:from>
+				<bpel:to part="payload" variable="process_output">
+					<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+				</bpel:to>
+			</bpel:copy>
+		</bpel:assign>
+		
+		<bpel:reply name="replyOutput" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="execute" variable="process_output">
+		    <bpel:correlations>
+                <bpel:correlation initiate="yes" set="ProcessId"/>
+            </bpel:correlations>			
+		</bpel:reply>
+		
+		<bpel:wait name="waitAfterReply">
+			<bpel:for>'PT0.1S'</bpel:for>
+		</bpel:wait>
+
+        <bpel:scope name="process_scope">
+            <bpel:variables>
+                <bpel:variable name="input_receiverParty_acceptCatalogue1" messageType="receiverParty_acceptCatalogue:acceptCatalogueAsyncRequestMsg"/>
+                <bpel:variable name="output_receiverParty_acceptCatalogue1" messageType="receiverParty_acceptCatalogue:acceptCatalogueAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_receiverParty_acceptCatalogue1_callback" messageType="receiverParty_acceptCatalogue:acceptCatalogueAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_receiverParty_acknowledgeAcceptance1" messageType="receiverParty_acknowledgeAcceptance:acknowledgeAcceptanceAsyncRequestMsg"/>
+                <bpel:variable name="output_receiverParty_acknowledgeAcceptance1" messageType="receiverParty_acknowledgeAcceptance:acknowledgeAcceptanceAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_receiverParty_acknowledgeAcceptance1_callback" messageType="receiverParty_acknowledgeAcceptance:acknowledgeAcceptanceAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_providerParty_cancelTransaction1" messageType="providerParty_cancelTransaction:cancelTransactionAsyncRequestMsg"/>
+                <bpel:variable name="output_providerParty_cancelTransaction1" messageType="providerParty_cancelTransaction:cancelTransactionAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_providerParty_cancelTransaction1_callback" messageType="providerParty_cancelTransaction:cancelTransactionAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_providerParty_decideOnAction1" messageType="providerParty_decideOnAction:decideOnActionAsyncRequestMsg"/>
+                <bpel:variable name="output_providerParty_decideOnAction1" messageType="providerParty_decideOnAction:decideOnActionAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_providerParty_decideOnAction1_callback" messageType="providerParty_decideOnAction:decideOnActionAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_providerParty_distributeCatalogue1" messageType="providerParty_distributeCatalogue:distributeCatalogueAsyncRequestMsg"/>
+                <bpel:variable name="output_providerParty_distributeCatalogue1" messageType="providerParty_distributeCatalogue:distributeCatalogueAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_providerParty_distributeCatalogue1_callback" messageType="providerParty_distributeCatalogue:distributeCatalogueAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_providerParty_prepareCatalogueInformation1" messageType="providerParty_prepareCatalogueInformation:prepareCatalogueInformationAsyncRequestMsg"/>
+                <bpel:variable name="output_providerParty_prepareCatalogueInformation1" messageType="providerParty_prepareCatalogueInformation:prepareCatalogueInformationAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_providerParty_prepareCatalogueInformation1_callback" messageType="providerParty_prepareCatalogueInformation:prepareCatalogueInformationAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_providerParty_processCatalogueRequest1" messageType="providerParty_processCatalogueRequest:processCatalogueRequestAsyncRequestMsg"/>
+                <bpel:variable name="output_providerParty_processCatalogueRequest1" messageType="providerParty_processCatalogueRequest:processCatalogueRequestAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_providerParty_processCatalogueRequest1_callback" messageType="providerParty_processCatalogueRequest:processCatalogueRequestAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_providerParty_produceCatalogue1" messageType="providerParty_produceCatalogue:produceCatalogueAsyncRequestMsg"/>
+                <bpel:variable name="output_providerParty_produceCatalogue1" messageType="providerParty_produceCatalogue:produceCatalogueAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_providerParty_produceCatalogue1_callback" messageType="providerParty_produceCatalogue:produceCatalogueAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_receiverParty_queryCatalogueContent1" messageType="receiverParty_queryCatalogueContent:queryCatalogueContentAsyncRequestMsg"/>
+                <bpel:variable name="output_receiverParty_queryCatalogueContent1" messageType="receiverParty_queryCatalogueContent:queryCatalogueContentAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_receiverParty_queryCatalogueContent1_callback" messageType="receiverParty_queryCatalogueContent:queryCatalogueContentAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_providerParty_receiveAcknowledgeAcceptance1" messageType="providerParty_receiveAcknowledgeAcceptance:receiveAcknowledgeAcceptanceAsyncRequestMsg"/>
+                <bpel:variable name="output_providerParty_receiveAcknowledgeAcceptance1" messageType="providerParty_receiveAcknowledgeAcceptance:receiveAcknowledgeAcceptanceAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_providerParty_receiveAcknowledgeAcceptance1_callback" messageType="providerParty_receiveAcknowledgeAcceptance:receiveAcknowledgeAcceptanceAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_receiverParty_receiveCatalogue1" messageType="receiverParty_receiveCatalogue:receiveCatalogueAsyncRequestMsg"/>
+                <bpel:variable name="output_receiverParty_receiveCatalogue1" messageType="receiverParty_receiveCatalogue:receiveCatalogueAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_receiverParty_receiveCatalogue1_callback" messageType="receiverParty_receiveCatalogue:receiveCatalogueAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_receiverParty_receiveRejection1" messageType="receiverParty_receiveRejection:receiveRejectionAsyncRequestMsg"/>
+                <bpel:variable name="output_receiverParty_receiveRejection1" messageType="receiverParty_receiveRejection:receiveRejectionAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_receiverParty_receiveRejection1_callback" messageType="receiverParty_receiveRejection:receiveRejectionAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_receiverParty_requestCatalogue1" messageType="receiverParty_requestCatalogue:requestCatalogueAsyncRequestMsg"/>
+                <bpel:variable name="output_receiverParty_requestCatalogue1" messageType="receiverParty_requestCatalogue:requestCatalogueAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_receiverParty_requestCatalogue1_callback" messageType="receiverParty_requestCatalogue:requestCatalogueAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_providerParty_respondToRequest1" messageType="providerParty_respondToRequest:respondToRequestAsyncRequestMsg"/>
+                <bpel:variable name="output_providerParty_respondToRequest1" messageType="providerParty_respondToRequest:respondToRequestAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_providerParty_respondToRequest1_callback" messageType="providerParty_respondToRequest:respondToRequestAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_receiverParty_reviewCatalogueContent1" messageType="receiverParty_reviewCatalogueContent:reviewCatalogueContentAsyncRequestMsg"/>
+                <bpel:variable name="output_receiverParty_reviewCatalogueContent1" messageType="receiverParty_reviewCatalogueContent:reviewCatalogueContentAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_receiverParty_reviewCatalogueContent1_callback" messageType="receiverParty_reviewCatalogueContent:reviewCatalogueContentAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_providerParty_reviseContent1" messageType="providerParty_reviseContent:reviseContentAsyncRequestMsg"/>
+                <bpel:variable name="output_providerParty_reviseContent1" messageType="providerParty_reviseContent:reviseContentAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_providerParty_reviseContent1_callback" messageType="providerParty_reviseContent:reviseContentAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_providerParty_sendAcceptanceResponse1" messageType="providerParty_sendAcceptanceResponse:sendAcceptanceResponseAsyncRequestMsg"/>
+                <bpel:variable name="output_providerParty_sendAcceptanceResponse1" messageType="providerParty_sendAcceptanceResponse:sendAcceptanceResponseAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_providerParty_sendAcceptanceResponse1_callback" messageType="providerParty_sendAcceptanceResponse:sendAcceptanceResponseAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_providerParty_sendRejection1" messageType="providerParty_sendRejection:sendRejectionAsyncRequestMsg"/>
+                <bpel:variable name="output_providerParty_sendRejection1" messageType="providerParty_sendRejection:sendRejectionAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_providerParty_sendRejection1_callback" messageType="providerParty_sendRejection:sendRejectionAsyncCallbackResponseMsg"/>
+            </bpel:variables>
+            <bpel:flow name="main_flow">
+                <bpel:assign validate="no" name="initialize_variables">
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptCatalogueAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_acceptcatalogue1</callbackSOAPAction></processContext><input /></tns:acceptCatalogueAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_receiverParty_acceptCatalogue1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptCatalogueAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_acceptcatalogue1</callbackSOAPAction></processContext><output /></tns:acceptCatalogueAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_acceptCatalogue1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptCatalogueAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_acceptcatalogue1</callbackSOAPAction></processContext></tns:acceptCatalogueAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_acceptCatalogue1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_receiverParty_acceptCatalogue1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_receiverParty_acceptCatalogue1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acknowledgeAcceptanceAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1</callbackSOAPAction></processContext><input /></tns:acknowledgeAcceptanceAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_receiverParty_acknowledgeAcceptance1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acknowledgeAcceptanceAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1</callbackSOAPAction></processContext><outputCatalogue /><outputApplicationResponse /></tns:acknowledgeAcceptanceAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_acknowledgeAcceptance1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acknowledgeAcceptanceAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1</callbackSOAPAction></processContext></tns:acknowledgeAcceptanceAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_acknowledgeAcceptance1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_receiverParty_acknowledgeAcceptance1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_receiverParty_acknowledgeAcceptance1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:cancelTransactionAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_canceltransaction1</callbackSOAPAction></processContext><input /></tns:cancelTransactionAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_providerParty_cancelTransaction1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:cancelTransactionAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_canceltransaction1</callbackSOAPAction></processContext><output /></tns:cancelTransactionAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_cancelTransaction1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:cancelTransactionAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_canceltransaction1</callbackSOAPAction></processContext></tns:cancelTransactionAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_cancelTransaction1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_providerParty_cancelTransaction1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_providerParty_cancelTransaction1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:decideOnActionAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_decideonaction1</callbackSOAPAction></processContext><inputCatalogue /><inputApplicationResponse /></tns:decideOnActionAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_providerParty_decideOnAction1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:decideOnActionAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_decideonaction1</callbackSOAPAction></processContext><outputDocument /><outputDecision /></tns:decideOnActionAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_decideOnAction1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:decideOnActionAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_decideonaction1</callbackSOAPAction></processContext></tns:decideOnActionAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_decideOnAction1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_providerParty_decideOnAction1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_providerParty_decideOnAction1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:distributeCatalogueAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_distributecatalogue1</callbackSOAPAction></processContext><input /></tns:distributeCatalogueAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_providerParty_distributeCatalogue1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:distributeCatalogueAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_distributecatalogue1</callbackSOAPAction></processContext><output /></tns:distributeCatalogueAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_distributeCatalogue1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:distributeCatalogueAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_distributecatalogue1</callbackSOAPAction></processContext></tns:distributeCatalogueAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_distributeCatalogue1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_providerParty_distributeCatalogue1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_providerParty_distributeCatalogue1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:prepareCatalogueInformationAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1</callbackSOAPAction></processContext><input /></tns:prepareCatalogueInformationAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_providerParty_prepareCatalogueInformation1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:prepareCatalogueInformationAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1</callbackSOAPAction></processContext><output /></tns:prepareCatalogueInformationAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_prepareCatalogueInformation1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:prepareCatalogueInformationAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1</callbackSOAPAction></processContext></tns:prepareCatalogueInformationAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_prepareCatalogueInformation1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_providerParty_prepareCatalogueInformation1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_providerParty_prepareCatalogueInformation1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:processCatalogueRequestAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_processcataloguerequest1</callbackSOAPAction></processContext><input /></tns:processCatalogueRequestAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_providerParty_processCatalogueRequest1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:processCatalogueRequestAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_processcataloguerequest1</callbackSOAPAction></processContext><outputDocument /><outputDecision /></tns:processCatalogueRequestAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_processCatalogueRequest1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:processCatalogueRequestAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_processcataloguerequest1</callbackSOAPAction></processContext></tns:processCatalogueRequestAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_processCatalogueRequest1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_providerParty_processCatalogueRequest1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_providerParty_processCatalogueRequest1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:produceCatalogueAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_producecatalogue1</callbackSOAPAction></processContext><input /></tns:produceCatalogueAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_providerParty_produceCatalogue1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:produceCatalogueAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_producecatalogue1</callbackSOAPAction></processContext><output /></tns:produceCatalogueAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_produceCatalogue1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:produceCatalogueAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_producecatalogue1</callbackSOAPAction></processContext></tns:produceCatalogueAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_produceCatalogue1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_providerParty_produceCatalogue1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_providerParty_produceCatalogue1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:queryCatalogueContentAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_querycataloguecontent1</callbackSOAPAction></processContext><input /></tns:queryCatalogueContentAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_receiverParty_queryCatalogueContent1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:queryCatalogueContentAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_querycataloguecontent1</callbackSOAPAction></processContext><outputCatalogue /><outputApplicationResponse /></tns:queryCatalogueContentAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_queryCatalogueContent1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:queryCatalogueContentAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_querycataloguecontent1</callbackSOAPAction></processContext></tns:queryCatalogueContentAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_queryCatalogueContent1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_receiverParty_queryCatalogueContent1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_receiverParty_queryCatalogueContent1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAcknowledgeAcceptanceAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1</callbackSOAPAction></processContext><input /></tns:receiveAcknowledgeAcceptanceAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_providerParty_receiveAcknowledgeAcceptance1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAcknowledgeAcceptanceAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1</callbackSOAPAction></processContext><output /></tns:receiveAcknowledgeAcceptanceAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_receiveAcknowledgeAcceptance1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveAcknowledgeAcceptanceAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1</callbackSOAPAction></processContext></tns:receiveAcknowledgeAcceptanceAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_receiveAcknowledgeAcceptance1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_providerParty_receiveAcknowledgeAcceptance1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_providerParty_receiveAcknowledgeAcceptance1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveCatalogueAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_receivecatalogue1</callbackSOAPAction></processContext><inputCatalogue /><inputApplicationResponse /></tns:receiveCatalogueAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_receiverParty_receiveCatalogue1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveCatalogueAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_receivecatalogue1</callbackSOAPAction></processContext><output /></tns:receiveCatalogueAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_receiveCatalogue1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveCatalogueAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_receivecatalogue1</callbackSOAPAction></processContext></tns:receiveCatalogueAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_receiveCatalogue1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_receiverParty_receiveCatalogue1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_receiverParty_receiveCatalogue1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveRejectionAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_receiverejection1</callbackSOAPAction></processContext><input /></tns:receiveRejectionAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_receiverParty_receiveRejection1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveRejectionAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_receiverejection1</callbackSOAPAction></processContext><output /></tns:receiveRejectionAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_receiveRejection1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveRejectionAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_receiverejection1</callbackSOAPAction></processContext></tns:receiveRejectionAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_receiveRejection1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_receiverParty_receiveRejection1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_receiverParty_receiveRejection1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:requestCatalogueAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_requestcatalogue1</callbackSOAPAction></processContext></tns:requestCatalogueAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_receiverParty_requestCatalogue1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:requestCatalogueAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_requestcatalogue1</callbackSOAPAction></processContext><output /></tns:requestCatalogueAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_requestCatalogue1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:requestCatalogueAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_requestcatalogue1</callbackSOAPAction></processContext></tns:requestCatalogueAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_requestCatalogue1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_receiverParty_requestCatalogue1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_receiverParty_requestCatalogue1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:respondToRequestAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_respondtorequest1</callbackSOAPAction></processContext><input /></tns:respondToRequestAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_providerParty_respondToRequest1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:respondToRequestAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_respondtorequest1</callbackSOAPAction></processContext><output /></tns:respondToRequestAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_respondToRequest1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:respondToRequestAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_respondtorequest1</callbackSOAPAction></processContext></tns:respondToRequestAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_respondToRequest1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_providerParty_respondToRequest1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_providerParty_respondToRequest1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reviewCatalogueContentAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1</callbackSOAPAction></processContext><input /></tns:reviewCatalogueContentAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_receiverParty_reviewCatalogueContent1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reviewCatalogueContentAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1</callbackSOAPAction></processContext><outputDocument /><outputDecision /></tns:reviewCatalogueContentAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_reviewCatalogueContent1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reviewCatalogueContentAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1</callbackSOAPAction></processContext></tns:reviewCatalogueContentAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_receiverParty_reviewCatalogueContent1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_receiverParty_reviewCatalogueContent1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_receiverParty_reviewCatalogueContent1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reviseContentAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_revisecontent1</callbackSOAPAction></processContext><input /></tns:reviseContentAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_providerParty_reviseContent1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reviseContentAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_revisecontent1</callbackSOAPAction></processContext><output /></tns:reviseContentAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_reviseContent1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:reviseContentAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_revisecontent1</callbackSOAPAction></processContext></tns:reviseContentAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_reviseContent1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_providerParty_reviseContent1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_providerParty_reviseContent1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendAcceptanceResponseAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1</callbackSOAPAction></processContext><input /></tns:sendAcceptanceResponseAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_providerParty_sendAcceptanceResponse1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendAcceptanceResponseAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1</callbackSOAPAction></processContext><output /></tns:sendAcceptanceResponseAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_sendAcceptanceResponse1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendAcceptanceResponseAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1</callbackSOAPAction></processContext></tns:sendAcceptanceResponseAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_sendAcceptanceResponse1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_providerParty_sendAcceptanceResponse1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_providerParty_sendAcceptanceResponse1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendRejectionAsync xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_sendrejection1</callbackSOAPAction></processContext><input /></tns:sendRejectionAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_providerParty_sendRejection1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendRejectionAsyncCallback xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_sendrejection1</callbackSOAPAction></processContext><output /></tns:sendRejectionAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_sendRejection1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendRejectionAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/CreateCatalogueProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/createcatalogueprocess/callbacks/ubl_createcatalogueprocess_providerparty_sendrejection1</callbackSOAPAction></processContext></tns:sendRejectionAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_providerParty_sendRejection1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_providerParty_sendRejection1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_providerParty_sendRejection1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+ 	                <bpel:sources>
+	                    <bpel:source linkName="link24">
+	                    </bpel:source>
+	                </bpel:sources>                   
+            	</bpel:assign>
+            	
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_processcataloguerequest1_2">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_respondToRequest1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_processCatalogueRequest1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link7"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link8">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_respondtorequest1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_receiverParty_requestCatalogue1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_respondToRequest1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link44"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link45">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+            	
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_providerparty_respondtorequest1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ProviderParty_RespondToRequest_Partner" operation="respondToRequestAsync" portType="providerParty_respondToRequest:UBL_CreateCatalogueProcess_ProviderParty_RespondToRequest1" inputVariable="input_providerParty_respondToRequest1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_providerparty_respondtorequest1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_respondtorequest1_callback" variable="output_providerParty_respondToRequest1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_providerparty_respondtorequest1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_respondtorequest1_callback" variable="output_providerParty_respondToRequest1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link45"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link7">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_receiverparty_requestcatalogue1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue_Partner" operation="requestCatalogueAsync" portType="receiverParty_requestCatalogue:UBL_CreateCatalogueProcess_ReceiverParty_RequestCatalogue1" inputVariable="input_receiverParty_requestCatalogue1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_receiverparty_requestcatalogue1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_requestcatalogue1_callback" variable="output_receiverParty_requestCatalogue1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_receiverparty_requestcatalogue1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_requestcatalogue1_callback" variable="output_receiverParty_requestCatalogue1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link24"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link44">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:while name="loop_while">
+					<bpel:condition>$abort_process = false() and (string-length($output_providerParty_decideOnAction1.payload/outputDecision) = 0 or $output_providerParty_decideOnAction1.payload/outputDecision = 'reviseContent')</bpel:condition>
+            <bpel:flow name="loop_while_flow">
+            	
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_processcataloguerequest1_1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_reviseContent1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_processCatalogueRequest1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link5"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_receiverparty_acceptcatalogue1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_receiverParty_acknowledgeAcceptance1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputCatalogue
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_receiverParty_acceptCatalogue1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link10"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link11">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_receiverparty_receiverejection1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_sendRejection1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_receiverParty_receiveRejection1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link22"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link23">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_revisecontent1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_decideOnAction1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDocument
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_reviseContent1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link57"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link58">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_receiverparty_querycataloguecontent1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_receiverParty_reviewCatalogueContent1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDocument
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_receiverParty_queryCatalogueContent1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link2"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link3">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_sendrejection1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_processCatalogueRequest1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDocument
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_sendRejection1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link20"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link21">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_receiverParty_reviewCatalogueContent1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDocument
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_receiverParty_acknowledgeAcceptance1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link37"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link38">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_receiverparty_receivecatalogue1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_distributeCatalogue1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_receiverParty_receiveCatalogue1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputCatalogue
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_sendAcceptanceResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_receiverParty_receiveCatalogue1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputApplicationResponse
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link42"/>
+	                    <bpel:target linkName="link34"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link35">
+	                    </bpel:source>
+	                    <bpel:source linkName="link43">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_receiverParty_receiveCatalogue1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_receiverParty_reviewCatalogueContent1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link39"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link40">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_producecatalogue1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_prepareCatalogueInformation1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_produceCatalogue1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link30"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link31">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_decideonaction1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_receiverParty_queryCatalogueContent1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputApplicationResponse
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_decideOnAction1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputApplicationResponse
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_receiverParty_queryCatalogueContent1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputCatalogue
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_decideOnAction1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputCatalogue
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link47"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link50">
+	                    </bpel:source>
+	                    <bpel:source linkName="link48">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1_1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_processCatalogueRequest1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDocument
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_sendAcceptanceResponse1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link28"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link29">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_distributecatalogue1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_produceCatalogue1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_distributeCatalogue1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link32"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link33">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1_1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_processCatalogueRequest1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDocument
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_prepareCatalogueInformation1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link26"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link27">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_receiverParty_acknowledgeAcceptance1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputApplicationResponse
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_receiveAcknowledgeAcceptance1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link12"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link13">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_createcatalogueprocess_providerparty_canceltransaction1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_providerParty_decideOnAction1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDocument
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_providerParty_cancelTransaction1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link54"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link55">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+            	
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_receiverparty_acceptcatalogue1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_AcceptCatalogue_Partner" operation="acceptCatalogueAsync" portType="receiverParty_acceptCatalogue:UBL_CreateCatalogueProcess_ReceiverParty_AcceptCatalogue1" inputVariable="input_receiverParty_acceptCatalogue1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_receiverparty_acceptcatalogue1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_acceptcatalogue1_callback" variable="output_receiverParty_acceptCatalogue1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_receiverparty_acceptcatalogue1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_acceptcatalogue1_callback" variable="output_receiverParty_acceptCatalogue1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link11"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>
+		               	<bpel:assign validate="no" name="assign_abort_process_invoke_service_ubl_createcatalogueprocess_receiverparty_acceptcatalogue1">
+							<bpel:copy>
+								<bpel:from>true()</bpel:from>
+								<bpel:to variable="abort_process" />
+							</bpel:copy>
+						</bpel:assign>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_AcknowledgeAcceptance_Partner" operation="acknowledgeAcceptanceAsync" portType="receiverParty_acknowledgeAcceptance:UBL_CreateCatalogueProcess_ReceiverParty_AcknowledgeAcceptance1" inputVariable="input_receiverParty_acknowledgeAcceptance1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1_callback" variable="output_receiverParty_acknowledgeAcceptance1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_acknowledgeacceptance1_callback" variable="output_receiverParty_acknowledgeAcceptance1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link38"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link12">
+	                    </bpel:source>
+	                    <bpel:source linkName="link10">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ProviderParty_PrepareCatalogueInformation_Partner" operation="prepareCatalogueInformationAsync" portType="providerParty_prepareCatalogueInformation:UBL_CreateCatalogueProcess_ProviderParty_PrepareCatalogueInformation1" inputVariable="input_providerParty_prepareCatalogueInformation1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1_callback" variable="output_providerParty_prepareCatalogueInformation1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_preparecatalogueinformation1_callback" variable="output_providerParty_prepareCatalogueInformation1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link27"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link30">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ProviderParty_SendAcceptanceResponse_Partner" operation="sendAcceptanceResponseAsync" portType="providerParty_sendAcceptanceResponse:UBL_CreateCatalogueProcess_ProviderParty_SendAcceptanceResponse1" inputVariable="input_providerParty_sendAcceptanceResponse1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1_callback" variable="output_providerParty_sendAcceptanceResponse1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_sendacceptanceresponse1_callback" variable="output_providerParty_sendAcceptanceResponse1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link29"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link42">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_providerparty_canceltransaction1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction_Partner" operation="cancelTransactionAsync" portType="providerParty_cancelTransaction:UBL_CreateCatalogueProcess_ProviderParty_CancelTransaction1" inputVariable="input_providerParty_cancelTransaction1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_providerparty_canceltransaction1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_canceltransaction1_callback" variable="output_providerParty_cancelTransaction1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_providerparty_canceltransaction1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_canceltransaction1_callback" variable="output_providerParty_cancelTransaction1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link55"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>
+		               	<bpel:assign validate="no" name="assign_abort_process_invoke_service_ubl_createcatalogueprocess_providerparty_canceltransaction1">
+							<bpel:copy>
+								<bpel:from>true()</bpel:from>
+								<bpel:to variable="abort_process" />
+							</bpel:copy>
+						</bpel:assign>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_receiverparty_receiverejection1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_ReceiveRejection_Partner" operation="receiveRejectionAsync" portType="receiverParty_receiveRejection:UBL_CreateCatalogueProcess_ReceiverParty_ReceiveRejection1" inputVariable="input_receiverParty_receiveRejection1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_receiverparty_receiverejection1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_receiverejection1_callback" variable="output_receiverParty_receiveRejection1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_receiverparty_receiverejection1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_receiverejection1_callback" variable="output_receiverParty_receiveRejection1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link23"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>
+		               	<bpel:assign validate="no" name="assign_abort_process_invoke_service_ubl_createcatalogueprocess_receiverparty_receiverejection1">
+							<bpel:copy>
+								<bpel:from>true()</bpel:from>
+								<bpel:to variable="abort_process" />
+							</bpel:copy>
+						</bpel:assign>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_providerparty_sendrejection1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ProviderParty_SendRejection_Partner" operation="sendRejectionAsync" portType="providerParty_sendRejection:UBL_CreateCatalogueProcess_ProviderParty_SendRejection1" inputVariable="input_providerParty_sendRejection1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_providerparty_sendrejection1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_sendrejection1_callback" variable="output_providerParty_sendRejection1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_providerparty_sendrejection1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_sendrejection1_callback" variable="output_providerParty_sendRejection1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link21"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link22">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance_Partner" operation="receiveAcknowledgeAcceptanceAsync" portType="providerParty_receiveAcknowledgeAcceptance:UBL_CreateCatalogueProcess_ProviderParty_ReceiveAcknowledgeAcceptance1" inputVariable="input_providerParty_receiveAcknowledgeAcceptance1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1_callback" variable="output_providerParty_receiveAcknowledgeAcceptance1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1_callback" variable="output_providerParty_receiveAcknowledgeAcceptance1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link13"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>
+		               	<bpel:assign validate="no" name="assign_abort_process_invoke_service_ubl_createcatalogueprocess_providerparty_receiveacknowledgeacceptance1">
+							<bpel:copy>
+								<bpel:from>true()</bpel:from>
+								<bpel:to variable="abort_process" />
+							</bpel:copy>
+						</bpel:assign>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_providerparty_revisecontent1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ProviderParty_ReviseContent_Partner" operation="reviseContentAsync" portType="providerParty_reviseContent:UBL_CreateCatalogueProcess_ProviderParty_ReviseContent1" inputVariable="input_providerParty_reviseContent1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_providerparty_revisecontent1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_revisecontent1_callback" variable="output_providerParty_reviseContent1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_providerparty_revisecontent1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_revisecontent1_callback" variable="output_providerParty_reviseContent1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link58"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link5">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_receiverparty_querycataloguecontent1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_QueryCatalogueContent_Partner" operation="queryCatalogueContentAsync" portType="receiverParty_queryCatalogueContent:UBL_CreateCatalogueProcess_ReceiverParty_QueryCatalogueContent1" inputVariable="input_receiverParty_queryCatalogueContent1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_receiverparty_querycataloguecontent1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_querycataloguecontent1_callback" variable="output_receiverParty_queryCatalogueContent1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_receiverparty_querycataloguecontent1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_querycataloguecontent1_callback" variable="output_receiverParty_queryCatalogueContent1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link3"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link47">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_ReviewCatalogueContent_Partner" operation="reviewCatalogueContentAsync" portType="receiverParty_reviewCatalogueContent:UBL_CreateCatalogueProcess_ReceiverParty_ReviewCatalogueContent1" inputVariable="input_receiverParty_reviewCatalogueContent1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1_callback" variable="output_receiverParty_reviewCatalogueContent1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_reviewcataloguecontent1_callback" variable="output_receiverParty_reviewCatalogueContent1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link40"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link2">
+	                    	<bpel:transitionCondition>$output_receiverParty_reviewCatalogueContent1.payload/outputDecision = 'queryCatalogueContent'</bpel:transitionCondition>
+	                    </bpel:source>
+	                    <bpel:source linkName="link37">
+	                    	<bpel:transitionCondition>$output_receiverParty_reviewCatalogueContent1.payload/outputDecision = 'acceptContent'</bpel:transitionCondition>
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_receiverparty_receivecatalogue1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ReceiverParty_ReceiveCatalogue_Partner" operation="receiveCatalogueAsync" portType="receiverParty_receiveCatalogue:UBL_CreateCatalogueProcess_ReceiverParty_ReceiveCatalogue1" inputVariable="input_receiverParty_receiveCatalogue1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_receiverparty_receivecatalogue1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_receivecatalogue1_callback" variable="output_receiverParty_receiveCatalogue1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_receiverparty_receivecatalogue1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_receiverparty_receivecatalogue1_callback" variable="output_receiverParty_receiveCatalogue1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link35"/>
+	                    <bpel:target linkName="link43"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link39">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_providerparty_processcataloguerequest1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ProviderParty_ProcessCatalogueRequest_Partner" operation="processCatalogueRequestAsync" portType="providerParty_processCatalogueRequest:UBL_CreateCatalogueProcess_ProviderParty_ProcessCatalogueRequest1" inputVariable="input_providerParty_processCatalogueRequest1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_providerparty_processcataloguerequest1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_processcataloguerequest1_callback" variable="output_providerParty_processCatalogueRequest1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_providerparty_processcataloguerequest1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_processcataloguerequest1_callback" variable="output_providerParty_processCatalogueRequest1_callback"/>
+	                <bpel:targets>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link20">
+	                    	<bpel:transitionCondition>$output_providerParty_processCatalogueRequest1.payload/outputDecision = 'rejected'</bpel:transitionCondition>
+	                    </bpel:source>
+	                    <bpel:source linkName="link28">
+	                    	<bpel:transitionCondition>$output_providerParty_processCatalogueRequest1.payload/outputDecision = 'accepted'</bpel:transitionCondition>
+	                    </bpel:source>
+	                    <bpel:source linkName="link26">
+	                    	<bpel:transitionCondition>$output_providerParty_processCatalogueRequest1.payload/outputDecision = 'accepted'</bpel:transitionCondition>
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_providerparty_distributecatalogue1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ProviderParty_DistributeCatalogue_Partner" operation="distributeCatalogueAsync" portType="providerParty_distributeCatalogue:UBL_CreateCatalogueProcess_ProviderParty_DistributeCatalogue1" inputVariable="input_providerParty_distributeCatalogue1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_providerparty_distributecatalogue1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_distributecatalogue1_callback" variable="output_providerParty_distributeCatalogue1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_providerparty_distributecatalogue1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_distributecatalogue1_callback" variable="output_providerParty_distributeCatalogue1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link33"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link34">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_providerparty_decideonaction1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction_Partner" operation="decideOnActionAsync" portType="providerParty_decideOnAction:UBL_CreateCatalogueProcess_ProviderParty_DecideOnAction1" inputVariable="input_providerParty_decideOnAction1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_providerparty_decideonaction1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_decideonaction1_callback" variable="output_providerParty_decideOnAction1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_providerparty_decideonaction1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_decideonaction1_callback" variable="output_providerParty_decideOnAction1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link50"/>
+	                    <bpel:target linkName="link48"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link57">
+	                    	<bpel:transitionCondition>$output_providerParty_decideOnAction1.payload/outputDecision = 'reviseContent'</bpel:transitionCondition>
+	                    </bpel:source>
+	                    <bpel:source linkName="link54">
+	                    	<bpel:transitionCondition>$output_providerParty_decideOnAction1.payload/outputDecision = 'cancelTransaction'</bpel:transitionCondition>
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_createcatalogueprocess_providerparty_producecatalogue1" suppressJoinFailure="yes" partnerLink="UBL_CreateCatalogueProcess_ProviderParty_ProduceCatalogue_Partner" operation="produceCatalogueAsync" portType="providerParty_produceCatalogue:UBL_CreateCatalogueProcess_ProviderParty_ProduceCatalogue1" inputVariable="input_providerParty_produceCatalogue1"/>
+					<bpel:receive name="receive_service_ubl_createcatalogueprocess_providerparty_producecatalogue1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_producecatalogue1_callback" variable="output_providerParty_produceCatalogue1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_createcatalogueprocess_providerparty_producecatalogue1" partnerLink="CreateCatalogueProcess" portType="tns:CreateCatalogueProcess" operation="ubl_createcatalogueprocess_providerparty_producecatalogue1_callback" variable="output_providerParty_produceCatalogue1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link31"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link32">
+	                    </bpel:source>
+	                </bpel:sources>
+	                
+				</bpel:sequence>
+                <bpel:links>
+                	<bpel:link name="link20"/>
+                	<bpel:link name="link42"/>
+                	<bpel:link name="link40"/>
+                	<bpel:link name="link27"/>
+                	<bpel:link name="link28"/>
+                	<bpel:link name="link47"/>
+                	<bpel:link name="link26"/>
+                	<bpel:link name="link48"/>
+                	<bpel:link name="link23"/>
+                	<bpel:link name="link21"/>
+                	<bpel:link name="link43"/>
+                	<bpel:link name="link22"/>
+                	<bpel:link name="link29"/>
+                	<bpel:link name="link30"/>
+                	<bpel:link name="link31"/>
+                	<bpel:link name="link50"/>
+                	<bpel:link name="link2"/>
+                	<bpel:link name="link38"/>
+                	<bpel:link name="link39"/>
+                	<bpel:link name="link5"/>
+                	<bpel:link name="link58"/>
+                	<bpel:link name="link37"/>
+                	<bpel:link name="link3"/>
+                	<bpel:link name="link34"/>
+                	<bpel:link name="link12"/>
+                	<bpel:link name="link35"/>
+                	<bpel:link name="link57"/>
+                	<bpel:link name="link13"/>
+                	<bpel:link name="link54"/>
+                	<bpel:link name="link10"/>
+                	<bpel:link name="link32"/>
+                	<bpel:link name="link55"/>
+                	<bpel:link name="link11"/>
+                	<bpel:link name="link33"/>
+            	</bpel:links>
+			</bpel:flow>
+	                <bpel:targets>
+	                    <bpel:target linkName="link8"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>				
+				</bpel:while>
+                <bpel:links>
+                	<bpel:link name="link45"/>
+                	<bpel:link name="link24"/>
+                	<bpel:link name="link44"/>
+                	<bpel:link name="link8"/>
+                	<bpel:link name="link7"/>
+            	</bpel:links>
+			</bpel:flow>
+		</bpel:scope>
+	
+	</bpel:sequence>
+</bpel:process>
+

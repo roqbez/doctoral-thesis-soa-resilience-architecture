@@ -1,0 +1,777 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Header>
+		<ectx:executionContext xmlns:ectx="http://gsigma.ufsc.br/execution">
+			<ectx:flags>
+				<entry key="DISABLE_SERVICE_DISCOVERY" value="false" />
+				<entry key="DISABLE_SERVICE_MONITORING" value="false" />
+				<entry key="DISABLE_ADHOC_SERVICE_DEPLOYMENT" value="true" />
+				<entry key="FORCE_PROTOCOL_CONVERTER" value="false" />
+			</ectx:flags>
+			<ectx:attributes>
+				<entry key="PROTOCOL_CONVERTER" value="" />
+			</ectx:attributes>
+		</ectx:executionContext>
+	</soap:Header>
+	<soap:Body>
+		<ns3:deployApplication xmlns:ectx="http://gsigma.ufsc.br/execution" xmlns:ns3="http://interfaces.deployment.services.gsigma.ufsc.br/">
+			<request>
+				<itConfiguration>
+					<servicesInformation>
+						<qoSWeights>
+							<entry key="Availability.Availability" value="1.0" />
+							<entry key="Cost.ExecutionCost" value="1.0" />
+							<entry key="Performance.ResponseTime" value="1.0" />
+							<entry key="Performance.Throughput" value="1.0" />
+						</qoSWeights>
+						<globalQoSDelta>
+							<entry key="Performance.Throughput" value="82.0" />
+							<entry key="Cost.ExecutionCost" value="3792.4484662603772" />
+							<entry key="Availability.Availability" value="0.4011057250721247" />
+							<entry key="Performance.ResponseTime" value="1960.0" />
+						</globalQoSDelta>
+						<qoSCriterions>
+							<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="5000.0" managed="false" />
+						</qoSCriterions>
+						<servicesConfig>
+							<serviceConfig classification="ubl/payment/paymentprocess/accountingCustomer/authorizePayment" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher24" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/paymentprocess/accountingCustomer/authorizePayment"
+										serviceUtility="0.7674598229622649" serviceKey="uddi:publisher24:node1-uddi-ubl-services-payment_paymentprocess_accountingcustomer_authorizepayment-ublservices-1"
+										serviceName="UBLPaymentProcessAccountingCustomerAuthorizePayment" bindingTemplateKey="uddi:publisher24:node1-uddi-ubl-services-payment_paymentprocess_accountingcustomer_authorizepayment-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24" serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/paymentprocess/accountingCustomer/authorizePayment"
+										serviceUtility="0.7674598229622649" serviceKey="uddi:publisher24:node2-uddi-ubl-services-payment_paymentprocess_accountingcustomer_authorizepayment-ublservices2-1"
+										serviceName="UBLPaymentProcessAccountingCustomerAuthorizePayment" bindingTemplateKey="uddi:publisher24:node2-uddi-ubl-services-payment_paymentprocess_accountingcustomer_authorizepayment-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24" serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/paymentprocess/accountingCustomer/authorizePayment"
+										serviceUtility="0.7674598229622649" serviceKey="uddi:publisher24:node3-uddi-ubl-services-payment_paymentprocess_accountingcustomer_authorizepayment-ublservices3-1"
+										serviceName="UBLPaymentProcessAccountingCustomerAuthorizePayment" bindingTemplateKey="uddi:publisher24:node3-uddi-ubl-services-payment_paymentprocess_accountingcustomer_authorizepayment-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24" serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/paymentprocess/accountingCustomer/authorizePayment"
+										serviceUtility="0.7674598229622649" serviceKey="uddi:publisher24:node4-uddi-ubl-services-payment_paymentprocess_accountingcustomer_authorizepayment-ublservices4-1"
+										serviceName="UBLPaymentProcessAccountingCustomerAuthorizePayment" bindingTemplateKey="uddi:publisher24:node4-uddi-ubl-services-payment_paymentprocess_accountingcustomer_authorizepayment-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24" serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/paymentprocess/accountingCustomer/authorizePayment"
+										serviceUtility="0.7674598229622649" serviceKey="uddi:publisher24:node5-uddi-ubl-services-payment_paymentprocess_accountingcustomer_authorizepayment-ublservices5-1"
+										serviceName="UBLPaymentProcessAccountingCustomerAuthorizePayment" bindingTemplateKey="uddi:publisher24:node5-uddi-ubl-services-payment_paymentprocess_accountingcustomer_authorizepayment-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/payment/paymentprocess/accountingCustomer/notifyOfPayment" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="542.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="542.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher24" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/paymentprocess/accountingCustomer/notifyOfPayment"
+										serviceUtility="1.4129191965383974" serviceKey="uddi:publisher24:node1-uddi-ubl-services-payment_paymentprocess_accountingcustomer_notifyofpayment-ublservices-1"
+										serviceName="UBLPaymentProcessAccountingCustomerNotifyOfPayment" bindingTemplateKey="uddi:publisher24:node1-uddi-ubl-services-payment_paymentprocess_accountingcustomer_notifyofpayment-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24" serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/paymentprocess/accountingCustomer/notifyOfPayment"
+										serviceUtility="1.4129191965383974" serviceKey="uddi:publisher24:node2-uddi-ubl-services-payment_paymentprocess_accountingcustomer_notifyofpayment-ublservices2-1"
+										serviceName="UBLPaymentProcessAccountingCustomerNotifyOfPayment" bindingTemplateKey="uddi:publisher24:node2-uddi-ubl-services-payment_paymentprocess_accountingcustomer_notifyofpayment-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24" serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/paymentprocess/accountingCustomer/notifyOfPayment"
+										serviceUtility="1.4129191965383974" serviceKey="uddi:publisher24:node3-uddi-ubl-services-payment_paymentprocess_accountingcustomer_notifyofpayment-ublservices3-1"
+										serviceName="UBLPaymentProcessAccountingCustomerNotifyOfPayment" bindingTemplateKey="uddi:publisher24:node3-uddi-ubl-services-payment_paymentprocess_accountingcustomer_notifyofpayment-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24" serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/paymentprocess/accountingCustomer/notifyOfPayment"
+										serviceUtility="1.4129191965383974" serviceKey="uddi:publisher24:node4-uddi-ubl-services-payment_paymentprocess_accountingcustomer_notifyofpayment-ublservices4-1"
+										serviceName="UBLPaymentProcessAccountingCustomerNotifyOfPayment" bindingTemplateKey="uddi:publisher24:node4-uddi-ubl-services-payment_paymentprocess_accountingcustomer_notifyofpayment-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher24" serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/paymentprocess/accountingCustomer/notifyOfPayment"
+										serviceUtility="1.4129191965383974" serviceKey="uddi:publisher24:node5-uddi-ubl-services-payment_paymentprocess_accountingcustomer_notifyofpayment-ublservices5-1"
+										serviceName="UBLPaymentProcessAccountingCustomerNotifyOfPayment" bindingTemplateKey="uddi:publisher24:node5-uddi-ubl-services-payment_paymentprocess_accountingcustomer_notifyofpayment-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/payment/paymentprocess/accountingSupplier/notifyPayee" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher37" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/paymentprocess/accountingSupplier/notifyPayee"
+										serviceUtility="0.9041946047927505" serviceKey="uddi:publisher37:node1-uddi-ubl-services-payment_paymentprocess_accountingsupplier_notifypayee-ublservices-1" serviceName="UBLPaymentProcessAccountingSupplierNotifyPayee"
+										bindingTemplateKey="uddi:publisher37:node1-uddi-ubl-services-payment_paymentprocess_accountingsupplier_notifypayee-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher37" serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/paymentprocess/accountingSupplier/notifyPayee"
+										serviceUtility="0.9041946047927505" serviceKey="uddi:publisher37:node2-uddi-ubl-services-payment_paymentprocess_accountingsupplier_notifypayee-ublservices2-1"
+										serviceName="UBLPaymentProcessAccountingSupplierNotifyPayee" bindingTemplateKey="uddi:publisher37:node2-uddi-ubl-services-payment_paymentprocess_accountingsupplier_notifypayee-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher37" serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/paymentprocess/accountingSupplier/notifyPayee"
+										serviceUtility="0.9041946047927505" serviceKey="uddi:publisher37:node3-uddi-ubl-services-payment_paymentprocess_accountingsupplier_notifypayee-ublservices3-1"
+										serviceName="UBLPaymentProcessAccountingSupplierNotifyPayee" bindingTemplateKey="uddi:publisher37:node3-uddi-ubl-services-payment_paymentprocess_accountingsupplier_notifypayee-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher37" serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/paymentprocess/accountingSupplier/notifyPayee"
+										serviceUtility="0.9041946047927505" serviceKey="uddi:publisher37:node4-uddi-ubl-services-payment_paymentprocess_accountingsupplier_notifypayee-ublservices4-1"
+										serviceName="UBLPaymentProcessAccountingSupplierNotifyPayee" bindingTemplateKey="uddi:publisher37:node4-uddi-ubl-services-payment_paymentprocess_accountingsupplier_notifypayee-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher37" serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/paymentprocess/accountingSupplier/notifyPayee"
+										serviceUtility="0.9041946047927505" serviceKey="uddi:publisher37:node5-uddi-ubl-services-payment_paymentprocess_accountingsupplier_notifypayee-ublservices5-1"
+										serviceName="UBLPaymentProcessAccountingSupplierNotifyPayee" bindingTemplateKey="uddi:publisher37:node5-uddi-ubl-services-payment_paymentprocess_accountingsupplier_notifypayee-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/payment/paymentprocess/accountingSupplier/receiveAdvice" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="545.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="545.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher37" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/paymentprocess/accountingSupplier/receiveAdvice"
+										serviceUtility="1.4192441893273822" serviceKey="uddi:publisher37:node1-uddi-ubl-services-payment_paymentprocess_accountingsupplier_receiveadvice-ublservices-1"
+										serviceName="UBLPaymentProcessAccountingSupplierReceiveAdvice" bindingTemplateKey="uddi:publisher37:node1-uddi-ubl-services-payment_paymentprocess_accountingsupplier_receiveadvice-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher37" serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/paymentprocess/accountingSupplier/receiveAdvice"
+										serviceUtility="1.4192441893273822" serviceKey="uddi:publisher37:node2-uddi-ubl-services-payment_paymentprocess_accountingsupplier_receiveadvice-ublservices2-1"
+										serviceName="UBLPaymentProcessAccountingSupplierReceiveAdvice" bindingTemplateKey="uddi:publisher37:node2-uddi-ubl-services-payment_paymentprocess_accountingsupplier_receiveadvice-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher37" serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/paymentprocess/accountingSupplier/receiveAdvice"
+										serviceUtility="1.4192441893273822" serviceKey="uddi:publisher37:node3-uddi-ubl-services-payment_paymentprocess_accountingsupplier_receiveadvice-ublservices3-1"
+										serviceName="UBLPaymentProcessAccountingSupplierReceiveAdvice" bindingTemplateKey="uddi:publisher37:node3-uddi-ubl-services-payment_paymentprocess_accountingsupplier_receiveadvice-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher37" serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/paymentprocess/accountingSupplier/receiveAdvice"
+										serviceUtility="1.4192441893273822" serviceKey="uddi:publisher37:node4-uddi-ubl-services-payment_paymentprocess_accountingsupplier_receiveadvice-ublservices4-1"
+										serviceName="UBLPaymentProcessAccountingSupplierReceiveAdvice" bindingTemplateKey="uddi:publisher37:node4-uddi-ubl-services-payment_paymentprocess_accountingsupplier_receiveadvice-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher37" serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/paymentprocess/accountingSupplier/receiveAdvice"
+										serviceUtility="1.4192441893273822" serviceKey="uddi:publisher37:node5-uddi-ubl-services-payment_paymentprocess_accountingsupplier_receiveadvice-ublservices5-1"
+										serviceName="UBLPaymentProcessAccountingSupplierReceiveAdvice" bindingTemplateKey="uddi:publisher37:node5-uddi-ubl-services-payment_paymentprocess_accountingsupplier_receiveadvice-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/payment/paymentprocess/payeeParty/receiveAdvice" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="539.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="539.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher60" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/paymentprocess/payeeParty/receiveAdvice"
+										serviceUtility="1.3585613373619496" serviceKey="uddi:publisher60:node1-uddi-ubl-services-payment_paymentprocess_payeeparty_receiveadvice-ublservices-1" serviceName="UBLPaymentProcessPayeePartyReceiveAdvice"
+										bindingTemplateKey="uddi:publisher60:node1-uddi-ubl-services-payment_paymentprocess_payeeparty_receiveadvice-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher60" serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/paymentprocess/payeeParty/receiveAdvice"
+										serviceUtility="1.3585613373619496" serviceKey="uddi:publisher60:node2-uddi-ubl-services-payment_paymentprocess_payeeparty_receiveadvice-ublservices2-1" serviceName="UBLPaymentProcessPayeePartyReceiveAdvice"
+										bindingTemplateKey="uddi:publisher60:node2-uddi-ubl-services-payment_paymentprocess_payeeparty_receiveadvice-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher60" serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/paymentprocess/payeeParty/receiveAdvice"
+										serviceUtility="1.3585613373619496" serviceKey="uddi:publisher60:node3-uddi-ubl-services-payment_paymentprocess_payeeparty_receiveadvice-ublservices3-1" serviceName="UBLPaymentProcessPayeePartyReceiveAdvice"
+										bindingTemplateKey="uddi:publisher60:node3-uddi-ubl-services-payment_paymentprocess_payeeparty_receiveadvice-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher60" serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/paymentprocess/payeeParty/receiveAdvice"
+										serviceUtility="1.3585613373619496" serviceKey="uddi:publisher60:node4-uddi-ubl-services-payment_paymentprocess_payeeparty_receiveadvice-ublservices4-1" serviceName="UBLPaymentProcessPayeePartyReceiveAdvice"
+										bindingTemplateKey="uddi:publisher60:node4-uddi-ubl-services-payment_paymentprocess_payeeparty_receiveadvice-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher60" serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/paymentprocess/payeeParty/receiveAdvice"
+										serviceUtility="1.3585613373619496" serviceKey="uddi:publisher60:node5-uddi-ubl-services-payment_paymentprocess_payeeparty_receiveadvice-ublservices5-1" serviceName="UBLPaymentProcessPayeePartyReceiveAdvice"
+										bindingTemplateKey="uddi:publisher60:node5-uddi-ubl-services-payment_paymentprocess_payeeparty_receiveadvice-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+						</servicesConfig>
+					</servicesInformation>
+					<persistentProcess>true</persistentProcess>
+				</itConfiguration>
+				<businessProcess>
+					<name>Payment Process</name>
+					<inputContactPoints />
+					<outputContactPoints />
+					<participants />
+					<resources />
+					<tasks>
+						<task>
+							<id>0</id>
+							<name>Authorize Payment</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>1</id>
+									<name>input</name>
+									<connectableComponentName>Authorize Payment</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>2</id>
+									<name>output</name>
+									<connectableComponentName>Authorize Payment</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/payment/paymentprocess/accountingCustomer/authorizePayment</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>UBL_ACCOUNTING_CUSTOMER</id>
+										<name>UBL Accounting Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>9</id>
+							<name>Notify of Payment</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>10</id>
+									<name>input</name>
+									<connectableComponentName>Notify of Payment</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>11</id>
+									<name>output</name>
+									<connectableComponentName>Notify of Payment</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_REMITTANCE_ADVICE</id>
+										<name>UBL Remittance Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+										<xmlName>RemittanceAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/payment/paymentprocess/accountingCustomer/notifyOfPayment</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>UBL_ACCOUNTING_CUSTOMER</id>
+										<name>UBL Accounting Customer</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>12</id>
+							<name>Notify Payee</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>13</id>
+									<name>input</name>
+									<connectableComponentName>Notify Payee</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_REMITTANCE_ADVICE</id>
+										<name>UBL Remittance Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+										<xmlName>RemittanceAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>14</id>
+									<name>output</name>
+									<connectableComponentName>Notify Payee</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_REMITTANCE_ADVICE</id>
+										<name>UBL Remittance Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+										<xmlName>RemittanceAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/payment/paymentprocess/accountingSupplier/notifyPayee</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>UBL_ACCOUNTING_SUPPLIER</id>
+										<name>UBL Accounting Supplier</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>15</id>
+							<name>Receive Advice from Accounting Customer</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>16</id>
+									<name>input</name>
+									<connectableComponentName>Receive Advice from Accounting Customer</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_REMITTANCE_ADVICE</id>
+										<name>UBL Remittance Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+										<xmlName>RemittanceAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>17</id>
+									<name>output</name>
+									<connectableComponentName>Receive Advice from Accounting Customer</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_REMITTANCE_ADVICE</id>
+										<name>UBL Remittance Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+										<xmlName>RemittanceAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/payment/paymentprocess/accountingSupplier/receiveAdvice</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>UBL_ACCOUNTING_SUPPLIER</id>
+										<name>UBL Accounting Supplier</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>18</id>
+							<name>Receive Advice from Accounting Customer1</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>19</id>
+									<name>inputFromAccountingSupplier</name>
+									<connectableComponentName>Receive Advice from Accounting Customer1</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_REMITTANCE_ADVICE</id>
+										<name>UBL Remittance Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+										<xmlName>RemittanceAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>20</id>
+									<name>inputFromAccountingCustomer</name>
+									<connectableComponentName>Receive Advice from Accounting Customer1</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_REMITTANCE_ADVICE</id>
+										<name>UBL Remittance Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+										<xmlName>RemittanceAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>21</id>
+									<name>output</name>
+									<connectableComponentName>Receive Advice from Accounting Customer1</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/payment/paymentprocess/payeeParty/receiveAdvice</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>UBL_PAYEE_PARTY</id>
+										<name>UBL Payee Party</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+					</tasks>
+					<startEvents>
+						<startEvent>
+							<id>22</id>
+							<name>Start</name>
+							<inputContactPoints />
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>23</id>
+									<name>Output</name>
+									<connectableComponentName>Start</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+						</startEvent>
+					</startEvents>
+					<endEvents>
+						<endEvent>
+							<id>3</id>
+							<name>End</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>4</id>
+									<name>Input</name>
+									<connectableComponentName>End</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints />
+						</endEvent>
+					</endEvents>
+					<decisions />
+					<forks>
+						<fork>
+							<id>5</id>
+							<name>fork</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>6</id>
+									<name>input</name>
+									<connectableComponentName>fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_REMITTANCE_ADVICE</id>
+										<name>UBL Remittance Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+										<xmlName>RemittanceAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>7</id>
+									<name>outpu1</name>
+									<connectableComponentName>fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_REMITTANCE_ADVICE</id>
+										<name>UBL Remittance Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+										<xmlName>RemittanceAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>8</id>
+									<name>output2</name>
+									<connectableComponentName>fork</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_REMITTANCE_ADVICE</id>
+										<name>UBL Remittance Advice</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+										<xmlName>RemittanceAdviceType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch</name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>6</id>
+											<name>input</name>
+											<connectableComponentName>fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_REMITTANCE_ADVICE</id>
+												<name>UBL Remittance Advice</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+												<xmlName>RemittanceAdviceType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch 1</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>7</id>
+											<name>outpu1</name>
+											<connectableComponentName>fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_REMITTANCE_ADVICE</id>
+												<name>UBL Remittance Advice</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+												<xmlName>RemittanceAdviceType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 2</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>8</id>
+											<name>output2</name>
+											<connectableComponentName>fork</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_REMITTANCE_ADVICE</id>
+												<name>UBL Remittance Advice</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+												<xmlName>RemittanceAdviceType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+								</outputBranch>
+							</outputBranches>
+						</fork>
+					</forks>
+					<junctions />
+					<merges />
+					<connections>
+						<connection>
+							<id>24</id>
+							<input>
+								<id>6</id>
+								<name>input</name>
+								<connectableComponentName>fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_REMITTANCE_ADVICE</id>
+									<name>UBL Remittance Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+									<xmlName>RemittanceAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>11</id>
+								<name>output</name>
+								<connectableComponentName>Notify of Payment</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_REMITTANCE_ADVICE</id>
+									<name>UBL Remittance Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+									<xmlName>RemittanceAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>25</id>
+							<input>
+								<id>16</id>
+								<name>input</name>
+								<connectableComponentName>Receive Advice from Accounting Customer</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_REMITTANCE_ADVICE</id>
+									<name>UBL Remittance Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+									<xmlName>RemittanceAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>7</id>
+								<name>outpu1</name>
+								<connectableComponentName>fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_REMITTANCE_ADVICE</id>
+									<name>UBL Remittance Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+									<xmlName>RemittanceAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>26</id>
+							<input>
+								<id>20</id>
+								<name>inputFromAccountingCustomer</name>
+								<connectableComponentName>Receive Advice from Accounting Customer1</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_REMITTANCE_ADVICE</id>
+									<name>UBL Remittance Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+									<xmlName>RemittanceAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>8</id>
+								<name>output2</name>
+								<connectableComponentName>fork</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_REMITTANCE_ADVICE</id>
+									<name>UBL Remittance Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+									<xmlName>RemittanceAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>27</id>
+							<input>
+								<id>1</id>
+								<name>input</name>
+								<connectableComponentName>Authorize Payment</connectableComponentName>
+							</input>
+							<output>
+								<id>23</id>
+								<name>Output</name>
+								<connectableComponentName>Start</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>28</id>
+							<input>
+								<id>10</id>
+								<name>input</name>
+								<connectableComponentName>Notify of Payment</connectableComponentName>
+							</input>
+							<output>
+								<id>2</id>
+								<name>output</name>
+								<connectableComponentName>Authorize Payment</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>29</id>
+							<input>
+								<id>13</id>
+								<name>input</name>
+								<connectableComponentName>Notify Payee</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_REMITTANCE_ADVICE</id>
+									<name>UBL Remittance Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+									<xmlName>RemittanceAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>17</id>
+								<name>output</name>
+								<connectableComponentName>Receive Advice from Accounting Customer</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_REMITTANCE_ADVICE</id>
+									<name>UBL Remittance Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+									<xmlName>RemittanceAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>30</id>
+							<input>
+								<id>19</id>
+								<name>inputFromAccountingSupplier</name>
+								<connectableComponentName>Receive Advice from Accounting Customer1</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_REMITTANCE_ADVICE</id>
+									<name>UBL Remittance Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+									<xmlName>RemittanceAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>14</id>
+								<name>output</name>
+								<connectableComponentName>Notify Payee</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_REMITTANCE_ADVICE</id>
+									<name>UBL Remittance Advice</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:RemittanceAdvice-2</xmlNamespace>
+									<xmlName>RemittanceAdviceType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>31</id>
+							<input>
+								<id>4</id>
+								<name>Input</name>
+								<connectableComponentName>End</connectableComponentName>
+							</input>
+							<output>
+								<id>21</id>
+								<name>output</name>
+								<connectableComponentName>Receive Advice from Accounting Customer1</connectableComponentName>
+							</output>
+						</connection>
+					</connections>
+				</businessProcess>
+				<businessProcessName>Payment Process</businessProcessName>
+			</request>
+		</ns3:deployApplication>
+	</soap:Body>
+</soap:Envelope>

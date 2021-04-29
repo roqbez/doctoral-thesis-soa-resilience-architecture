@@ -1,0 +1,3364 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Header>
+		<ectx:executionContext xmlns:ectx="http://gsigma.ufsc.br/execution">
+			<ectx:flags>
+				<entry key="DISABLE_SERVICE_DISCOVERY" value="false" />
+				<entry key="DISABLE_SERVICE_MONITORING" value="false" />
+				<entry key="DISABLE_ADHOC_SERVICE_DEPLOYMENT" value="true" />
+				<entry key="FORCE_PROTOCOL_CONVERTER" value="false" />
+			</ectx:flags>
+			<ectx:attributes>
+				<entry key="PROTOCOL_CONVERTER" value="" />
+			</ectx:attributes>
+		</ectx:executionContext>
+	</soap:Header>
+	<soap:Body>
+		<ns3:deployApplication xmlns:ectx="http://gsigma.ufsc.br/execution" xmlns:ns3="http://interfaces.deployment.services.gsigma.ufsc.br/">
+			<request>
+				<itConfiguration>
+					<servicesInformation>
+						<qoSWeights />
+						<globalQoSDelta>
+							<entry key="Performance.Throughput" value="81.0" />
+							<entry key="Cost.ExecutionCost" value="25591.861053995177" />
+							<entry key="Availability.Availability" value="0.9126639313223521" />
+							<entry key="Performance.ResponseTime" value="10482.0" />
+						</globalQoSDelta>
+						<qoSCriterions>
+							<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="15000.0" managed="false" />
+						</qoSCriterions>
+						<servicesConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="180.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="180.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher48" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/receiverParty/acceptCatalogue"
+										serviceUtility="0.6451486213091029" serviceKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue-ublservices-1"
+										serviceName="UBLCreateCatalogueProcessReceiverPartyAcceptCatalogue" bindingTemplateKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/receiverParty/acceptCatalogue" serviceUtility="0.6451486213091029"
+										serviceKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue-ublservices2-1" serviceName="UBLCreateCatalogueProcessReceiverPartyAcceptCatalogue"
+										bindingTemplateKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/receiverParty/acceptCatalogue" serviceUtility="0.6451486213091029"
+										serviceKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue-ublservices3-1" serviceName="UBLCreateCatalogueProcessReceiverPartyAcceptCatalogue"
+										bindingTemplateKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/receiverParty/acceptCatalogue" serviceUtility="0.6451486213091029"
+										serviceKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue-ublservices4-1" serviceName="UBLCreateCatalogueProcessReceiverPartyAcceptCatalogue"
+										bindingTemplateKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/receiverParty/acceptCatalogue" serviceUtility="0.6451486213091029"
+										serviceKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue-ublservices5-1" serviceName="UBLCreateCatalogueProcessReceiverPartyAcceptCatalogue"
+										bindingTemplateKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acceptcatalogue-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="545.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="545.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/receiverParty/acknowledgeAcceptance" serviceUtility="0.8155214091083628"
+										serviceKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance-ublservices-1" serviceName="UBLCreateCatalogueProcessReceiverPartyAcknowledgeAcceptance"
+										bindingTemplateKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/receiverParty/acknowledgeAcceptance" serviceUtility="0.8155214091083628"
+										serviceKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance-ublservices2-1" serviceName="UBLCreateCatalogueProcessReceiverPartyAcknowledgeAcceptance"
+										bindingTemplateKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/receiverParty/acknowledgeAcceptance" serviceUtility="0.8155214091083628"
+										serviceKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance-ublservices3-1" serviceName="UBLCreateCatalogueProcessReceiverPartyAcknowledgeAcceptance"
+										bindingTemplateKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/receiverParty/acknowledgeAcceptance" serviceUtility="0.8155214091083628"
+										serviceKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance-ublservices4-1" serviceName="UBLCreateCatalogueProcessReceiverPartyAcknowledgeAcceptance"
+										bindingTemplateKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/receiverParty/acknowledgeAcceptance" serviceUtility="0.8155214091083628"
+										serviceKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance-ublservices5-1" serviceName="UBLCreateCatalogueProcessReceiverPartyAcknowledgeAcceptance"
+										bindingTemplateKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_acknowledgeacceptance-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="179.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="179.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/providerParty/cancelTransaction" serviceUtility="1.0292034390821996"
+										serviceKey="uddi:publisher69:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction-ublservices-1" serviceName="UBLCreateCatalogueProcessProviderPartyCancelTransaction"
+										bindingTemplateKey="uddi:publisher69:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/providerParty/cancelTransaction" serviceUtility="1.0292034390821996"
+										serviceKey="uddi:publisher69:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction-ublservices2-1" serviceName="UBLCreateCatalogueProcessProviderPartyCancelTransaction"
+										bindingTemplateKey="uddi:publisher69:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/providerParty/cancelTransaction" serviceUtility="1.0292034390821996"
+										serviceKey="uddi:publisher69:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction-ublservices3-1" serviceName="UBLCreateCatalogueProcessProviderPartyCancelTransaction"
+										bindingTemplateKey="uddi:publisher69:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/providerParty/cancelTransaction" serviceUtility="1.0292034390821996"
+										serviceKey="uddi:publisher69:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction-ublservices4-1" serviceName="UBLCreateCatalogueProcessProviderPartyCancelTransaction"
+										bindingTemplateKey="uddi:publisher69:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/providerParty/cancelTransaction" serviceUtility="1.0292034390821996"
+										serviceKey="uddi:publisher69:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction-ublservices5-1" serviceName="UBLCreateCatalogueProcessProviderPartyCancelTransaction"
+										bindingTemplateKey="uddi:publisher69:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_canceltransaction-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher69" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/providerParty/decideOnAction"
+										serviceUtility="0.3029404214932624" serviceKey="uddi:publisher69:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction-ublservices-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyDecideOnAction" bindingTemplateKey="uddi:publisher69:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69" serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/providerParty/decideOnAction"
+										serviceUtility="0.3029404214932624" serviceKey="uddi:publisher69:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction-ublservices2-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyDecideOnAction" bindingTemplateKey="uddi:publisher69:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69" serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/providerParty/decideOnAction"
+										serviceUtility="0.3029404214932624" serviceKey="uddi:publisher69:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction-ublservices3-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyDecideOnAction" bindingTemplateKey="uddi:publisher69:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69" serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/providerParty/decideOnAction"
+										serviceUtility="0.3029404214932624" serviceKey="uddi:publisher69:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction-ublservices4-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyDecideOnAction" bindingTemplateKey="uddi:publisher69:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69" serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/providerParty/decideOnAction"
+										serviceUtility="0.3029404214932624" serviceKey="uddi:publisher69:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction-ublservices5-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyDecideOnAction" bindingTemplateKey="uddi:publisher69:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_decideonaction-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/providerParty/distributeCatalogue" serviceUtility="0.7227316402382346"
+										serviceKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue-ublservices-1" serviceName="UBLCreateCatalogueProcessProviderPartyDistributeCatalogue"
+										bindingTemplateKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/providerParty/distributeCatalogue" serviceUtility="0.7227316402382346"
+										serviceKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue-ublservices2-1" serviceName="UBLCreateCatalogueProcessProviderPartyDistributeCatalogue"
+										bindingTemplateKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/providerParty/distributeCatalogue" serviceUtility="0.7227316402382346"
+										serviceKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue-ublservices3-1" serviceName="UBLCreateCatalogueProcessProviderPartyDistributeCatalogue"
+										bindingTemplateKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/providerParty/distributeCatalogue" serviceUtility="0.7227316402382346"
+										serviceKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue-ublservices4-1" serviceName="UBLCreateCatalogueProcessProviderPartyDistributeCatalogue"
+										bindingTemplateKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/providerParty/distributeCatalogue" serviceUtility="0.7227316402382346"
+										serviceKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue-ublservices5-1" serviceName="UBLCreateCatalogueProcessProviderPartyDistributeCatalogue"
+										bindingTemplateKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_distributecatalogue-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/providerParty/prepareCatalogueInformation" serviceUtility="0.2708721297205253"
+										serviceKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation-ublservices-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyPrepareCatalogueInformation" bindingTemplateKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/providerParty/prepareCatalogueInformation" serviceUtility="0.2708721297205253"
+										serviceKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation-ublservices2-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyPrepareCatalogueInformation" bindingTemplateKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/providerParty/prepareCatalogueInformation" serviceUtility="0.2708721297205253"
+										serviceKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation-ublservices3-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyPrepareCatalogueInformation" bindingTemplateKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/providerParty/prepareCatalogueInformation" serviceUtility="0.2708721297205253"
+										serviceKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation-ublservices4-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyPrepareCatalogueInformation" bindingTemplateKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/providerParty/prepareCatalogueInformation" serviceUtility="0.2708721297205253"
+										serviceKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation-ublservices5-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyPrepareCatalogueInformation" bindingTemplateKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_preparecatalogueinformation-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="546.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="546.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/providerParty/processCatalogueRequest" serviceUtility="0.6626042459462903"
+										serviceKey="uddi:publisher69:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest-ublservices-1" serviceName="UBLCreateCatalogueProcessProviderPartyProcessCatalogueRequest"
+										bindingTemplateKey="uddi:publisher69:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/providerParty/processCatalogueRequest" serviceUtility="0.6626042459462903"
+										serviceKey="uddi:publisher69:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest-ublservices2-1" serviceName="UBLCreateCatalogueProcessProviderPartyProcessCatalogueRequest"
+										bindingTemplateKey="uddi:publisher69:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/providerParty/processCatalogueRequest" serviceUtility="0.6626042459462903"
+										serviceKey="uddi:publisher69:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest-ublservices3-1" serviceName="UBLCreateCatalogueProcessProviderPartyProcessCatalogueRequest"
+										bindingTemplateKey="uddi:publisher69:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/providerParty/processCatalogueRequest" serviceUtility="0.6626042459462903"
+										serviceKey="uddi:publisher69:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest-ublservices4-1" serviceName="UBLCreateCatalogueProcessProviderPartyProcessCatalogueRequest"
+										bindingTemplateKey="uddi:publisher69:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/providerParty/processCatalogueRequest" serviceUtility="0.6626042459462903"
+										serviceKey="uddi:publisher69:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest-ublservices5-1" serviceName="UBLCreateCatalogueProcessProviderPartyProcessCatalogueRequest"
+										bindingTemplateKey="uddi:publisher69:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_processcataloguerequest-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="547.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="547.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/providerParty/produceCatalogue" serviceUtility="0.45977864690367903"
+										serviceKey="uddi:publisher69:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue-ublservices-1" serviceName="UBLCreateCatalogueProcessProviderPartyProduceCatalogue"
+										bindingTemplateKey="uddi:publisher69:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/providerParty/produceCatalogue" serviceUtility="0.45977864690367903"
+										serviceKey="uddi:publisher69:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue-ublservices2-1" serviceName="UBLCreateCatalogueProcessProviderPartyProduceCatalogue"
+										bindingTemplateKey="uddi:publisher69:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/providerParty/produceCatalogue" serviceUtility="0.45977864690367903"
+										serviceKey="uddi:publisher69:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue-ublservices3-1" serviceName="UBLCreateCatalogueProcessProviderPartyProduceCatalogue"
+										bindingTemplateKey="uddi:publisher69:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/providerParty/produceCatalogue" serviceUtility="0.45977864690367903"
+										serviceKey="uddi:publisher69:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue-ublservices4-1" serviceName="UBLCreateCatalogueProcessProviderPartyProduceCatalogue"
+										bindingTemplateKey="uddi:publisher69:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/providerParty/produceCatalogue" serviceUtility="0.45977864690367903"
+										serviceKey="uddi:publisher69:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue-ublservices5-1" serviceName="UBLCreateCatalogueProcessProviderPartyProduceCatalogue"
+										bindingTemplateKey="uddi:publisher69:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_producecatalogue-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="525.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="525.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/receiverParty/queryCatalogueContent" serviceUtility="1.1432720505050722"
+										serviceKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent-ublservices-1" serviceName="UBLCreateCatalogueProcessReceiverPartyQueryCatalogueContent"
+										bindingTemplateKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/receiverParty/queryCatalogueContent" serviceUtility="1.1432720505050722"
+										serviceKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent-ublservices2-1" serviceName="UBLCreateCatalogueProcessReceiverPartyQueryCatalogueContent"
+										bindingTemplateKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/receiverParty/queryCatalogueContent" serviceUtility="1.1432720505050722"
+										serviceKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent-ublservices3-1" serviceName="UBLCreateCatalogueProcessReceiverPartyQueryCatalogueContent"
+										bindingTemplateKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/receiverParty/queryCatalogueContent" serviceUtility="1.1432720505050722"
+										serviceKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent-ublservices4-1" serviceName="UBLCreateCatalogueProcessReceiverPartyQueryCatalogueContent"
+										bindingTemplateKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/receiverParty/queryCatalogueContent" serviceUtility="1.1432720505050722"
+										serviceKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent-ublservices5-1" serviceName="UBLCreateCatalogueProcessReceiverPartyQueryCatalogueContent"
+										bindingTemplateKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_querycataloguecontent-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="179.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="179.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" serviceUtility="0.35715459964621904"
+										serviceKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance-ublservices-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyReceiveAcknowledgeAcceptance" bindingTemplateKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" serviceUtility="0.35715459964621904"
+										serviceKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance-ublservices2-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyReceiveAcknowledgeAcceptance"
+										bindingTemplateKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" serviceUtility="0.35715459964621904"
+										serviceKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance-ublservices3-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyReceiveAcknowledgeAcceptance"
+										bindingTemplateKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" serviceUtility="0.35715459964621904"
+										serviceKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance-ublservices4-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyReceiveAcknowledgeAcceptance"
+										bindingTemplateKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance" serviceUtility="0.35715459964621904"
+										serviceKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance-ublservices5-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyReceiveAcknowledgeAcceptance"
+										bindingTemplateKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_receiveacknowledgeacceptance-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/receiverParty/receiveCatalogue" serviceUtility="0.867283272701261"
+										serviceKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue-ublservices-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReceiveCatalogue"
+										bindingTemplateKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/receiverParty/receiveCatalogue" serviceUtility="0.867283272701261"
+										serviceKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue-ublservices2-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReceiveCatalogue"
+										bindingTemplateKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/receiverParty/receiveCatalogue" serviceUtility="0.867283272701261"
+										serviceKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue-ublservices3-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReceiveCatalogue"
+										bindingTemplateKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/receiverParty/receiveCatalogue" serviceUtility="0.867283272701261"
+										serviceKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue-ublservices4-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReceiveCatalogue"
+										bindingTemplateKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/receiverParty/receiveCatalogue" serviceUtility="0.867283272701261"
+										serviceKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue-ublservices5-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReceiveCatalogue"
+										bindingTemplateKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receivecatalogue-ublservices5-1-binding" />
+
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="539.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="539.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/receiverParty/receiveRejection" serviceUtility="0.9992687047864619"
+										serviceKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection-ublservices-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReceiveRejection"
+										bindingTemplateKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/receiverParty/receiveRejection" serviceUtility="0.9992687047864619"
+										serviceKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection-ublservices2-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReceiveRejection"
+										bindingTemplateKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/receiverParty/receiveRejection" serviceUtility="0.9992687047864619"
+										serviceKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection-ublservices3-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReceiveRejection"
+										bindingTemplateKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/receiverParty/receiveRejection" serviceUtility="0.9992687047864619"
+										serviceKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection-ublservices4-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReceiveRejection"
+										bindingTemplateKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/receiverParty/receiveRejection" serviceUtility="0.9992687047864619"
+										serviceKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection-ublservices5-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReceiveRejection"
+										bindingTemplateKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_receiverejection-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/receiverParty/requestCatalogue" serviceUtility="0.9509652880738387"
+										serviceKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue-ublservices-1" serviceName="UBLCreateCatalogueProcessReceiverPartyRequestCatalogue"
+										bindingTemplateKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/receiverParty/requestCatalogue" serviceUtility="0.9509652880738387"
+										serviceKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue-ublservices2-1" serviceName="UBLCreateCatalogueProcessReceiverPartyRequestCatalogue"
+										bindingTemplateKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/receiverParty/requestCatalogue" serviceUtility="0.9509652880738387"
+										serviceKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue-ublservices3-1" serviceName="UBLCreateCatalogueProcessReceiverPartyRequestCatalogue"
+										bindingTemplateKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/receiverParty/requestCatalogue" serviceUtility="0.9509652880738387"
+										serviceKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue-ublservices4-1" serviceName="UBLCreateCatalogueProcessReceiverPartyRequestCatalogue"
+										bindingTemplateKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/receiverParty/requestCatalogue" serviceUtility="0.9509652880738387"
+										serviceKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue-ublservices5-1" serviceName="UBLCreateCatalogueProcessReceiverPartyRequestCatalogue"
+										bindingTemplateKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_requestcatalogue-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/providerParty/respondToRequest" serviceUtility="0.1089724206063511"
+										serviceKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest-ublservices-1" serviceName="UBLCreateCatalogueProcessProviderPartyRespondToRequest"
+										bindingTemplateKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/providerParty/respondToRequest" serviceUtility="0.1089724206063511"
+										serviceKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest-ublservices2-1" serviceName="UBLCreateCatalogueProcessProviderPartyRespondToRequest"
+										bindingTemplateKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/providerParty/respondToRequest" serviceUtility="0.1089724206063511"
+										serviceKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest-ublservices3-1" serviceName="UBLCreateCatalogueProcessProviderPartyRespondToRequest"
+										bindingTemplateKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/providerParty/respondToRequest" serviceUtility="0.1089724206063511"
+										serviceKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest-ublservices4-1" serviceName="UBLCreateCatalogueProcessProviderPartyRespondToRequest"
+										bindingTemplateKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/providerParty/respondToRequest" serviceUtility="0.1089724206063511"
+										serviceKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest-ublservices5-1" serviceName="UBLCreateCatalogueProcessProviderPartyRespondToRequest"
+										bindingTemplateKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_respondtorequest-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="547.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="547.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/receiverParty/reviewCatalogueContent" serviceUtility="0.22538497183693862"
+										serviceKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent-ublservices-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReviewCatalogueContent"
+										bindingTemplateKey="uddi:publisher48:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/receiverParty/reviewCatalogueContent" serviceUtility="0.22538497183693862"
+										serviceKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent-ublservices2-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReviewCatalogueContent"
+										bindingTemplateKey="uddi:publisher48:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/receiverParty/reviewCatalogueContent" serviceUtility="0.22538497183693862"
+										serviceKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent-ublservices3-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReviewCatalogueContent"
+										bindingTemplateKey="uddi:publisher48:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/receiverParty/reviewCatalogueContent" serviceUtility="0.22538497183693862"
+										serviceKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent-ublservices4-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReviewCatalogueContent"
+										bindingTemplateKey="uddi:publisher48:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher48"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/receiverParty/reviewCatalogueContent" serviceUtility="0.22538497183693862"
+										serviceKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent-ublservices5-1" serviceName="UBLCreateCatalogueProcessReceiverPartyReviewCatalogueContent"
+										bindingTemplateKey="uddi:publisher48:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_receiverparty_reviewcataloguecontent-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="174.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="174.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher72" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/providerParty/reviseContent"
+										serviceUtility="0.7380598734571338" serviceKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent-ublservices-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyReviseContent" bindingTemplateKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72" serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/providerParty/reviseContent"
+										serviceUtility="0.7380598734571338" serviceKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent-ublservices2-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyReviseContent" bindingTemplateKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72" serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/providerParty/reviseContent"
+										serviceUtility="0.7380598734571338" serviceKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent-ublservices3-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyReviseContent" bindingTemplateKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72" serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/providerParty/reviseContent"
+										serviceUtility="0.7380598734571338" serviceKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent-ublservices4-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyReviseContent" bindingTemplateKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72" serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/providerParty/reviseContent"
+										serviceUtility="0.7380598734571338" serviceKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent-ublservices5-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartyReviseContent" bindingTemplateKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_revisecontent-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/providerParty/sendAcceptanceResponse" serviceUtility="0.19639040127792756"
+										serviceKey="uddi:publisher69:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse-ublservices-1" serviceName="UBLCreateCatalogueProcessProviderPartySendAcceptanceResponse"
+										bindingTemplateKey="uddi:publisher69:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/providerParty/sendAcceptanceResponse" serviceUtility="0.19639040127792756"
+										serviceKey="uddi:publisher69:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse-ublservices2-1" serviceName="UBLCreateCatalogueProcessProviderPartySendAcceptanceResponse"
+										bindingTemplateKey="uddi:publisher69:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/providerParty/sendAcceptanceResponse" serviceUtility="0.19639040127792756"
+										serviceKey="uddi:publisher69:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse-ublservices3-1" serviceName="UBLCreateCatalogueProcessProviderPartySendAcceptanceResponse"
+										bindingTemplateKey="uddi:publisher69:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/providerParty/sendAcceptanceResponse" serviceUtility="0.19639040127792756"
+										serviceKey="uddi:publisher69:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse-ublservices4-1" serviceName="UBLCreateCatalogueProcessProviderPartySendAcceptanceResponse"
+										bindingTemplateKey="uddi:publisher69:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher69"
+										serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/providerParty/sendAcceptanceResponse" serviceUtility="0.19639040127792756"
+										serviceKey="uddi:publisher69:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse-ublservices5-1" serviceName="UBLCreateCatalogueProcessProviderPartySendAcceptanceResponse"
+										bindingTemplateKey="uddi:publisher69:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendacceptanceresponse-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+							<serviceConfig classification="ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection" maxNumberOfServices="5">
+								<qoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</qoSCriterions>
+								<managedQoSCriterions>
+									<qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true" />
+								</managedQoSCriterions>
+								<serviceAssociations>
+									<serviceAssociation serviceProviderName="publisher72" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/createcatalogueprocess/providerParty/sendRejection"
+										serviceUtility="1.0558679379522258" serviceKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection-ublservices-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartySendRejection" bindingTemplateKey="uddi:publisher72:node1-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection-ublservices-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72" serviceEndpoint="http://ublservices2.d-201603244.ufsc.br:11001/services/ubl/createcatalogueprocess/providerParty/sendRejection"
+										serviceUtility="1.0558679379522258" serviceKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection-ublservices2-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartySendRejection" bindingTemplateKey="uddi:publisher72:node2-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection-ublservices2-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72" serviceEndpoint="http://ublservices3.d-201603244.ufsc.br:11002/services/ubl/createcatalogueprocess/providerParty/sendRejection"
+										serviceUtility="1.0558679379522258" serviceKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection-ublservices3-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartySendRejection" bindingTemplateKey="uddi:publisher72:node3-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection-ublservices3-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72" serviceEndpoint="http://ublservices4.d-201603244.ufsc.br:11003/services/ubl/createcatalogueprocess/providerParty/sendRejection"
+										serviceUtility="1.0558679379522258" serviceKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection-ublservices4-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartySendRejection" bindingTemplateKey="uddi:publisher72:node4-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection-ublservices4-1-binding" />
+									<serviceAssociation serviceProviderName="publisher72" serviceEndpoint="http://ublservices5.d-201603244.ufsc.br:11004/services/ubl/createcatalogueprocess/providerParty/sendRejection"
+										serviceUtility="1.0558679379522258" serviceKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection-ublservices5-1"
+										serviceName="UBLCreateCatalogueProcessProviderPartySendRejection" bindingTemplateKey="uddi:publisher72:node5-uddi-ubl-services-sourcing_catalogueprovision_createcatalogueprocess_providerparty_sendrejection-ublservices5-1-binding" />
+								</serviceAssociations>
+							</serviceConfig>
+						</servicesConfig>
+					</servicesInformation>
+					<persistentProcess>true</persistentProcess>
+				</itConfiguration>
+				<businessProcess>
+					<name>Create Catalogue Process</name>
+					<inputContactPoints />
+					<outputContactPoints />
+					<participants />
+					<resources />
+					<tasks>
+						<task>
+							<id>0</id>
+							<name>Accept Catalogue</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>1</id>
+									<name>input</name>
+									<connectableComponentName>Accept Catalogue</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>2</id>
+									<name>output</name>
+									<connectableComponentName>Accept Catalogue</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acceptCatalogue</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_1_-_COORDINATOR</id>
+										<name>Partner 1 - Coordinator</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>3</id>
+							<name>Acknowledge Acceptance</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>4</id>
+									<name>input</name>
+									<connectableComponentName>Acknowledge Acceptance</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>5</id>
+									<name>outputCatalogue</name>
+									<connectableComponentName>Acknowledge Acceptance</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>6</id>
+									<name>outputApplicationResponse</name>
+									<connectableComponentName>Acknowledge Acceptance</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/acknowledgeAcceptance</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_1_-_COORDINATOR</id>
+										<name>Partner 1 - Coordinator</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>7</id>
+							<name>Cancel Transaction</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>8</id>
+									<name>input</name>
+									<connectableComponentName>Cancel Transaction</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>9</id>
+									<name>output</name>
+									<connectableComponentName>Cancel Transaction</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/cancelTransaction</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_3</id>
+										<name>Partner 3</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>10</id>
+							<name>Decide on Action</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>11</id>
+									<name>inputApplicationResponse</name>
+									<connectableComponentName>Decide on Action</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>12</id>
+									<name>inputCatalogue</name>
+									<connectableComponentName>Decide on Action</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>13</id>
+									<name>outputDocument</name>
+									<connectableComponentName>Decide on Action</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>14</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Decide on Action</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/decideOnAction</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_3</id>
+										<name>Partner 3</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>22</id>
+							<name>Distribute Catalogue</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>23</id>
+									<name>input</name>
+									<connectableComponentName>Distribute Catalogue</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>24</id>
+									<name>output</name>
+									<connectableComponentName>Distribute Catalogue</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/distributeCatalogue</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_2</id>
+										<name>Partner 2</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>41</id>
+							<name>Prepare Catalogue Information</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>42</id>
+									<name>input</name>
+									<connectableComponentName>Prepare Catalogue Information</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>43</id>
+									<name>output</name>
+									<connectableComponentName>Prepare Catalogue Information</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/prepareCatalogueInformation</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_2</id>
+										<name>Partner 2</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>44</id>
+							<name>Process Catalogue Request</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>45</id>
+									<name>input</name>
+									<connectableComponentName>Process Catalogue Request</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>46</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Process Catalogue Request</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>47</id>
+									<name>outputDocument</name>
+									<connectableComponentName>Process Catalogue Request</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/processCatalogueRequest</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_3</id>
+										<name>Partner 3</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>55</id>
+							<name>Produce Catalogue</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>56</id>
+									<name>input</name>
+									<connectableComponentName>Produce Catalogue</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>57</id>
+									<name>output</name>
+									<connectableComponentName>Produce Catalogue</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/produceCatalogue</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_3</id>
+										<name>Partner 3</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>58</id>
+							<name>Query Catalogue Content</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>59</id>
+									<name>input</name>
+									<connectableComponentName>Query Catalogue Content</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>60</id>
+									<name>outputApplicationResponse</name>
+									<connectableComponentName>Query Catalogue Content</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>61</id>
+									<name>outputCatalogue</name>
+									<connectableComponentName>Query Catalogue Content</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/queryCatalogueContent</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_1_-_COORDINATOR</id>
+										<name>Partner 1 - Coordinator</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>62</id>
+							<name>Receive Acknowledge Acceptance</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>63</id>
+									<name>input</name>
+									<connectableComponentName>Receive Acknowledge Acceptance</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>64</id>
+									<name>output</name>
+									<connectableComponentName>Receive Acknowledge Acceptance</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/receiveAcknowledgeAcceptance</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_2</id>
+										<name>Partner 2</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>65</id>
+							<name>Receive Catalogue</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>66</id>
+									<name>inputApplicationResponse</name>
+									<connectableComponentName>Receive Catalogue</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>67</id>
+									<name>inputCatalogue</name>
+									<connectableComponentName>Receive Catalogue</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>68</id>
+									<name>output</name>
+									<connectableComponentName>Receive Catalogue</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveCatalogue</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_1_-_COORDINATOR</id>
+										<name>Partner 1 - Coordinator</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>69</id>
+							<name>Receive Rejection</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>70</id>
+									<name>input</name>
+									<connectableComponentName>Receive Rejection</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>71</id>
+									<name>Output</name>
+									<connectableComponentName>Receive Rejection</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/receiveRejection</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_1_-_COORDINATOR</id>
+										<name>Partner 1 - Coordinator</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>72</id>
+							<name>Request Catalogue</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>73</id>
+									<name>input</name>
+									<connectableComponentName>Request Catalogue</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>74</id>
+									<name>output</name>
+									<connectableComponentName>Request Catalogue</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/requestCatalogue</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_1_-_COORDINATOR</id>
+										<name>Partner 1 - Coordinator</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>75</id>
+							<name>Respond to Request</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>76</id>
+									<name>input</name>
+									<connectableComponentName>Respond to Request</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>77</id>
+									<name>output</name>
+									<connectableComponentName>Respond to Request</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/respondToRequest</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_2</id>
+										<name>Partner 2</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>85</id>
+							<name>Review Catalog Content</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>86</id>
+									<name>input</name>
+									<connectableComponentName>Review Catalog Content</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>87</id>
+									<name>outputDocument</name>
+									<connectableComponentName>Review Catalog Content</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>88</id>
+									<name>outputDecision</name>
+									<connectableComponentName>Review Catalog Content</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/receiverParty/reviewCatalogueContent</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_1_-_COORDINATOR</id>
+										<name>Partner 1 - Coordinator</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>89</id>
+							<name>Revise Content</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>90</id>
+									<name>input</name>
+									<connectableComponentName>Revise Content</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>91</id>
+									<name>output</name>
+									<connectableComponentName>Revise Content</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/reviseContent</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_2</id>
+										<name>Partner 2</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>92</id>
+							<name>Send Acceptance Response</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>93</id>
+									<name>input</name>
+									<connectableComponentName>Send Acceptance Response</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>94</id>
+									<name>output</name>
+									<connectableComponentName>Send Acceptance Response</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendAcceptanceResponse</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_3</id>
+										<name>Partner 3</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+						<task>
+							<id>95</id>
+							<name>Send Rejection</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>96</id>
+									<name>input</name>
+									<connectableComponentName>Send Rejection</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>97</id>
+									<name>output</name>
+									<connectableComponentName>Send Rejection</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_APPLICATION_RESPONSE</id>
+										<name>UBL Application Response</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+										<xmlName>ApplicationResponseType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<taxonomyClassification>ubl/sourcing/catalogueprovision/createcatalogueprocess/providerParty/sendRejection</taxonomyClassification>
+							<participants>
+								<taskParticipant>
+									<name>Role</name>
+									<participant>
+										<id>PARTNER_2</id>
+										<name>Partner 2</name>
+									</participant>
+								</taskParticipant>
+							</participants>
+							<resources />
+						</task>
+					</tasks>
+					<startEvents>
+						<startEvent>
+							<id>98</id>
+							<name>start</name>
+							<inputContactPoints />
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>99</id>
+									<name>Output</name>
+									<connectableComponentName>start</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+						</startEvent>
+					</startEvents>
+					<endEvents>
+						<endEvent>
+							<id>25</id>
+							<name>End Node</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>26</id>
+									<name>Input</name>
+									<connectableComponentName>End Node</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints />
+						</endEvent>
+						<endEvent>
+							<id>27</id>
+							<name>end1</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>28</id>
+									<name>Input</name>
+									<connectableComponentName>end1</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints />
+						</endEvent>
+						<endEvent>
+							<id>29</id>
+							<name>end2</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>30</id>
+									<name>Input</name>
+									<connectableComponentName>end2</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints />
+						</endEvent>
+						<endEvent>
+							<id>31</id>
+							<name>end3</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>32</id>
+									<name>Input</name>
+									<connectableComponentName>end3</connectableComponentName>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints />
+						</endEvent>
+					</endEvents>
+					<decisions>
+						<decision>
+							<id>15</id>
+							<name>Decide on Action Decision</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>16</id>
+									<name>input</name>
+									<connectableComponentName>Decide on Action Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>17</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Decide on Action Decision</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>18</id>
+									<name>outputReviseContent</name>
+									<connectableComponentName>Decide on Action Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>19</id>
+									<name>outputReviseContentDecision</name>
+									<connectableComponentName>Decide on Action Decision</connectableComponentName>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>20</id>
+									<name>outputCancelTransaction</name>
+									<connectableComponentName>Decide on Action Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>21</id>
+									<name>outputCancelTransactionDecision</name>
+									<connectableComponentName>Decide on Action Decision</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch </name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>16</id>
+											<name>input</name>
+											<connectableComponentName>Decide on Action Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE</id>
+												<name>UBL Catalogue</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+												<xmlName>CatalogueType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>17</id>
+											<name>inputDecision</name>
+											<connectableComponentName>Decide on Action Decision</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch 1</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>18</id>
+											<name>outputReviseContent</name>
+											<connectableComponentName>Decide on Action Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE</id>
+												<name>UBL Catalogue</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+												<xmlName>CatalogueType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>19</id>
+											<name>outputReviseContentDecision</name>
+											<connectableComponentName>Decide on Action Decision</connectableComponentName>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>reviseContent</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 2</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>20</id>
+											<name>outputCancelTransaction</name>
+											<connectableComponentName>Decide on Action Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE</id>
+												<name>UBL Catalogue</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+												<xmlName>CatalogueType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>21</id>
+											<name>outputCancelTransactionDecision</name>
+											<connectableComponentName>Decide on Action Decision</connectableComponentName>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>cancelTransaction</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+							</outputBranches>
+						</decision>
+						<decision>
+							<id>48</id>
+							<name>Process Catalogue Request Decision</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>49</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>50</id>
+									<name>input</name>
+									<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>51</id>
+									<name>outputAcceptedDecision</name>
+									<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>52</id>
+									<name>outputAccepted</name>
+									<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>53</id>
+									<name>outputRejectedDecision</name>
+									<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>54</id>
+									<name>outputRejected</name>
+									<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch </name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>49</id>
+											<name>inputDecision</name>
+											<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>50</id>
+											<name>input</name>
+											<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE_REQUEST</id>
+												<name>UBL Catalogue Request</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+												<xmlName>CatalogueRequestType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch 1</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>51</id>
+											<name>outputAcceptedDecision</name>
+											<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>52</id>
+											<name>outputAccepted</name>
+											<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE_REQUEST</id>
+												<name>UBL Catalogue Request</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+												<xmlName>CatalogueRequestType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>accepted</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 2</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>53</id>
+											<name>outputRejectedDecision</name>
+											<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>54</id>
+											<name>outputRejected</name>
+											<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE_REQUEST</id>
+												<name>UBL Catalogue Request</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+												<xmlName>CatalogueRequestType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>rejected</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+							</outputBranches>
+						</decision>
+						<decision>
+							<id>78</id>
+							<name>Review Catalgo Content Decision</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>79</id>
+									<name>input</name>
+									<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>80</id>
+									<name>inputDecision</name>
+									<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+									<associatedDocument>
+										<id>STRING</id>
+										<name>String</name>
+										<primitive>true</primitive>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>81</id>
+									<name>outputAcceptContent</name>
+									<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>82</id>
+									<name>outputAcceptContentDecision</name>
+									<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>83</id>
+									<name>outputQueryCatalogueContent</name>
+									<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE</id>
+										<name>UBL Catalogue</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+										<xmlName>CatalogueType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>84</id>
+									<name>outputQueryCatalogueContentDecision</name>
+									<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch </name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>79</id>
+											<name>input</name>
+											<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE</id>
+												<name>UBL Catalogue</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+												<xmlName>CatalogueType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+										<inputContactPoint>
+											<id>80</id>
+											<name>inputDecision</name>
+											<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+											<associatedDocument>
+												<id>STRING</id>
+												<name>String</name>
+												<primitive>true</primitive>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch 1</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>81</id>
+											<name>outputAcceptContent</name>
+											<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE</id>
+												<name>UBL Catalogue</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+												<xmlName>CatalogueType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>82</id>
+											<name>outputAcceptContentDecision</name>
+											<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>acceptContent</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 2</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>83</id>
+											<name>outputQueryCatalogueContent</name>
+											<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE</id>
+												<name>UBL Catalogue</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+												<xmlName>CatalogueType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+										<outputContactPoint>
+											<id>84</id>
+											<name>outputQueryCatalogueContentDecision</name>
+											<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+										</outputContactPoint>
+									</outputContactPoints>
+									<condition>queryCatalogueContent</condition>
+									<probabilityPercentage>50.0</probabilityPercentage>
+								</outputBranch>
+							</outputBranches>
+						</decision>
+					</decisions>
+					<forks>
+						<fork>
+							<id>33</id>
+							<name>ForkAcceptRequest</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>34</id>
+									<name>input</name>
+									<connectableComponentName>ForkAcceptRequest</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>35</id>
+									<name>output1</name>
+									<connectableComponentName>ForkAcceptRequest</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+								<outputContactPoint>
+									<id>36</id>
+									<name>output2</name>
+									<connectableComponentName>ForkAcceptRequest</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch </name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>34</id>
+											<name>input</name>
+											<connectableComponentName>ForkAcceptRequest</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE_REQUEST</id>
+												<name>UBL Catalogue Request</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+												<xmlName>CatalogueRequestType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch 1</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>35</id>
+											<name>output1</name>
+											<connectableComponentName>ForkAcceptRequest</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE_REQUEST</id>
+												<name>UBL Catalogue Request</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+												<xmlName>CatalogueRequestType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+								</outputBranch>
+								<outputBranch>
+									<name>Output Branch 2</name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>36</id>
+											<name>output2</name>
+											<connectableComponentName>ForkAcceptRequest</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE_REQUEST</id>
+												<name>UBL Catalogue Request</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+												<xmlName>CatalogueRequestType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+								</outputBranch>
+							</outputBranches>
+						</fork>
+					</forks>
+					<junctions />
+					<merges>
+						<merge>
+							<id>37</id>
+							<name>MergeCatalogRequest</name>
+							<inputContactPoints>
+								<inputContactPoint>
+									<id>38</id>
+									<name>input1</name>
+									<connectableComponentName>MergeCatalogRequest</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+								<inputContactPoint>
+									<id>39</id>
+									<name>input2</name>
+									<connectableComponentName>MergeCatalogRequest</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</inputContactPoint>
+							</inputContactPoints>
+							<outputContactPoints>
+								<outputContactPoint>
+									<id>40</id>
+									<name>output</name>
+									<connectableComponentName>MergeCatalogRequest</connectableComponentName>
+									<associatedDocument>
+										<id>UBL_CATALOGUE_REQUEST</id>
+										<name>UBL Catalogue Request</name>
+										<primitive>false</primitive>
+										<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+										<xmlName>CatalogueRequestType</xmlName>
+										<processStandard>
+											<id>UBL</id>
+											<name>UBL - Universal Business Language</name>
+										</processStandard>
+									</associatedDocument>
+								</outputContactPoint>
+							</outputContactPoints>
+							<inputBranches>
+								<inputBranch>
+									<name>Input Branch 1</name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>38</id>
+											<name>input1</name>
+											<connectableComponentName>MergeCatalogRequest</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE_REQUEST</id>
+												<name>UBL Catalogue Request</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+												<xmlName>CatalogueRequestType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+								<inputBranch>
+									<name>Input Branch 2</name>
+									<inputContactPoints>
+										<inputContactPoint>
+											<id>39</id>
+											<name>input2</name>
+											<connectableComponentName>MergeCatalogRequest</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE_REQUEST</id>
+												<name>UBL Catalogue Request</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+												<xmlName>CatalogueRequestType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</inputContactPoint>
+									</inputContactPoints>
+								</inputBranch>
+							</inputBranches>
+							<outputBranches>
+								<outputBranch>
+									<name>Output Branch </name>
+									<outputContactPoints>
+										<outputContactPoint>
+											<id>40</id>
+											<name>output</name>
+											<connectableComponentName>MergeCatalogRequest</connectableComponentName>
+											<associatedDocument>
+												<id>UBL_CATALOGUE_REQUEST</id>
+												<name>UBL Catalogue Request</name>
+												<primitive>false</primitive>
+												<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+												<xmlName>CatalogueRequestType</xmlName>
+												<processStandard>
+													<id>UBL</id>
+													<name>UBL - Universal Business Language</name>
+												</processStandard>
+											</associatedDocument>
+										</outputContactPoint>
+									</outputContactPoints>
+								</outputBranch>
+							</outputBranches>
+						</merge>
+					</merges>
+					<connections>
+						<connection>
+							<id>100</id>
+							<input>
+								<id>26</id>
+								<name>Input</name>
+								<connectableComponentName>End Node</connectableComponentName>
+							</input>
+							<output>
+								<id>71</id>
+								<name>Output</name>
+								<connectableComponentName>Receive Rejection</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>101</id>
+							<input>
+								<id>59</id>
+								<name>input</name>
+								<connectableComponentName>Query Catalogue Content</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>83</id>
+								<name>outputQueryCatalogueContent</name>
+								<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>102</id>
+							<input>
+								<id>28</id>
+								<name>Input</name>
+								<connectableComponentName>end1</connectableComponentName>
+							</input>
+							<output>
+								<id>2</id>
+								<name>output</name>
+								<connectableComponentName>Accept Catalogue</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>103</id>
+							<input>
+								<id>45</id>
+								<name>input</name>
+								<connectableComponentName>Process Catalogue Request</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>40</id>
+								<name>output</name>
+								<connectableComponentName>MergeCatalogRequest</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>104</id>
+							<input>
+								<id>38</id>
+								<name>input1</name>
+								<connectableComponentName>MergeCatalogRequest</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>91</id>
+								<name>output</name>
+								<connectableComponentName>Revise Content</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>105</id>
+							<input>
+								<id>1</id>
+								<name>input</name>
+								<connectableComponentName>Accept Catalogue</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>5</id>
+								<name>outputCatalogue</name>
+								<connectableComponentName>Acknowledge Acceptance</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>106</id>
+							<input>
+								<id>63</id>
+								<name>input</name>
+								<connectableComponentName>Receive Acknowledge Acceptance</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>6</id>
+								<name>outputApplicationResponse</name>
+								<connectableComponentName>Acknowledge Acceptance</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>107</id>
+							<input>
+								<id>49</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>46</id>
+								<name>outputDecision</name>
+								<connectableComponentName>Process Catalogue Request</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>108</id>
+							<input>
+								<id>50</id>
+								<name>input</name>
+								<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>47</id>
+								<name>outputDocument</name>
+								<connectableComponentName>Process Catalogue Request</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>109</id>
+							<input>
+								<id>79</id>
+								<name>input</name>
+								<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>87</id>
+								<name>outputDocument</name>
+								<connectableComponentName>Review Catalog Content</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>110</id>
+							<input>
+								<id>80</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>88</id>
+								<name>outputDecision</name>
+								<connectableComponentName>Review Catalog Content</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>111</id>
+							<input>
+								<id>93</id>
+								<name>input</name>
+								<connectableComponentName>Send Acceptance Response</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>36</id>
+								<name>output2</name>
+								<connectableComponentName>ForkAcceptRequest</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>112</id>
+							<input>
+								<id>96</id>
+								<name>input</name>
+								<connectableComponentName>Send Rejection</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>54</id>
+								<name>outputRejected</name>
+								<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>113</id>
+							<input>
+								<id>30</id>
+								<name>Input</name>
+								<connectableComponentName>end2</connectableComponentName>
+							</input>
+							<output>
+								<id>64</id>
+								<name>output</name>
+								<connectableComponentName>Receive Acknowledge Acceptance</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>114</id>
+							<input>
+								<id>70</id>
+								<name>input</name>
+								<connectableComponentName>Receive Rejection</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>97</id>
+								<name>output</name>
+								<connectableComponentName>Send Rejection</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>115</id>
+							<input>
+								<id>73</id>
+								<name>input</name>
+								<connectableComponentName>Request Catalogue</connectableComponentName>
+							</input>
+							<output>
+								<id>99</id>
+								<name>Output</name>
+								<connectableComponentName>start</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>116</id>
+							<input>
+								<id>34</id>
+								<name>input</name>
+								<connectableComponentName>ForkAcceptRequest</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>52</id>
+								<name>outputAccepted</name>
+								<connectableComponentName>Process Catalogue Request Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>117</id>
+							<input>
+								<id>56</id>
+								<name>input</name>
+								<connectableComponentName>Produce Catalogue</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>43</id>
+								<name>output</name>
+								<connectableComponentName>Prepare Catalogue Information</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>118</id>
+							<input>
+								<id>23</id>
+								<name>input</name>
+								<connectableComponentName>Distribute Catalogue</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>57</id>
+								<name>output</name>
+								<connectableComponentName>Produce Catalogue</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>119</id>
+							<input>
+								<id>67</id>
+								<name>inputCatalogue</name>
+								<connectableComponentName>Receive Catalogue</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>24</id>
+								<name>output</name>
+								<connectableComponentName>Distribute Catalogue</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>120</id>
+							<input>
+								<id>4</id>
+								<name>input</name>
+								<connectableComponentName>Acknowledge Acceptance</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>81</id>
+								<name>outputAcceptContent</name>
+								<connectableComponentName>Review Catalgo Content Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>121</id>
+							<input>
+								<id>86</id>
+								<name>input</name>
+								<connectableComponentName>Review Catalog Content</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>68</id>
+								<name>output</name>
+								<connectableComponentName>Receive Catalogue</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>122</id>
+							<input>
+								<id>42</id>
+								<name>input</name>
+								<connectableComponentName>Prepare Catalogue Information</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>35</id>
+								<name>output1</name>
+								<connectableComponentName>ForkAcceptRequest</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>123</id>
+							<input>
+								<id>66</id>
+								<name>inputApplicationResponse</name>
+								<connectableComponentName>Receive Catalogue</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>94</id>
+								<name>output</name>
+								<connectableComponentName>Send Acceptance Response</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>124</id>
+							<input>
+								<id>32</id>
+								<name>Input</name>
+								<connectableComponentName>end3</connectableComponentName>
+							</input>
+							<output>
+								<id>9</id>
+								<name>output</name>
+								<connectableComponentName>Cancel Transaction</connectableComponentName>
+							</output>
+						</connection>
+						<connection>
+							<id>125</id>
+							<input>
+								<id>76</id>
+								<name>input</name>
+								<connectableComponentName>Respond to Request</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>74</id>
+								<name>output</name>
+								<connectableComponentName>Request Catalogue</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>126</id>
+							<input>
+								<id>39</id>
+								<name>input2</name>
+								<connectableComponentName>MergeCatalogRequest</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>77</id>
+								<name>output</name>
+								<connectableComponentName>Respond to Request</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE_REQUEST</id>
+									<name>UBL Catalogue Request</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</xmlNamespace>
+									<xmlName>CatalogueRequestType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>127</id>
+							<input>
+								<id>11</id>
+								<name>inputApplicationResponse</name>
+								<connectableComponentName>Decide on Action</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>60</id>
+								<name>outputApplicationResponse</name>
+								<connectableComponentName>Query Catalogue Content</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_APPLICATION_RESPONSE</id>
+									<name>UBL Application Response</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2</xmlNamespace>
+									<xmlName>ApplicationResponseType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>128</id>
+							<input>
+								<id>12</id>
+								<name>inputCatalogue</name>
+								<connectableComponentName>Decide on Action</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>61</id>
+								<name>outputCatalogue</name>
+								<connectableComponentName>Query Catalogue Content</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>129</id>
+							<input>
+								<id>16</id>
+								<name>input</name>
+								<connectableComponentName>Decide on Action Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>13</id>
+								<name>outputDocument</name>
+								<connectableComponentName>Decide on Action</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>130</id>
+							<input>
+								<id>17</id>
+								<name>inputDecision</name>
+								<connectableComponentName>Decide on Action Decision</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>14</id>
+								<name>outputDecision</name>
+								<connectableComponentName>Decide on Action</connectableComponentName>
+								<associatedDocument>
+									<id>STRING</id>
+									<name>String</name>
+									<primitive>true</primitive>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>131</id>
+							<input>
+								<id>8</id>
+								<name>input</name>
+								<connectableComponentName>Cancel Transaction</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>20</id>
+								<name>outputCancelTransaction</name>
+								<connectableComponentName>Decide on Action Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+						<connection>
+							<id>132</id>
+							<input>
+								<id>90</id>
+								<name>input</name>
+								<connectableComponentName>Revise Content</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</input>
+							<output>
+								<id>18</id>
+								<name>outputReviseContent</name>
+								<connectableComponentName>Decide on Action Decision</connectableComponentName>
+								<associatedDocument>
+									<id>UBL_CATALOGUE</id>
+									<name>UBL Catalogue</name>
+									<primitive>false</primitive>
+									<xmlNamespace>urn:oasis:names:specification:ubl:schema:xsd:Catalogue-2</xmlNamespace>
+									<xmlName>CatalogueType</xmlName>
+									<processStandard>
+										<id>UBL</id>
+										<name>UBL - Universal Business Language</name>
+									</processStandard>
+								</associatedDocument>
+							</output>
+						</connection>
+					</connections>
+				</businessProcess>
+				<businessProcessName>Create Catalogue Process</businessProcessName>
+			</request>
+		</ns3:deployApplication>
+	</soap:Body>
+</soap:Envelope>

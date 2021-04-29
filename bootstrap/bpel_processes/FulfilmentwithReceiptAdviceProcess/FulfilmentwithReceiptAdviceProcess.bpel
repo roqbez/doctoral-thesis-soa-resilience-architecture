@@ -1,0 +1,810 @@
+<bpel:process name="FulfilmentwithReceiptAdviceProcess" targetNamespace="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess" suppressJoinFailure="yes"
+	xmlns:tns="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess" 
+	xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:deliveryParty_receiveOrderItems="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems"
+	xmlns:buyerParty_acceptItems="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems"
+	xmlns:buyerParty_sendOrderCancellation="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation"
+	xmlns:deliveryParty_adviseBuyerOfStatus="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus"
+	xmlns:deliveryParty_sendReceiptAdvice="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice"
+	xmlns:buyerParty_adjustOrder="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"
+	xmlns:buyerParty_adjustSupplyStatus="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus"
+	xmlns:deliveryParty_checkStatusOfItems="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems"
+	xmlns:buyerParty_determineAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction"
+	queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"
+	expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+
+	<bpel:import location="FulfilmentwithReceiptAdviceProcessArtifacts.wsdl" namespace="http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess" importType="http://schemas.xmlsoap.org/wsdl/" />
+
+	<bpel:partnerLinks>
+		<bpel:partnerLink name="FulfilmentwithReceiptAdviceProcess" partnerLinkType="tns:FulfilmentwithReceiptAdviceProcess" myRole="Interface" />
+		<bpel:partnerLink name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_ReceiveOrderItems_Partner" partnerLinkType="tns:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_ReceiveOrderItems" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems_Partner" partnerLinkType="tns:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_SendOrderCancellation_Partner" partnerLinkType="tns:UBL_FulfilmentWithReceiptAdvice_BuyerParty_SendOrderCancellation" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus_Partner" partnerLinkType="tns:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice_Partner" partnerLinkType="tns:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_FulfilmentWithOrderChange_BuyerParty_AdjustOrder_Partner" partnerLinkType="tns:UBL_FulfilmentWithOrderChange_BuyerParty_AdjustOrder" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus_Partner" partnerLinkType="tns:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_CheckStatusOfItems_Partner" partnerLinkType="tns:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_CheckStatusOfItems" partnerRole="Reference" initializePartnerRole="no"/>
+		<bpel:partnerLink name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction_Partner" partnerLinkType="tns:UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction" partnerRole="Reference" initializePartnerRole="no"/>
+	</bpel:partnerLinks>
+
+	<bpel:variables>
+		<bpel:variable name="process_input" messageType="tns:FulfilmentwithReceiptAdviceProcessRequestMessage"/>
+		<bpel:variable name="process_output" messageType="tns:FulfilmentwithReceiptAdviceProcessResponseMessage"/>
+	</bpel:variables>
+
+    <bpel:correlationSets>
+        <bpel:correlationSet name="ProcessId" properties="tns:processId"/>
+    </bpel:correlationSets>
+
+
+	<bpel:sequence name="FulfilmentwithReceiptAdviceProcess">
+		
+		<bpel:receive name="receiveInput" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="execute" variable="process_input"
+			createInstance="yes" />
+
+		<bpel:assign validate="no" name="assign_result">
+			<bpel:copy>
+				<bpel:from>
+					<bpel:literal xml:space="preserve">
+						<tns:FulfilmentwithReceiptAdviceProcessResponse>
+							<message>Process initiated</message>
+							<processId></processId>
+						</tns:FulfilmentwithReceiptAdviceProcessResponse>
+					</bpel:literal>
+				</bpel:from>
+				<bpel:to part="payload" variable="process_output"/>
+			</bpel:copy>
+			<bpel:copy>
+				<bpel:from>$ode:pid</bpel:from>
+				<bpel:to part="payload" variable="process_output">
+					<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+				</bpel:to>
+			</bpel:copy>
+		</bpel:assign>
+		
+		<bpel:reply name="replyOutput" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="execute" variable="process_output">
+		    <bpel:correlations>
+                <bpel:correlation initiate="yes" set="ProcessId"/>
+            </bpel:correlations>			
+		</bpel:reply>
+		
+		<bpel:wait name="waitAfterReply">
+			<bpel:for>'PT0.1S'</bpel:for>
+		</bpel:wait>
+
+        <bpel:scope name="process_scope">
+            <bpel:variables>
+                <bpel:variable name="input_buyerParty_acceptItems1" messageType="buyerParty_acceptItems:acceptItemsAsyncRequestMsg"/>
+                <bpel:variable name="output_buyerParty_acceptItems1" messageType="buyerParty_acceptItems:acceptItemsAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_buyerParty_acceptItems1_callback" messageType="buyerParty_acceptItems:acceptItemsAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_buyerParty_adjustOrder1" messageType="buyerParty_adjustOrder:adjustOrderAsyncRequestMsg"/>
+                <bpel:variable name="output_buyerParty_adjustOrder1" messageType="buyerParty_adjustOrder:adjustOrderAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_buyerParty_adjustOrder1_callback" messageType="buyerParty_adjustOrder:adjustOrderAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_buyerParty_adjustSupplyStatus1" messageType="buyerParty_adjustSupplyStatus:adjustSupplyStatusAsyncRequestMsg"/>
+                <bpel:variable name="output_buyerParty_adjustSupplyStatus1" messageType="buyerParty_adjustSupplyStatus:adjustSupplyStatusAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_buyerParty_adjustSupplyStatus1_callback" messageType="buyerParty_adjustSupplyStatus:adjustSupplyStatusAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_deliveryParty_adviseBuyerOfStatus1" messageType="deliveryParty_adviseBuyerOfStatus:adviseBuyerOfStatusAsyncRequestMsg"/>
+                <bpel:variable name="output_deliveryParty_adviseBuyerOfStatus1" messageType="deliveryParty_adviseBuyerOfStatus:adviseBuyerOfStatusAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_deliveryParty_adviseBuyerOfStatus1_callback" messageType="deliveryParty_adviseBuyerOfStatus:adviseBuyerOfStatusAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_deliveryParty_checkStatusOfItems1" messageType="deliveryParty_checkStatusOfItems:checkStatusOfItemsAsyncRequestMsg"/>
+                <bpel:variable name="output_deliveryParty_checkStatusOfItems1" messageType="deliveryParty_checkStatusOfItems:checkStatusOfItemsAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_deliveryParty_checkStatusOfItems1_callback" messageType="deliveryParty_checkStatusOfItems:checkStatusOfItemsAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_buyerParty_determineAction1" messageType="buyerParty_determineAction:determineActionAsyncRequestMsg"/>
+                <bpel:variable name="output_buyerParty_determineAction1" messageType="buyerParty_determineAction:determineActionAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_buyerParty_determineAction1_callback" messageType="buyerParty_determineAction:determineActionAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_deliveryParty_receiveOrderItems1" messageType="deliveryParty_receiveOrderItems:receiveOrderItemsAsyncRequestMsg"/>
+                <bpel:variable name="output_deliveryParty_receiveOrderItems1" messageType="deliveryParty_receiveOrderItems:receiveOrderItemsAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_deliveryParty_receiveOrderItems1_callback" messageType="deliveryParty_receiveOrderItems:receiveOrderItemsAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_buyerParty_sendOrderCancellation1" messageType="buyerParty_sendOrderCancellation:sendOrderCancellationAsyncRequestMsg"/>
+                <bpel:variable name="output_buyerParty_sendOrderCancellation1" messageType="buyerParty_sendOrderCancellation:sendOrderCancellationAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_buyerParty_sendOrderCancellation1_callback" messageType="buyerParty_sendOrderCancellation:sendOrderCancellationAsyncCallbackResponseMsg"/>
+                <bpel:variable name="input_deliveryParty_sendReceiptAdvice1" messageType="deliveryParty_sendReceiptAdvice:sendReceiptAdviceAsyncRequestMsg"/>
+                <bpel:variable name="output_deliveryParty_sendReceiptAdvice1" messageType="deliveryParty_sendReceiptAdvice:sendReceiptAdviceAsyncCallbackRequestMsg"/>
+                <bpel:variable name="output_deliveryParty_sendReceiptAdvice1_callback" messageType="deliveryParty_sendReceiptAdvice:sendReceiptAdviceAsyncCallbackResponseMsg"/>
+            </bpel:variables>
+            <bpel:flow name="main_flow">
+                <bpel:assign validate="no" name="initialize_variables">
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptItemsAsync xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1</callbackSOAPAction></processContext><input /></tns:acceptItemsAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_buyerParty_acceptItems1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptItemsAsyncCallback xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1</callbackSOAPAction></processContext><outputOrder /></tns:acceptItemsAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_buyerParty_acceptItems1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:acceptItemsAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1</callbackSOAPAction></processContext></tns:acceptItemsAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_buyerParty_acceptItems1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_buyerParty_acceptItems1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_buyerParty_acceptItems1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:adjustOrderAsync xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithorderchange_buyerparty_adjustorder1</callbackSOAPAction></processContext><input /></tns:adjustOrderAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_buyerParty_adjustOrder1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:adjustOrderAsyncCallback xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithorderchange_buyerparty_adjustorder1</callbackSOAPAction></processContext><outputOrderChange /></tns:adjustOrderAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_buyerParty_adjustOrder1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:adjustOrderAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithorderchange_buyerparty_adjustorder1</callbackSOAPAction></processContext></tns:adjustOrderAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_buyerParty_adjustOrder1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_buyerParty_adjustOrder1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_buyerParty_adjustOrder1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:adjustSupplyStatusAsync xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1</callbackSOAPAction></processContext><inputReceiptAdvice /><inputOrder /><inputOrderChange /><inputOrderCancellation /></tns:adjustSupplyStatusAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_buyerParty_adjustSupplyStatus1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:adjustSupplyStatusAsyncCallback xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1</callbackSOAPAction></processContext><output /></tns:adjustSupplyStatusAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_buyerParty_adjustSupplyStatus1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:adjustSupplyStatusAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1</callbackSOAPAction></processContext></tns:adjustSupplyStatusAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_buyerParty_adjustSupplyStatus1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_buyerParty_adjustSupplyStatus1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_buyerParty_adjustSupplyStatus1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:adviseBuyerOfStatusAsync xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1</callbackSOAPAction></processContext><input /></tns:adviseBuyerOfStatusAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_deliveryParty_adviseBuyerOfStatus1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:adviseBuyerOfStatusAsyncCallback xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1</callbackSOAPAction></processContext><output /></tns:adviseBuyerOfStatusAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_deliveryParty_adviseBuyerOfStatus1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:adviseBuyerOfStatusAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1</callbackSOAPAction></processContext></tns:adviseBuyerOfStatusAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_deliveryParty_adviseBuyerOfStatus1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_deliveryParty_adviseBuyerOfStatus1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_deliveryParty_adviseBuyerOfStatus1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:checkStatusOfItemsAsync xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1</callbackSOAPAction></processContext><input /></tns:checkStatusOfItemsAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_deliveryParty_checkStatusOfItems1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:checkStatusOfItemsAsyncCallback xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1</callbackSOAPAction></processContext><output /></tns:checkStatusOfItemsAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_deliveryParty_checkStatusOfItems1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:checkStatusOfItemsAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1</callbackSOAPAction></processContext></tns:checkStatusOfItemsAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_deliveryParty_checkStatusOfItems1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_deliveryParty_checkStatusOfItems1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_deliveryParty_checkStatusOfItems1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:determineActionAsync xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1</callbackSOAPAction></processContext><input /></tns:determineActionAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_buyerParty_determineAction1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:determineActionAsyncCallback xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1</callbackSOAPAction></processContext><outputDocument /><outputDecision /></tns:determineActionAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_buyerParty_determineAction1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:determineActionAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1</callbackSOAPAction></processContext></tns:determineActionAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_buyerParty_determineAction1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_buyerParty_determineAction1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_buyerParty_determineAction1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveOrderItemsAsync xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems1</callbackSOAPAction></processContext></tns:receiveOrderItemsAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_deliveryParty_receiveOrderItems1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveOrderItemsAsyncCallback xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems1</callbackSOAPAction></processContext><output /></tns:receiveOrderItemsAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_deliveryParty_receiveOrderItems1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:receiveOrderItemsAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems1</callbackSOAPAction></processContext></tns:receiveOrderItemsAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_deliveryParty_receiveOrderItems1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_deliveryParty_receiveOrderItems1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_deliveryParty_receiveOrderItems1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendOrderCancellationAsync xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1</callbackSOAPAction></processContext><input /></tns:sendOrderCancellationAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_buyerParty_sendOrderCancellation1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendOrderCancellationAsyncCallback xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1</callbackSOAPAction></processContext><outputOrderCancellation /></tns:sendOrderCancellationAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_buyerParty_sendOrderCancellation1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendOrderCancellationAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1</callbackSOAPAction></processContext></tns:sendOrderCancellationAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_buyerParty_sendOrderCancellation1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_buyerParty_sendOrderCancellation1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_buyerParty_sendOrderCancellation1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendReceiptAdviceAsync xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1</callbackSOAPAction></processContext><input /></tns:sendReceiptAdviceAsync></bpel:literal></bpel:from>
+                        <bpel:to variable="input_deliveryParty_sendReceiptAdvice1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendReceiptAdviceAsyncCallback xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1</callbackSOAPAction></processContext><output /></tns:sendReceiptAdviceAsyncCallback></bpel:literal></bpel:from>
+                        <bpel:to variable="output_deliveryParty_sendReceiptAdvice1" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+                        <bpel:from><bpel:literal><tns:sendReceiptAdviceAsyncCallbackResponse xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice"><processContext><processId /><callbackEndpoint>http://executionservice.d-201603244.ufsc.br:7000/ode/processes/FulfilmentwithReceiptAdviceProcess</callbackEndpoint><callbackSOAPAction>http://my.ubl.oasis.services/fulfilmentwithreceiptadviceprocess/callbacks/ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1</callbackSOAPAction></processContext></tns:sendReceiptAdviceAsyncCallbackResponse></bpel:literal></bpel:from>
+                        <bpel:to variable="output_deliveryParty_sendReceiptAdvice1_callback" part="payload">
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="input_deliveryParty_sendReceiptAdvice1" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+                    <bpel:copy>
+						<bpel:from part="payload" variable="process_output">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processId]]></bpel:query>
+						</bpel:from>                        
+                        <bpel:to variable="output_deliveryParty_sendReceiptAdvice1_callback" part="payload">
+							<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[/processContext/processId]]></bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+ 	                <bpel:sources>
+	                    <bpel:source linkName="link21">
+	                    </bpel:source>
+	                </bpel:sources>                   
+            	</bpel:assign>
+            	
+				<bpel:assign name="assign_input_invoke_service_ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1_3">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_buyerParty_acceptItems1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputOrder
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_buyerParty_adjustSupplyStatus1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputOrder
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link16"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link17">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1_2">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_buyerParty_sendOrderCancellation1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputOrderCancellation
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_buyerParty_adjustSupplyStatus1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputOrderCancellation
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link14"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link15">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1_1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_buyerParty_adjustOrder1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputOrderChange
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_buyerParty_adjustSupplyStatus1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputOrderChange
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link12"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link13">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_deliveryParty_checkStatusOfItems1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_deliveryParty_adviseBuyerOfStatus1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link3"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link4">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_deliveryParty_adviseBuyerOfStatus1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_buyerParty_determineAction1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link23"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link24">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_deliveryParty_receiveOrderItems1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_deliveryParty_checkStatusOfItems1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link1"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link2">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_deliveryParty_sendReceiptAdvice1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_buyerParty_adjustSupplyStatus1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                inputReceiptAdvice
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link7"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link8">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_fulfilmentwithorderchange_buyerparty_adjustorder1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_buyerParty_determineAction1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDocument
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_buyerParty_adjustOrder1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link32"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link33">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_buyerParty_determineAction1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDocument
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_buyerParty_sendOrderCancellation1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link35"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link36">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_deliveryParty_checkStatusOfItems1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                output
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_deliveryParty_sendReceiptAdvice1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link5"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link6">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+				<bpel:assign name="assign_input_invoke_service_ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1">
+                    <bpel:copy>
+                        <bpel:from part="payload" variable="output_buyerParty_determineAction1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                outputDocument
+                            </bpel:query>
+                        </bpel:from>
+                        <bpel:to part="payload" variable="input_buyerParty_acceptItems1">
+                            <bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                input
+                            </bpel:query>
+                        </bpel:to>
+                    </bpel:copy>
+	                <bpel:targets>
+	                    <bpel:target linkName="link28"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link29">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:assign>
+            	
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_fulfilmentwithorderchange_buyerparty_adjustorder1" suppressJoinFailure="yes" partnerLink="UBL_FulfilmentWithOrderChange_BuyerParty_AdjustOrder_Partner" operation="adjustOrderAsync" portType="buyerParty_adjustOrder:UBL_FulfilmentWithOrderChange_BuyerParty_AdjustOrder1" inputVariable="input_buyerParty_adjustOrder1"/>
+					<bpel:receive name="receive_service_ubl_fulfilmentwithorderchange_buyerparty_adjustorder1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithorderchange_buyerparty_adjustorder1_callback" variable="output_buyerParty_adjustOrder1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_fulfilmentwithorderchange_buyerparty_adjustorder1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithorderchange_buyerparty_adjustorder1_callback" variable="output_buyerParty_adjustOrder1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link33"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link12">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1" suppressJoinFailure="yes" partnerLink="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus_Partner" operation="adjustSupplyStatusAsync" portType="buyerParty_adjustSupplyStatus:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus1" inputVariable="input_buyerParty_adjustSupplyStatus1"/>
+					<bpel:receive name="receive_service_ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1_callback" variable="output_buyerParty_adjustSupplyStatus1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_buyerparty_adjustsupplystatus1_callback" variable="output_buyerParty_adjustSupplyStatus1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link17"/>
+	                    <bpel:target linkName="link15"/>
+	                    <bpel:target linkName="link13"/>
+	                    <bpel:target linkName="link8"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1" suppressJoinFailure="yes" partnerLink="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems_Partner" operation="acceptItemsAsync" portType="buyerParty_acceptItems:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems1" inputVariable="input_buyerParty_acceptItems1"/>
+					<bpel:receive name="receive_service_ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1_callback" variable="output_buyerParty_acceptItems1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_buyerparty_acceptitems1_callback" variable="output_buyerParty_acceptItems1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link29"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link16">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems1" suppressJoinFailure="yes" partnerLink="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_ReceiveOrderItems_Partner" operation="receiveOrderItemsAsync" portType="deliveryParty_receiveOrderItems:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_ReceiveOrderItems1" inputVariable="input_deliveryParty_receiveOrderItems1"/>
+					<bpel:receive name="receive_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems1_callback" variable="output_deliveryParty_receiveOrderItems1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems1_callback" variable="output_deliveryParty_receiveOrderItems1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link21"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link1">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1" suppressJoinFailure="yes" partnerLink="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice_Partner" operation="sendReceiptAdviceAsync" portType="deliveryParty_sendReceiptAdvice:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice1" inputVariable="input_deliveryParty_sendReceiptAdvice1"/>
+					<bpel:receive name="receive_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1_callback" variable="output_deliveryParty_sendReceiptAdvice1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice1_callback" variable="output_deliveryParty_sendReceiptAdvice1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link6"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link7">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1" suppressJoinFailure="yes" partnerLink="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_CheckStatusOfItems_Partner" operation="checkStatusOfItemsAsync" portType="deliveryParty_checkStatusOfItems:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_CheckStatusOfItems1" inputVariable="input_deliveryParty_checkStatusOfItems1"/>
+					<bpel:receive name="receive_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1_callback" variable="output_deliveryParty_checkStatusOfItems1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems1_callback" variable="output_deliveryParty_checkStatusOfItems1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link2"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link5">
+	                    </bpel:source>
+	                    <bpel:source linkName="link3">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1" suppressJoinFailure="yes" partnerLink="UBL_FulfilmentWithReceiptAdvice_BuyerParty_SendOrderCancellation_Partner" operation="sendOrderCancellationAsync" portType="buyerParty_sendOrderCancellation:UBL_FulfilmentWithReceiptAdvice_BuyerParty_SendOrderCancellation1" inputVariable="input_buyerParty_sendOrderCancellation1"/>
+					<bpel:receive name="receive_service_ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1_callback" variable="output_buyerParty_sendOrderCancellation1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation1_callback" variable="output_buyerParty_sendOrderCancellation1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link36"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link14">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1" suppressJoinFailure="yes" partnerLink="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus_Partner" operation="adviseBuyerOfStatusAsync" portType="deliveryParty_adviseBuyerOfStatus:UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus1" inputVariable="input_deliveryParty_adviseBuyerOfStatus1"/>
+					<bpel:receive name="receive_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1_callback" variable="output_deliveryParty_adviseBuyerOfStatus1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus1_callback" variable="output_deliveryParty_adviseBuyerOfStatus1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link4"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link23">
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+				<bpel:sequence>
+	                <bpel:invoke name="invoke_service_ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1" suppressJoinFailure="yes" partnerLink="UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction_Partner" operation="determineActionAsync" portType="buyerParty_determineAction:UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction1" inputVariable="input_buyerParty_determineAction1"/>
+					<bpel:receive name="receive_service_ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1_callback" variable="output_buyerParty_determineAction1">
+							<bpel:correlations>
+								<bpel:correlation initiate="no" set="ProcessId"/>
+							</bpel:correlations>
+					</bpel:receive>
+					<bpel:reply name="reply_service_ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1" partnerLink="FulfilmentwithReceiptAdviceProcess" portType="tns:FulfilmentwithReceiptAdviceProcess" operation="ubl_fulfilmentwithreceiptadvice_buyerparty_determineaction1_callback" variable="output_buyerParty_determineAction1_callback"/>
+	                <bpel:targets>
+	                    <bpel:target linkName="link24"/>
+	                </bpel:targets>
+	                <bpel:sources>
+	                    <bpel:source linkName="link28">
+	                    	<bpel:transitionCondition>$output_buyerParty_determineAction1.payload/outputDecision = 'acceptItems'</bpel:transitionCondition>
+	                    </bpel:source>
+	                    <bpel:source linkName="link35">
+	                    	<bpel:transitionCondition>$output_buyerParty_determineAction1.payload/outputDecision = 'cancelOrder'</bpel:transitionCondition>
+	                    </bpel:source>
+	                    <bpel:source linkName="link32">
+	                    	<bpel:transitionCondition>$output_buyerParty_determineAction1.payload/outputDecision = 'changeOrder'</bpel:transitionCondition>
+	                    </bpel:source>
+	                </bpel:sources>
+				</bpel:sequence>
+                <bpel:links>
+                	<bpel:link name="link29"/>
+                	<bpel:link name="link2"/>
+                	<bpel:link name="link1"/>
+                	<bpel:link name="link6"/>
+                	<bpel:link name="link16"/>
+                	<bpel:link name="link5"/>
+                	<bpel:link name="link17"/>
+                	<bpel:link name="link28"/>
+                	<bpel:link name="link4"/>
+                	<bpel:link name="link14"/>
+                	<bpel:link name="link36"/>
+                	<bpel:link name="link3"/>
+                	<bpel:link name="link15"/>
+                	<bpel:link name="link12"/>
+                	<bpel:link name="link23"/>
+                	<bpel:link name="link13"/>
+                	<bpel:link name="link24"/>
+                	<bpel:link name="link35"/>
+                	<bpel:link name="link8"/>
+                	<bpel:link name="link21"/>
+                	<bpel:link name="link32"/>
+                	<bpel:link name="link7"/>
+                	<bpel:link name="link33"/>
+            	</bpel:links>
+			</bpel:flow>
+		</bpel:scope>
+	
+	</bpel:sequence>
+</bpel:process>
+

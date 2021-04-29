@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_PaymentProcess_AccountingCustomer_AuthorizePayment" targetNamespace="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment"
+	xmlns:tns="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment">
+			<xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+			<xsd:element name="authorizePayment">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="authorizePaymentResponse">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="alive">
+				<xsd:complexType>
+					<xsd:sequence>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="aliveResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="output" nillable="true" type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+			<xsd:element name="authorizePaymentAsync">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="authorizePaymentAsyncCallback">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="authorizePaymentAsyncCallbackResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Async -->
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="authorizePaymentRequestMsg">
+		<wsdl:part element="tns:authorizePayment" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="authorizePaymentResponseMsg">
+		<wsdl:part element="tns:authorizePaymentResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="authorizePaymentAsyncRequestMsg">
+		<wsdl:part element="tns:authorizePaymentAsync" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="authorizePaymentAsyncCallbackRequestMsg">
+		<wsdl:part element="tns:authorizePaymentAsyncCallback" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="authorizePaymentAsyncCallbackResponseMsg">
+		<wsdl:part element="tns:authorizePaymentAsyncCallbackResponse" name="payload" />
+	</wsdl:message>
+	<!-- Async -->
+	<wsdl:message name="aliveRequestMsg">
+		<wsdl:part element="tns:alive" name="payload" />
+	</wsdl:message>
+	<wsdl:message name="aliveResponseMsg">
+		<wsdl:part element="tns:aliveResponse" name="payload" />
+	</wsdl:message>
+
+	<wsdl:portType name="UBL_PaymentProcess_AccountingCustomer_AuthorizePayment">
+		<wsdl:operation name="authorizePayment">
+			<wsdl:input message="tns:authorizePaymentRequestMsg" name="authorizePaymentRequest" />
+			<wsdl:output message="tns:authorizePaymentResponseMsg" name="authorizePaymentResponse" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="authorizePaymentAsync">
+			<wsdl:input message="tns:authorizePaymentAsyncRequestMsg" name="authorizePaymentAsyncRequest" />
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+			<wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="UBL_PaymentProcess_AccountingCustomer_AuthorizePaymentServiceBinding" type="tns:UBL_PaymentProcess_AccountingCustomer_AuthorizePayment">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="authorizePayment">
+			<soap:operation soapAction="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment/authorizePayment" />
+			<wsdl:input name="authorizePaymentRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="authorizePaymentResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="authorizePaymentAsync">
+			<soap:operation soapAction="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment/authorizePaymentAsync" />
+			<wsdl:input name="authorizePaymentAsyncRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<!-- Async -->
+		<wsdl:operation name="alive">
+			<soap:operation soapAction="http://ubl.oasis.services/payment/paymentprocess/accountingCustomer/authorizePayment/alive" />
+			<wsdl:input name="aliveRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="aliveResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<!-- <wsdl:service name="UBL_PaymentProcess_AccountingCustomer_AuthorizePaymentService"> -->
+	<!-- <wsdl:port name="UBL_PaymentProcess_AccountingCustomer_AuthorizePaymentServicePort" binding="tns:UBL_PaymentProcess_AccountingCustomer_AuthorizePaymentServiceBinding"> -->
+	<!-- <soap:address location="http://localhost:8082/services/ubl/paymentprocess/accountingCustomer/authorizePayment" /> -->
+	<!-- </wsdl:port> -->
+	<!-- </wsdl:service> -->
+</wsdl:definitions>

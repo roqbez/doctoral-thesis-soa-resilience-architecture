@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<servicesInformation xmlns:ectx="http://gsigma.ufsc.br/execution">
+    <qoSWeights/>
+    <globalQoSDelta>
+        <entry key="Performance.Throughput" value="80.0"/>
+        <entry key="Cost.ExecutionCost" value="5891.023423717836"/>
+        <entry key="Availability.Availability" value="0.501599314492734"/>
+        <entry key="Performance.ResponseTime" value="2346.0"/>
+    </globalQoSDelta>
+    <qoSCriterions>
+        <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="5000.0" managed="false"/>
+    </qoSCriterions>
+    <servicesConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems" classification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems" partnerLinkName="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems_Partner" maxNumberOfServices="1">
+            <qoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="543.0" managed="true"/>
+            </qoSCriterions>
+            <managedQoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="543.0" managed="true"/>
+            </managedQoSCriterions>
+            <serviceAssociations>
+                <serviceAssociation serviceProviderName="publisher50" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/buyerParty/acceptItems" serviceUtility="1.3646341680683145" serviceKey="uddi:publisher50:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAcceptItems" bindingTemplateKey="uddi:publisher50:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_acceptitems-ublservices-1-binding"/>
+            </serviceAssociations>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder" classification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/adjustOrder" partnerLinkName="UBL_FulfilmentWithOrderChange_BuyerParty_AdjustOrder_Partner" maxNumberOfServices="1">
+            <qoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true"/>
+            </qoSCriterions>
+            <managedQoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true"/>
+            </managedQoSCriterions>
+            <serviceAssociations>
+                <serviceAssociation serviceProviderName="publisher50" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/buyerParty/adjustOrder" serviceUtility="0.7880569649450773" serviceKey="uddi:publisher50:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyAdjustOrder" bindingTemplateKey="uddi:publisher50:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_adjustorder-ublservices-1-binding"/>
+            </serviceAssociations>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" classification="ubl/fulfilment/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" partnerLinkName="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AdjustSupplyStatus_Partner" maxNumberOfServices="5">
+            <qoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="541.0" managed="true"/>
+            </qoSCriterions>
+            <managedQoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="541.0" managed="true"/>
+            </managedQoSCriterions>
+            <serviceAssociations>
+                <serviceAssociation serviceProviderName="publisher55" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/sellerParty/adjustSupplyStatus" serviceUtility="1.3183308388724546" serviceKey="uddi:publisher55:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceSellerPartyAdjustSupplyStatus" bindingTemplateKey="uddi:publisher55:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_sellerparty_adjustsupplystatus-ublservices-1-binding"/>
+            </serviceAssociations>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" classification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" partnerLinkName="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_AdviseBuyerOfStatus_Partner" maxNumberOfServices="5">
+            <qoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true"/>
+            </qoSCriterions>
+            <managedQoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="550.0" managed="true"/>
+            </managedQoSCriterions>
+            <serviceAssociations>
+                <serviceAssociation serviceProviderName="publisher29" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/adviseBuyerOfStatus" serviceUtility="1.4051395291917026" serviceKey="uddi:publisher29:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyAdviseBuyerOfStatus" bindingTemplateKey="uddi:publisher29:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_advisebuyerofstatus-ublservices-1-binding"/>
+            </serviceAssociations>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems" classification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems" partnerLinkName="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_CheckStatusOfItems_Partner" maxNumberOfServices="5">
+            <qoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true"/>
+            </qoSCriterions>
+            <managedQoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="549.0" managed="true"/>
+            </managedQoSCriterions>
+            <serviceAssociations>
+                <serviceAssociation serviceProviderName="publisher70" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/checkStatusOfItems" serviceUtility="1.3307625427537324" serviceKey="uddi:publisher70:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyCheckStatusOfItems" bindingTemplateKey="uddi:publisher70:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_checkstatusofitems-ublservices-1-binding"/>
+            </serviceAssociations>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction" classification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction" partnerLinkName="UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction_Partner" maxNumberOfServices="1">
+            <qoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true"/>
+            </qoSCriterions>
+            <managedQoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true"/>
+            </managedQoSCriterions>
+            <serviceAssociations>
+                <serviceAssociation serviceProviderName="publisher50" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/buyerParty/determineAction" serviceUtility="1.2562207720627787" serviceKey="uddi:publisher50:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartyDetermineAction" bindingTemplateKey="uddi:publisher50:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_determineaction-ublservices-1-binding"/>
+            </serviceAssociations>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems" classification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems" partnerLinkName="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_ReceiveOrderItems_Partner" maxNumberOfServices="5">
+            <qoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="531.0" managed="true"/>
+            </qoSCriterions>
+            <managedQoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="531.0" managed="true"/>
+            </managedQoSCriterions>
+            <serviceAssociations>
+                <serviceAssociation serviceProviderName="publisher29" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/receiveOrderItems" serviceUtility="1.06447410990144" serviceKey="uddi:publisher29:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartyReceiveOrderItems" bindingTemplateKey="uddi:publisher29:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_receiveorderitems-ublservices-1-binding"/>
+            </serviceAssociations>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation" classification="ubl/fulfilment/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation" partnerLinkName="UBL_FulfilmentWithReceiptAdvice_BuyerParty_SendOrderCancellation_Partner" maxNumberOfServices="1">
+            <qoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="543.0" managed="true"/>
+            </qoSCriterions>
+            <managedQoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="543.0" managed="true"/>
+            </managedQoSCriterions>
+            <serviceAssociations>
+                <serviceAssociation serviceProviderName="publisher50" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/buyerParty/sendOrderCancellation" serviceUtility="1.0409987879277172" serviceKey="uddi:publisher50:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceBuyerPartySendOrderCancellation" bindingTemplateKey="uddi:publisher50:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_buyerparty_sendordercancellation-ublservices-1-binding"/>
+            </serviceAssociations>
+        </serviceConfig>
+        <serviceConfig namespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" classification="ubl/fulfilment/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" partnerLinkName="UBL_FulfilmentWithReceiptAdvice_DeliveryParty_SendReceiptAdvice_Partner" maxNumberOfServices="5">
+            <qoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true"/>
+            </qoSCriterions>
+            <managedQoSCriterions>
+                <qoSCriterion qoSItem="Performance" comparisionType="LE" qoSAttribute="ResponseTime" qoSValue="548.0" managed="true"/>
+            </managedQoSCriterions>
+            <serviceAssociations>
+                <serviceAssociation serviceProviderName="publisher70" serviceEndpoint="http://ublservices.d-201603244.ufsc.br:11000/services/ubl/fulfilmentwithreceiptadvice/deliveryParty/sendReceiptAdvice" serviceUtility="1.2243649825582925" serviceKey="uddi:publisher70:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices-1" serviceName="UBLFulfilmentWithReceiptAdviceDeliveryPartySendReceiptAdvice" bindingTemplateKey="uddi:publisher70:node1-uddi-ubl-services-fulfilment_fulfilmentwithreceiptadvice_deliveryparty_sendreceiptadvice-ublservices-1-binding"/>
+            </serviceAssociations>
+        </serviceConfig>
+    </servicesConfig>
+</servicesInformation>

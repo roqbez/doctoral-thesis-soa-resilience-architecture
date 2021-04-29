@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems" targetNamespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems"
+   xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:Order-2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems" xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems">
+         <xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:Order-2" schemaLocation="xsd/ubl/maindoc/UBL-Order-2.0.xsd" />
+         <xsd:element name="acceptItems">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="input" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="acceptItemsResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="outputOrder" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="acceptItemsAsync">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="input" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="acceptItemsAsyncCallback">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="outputOrder" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="acceptItemsAsyncCallbackResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="alive">
+            <xsd:complexType>
+               <xsd:sequence />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aliveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="acceptItemsRequestMsg">
+      <wsdl:part element="tns:acceptItems" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="acceptItemsResponseMsg">
+      <wsdl:part element="tns:acceptItemsResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="acceptItemsAsyncRequestMsg">
+      <wsdl:part element="tns:acceptItemsAsync" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="acceptItemsAsyncCallbackRequestMsg">
+      <wsdl:part element="tns:acceptItemsAsyncCallback" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="acceptItemsAsyncCallbackResponseMsg">
+      <wsdl:part element="tns:acceptItemsAsyncCallbackResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="aliveRequestMsg">
+      <wsdl:part element="tns:alive" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="aliveResponseMsg">
+      <wsdl:part element="tns:aliveResponse" name="payload" />
+   </wsdl:message>
+   <wsdl:portType name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems">
+      <wsdl:operation name="acceptItems">
+         <wsdl:input message="tns:acceptItemsRequestMsg" name="acceptItemsRequest" />
+         <wsdl:output message="tns:acceptItemsResponseMsg" name="acceptItemsResponse" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="acceptItemsAsync">
+         <wsdl:input message="tns:acceptItemsAsyncRequestMsg" name="acceptItemsAsyncRequest" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+         <wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItemsServiceBinding" type="tns:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItems">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="acceptItems">
+         <soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems/acceptItems" />
+         <wsdl:input name="acceptItemsRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="acceptItemsResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="acceptItemsAsync">
+         <soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems/acceptItemsAsync" />
+         <wsdl:input name="acceptItemsAsyncRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/acceptItems/alive" />
+         <wsdl:input name="aliveRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="aliveResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItemsService">
+      <wsdl:port name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItemsServicePort" binding="tns:UBL_FulfilmentWithReceiptAdvice_BuyerParty_AcceptItemsServiceBinding">
+         <soap:address location="http://localhost:8082/services/ubl/fulfilmentwithreceiptadvice/buyerParty/acceptItems" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

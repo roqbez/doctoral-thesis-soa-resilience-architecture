@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://gsigma.ufsc.br/processContext">
+	<xsd:complexType name="ProcessContext">
+		<xsd:sequence>
+			<xsd:element name="processId" type="xsd:string"/>
+			<xsd:element name="callbackEndpoint" type="xsd:string"/>
+			<xsd:element name="callbackSOAPAction" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

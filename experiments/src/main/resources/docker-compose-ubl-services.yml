@@ -1,0 +1,94 @@
+version: "3.6"
+
+services:
+
+#UBL Services
+    ubl-services:
+        image: d-201603244.ufsc.br/ubl-services:latest 
+        environment:
+            JAVA_ARGS: "0.0.0.0 8080 ublservices.d-201603244.ufsc.br 11000 ubl/orderingprocess ubl/fulfilment ubl/billing ubl/ordering ubl/payment ubl/createcatalogue"
+        deploy:
+            mode: replicated
+            replicas: 1
+            endpoint_mode: dnsrr
+            placement:
+                constraints:
+                    - node.hostname == drroque2
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        network_mode: "net"
+        ports:
+            - published: 11000
+              target: 8080
+              mode: host
+
+    ubl-services2:
+        image: d-201603244.ufsc.br/ubl-services:latest
+        environment:
+            JAVA_ARGS: "0.0.0.0 8080 ublservices.d-201603244.ufsc.br 11000 ubl/orderingprocess ubl/fulfilment ubl/billing ubl/ordering ubl/payment ubl/createcatalogue"
+        deploy:
+            mode: replicated
+            replicas: 1
+            endpoint_mode: dnsrr
+            placement:
+                constraints:
+                    - node.hostname == drroque2
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        network_mode: "net"
+        ports:
+            - published: 11001
+              target: 8080
+              mode: host
+
+    ubl-services3:
+        image: d-201603244.ufsc.br/ubl-services:latest
+        environment:
+            JAVA_ARGS: "0.0.0.0 8080 ublservices.d-201603244.ufsc.br 11000 ubl/orderingprocess ubl/fulfilment ubl/billing ubl/ordering ubl/payment ubl/createcatalogue"
+        deploy:
+            mode: replicated
+            replicas: 1
+            endpoint_mode: dnsrr
+            placement:
+                constraints:
+                    - node.hostname == drroque2
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        network_mode: "net"
+        ports:
+            - published: 11002
+              target: 8080
+              mode: host
+
+    ubl-services4:
+        image: d-201603244.ufsc.br/ubl-services:latest
+        environment:
+            JAVA_ARGS: "0.0.0.0 8080 ublservices.d-201603244.ufsc.br 11000 ubl/orderingprocess ubl/fulfilment ubl/billing ubl/ordering ubl/payment ubl/createcatalogue"
+        deploy:
+            mode: replicated
+            replicas: 1
+            endpoint_mode: dnsrr
+            placement:
+                constraints:
+                    - node.hostname == drroque2
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        network_mode: "net"
+        ports:
+            - published: 11003
+              target: 8080
+              mode: host
+
+    ubl-services5:
+        image: d-201603244.ufsc.br/ubl-services:latest
+        environment:
+            JAVA_ARGS: "0.0.0.0 8080 ublservices.d-201603244.ufsc.br 11000 ubl/orderingprocess ubl/fulfilment ubl/billing ubl/ordering ubl/payment ubl/createcatalogue"
+        deploy:
+            mode: replicated
+            replicas: 1
+            endpoint_mode: dnsrr
+            placement:
+                constraints:
+                    - node.hostname == drroque2
+        hostname: "{{.Service.Name}}{{.Task.Slot}}"
+        network_mode: "net"
+        ports:
+            - published: 11004
+              target: 8080
+              mode: host

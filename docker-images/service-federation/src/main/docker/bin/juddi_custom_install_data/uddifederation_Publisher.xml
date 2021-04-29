@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<publisher xmlns="urn:juddi-apache-org:api_v3" authorizedName="uddifederation">
+  <publisherName>UDDI Federation Publisher</publisherName>
+  <isAdmin>true</isAdmin>
+</publisher>

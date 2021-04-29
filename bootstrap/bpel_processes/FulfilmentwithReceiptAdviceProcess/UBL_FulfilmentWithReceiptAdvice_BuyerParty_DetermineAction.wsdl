@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction" targetNamespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction"
+   xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:Order-2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction" xmlns:tns="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction">
+         <xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:Order-2" schemaLocation="xsd/ubl/maindoc/UBL-Order-2.0.xsd" />
+         <xsd:element name="determineAction">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="input" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="determineActionResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="outputDocument" nillable="true" type="ns1:OrderType" />
+                  <xsd:element name="outputDecision" nillable="true" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="determineActionAsync">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="input" nillable="true" type="ns1:OrderType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="determineActionAsyncCallback">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="outputDocument" nillable="true" type="ns1:OrderType" />
+                  <xsd:element name="outputDecision" nillable="true" type="xsd:string" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="determineActionAsyncCallbackResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="alive">
+            <xsd:complexType>
+               <xsd:sequence />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aliveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="determineActionRequestMsg">
+      <wsdl:part element="tns:determineAction" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="determineActionResponseMsg">
+      <wsdl:part element="tns:determineActionResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="determineActionAsyncRequestMsg">
+      <wsdl:part element="tns:determineActionAsync" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="determineActionAsyncCallbackRequestMsg">
+      <wsdl:part element="tns:determineActionAsyncCallback" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="determineActionAsyncCallbackResponseMsg">
+      <wsdl:part element="tns:determineActionAsyncCallbackResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="aliveRequestMsg">
+      <wsdl:part element="tns:alive" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="aliveResponseMsg">
+      <wsdl:part element="tns:aliveResponse" name="payload" />
+   </wsdl:message>
+   <wsdl:portType name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction">
+      <wsdl:operation name="determineAction">
+         <wsdl:input message="tns:determineActionRequestMsg" name="determineActionRequest" />
+         <wsdl:output message="tns:determineActionResponseMsg" name="determineActionResponse" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="determineActionAsync">
+         <wsdl:input message="tns:determineActionAsyncRequestMsg" name="determineActionAsyncRequest" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+         <wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineActionServiceBinding" type="tns:UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineAction">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="determineAction">
+         <soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction/determineAction" />
+         <wsdl:input name="determineActionRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="determineActionResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="determineActionAsync">
+         <soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction/determineActionAsync" />
+         <wsdl:input name="determineActionAsyncRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <soap:operation soapAction="http://ubl.oasis.services/fulfilment/fulfilmentwithreceiptadvice/buyerParty/determineAction/alive" />
+         <wsdl:input name="aliveRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="aliveResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineActionService">
+      <wsdl:port name="UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineActionServicePort" binding="tns:UBL_FulfilmentWithReceiptAdvice_BuyerParty_DetermineActionServiceBinding">
+         <soap:address location="http://localhost:8082/services/ubl/fulfilmentwithreceiptadvice/buyerParty/determineAction" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

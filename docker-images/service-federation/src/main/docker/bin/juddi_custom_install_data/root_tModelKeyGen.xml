@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tModel tModelKey="uddi:uddifederation:keygenerator" xmlns="urn:uddi-org:api_v3">
+	<name>uddi:uddifederation:keyGenerator</name>
+	<description>uddi:uddifederation domain key generator</description>
+	<categoryBag>
+		<keyedReference tModelKey="uddi:uddi.org:categorization:types" keyName="uddi-org:types:keyGenerator" keyValue="keyGenerator" />
+	</categoryBag>
+</tModel>

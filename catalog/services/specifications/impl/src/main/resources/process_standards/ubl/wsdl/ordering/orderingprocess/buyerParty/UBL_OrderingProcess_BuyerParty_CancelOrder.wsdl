@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UBL_OrderingProcess_BuyerParty_CancelOrder" targetNamespace="http://ubl.oasis.services/ordering/orderingprocess/buyerParty/cancelOrder"
+   xmlns:tns="http://ubl.oasis.services/ordering/orderingprocess/buyerParty/cancelOrder" xmlns:ns1="urn:oasis:names:specification:ubl:schema:xsd:OrderResponseSimple-2" xmlns:ns2="urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2"
+   xmlns:ns3="urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:pctx="http://gsigma.ufsc.br/processContext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://ubl.oasis.services/ordering/orderingprocess/buyerParty/cancelOrder" xmlns:tns="http://ubl.oasis.services/ordering/orderingprocess/buyerParty/cancelOrder">
+         <xsd:import namespace="http://gsigma.ufsc.br/processContext" schemaLocation="xsd/processContext.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:OrderResponseSimple-2" schemaLocation="xsd/ubl/maindoc/UBL-OrderResponseSimple-2.0.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2" schemaLocation="xsd/ubl/maindoc/UBL-OrderResponse-2.0.xsd" />
+         <xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2" schemaLocation="xsd/ubl/maindoc/UBL-OrderCancellation-2.0.xsd" />
+         <xsd:element name="cancelOrder">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="inputOrderResponseSimple" nillable="true" type="ns1:OrderResponseSimpleType" />
+                  <xsd:element name="inputOrderResponse" nillable="true" type="ns2:OrderResponseType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="cancelOrderResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="ns3:OrderCancellationType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="cancelOrderAsync">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="inputOrderResponseSimple" nillable="true" type="ns1:OrderResponseSimpleType" />
+                  <xsd:element name="inputOrderResponse" nillable="true" type="ns2:OrderResponseType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="cancelOrderAsyncCallback">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+                  <xsd:element name="output" nillable="true" type="ns3:OrderCancellationType" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="cancelOrderAsyncCallbackResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="processContext" nillable="false" type="pctx:ProcessContext" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <!-- Async -->
+         <xsd:element name="alive">
+            <xsd:complexType>
+               <xsd:sequence />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aliveResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="output" nillable="true" type="xsd:boolean" />
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="cancelOrderRequestMsg">
+      <wsdl:part element="tns:cancelOrder" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="cancelOrderResponseMsg">
+      <wsdl:part element="tns:cancelOrderResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="cancelOrderAsyncRequestMsg">
+      <wsdl:part element="tns:cancelOrderAsync" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="cancelOrderAsyncCallbackRequestMsg">
+      <wsdl:part element="tns:cancelOrderAsyncCallback" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="cancelOrderAsyncCallbackResponseMsg">
+      <wsdl:part element="tns:cancelOrderAsyncCallbackResponse" name="payload" />
+   </wsdl:message>
+   <!-- Async -->
+   <wsdl:message name="aliveRequestMsg">
+      <wsdl:part element="tns:alive" name="payload" />
+   </wsdl:message>
+   <wsdl:message name="aliveResponseMsg">
+      <wsdl:part element="tns:aliveResponse" name="payload" />
+   </wsdl:message>
+   <wsdl:portType name="UBL_OrderingProcess_BuyerParty_CancelOrder">
+      <wsdl:operation name="cancelOrder">
+         <wsdl:input message="tns:cancelOrderRequestMsg" name="cancelOrderRequest" />
+         <wsdl:output message="tns:cancelOrderResponseMsg" name="cancelOrderResponse" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="cancelOrderAsync">
+         <wsdl:input message="tns:cancelOrderAsyncRequestMsg" name="cancelOrderAsyncRequest" />
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <wsdl:input message="tns:aliveRequestMsg" name="aliveRequest" />
+         <wsdl:output message="tns:aliveResponseMsg" name="aliveResponse" />
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="UBL_OrderingProcess_BuyerParty_CancelOrderServiceBinding" type="tns:UBL_OrderingProcess_BuyerParty_CancelOrder">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <wsdl:operation name="cancelOrder">
+         <soap:operation soapAction="http://ubl.oasis.services/ordering/orderingprocess/buyerParty/cancelOrder/cancelOrder" />
+         <wsdl:input name="cancelOrderRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="cancelOrderResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="cancelOrderAsync">
+         <soap:operation soapAction="http://ubl.oasis.services/ordering/orderingprocess/buyerParty/cancelOrder/cancelOrderAsync" />
+         <wsdl:input name="cancelOrderAsyncRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+      </wsdl:operation>
+      <!-- Async -->
+      <wsdl:operation name="alive">
+         <soap:operation soapAction="http://ubl.oasis.services/ordering/orderingprocess/buyerParty/cancelOrder/alive" />
+         <wsdl:input name="aliveRequest">
+            <soap:body use="literal" />
+         </wsdl:input>
+         <wsdl:output name="aliveResponse">
+            <soap:body use="literal" />
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="UBL_OrderingProcess_BuyerParty_CancelOrderService">
+      <wsdl:port name="UBL_OrderingProcess_BuyerParty_CancelOrderServicePort" binding="tns:UBL_OrderingProcess_BuyerParty_CancelOrderServiceBinding">
+         <soap:address location="http://localhost:8082/services/ubl/orderingprocess/buyerParty/cancelOrder" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

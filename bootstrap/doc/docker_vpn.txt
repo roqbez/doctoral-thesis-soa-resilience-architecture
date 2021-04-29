@@ -1,0 +1,8 @@
+
+https://gist.github.com/codemedic/80200e558df9104e0de0c5110af414ee
+
+ip route list table 220 | awk '{print $NF}'
+
+sudo iptables -j SNAT -t nat -I POSTROUTING 1 -o "ens160" -d "150.162.9.0/24" -s "172.17.0.0/16" --to-source "$(ip route list table 220 | awk '{print $NF}')"
+sudo iptables -j SNAT -t nat -I POSTROUTING 1 -o "ens160" -d "150.162.9.0/24" -s "172.18.0.0/16" --to-source "$(ip route list table 220 | awk '{print $NF}')"
+sudo iptables -j SNAT -t nat -I POSTROUTING 1 -o "ens160" -d "150.162.9.0/24" -s "172.19.0.0/16" --to-source "$(ip route list table 220 | awk '{print $NF}')"
